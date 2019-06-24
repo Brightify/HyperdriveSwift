@@ -1,4 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+install! 'cocoapods',
+  :generate_multiple_pod_projects => true,
+  :incremental_installation => true
+
+workspace 'Hyperdrive'
+
 use_frameworks!
 inhibit_all_warnings!
 
@@ -35,15 +42,47 @@ def shared
     kingfisher
 end
 
-abstract_target 'Hyperdrive-iOS' do
-    platform :ios, '9.0'
+def macos
+  platform :osx, '10.13'
+end
 
-    target 'Hyperdrive' do
+def ios
+    platform :ios, '11.0'
+end
+
+def tvos
+    platform :tvos, '11.0'
+end
+
+abstract_target 'CLI' do
+  project 'CLI/CLI.xcodeproj'
+  macos
+end
+
+abstract_target 'Platform' do
+    project 'Platform/Platform.xcodeproj'
+
+    target 'Hyperdrive-iOS' do
+        ios
+
         snapKit
-        kingfisher
     end
 
-    target 'RxHyperdrive' do
+    target 'Hyperdrive-macOS' do
+        macos
+
+        snapKit
+    end
+
+    target 'Hyperdrive-tvOS' do
+        tvos
+
+        snapKit
+    end
+
+    target 'RxHyperdrive-iOS' do
+        ios
+
         shared
     end
 
@@ -56,47 +95,51 @@ abstract_target 'Hyperdrive-iOS' do
 
         target 'HyperdriveTests' do
             snapKit
-            kingfisher
         end
 
         target 'RxHyperdriveTests' do
             shared
         end
     end
-#
-#    target 'ReactantTests' do
-#        shared
-#
-#        pod 'Quick', '~> 1.3'
-#        pod 'Nimble', '~> 7.1'
-#        pod 'Cuckoo', :git => 'https://github.com/Brightify/Cuckoo.git', :branch => 'master'
-#        pod 'RxNimble'
-#        pod 'RxTest'
-#    end
-
-    target 'HyperdrivePrototyping' do
-        shared
-    end
-
 end
 
-abstract_target 'Hyperdrive-tvOS' do
-    platform :tvos, '9.2'
+abstract_target 'Interface' do
+    project 'Interface/Interface.xcodeproj'
 
-    target 'TVPrototyping' do
-        shared
+    target 'Interface-iOS' do
+        ios
 
-#        pod 'Reactant', :subspecs => ['All-tvOS', 'FallbackSafeAreaInsets'], :path => './'
+        snapKit
+        kingfisher
     end
 end
 
-# Required until CocoaPods adds support for targets with multiple Swift versions or when all dependencies support Swift 4.2
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        unless target.name.start_with? 'Reactant'
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4.1'
-            end
-        end
+abstract_target 'LiveInterface' do
+    project 'LiveInterface/LiveInterface.xcodeproj'
+
+    target 'LiveInterface-iOS' do
+        ios
+    end
+
+    target 'LiveInterface-tvOS' do
+        tvos
+    end
+
+    target 'LiveInterface-macOS' do
+        macos
+    end
+end
+
+abstract_target 'Showcases' do
+    target 'Showcase-iOS' do
+        project 'Showcases/Showcase-iOS/Showcase-iOS.xcodeproj'
+
+        ios
+    end
+
+    target 'Showcase-tvOS' do
+        project 'Showcases/Showcase-tvOS/Showcase-tvOS.xcodeproj'
+
+        tvos
     end
 end

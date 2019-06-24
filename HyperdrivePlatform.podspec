@@ -60,13 +60,19 @@ Pod::Spec.new do |spec|
         snapKit(subspec)
 
         subspec.source_files = [
-            'Source/_Core/**/*.swift',
-            'Source/Core/**/*.swift',
-            'Source/Interface/**/*.swift',
-            'Source/Utils/**/*.swift'
+            # 'Platform/Sources/_Core/**/*.swift',
+            'Platform/Sources/Core/**/*.swift',
+            'Platform/Sources/Utils/**/*.swift'
         ]
         subspec.exclude_files = [
-            'Source/_Core/Styling/Extensions/**/*.swift'
+            'Platform/Sources/_Core/Styling/Extensions/**/*.swift'
+        ]
+    end
+
+    spec.subspec 'Interface' do |subspec|
+        subspec.dependency 'HyperdriveInterface'
+        subspec.source_files = [
+            'Platform/Sources/Interface/ExportHyperdriveInterface.swift'
         ]
     end
 
@@ -76,8 +82,8 @@ Pod::Spec.new do |spec|
             'OTHER_SWIFT_FLAGS' => '-DENABLE_RXSWIFT'
         }
         rxcore.source_files = [
-            'Source/Core+RxSwift/**/*.swift',
-            'Source/Utils+RxSwift/**/*.swift'
+            'Platform/Sources/Core+RxSwift/**/*.swift',
+            'Platform/Sources/Utils+RxSwift/**/*.swift'
         ]
 
         rxOptional(rxcore)
@@ -87,11 +93,11 @@ Pod::Spec.new do |spec|
 
     spec.subspec 'Configuration' do |subspec|
         subspec.frameworks = 'UIKit'
-        subspec.source_files = 'Source/Configuration/**/*.swift'
+        subspec.source_files = 'Platform/Sources/Configuration/**/*.swift'
     end
 
     spec.subspec 'Validation' do |subspec|
-        subspec.source_files = 'Source/Validation/**/*.swift'
+        subspec.source_files = 'Platform/Sources/Validation/**/*.swift'
     end
 
     spec.subspec 'TableView' do |subspec|
@@ -100,8 +106,8 @@ Pod::Spec.new do |spec|
         rxCocoa(subspec)
         rxDataSources(subspec)
         subspec.source_files = [
-            'Source/TableView/**/*.swift',
-            'Source/CollectionView/CollectionViewState.swift'
+            'Platform/Source/TableView/**/*.swift',
+            'Platform/Source/CollectionView/CollectionViewState.swift'
         ]
     end
 

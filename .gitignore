@@ -34,3 +34,5 @@ Pods/
 _docpress
 .idea
 *.xcworkspace
+.build
+CLI/CLI.xcodeproj
