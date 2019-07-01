@@ -11,34 +11,36 @@ import Foundation
 import UIKit
 #endif
 
-public class ProgressView: View {
-    public override class var availableProperties: [PropertyDescription] {
-        return Properties.progressView.allProperties
+extension Module.UIKit {
+    public class ProgressView: View {
+        public override class var availableProperties: [PropertyDescription] {
+            return Properties.progressView.allProperties
+        }
+
+        #if canImport(UIKit)
+        public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
+            return UIProgressView()
+        }
+        #endif
     }
 
-    #if canImport(UIKit)
-    public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
-        return UIProgressView()
-    }
-    #endif
-}
+    public class ProgressViewProperties: ViewProperties {
+        public let progress: StaticAssignablePropertyDescription<Double>
+        public let progressViewStyle: StaticAssignablePropertyDescription<ProgressViewStyle>
+        public let progressTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let progressImage: StaticAssignablePropertyDescription<Image?>
+        public let trackTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let trackImage: StaticAssignablePropertyDescription<Image?>
 
-public class ProgressViewProperties: ViewProperties {
-    public let progress: StaticAssignablePropertyDescription<Double>
-    public let progressViewStyle: StaticAssignablePropertyDescription<ProgressViewStyle>
-    public let progressTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let progressImage: StaticAssignablePropertyDescription<Image?>
-    public let trackTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let trackImage: StaticAssignablePropertyDescription<Image?>
+        public required init(configuration: Configuration) {
+            progress = configuration.property(name: "progress")
+            progressViewStyle = configuration.property(name: "progressViewStyle", defaultValue: .default)
+            progressTintColor = configuration.property(name: "progressTintColor")
+            progressImage = configuration.property(name: "progressImage")
+            trackTintColor = configuration.property(name: "trackTintColor")
+            trackImage = configuration.property(name: "trackImage")
 
-    public required init(configuration: Configuration) {
-        progress = configuration.property(name: "progress")
-        progressViewStyle = configuration.property(name: "progressViewStyle", defaultValue: .default)
-        progressTintColor = configuration.property(name: "progressTintColor")
-        progressImage = configuration.property(name: "progressImage")
-        trackTintColor = configuration.property(name: "trackTintColor")
-        trackImage = configuration.property(name: "trackImage")
-
-        super.init(configuration: configuration)
+            super.init(configuration: configuration)
+        }
     }
 }

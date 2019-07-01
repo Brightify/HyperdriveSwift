@@ -113,7 +113,7 @@ public class ComponentContext: DataContext {
 
             guard let firstApplication = applications.first else { continue }
             let verificationResult = applications.dropFirst().allSatisfy { application in
-                firstApplication.property.typeFactory.runtimeType(for: .iOS) == application.property.typeFactory.runtimeType(for: .iOS)
+                firstApplication.property.typeFactory.runtimeType(for: platform) == application.property.typeFactory.runtimeType(for: platform)
             }
 
             #warning("FIXME Improve error reporting")
@@ -164,7 +164,7 @@ public class ComponentContext: DataContext {
                     }
                 case .constant(let type, let value):
                     guard let foundType = RuntimePlatform.iOS.supportedTypes.first(where: {
-                        $0.runtimeType(for: .iOS).name == type && $0 is AttributeSupportedPropertyType.Type
+                        $0.runtimeType(for: platform).name == type && $0 is AttributeSupportedPropertyType.Type
                     }) as? AttributeSupportedPropertyType.Type else {
                         throw TokenizationError(message: "Unknown type \(type) for value \(value)")
                     }
@@ -196,7 +196,7 @@ public class ComponentContext: DataContext {
                         }
                         return [ResolvedHyperViewAction.Parameter(label: label, kind: .reference(view: targetId, property: propertyName, type: .propertyType(property.anyTypeFactory)))]
                     } else {
-                        return try [ResolvedHyperViewAction.Parameter(label: label, kind: .reference(view: targetId, property: nil, type: .elementReference(targetElement.runtimeType(for: .iOS))))]
+                        return try [ResolvedHyperViewAction.Parameter(label: label, kind: .reference(view: targetId, property: nil, type: .elementReference(targetElement.runtimeType(for: platform))))]
                     }
                 }
             }
@@ -276,7 +276,7 @@ public class ComponentContext: DataContext {
 
                 #if canImport(SwiftCodeGen)
                 let defaultValue = AnySupportedType(factory: stateFactory) { context in
-                    .constant(stateFactory.runtimeType(for: .iOS).name + "()")
+                    .constant(stateFactory.runtimeType(for: self.platform).name + "()")
                 }
                 #else
                 let defaultValue = AnySupportedType(factory: stateFactory) { context in

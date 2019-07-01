@@ -27,6 +27,7 @@ public enum GenerateCommandError: Error, LocalizedError {
     case invalidSwiftVersion
     case themedItemNotFound(theme: String, item: String)
     case invalidAccessModifier
+    case platformNotSpecified
 
     public var localizedDescription: String {
         switch self {
@@ -50,6 +51,8 @@ public enum GenerateCommandError: Error, LocalizedError {
             return "Missing item `\(item) in theme \(theme)."
         case .invalidAccessModifier:
             return "Invalid access modifier"
+        case .platformNotSpecified:
+            return "Platform not specified."
         }
     }
 
@@ -65,6 +68,21 @@ extension RuntimePlatform: ConvertibleFromString {
             return .iOS
         case "tvos":
             return .tvOS
+        case "macos":
+            return .macOS
+        default:
+            return nil
+        }
+    }
+
+    public static func from(platformName: String) -> RuntimePlatform? {
+        switch platformName.lowercased() {
+        case "iphoneos", "iphonesimulator":
+            return .iOS
+        case "appletvos", "appletvsimulator":
+            return .tvOS
+        case "macosx":
+            return .macOS
         default:
             return nil
         }
@@ -108,6 +126,10 @@ class GenerateCommand: Command {
             enableLive = liveConfigurations.value.contains(buildConfiguration) && livePlatforms.contains(buildPlatform)
         } else {
             enableLive = false
+        }
+
+        guard let runtimePlatform = platform.value ?? ProcessInfo.processInfo.environment["PLATFORM_NAME"].flatMap(RuntimePlatform.from(platformName:)) else {
+            throw GenerateCommandError.platformNotSpecified
         }
 
         guard let inputPath = inputPath.value else {
@@ -165,10 +187,12 @@ class GenerateCommand: Command {
         let styleFiles = styleXmlEnumerator?.compactMap { $0 as? String }.filter { $0.hasSuffix(".styles.xml") }
             .map { inputPathURL.appendingPathComponent($0).path } ?? []
 
-        let mainContext = MainDeserializationContext(elementFactories:
-            Module.mapKit.elements(for: .iOS) +
-            Module.uiKit.elements(for: .iOS) +
-            Module.webKit.elements(for: .iOS), referenceFactory: Module.uiKit.referenceFactory)
+        let moduleRegistry = try ModuleRegistry(modules: [Module.mapKit, Module.uiKit, Module.webKit, Module.appKit], platform: runtimePlatform)
+
+        let mainContext = MainDeserializationContext(
+            elementFactories: moduleRegistry.factories,
+            referenceFactory: moduleRegistry.referenceFactory,
+            platform: runtimePlatform)
 
         // path with the stylegroup associated with it
         var globalContextFiles = [] as [(path: String, group: StyleGroup)]
@@ -187,6 +211,7 @@ class GenerateCommand: Command {
 
         let globalContext = GlobalContext(applicationDescription: applicationDescription,
                                           currentTheme: applicationDescription.defaultTheme,
+                                          platform: runtimePlatform,
                                           styleSheets: globalContextFiles.map { $0.group })
 
         var componentTypes: [String] = []
@@ -236,7 +261,7 @@ class GenerateCommand: Command {
               "import SnapKit")
 
         if !reactantUICompat.value {
-            try output.append(theme(context: globalContext, swiftVersion: swiftVersion))
+            try output.append(theme(context: globalContext, swiftVersion: swiftVersion, platform: runtimePlatform))
         }
 
         if enableLive {
@@ -251,11 +276,6 @@ class GenerateCommand: Command {
 
         output.append(bundleTokenClass)
         output.append(resourceBundeProperty)
-
-//        output.append("""
-//        private final class __ReactantUIBundleToken { }
-//        private let __resourceBundle = Bundle(for: __ReactantUIBundleToken.self)
-//        """)
 
         for (path, rootDefinition) in globalContext.componentDefinitions.definitionsByPath.sorted(by: { $0.key.compare($1.key) == .orderedAscending }) {
             output.append("// Generated from \(path)")
@@ -330,7 +350,7 @@ class GenerateCommand: Command {
         }
     }
 
-    private func theme(context: GlobalContext, swiftVersion: SwiftVersion) throws -> Structure {
+    private func theme(context: GlobalContext, swiftVersion: SwiftVersion, platform: RuntimePlatform) throws -> Structure {
         let description = context.applicationDescription
         func allCases<T>(item: String, from container: ThemeContainer<T>) throws -> [(Expression, Block)] {
             return try description.themes.map { theme in
@@ -356,7 +376,7 @@ class GenerateCommand: Command {
                 return SwiftCodeGen.Property.variable(
                     accessibility: .public,
                     name: item,
-                    type: T.typeFactory.runtimeType(for: .iOS).name,
+                    type: T.typeFactory.runtimeType(for: platform).name,
                     block: [switchStatement])
             }
 

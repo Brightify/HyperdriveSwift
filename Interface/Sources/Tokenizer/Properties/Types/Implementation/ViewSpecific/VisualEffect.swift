@@ -92,6 +92,8 @@ extension VisualEffect {
             switch platform {
             case .iOS, .tvOS:
                 return RuntimeType(name: "UIVisualEffect", module: "UIKit")
+            case .macOS:
+                return RuntimeType.unsupported
             }
         }
     }

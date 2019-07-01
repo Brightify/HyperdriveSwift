@@ -1,12 +1,10 @@
 //
-//  MapView.swift
+//  MapKit.iOS.MapView.swift
 //  ReactantUI
 //
 //  Created by Matous Hybl.
 //  Copyright © 2017 Brightify. All rights reserved.
 //
-
-import Foundation
 
 #if canImport(UIKit)
 import UIKit
@@ -14,9 +12,9 @@ import MapKit
 #endif
 
 extension Module.MapKit.iOS {
-    public class MapView: View {
+    public class MapView: Module.UIKit.View {
         public override class var availableProperties: [PropertyDescription] {
-            return Properties.mapView.allProperties
+            return Module.UIKit.Properties.mapView.allProperties
         }
 
         public override class var parentModuleImport: String {
@@ -37,6 +35,8 @@ extension Module.MapKit.iOS {
                 return RuntimeType(name: "MKMapView", module: "MapKit")
             case .tvOS:
                 fatalError("Not implemented, check if tvOS has this view.")
+            case .macOS:
+                fatalError("Using iOS MKMapView. Use the macOS one.")
             }
         }
 
@@ -47,7 +47,7 @@ extension Module.MapKit.iOS {
         #endif
     }
 
-    public class MapViewProperties: ViewProperties {
+    public class MapViewProperties: Module.UIKit.ViewProperties {
 //        public let mapType: StaticAssignablePropertyDescription<MapType>
         public let isZoomEnabled: StaticAssignablePropertyDescription<Bool>
         public let isScrollEnabled: StaticAssignablePropertyDescription<Bool>
@@ -56,7 +56,6 @@ extension Module.MapKit.iOS {
         public let showsPointsOfInterest: StaticAssignablePropertyDescription<Bool>
         public let showsBuildings: StaticAssignablePropertyDescription<Bool>
         public let showsCompass: StaticAssignablePropertyDescription<Bool>
-        public let showsZoomControls: StaticAssignablePropertyDescription<Bool>
         public let showsScale: StaticAssignablePropertyDescription<Bool>
         public let showsTraffic: StaticAssignablePropertyDescription<Bool>
         public let showsUserLocation: StaticAssignablePropertyDescription<Bool>
@@ -71,7 +70,6 @@ extension Module.MapKit.iOS {
             showsPointsOfInterest = configuration.property(name: "showsPointsOfInterest", defaultValue: true)
             showsBuildings = configuration.property(name: "showsBuildings", defaultValue: true)
             showsCompass = configuration.property(name: "showsCompass", defaultValue: true)
-            showsZoomControls = configuration.property(name: "showsZoomControls")
             showsScale = configuration.property(name: "showsScale")
             showsTraffic = configuration.property(name: "showsTraffic")
             showsUserLocation = configuration.property(name: "showsUserLocation")

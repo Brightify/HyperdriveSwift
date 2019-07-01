@@ -8,11 +8,14 @@
 import Foundation
 
 public class ComponentDeserializationContext: DeserializationContext, HasParentContext, HasElementIdProvider {
-
     public let parentContext: DeserializationContext & HasUIElementFactoryRegistry & CanDeserializeDefinition
     public let type: String
     public let element: XMLElement
     public let elementIdProvider: ElementIdProvider
+
+    public var platform: RuntimePlatform {
+        return parentContext.platform
+    }
 
     public init(parentContext: DeserializationContext & HasUIElementFactoryRegistry & CanDeserializeDefinition, element: XMLElement, type: String, elementIdProvider: ElementIdProvider) {
         self.parentContext = parentContext

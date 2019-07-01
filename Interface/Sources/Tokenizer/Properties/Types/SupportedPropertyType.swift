@@ -129,7 +129,7 @@ public protocol HasDefaultValue {
     static var defaultValue: Self { get }
 }
 
-extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFactory & HasDefaultValue where Wrapped: SupportedPropertyType & HasStaticTypeFactory {
+extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFactory & HasDefaultValue where Wrapped: HasStaticTypeFactory {
     public final class TypeFactory: TypedSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Optional<Wrapped>
 

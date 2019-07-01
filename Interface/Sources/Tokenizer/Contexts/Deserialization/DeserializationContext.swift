@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol DeserializationContext {
+    var platform: RuntimePlatform { get }
 }
 
 public protocol HasElementIdProvider {
@@ -82,7 +83,7 @@ public class ComponentReferenceFactory: UIElementFactory {
     }
 
     public func create(context: UIElementDeserializationContext) throws -> UIElement {
-        return try ComponentReference(context: context, factory: self)
+        return try ComponentReference(context: context, backingView: baseFactory.create(context: context), factory: self)
     }
 
     public func runtimeType() throws -> RuntimeType {

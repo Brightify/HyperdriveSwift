@@ -10,10 +10,12 @@ import Foundation
 public class MainDeserializationContext: DeserializationContext {
     public let elementFactories: [String: UIElementFactory]
     public let referenceFactory: ComponentReferenceFactory
+    public let platform: RuntimePlatform
 
-    public init(elementFactories: [UIElementFactory], referenceFactory: ComponentReferenceFactory) {
+    public init(elementFactories: [UIElementFactory], referenceFactory: ComponentReferenceFactory, platform: RuntimePlatform) {
         self.elementFactories = Dictionary(uniqueKeysWithValues: elementFactories.map { ($0.elementName, $0) })
         self.referenceFactory = referenceFactory
+        self.platform = platform
     }
 }
 

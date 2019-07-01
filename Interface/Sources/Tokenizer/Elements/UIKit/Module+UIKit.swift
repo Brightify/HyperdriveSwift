@@ -16,14 +16,13 @@ extension Module {
             .tvOS,
         ]
 
-        public var referenceFactory: ComponentReferenceFactory {
+        public var referenceFactory: ComponentReferenceFactory? {
             return ComponentReferenceFactory(baseFactory: factory(named: "View", for: View.init))
         }
 
         public func elements(for platform: RuntimePlatform) -> [UIElementFactory] {
             return [
                 factory(named: "View", for: View.init),
-                factory(named: "Component", for: ComponentReference.init),
                 factory(named: "Container", for: Container.init),
                 factory(named: "Label", for: Label.init),
                 factory(named: "TextField", for: TextField.init),

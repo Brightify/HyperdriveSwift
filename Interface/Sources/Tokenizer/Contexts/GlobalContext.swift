@@ -67,6 +67,7 @@ public class GlobalContext: DataContext {
     public var applicationDescription: ApplicationDescription
     public var currentTheme: ApplicationDescription.ThemeName
     public var resourceBundle: Bundle?
+    public var platform: RuntimePlatform
     public private(set) var componentDefinitions = ComponentDefinitionDictionary()
 
     private var styles: StyleSheets = [:]
@@ -76,17 +77,20 @@ public class GlobalContext: DataContext {
         self.applicationDescription = ApplicationDescription()
         self.currentTheme = applicationDescription.defaultTheme
         self.resourceBundle = Bundle.main
+        self.platform = RuntimePlatform.current
     }
 
     public init(
         applicationDescription: ApplicationDescription,
         currentTheme: ApplicationDescription.ThemeName,
         resourceBundle: Bundle?,
+        platform: RuntimePlatform,
         styleSheetDictionary: [String: StyleGroup])
     {
         self.applicationDescription = applicationDescription
         self.currentTheme = currentTheme
         self.resourceBundle = resourceBundle
+        self.platform = platform
 
         setStyles(from: styleSheetDictionary)
     }
@@ -94,9 +98,11 @@ public class GlobalContext: DataContext {
     public init(
         applicationDescription: ApplicationDescription,
         currentTheme: ApplicationDescription.ThemeName,
+        platform: RuntimePlatform,
         styleSheets: [StyleGroup]) {
         self.applicationDescription = applicationDescription
         self.currentTheme = currentTheme
+        self.platform = platform
 
         setStyles(from: styleSheets)
     }

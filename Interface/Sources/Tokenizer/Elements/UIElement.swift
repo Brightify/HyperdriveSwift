@@ -15,6 +15,10 @@ import SwiftCodeGen
 import UIKit
 #endif
 
+#if HyperdriveRuntime && canImport(AppKit)
+import AppKit
+#endif
+
 public struct ResolvedHyperViewAction {
     public var name: String
     public var parameters: [Parameter]
@@ -242,7 +246,6 @@ public protocol UIElementBase {
     var requiredImports: Set<String> { get }
 
     func supportedActions(context: ComponentContext) throws -> [UIElementAction]
-
 }
 
 public struct StateProperty {
@@ -333,5 +336,11 @@ public extension ProvidesCodeInitialization {
 #if canImport(UIKit)
 public protocol CanInitializeUIKitView {
     func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView
+}
+#endif
+
+#if HyperdriveRuntime && canImport(AppKit)
+public protocol CanInitializeAppKitView {
+    func initialize(context: ReactantLiveUIWorker.Context) throws -> NSView
 }
 #endif

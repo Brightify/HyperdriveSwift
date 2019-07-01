@@ -25,24 +25,27 @@ extension TextAlignment {
     }
 }
 
+#if HyperdriveRuntime
 #if canImport(UIKit)
-    import UIKit
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
-    extension TextAlignment {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .center:
-                return NSTextAlignment.center.rawValue
-            case .left:
-                return NSTextAlignment.left.rawValue
-            case .right:
-                return NSTextAlignment.right.rawValue
-            case .justified:
-                return NSTextAlignment.justified.rawValue
-            case .natural:
-                return NSTextAlignment.natural.rawValue
-            }
+extension TextAlignment {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .center:
+            return NSTextAlignment.center.rawValue
+        case .left:
+            return NSTextAlignment.left.rawValue
+        case .right:
+            return NSTextAlignment.right.rawValue
+        case .justified:
+            return NSTextAlignment.justified.rawValue
+        case .natural:
+            return NSTextAlignment.natural.rawValue
         }
     }
+}
 #endif

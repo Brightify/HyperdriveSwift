@@ -32,20 +32,32 @@ public enum Image: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
+        let imageTypePrefix: String
+        switch context.platform {
+        case .iOS, .tvOS:
+            imageTypePrefix = "UI"
+        case .macOS:
+            imageTypePrefix = "NS"
+        }
+
         switch self {
         case .named(let name):
-            return .constant("UIImage(named: \"\(name)\", in: __resourceBundle, compatibleWith: nil)")
+            return .constant("\(imageTypePrefix)Image(named: \"\(name)\", in: __resourceBundle, compatibleWith: nil)")
         case .themed(let name):
             return .constant("theme.images.\(name)")
         }
     }
     #endif
 
-    #if canImport(UIKit)
+    #if HyperdriveRuntime
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .named(let name):
+            #if canImport(UIKit)
             return UIImage(named: name)
+            #else
+            return NSImage(named: name)
+            #endif
         case .themed(let name):
             guard let themedImage = context.themed(image: name) else { return nil }
             return themedImage.runtimeValue(context: context.child(for: themedImage))
@@ -75,7 +87,12 @@ extension Image {
         public init() { }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
-            return RuntimeType(name: "UIImage", module: "UIKit")
+            switch platform {
+            case .iOS, .tvOS:
+                return RuntimeType(name: "UIImage", module: "UIKit")
+            case .macOS:
+                return RuntimeType(name: "NSImage", module: "AppKit")
+            }
         }
 
         public var xsdType: XSDType {

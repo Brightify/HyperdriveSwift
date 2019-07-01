@@ -134,7 +134,7 @@ public struct Style {
 
         if node.name == "attributedTextStyle" {
             parentModuleImport = "Hyperdrive"
-            properties = try PropertyHelper.deserializeSupportedProperties(properties: Properties.attributedText.allProperties, in: node) as [Property]
+            properties = try PropertyHelper.deserializeSupportedProperties(properties: Module.Foundation.Properties.attributedText.allProperties, in: node) as [Property]
 
             type = try .attributedText(styles: node.xmlChildren.map(AttributedTextStyle.deserialize))
 
@@ -195,7 +195,7 @@ public struct AttributedTextStyle: XMLElementDeserializable {
         } else {
             accessModifier = .internal
         }
-        properties = try PropertyHelper.deserializeSupportedProperties(properties: Properties.attributedText.allProperties, in: node) as [Property]
+        properties = try PropertyHelper.deserializeSupportedProperties(properties: Module.Foundation.Properties.attributedText.allProperties, in: node) as [Property]
     }
 
     public static func deserialize(_ element: XMLElement) throws -> AttributedTextStyle {

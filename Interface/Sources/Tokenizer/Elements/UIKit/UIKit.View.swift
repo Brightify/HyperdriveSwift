@@ -38,211 +38,201 @@ public class ElementIdProvider {
             children[counter] = newChild
             return newChild
         }
-
-
     }
 }
 
-#if canImport(SwiftCodeGen) && canImport(UIKit)
-public protocol SwiftExtensionWorkaround: ProvidesCodeInitialization, CanInitializeUIKitView { }
-#elseif canImport(SwiftCodeGen)
-public protocol SwiftExtensionWorkaround: ProvidesCodeInitialization { }
-#elseif canImport(UIKit)
-public protocol SwiftExtensionWorkaround: CanInitializeUIKitView { }
-#else
-public protocol SwiftExtensionWorkaround { }
-#endif
-
-public class View: UIElement, SwiftExtensionWorkaround {
-    public class var availableProperties: [PropertyDescription] {
-        return Properties.view.allProperties
-    }
-
-    public class var availableToolingProperties: [PropertyDescription] {
-        return ToolingProperties.view.allProperties
-    }
-
-    // runtime type is used in generator for style parameters
-    public class func runtimeType() throws -> String {
-        return "UI\(self)"
-    }
-    
-    public func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
-        switch platform {
-        case .iOS, .tvOS:
-            return RuntimeType(name: "UI\(type(of: self))", module: "UIKit")
-//        case .macOS:
-//            return RuntimeType(name: "NS\(type(of: self))", module: "AppKit")
-        }
-    }
-
-    public class var parentModuleImport: String {
-        return "UIKit"
-    }
-
-    public var requiredImports: Set<String> {
-        return ["UIKit"]
-    }
-
-    public let factory: UIElementFactory
-
-    public var id: UIElementID
-    public var isExported: Bool
-    public var isInjected: Bool
-    public var styles: [StyleName]
-    public var layout: Layout
-    public var properties: [Property]
-    public var toolingProperties: [String: Property]
-    public var handledActions: [HyperViewAction]
-
-    public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
-        return [
-            ViewTapAction()
-        ]
-    }
-
-    #if canImport(UIKit)
-    public func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-        return UIView()
-    }
-    #endif
-
-    #if canImport(SwiftCodeGen)
-    public var extraDeclarations: [Structure] {
-        return []
-    }
-
-    public func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-        return .constant("\(try runtimeType(for: platform).name)()")
-    }
-    #endif
-
-    public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
-        self.factory = factory
-        let node = context.element
-        id = try node.value(ofAttribute: "id", defaultValue: context.elementIdProvider.next(for: node.name))
-        isExported = try node.value(ofAttribute: "export", defaultValue: false)
-        isInjected = try node.value(ofAttribute: "injected", defaultValue: false)
-        layout = try node.value()
-        styles = try node.value(ofAttribute: "style", defaultValue: []) as [StyleName]
-
-        if node.name == "View" && node.count != 0 {
-            throw TokenizationError(message: "View must not have any children, use Container instead.")
+extension Module.UIKit {
+    public class View: UIElement, SwiftExtensionWorkaround {
+        public class var availableProperties: [PropertyDescription] {
+            return Properties.view.allProperties
         }
 
-        properties = try PropertyHelper.deserializeSupportedProperties(properties: type(of: self).availableProperties, in: node)
-        toolingProperties = try PropertyHelper.deserializeToolingProperties(properties: type(of: self).availableToolingProperties, in: node)
+        public class var availableToolingProperties: [PropertyDescription] {
+            return ToolingProperties.view.allProperties
+        }
 
-        handledActions = try node.allAttributes.compactMap { _, value in
-            try HyperViewAction(attribute: value)
+        // runtime type is used in generator for style parameters
+        public class func runtimeType() throws -> String {
+            return "UI\(self)"
         }
-    }
-    
-    public init() {
-        preconditionFailure("Not implemented!")
-//        id = nil
-        isExported = false
-        isInjected = false
-        styles = []
-        layout = Layout(contentCompressionPriorityHorizontal: View.defaultContentCompression.horizontal,
-                             contentCompressionPriorityVertical: View.defaultContentCompression.vertical,
-                             contentHuggingPriorityHorizontal: View.defaultContentHugging.horizontal,
-                             contentHuggingPriorityVertical: View.defaultContentHugging.vertical)
-        properties = []
-        toolingProperties = [:]
-        handledActions = []
-    }
 
-    public func serialize(context: DataContext) -> XMLSerializableElement {
-        var builder = XMLAttributeBuilder()
-        if case .provided(let id) = id {
-            builder.attribute(name: "id", value: id)
-        }
-        if isExported {
-            builder.attribute(name: "export", value: "true")
-        }
-        let styleNames = styles.map { $0.serialize() }.joined(separator: " ")
-        if !styleNames.isEmpty {
-            builder.attribute(name: "style", value: styleNames)
-        }
-        
-        #if SanAndreas
-        (properties + toolingProperties.values)
-            .map {
-                $0.dematerialize(context: PropertyContext(parentContext: context, property: $0))
+        public func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            switch platform {
+            case .iOS, .tvOS:
+                return RuntimeType(name: "UI\(type(of: self))", module: "UIKit")
+            case .macOS:
+                return RuntimeType(name: "NS\(type(of: self))", module: "AppKit")
             }
-            .forEach {
-                builder.add(attribute: $0)
-            }
+        }
+
+        public class var parentModuleImport: String {
+            return "UIKit"
+        }
+
+        public var requiredImports: Set<String> {
+            return ["UIKit"]
+        }
+
+        public let factory: UIElementFactory
+
+        public var id: UIElementID
+        public var isExported: Bool
+        public var isInjected: Bool
+        public var styles: [StyleName]
+        public var layout: Layout
+        public var properties: [Property]
+        public var toolingProperties: [String: Property]
+        public var handledActions: [HyperViewAction]
+
+        public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return [
+                ViewTapAction()
+            ]
+        }
+
+        #if canImport(UIKit)
+        public func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
+            return UIView()
+        }
         #endif
-        
-        layout.serialize().forEach { builder.add(attribute: $0) }
-        
-        let typeOfSelf = type(of: self)
-        #warning("TODO Implement")
-        fatalError("Not implemented")
-        let name = "" // ElementMapping.mapping.first(where: { $0.value == typeOfSelf })?.key ?? "\(typeOfSelf)"
-        return XMLSerializableElement(name: name, attributes: builder.attributes, children: [])
-    }
-}
 
-public class ViewProperties: PropertyContainer {
-    public let backgroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let clipsToBounds: StaticAssignablePropertyDescription<Bool>
-    public let isUserInteractionEnabled: StaticAssignablePropertyDescription<Bool>
-    public let tintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let isHidden: StaticAssignablePropertyDescription<Bool>
-    public let alpha: StaticAssignablePropertyDescription<Double>
-    public let isOpaque: StaticAssignablePropertyDescription<Bool>
-    public let isMultipleTouchEnabled: StaticAssignablePropertyDescription<Bool>
-    public let isExclusiveTouch: StaticAssignablePropertyDescription<Bool>
-    public let autoresizesSubviews: StaticAssignablePropertyDescription<Bool>
-    public let contentMode: StaticAssignablePropertyDescription<ContentMode>
-    public let translatesAutoresizingMaskIntoConstraints: StaticAssignablePropertyDescription<Bool>
-    public let preservesSuperviewLayoutMargins: StaticAssignablePropertyDescription<Bool>
-    public let tag: StaticAssignablePropertyDescription<Int>
-    public let canBecomeFocused: StaticAssignablePropertyDescription<Bool>
-    public let visibility: StaticAssignablePropertyDescription<ViewVisibility>
-    public let collapseAxis: StaticAssignablePropertyDescription<ViewCollapseAxis>
-    public let frame: StaticAssignablePropertyDescription<Rect>
-    public let bounds: StaticAssignablePropertyDescription<Rect>
-    public let layoutMargins: StaticAssignablePropertyDescription<EdgeInsets>
-    public let transform: StaticAssignablePropertyDescription<AffineTransformation>
-    
-    public let layer: LayerProperties
-    
-    public required init(configuration: PropertyContainer.Configuration) {
-        backgroundColor = configuration.property(name: "backgroundColor")
-        clipsToBounds = configuration.property(name: "clipsToBounds")
-        isUserInteractionEnabled = configuration.property(name: "isUserInteractionEnabled", key: "userInteractionEnabled", defaultValue: true)
-        tintColor = configuration.property(name: "tintColor")
-        isHidden = configuration.property(name: "isHidden", key: "hidden")
-        alpha = configuration.property(name: "alpha", defaultValue: 1)
-        isOpaque = configuration.property(name: "isOpaque", key: "opaque", defaultValue: true)
-        isMultipleTouchEnabled = configuration.property(name: "isMultipleTouchEnabled", key: "multipleTouchEnabled")
-        isExclusiveTouch = configuration.property(name: "isExclusiveTouch", key: "exclusiveTouch")
-        autoresizesSubviews = configuration.property(name: "autoresizesSubviews", defaultValue: true)
-        contentMode = configuration.property(name: "contentMode", defaultValue: .scaleToFill)
-        translatesAutoresizingMaskIntoConstraints = configuration.property(name: "translatesAutoresizingMaskIntoConstraints", defaultValue: true)
-        preservesSuperviewLayoutMargins = configuration.property(name: "preservesSuperviewLayoutMargins")
-        tag = configuration.property(name: "tag")
-        canBecomeFocused = configuration.property(name: "canBecomeFocused")
-        visibility = configuration.property(name: "visibility", defaultValue: .visible)
-        collapseAxis = configuration.property(name: "collapseAxis", defaultValue: .vertical)
-        frame = configuration.property(name: "frame", defaultValue: .zero)
-        bounds = configuration.property(name: "bounds", defaultValue: .zero)
-        layoutMargins = configuration.property(name: "layoutMargins", defaultValue: EdgeInsets(horizontal: 8, vertical: 8))
-        
-        transform = configuration.property(name: "transform", defaultValue: AffineTransformation(transformations: []))
-        
-        layer = configuration.namespaced(in: "layer", LayerProperties.self)
-        
-        super.init(configuration: configuration)
+        #if canImport(SwiftCodeGen)
+        public var extraDeclarations: [Structure] {
+            return []
+        }
+
+        public func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
+            return .constant("\(try runtimeType(for: platform).name)()")
+        }
+        #endif
+
+        public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
+            self.factory = factory
+            let node = context.element
+            id = try node.value(ofAttribute: "id", defaultValue: context.elementIdProvider.next(for: node.name))
+            isExported = try node.value(ofAttribute: "export", defaultValue: false)
+            isInjected = try node.value(ofAttribute: "injected", defaultValue: false)
+            layout = try node.value()
+            styles = try node.value(ofAttribute: "style", defaultValue: []) as [StyleName]
+
+            if node.name == "View" && node.count != 0 {
+                throw TokenizationError(message: "View must not have any children, use Container instead.")
+            }
+
+            properties = try PropertyHelper.deserializeSupportedProperties(properties: type(of: self).availableProperties, in: node)
+            toolingProperties = try PropertyHelper.deserializeToolingProperties(properties: type(of: self).availableToolingProperties, in: node)
+
+            handledActions = try node.allAttributes.compactMap { _, value in
+                try HyperViewAction(attribute: value)
+            }
+        }
+
+        public init() {
+            preconditionFailure("Not implemented!")
+    //        id = nil
+            isExported = false
+            isInjected = false
+            styles = []
+            layout = Layout(
+                contentCompressionPriorityHorizontal: View.defaultContentCompression.horizontal,
+                contentCompressionPriorityVertical: View.defaultContentCompression.vertical,
+                contentHuggingPriorityHorizontal: View.defaultContentHugging.horizontal,
+                contentHuggingPriorityVertical: View.defaultContentHugging.vertical)
+            properties = []
+            toolingProperties = [:]
+            handledActions = []
+        }
+
+        public func serialize(context: DataContext) -> XMLSerializableElement {
+            var builder = XMLAttributeBuilder()
+            if case .provided(let id) = id {
+                builder.attribute(name: "id", value: id)
+            }
+            if isExported {
+                builder.attribute(name: "export", value: "true")
+            }
+            let styleNames = styles.map { $0.serialize() }.joined(separator: " ")
+            if !styleNames.isEmpty {
+                builder.attribute(name: "style", value: styleNames)
+            }
+
+            #if SanAndreas
+            (properties + toolingProperties.values)
+                .map {
+                    $0.dematerialize(context: PropertyContext(parentContext: context, property: $0))
+                }
+                .forEach {
+                    builder.add(attribute: $0)
+                }
+            #endif
+
+            layout.serialize().forEach { builder.add(attribute: $0) }
+
+            let typeOfSelf = type(of: self)
+            #warning("TODO Implement")
+            fatalError("Not implemented")
+            let name = "" // ElementMapping.mapping.first(where: { $0.value == typeOfSelf })?.key ?? "\(typeOfSelf)"
+            return XMLSerializableElement(name: name, attributes: builder.attributes, children: [])
+        }
+    }
+
+    public class ViewProperties: PropertyContainer {
+        public let backgroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let clipsToBounds: StaticAssignablePropertyDescription<Bool>
+        public let isUserInteractionEnabled: StaticAssignablePropertyDescription<Bool>
+        public let tintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let isHidden: StaticAssignablePropertyDescription<Bool>
+        public let alpha: StaticAssignablePropertyDescription<Double>
+        public let isOpaque: StaticAssignablePropertyDescription<Bool>
+        public let isMultipleTouchEnabled: StaticAssignablePropertyDescription<Bool>
+        public let isExclusiveTouch: StaticAssignablePropertyDescription<Bool>
+        public let autoresizesSubviews: StaticAssignablePropertyDescription<Bool>
+        public let contentMode: StaticAssignablePropertyDescription<ContentMode>
+        public let translatesAutoresizingMaskIntoConstraints: StaticAssignablePropertyDescription<Bool>
+        public let preservesSuperviewLayoutMargins: StaticAssignablePropertyDescription<Bool>
+        public let tag: StaticAssignablePropertyDescription<Int>
+        public let canBecomeFocused: StaticAssignablePropertyDescription<Bool>
+        public let visibility: StaticAssignablePropertyDescription<ViewVisibility>
+        public let collapseAxis: StaticAssignablePropertyDescription<ViewCollapseAxis>
+        public let frame: StaticAssignablePropertyDescription<Rect>
+        public let bounds: StaticAssignablePropertyDescription<Rect>
+        public let layoutMargins: StaticAssignablePropertyDescription<EdgeInsets>
+        public let transform: StaticAssignablePropertyDescription<AffineTransformation>
+
+        public let layer: LayerProperties
+
+        public required init(configuration: PropertyContainer.Configuration) {
+            backgroundColor = configuration.property(name: "backgroundColor")
+            clipsToBounds = configuration.property(name: "clipsToBounds")
+            isUserInteractionEnabled = configuration.property(name: "isUserInteractionEnabled", key: "userInteractionEnabled", defaultValue: true)
+            tintColor = configuration.property(name: "tintColor")
+            isHidden = configuration.property(name: "isHidden", key: "hidden")
+            alpha = configuration.property(name: "alpha", defaultValue: 1)
+            isOpaque = configuration.property(name: "isOpaque", key: "opaque", defaultValue: true)
+            isMultipleTouchEnabled = configuration.property(name: "isMultipleTouchEnabled", key: "multipleTouchEnabled")
+            isExclusiveTouch = configuration.property(name: "isExclusiveTouch", key: "exclusiveTouch")
+            autoresizesSubviews = configuration.property(name: "autoresizesSubviews", defaultValue: true)
+            contentMode = configuration.property(name: "contentMode", defaultValue: .scaleToFill)
+            translatesAutoresizingMaskIntoConstraints = configuration.property(name: "translatesAutoresizingMaskIntoConstraints", defaultValue: true)
+            preservesSuperviewLayoutMargins = configuration.property(name: "preservesSuperviewLayoutMargins")
+            tag = configuration.property(name: "tag")
+            canBecomeFocused = configuration.property(name: "canBecomeFocused")
+            visibility = configuration.property(name: "visibility", defaultValue: .visible)
+            collapseAxis = configuration.property(name: "collapseAxis", defaultValue: .vertical)
+            frame = configuration.property(name: "frame", defaultValue: .zero)
+            bounds = configuration.property(name: "bounds", defaultValue: .zero)
+            layoutMargins = configuration.property(name: "layoutMargins", defaultValue: EdgeInsets(horizontal: 8, vertical: 8))
+
+            transform = configuration.property(name: "transform", defaultValue: AffineTransformation(transformations: []))
+
+            layer = configuration.namespaced(in: "layer", LayerProperties.self)
+
+            super.init(configuration: configuration)
+        }
     }
 }
 
 public final class ViewToolingProperties: PropertyContainer {
-
     public required init(configuration: Configuration) {
         super.init(configuration: configuration)
     }

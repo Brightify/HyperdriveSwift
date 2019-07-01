@@ -27,15 +27,15 @@ public class PropertyContainer {
         public let name: String
         public let isOptional: Bool
     }
-    
+
     public final class Configuration {
         public let namespace: [Namespace]
         public var properties: [PropertyDescription] = []
-        
+
         public init(namespace: [Namespace]) {
             self.namespace = namespace
         }
-        
+
         func assignable<T>(name: String, swiftName: String, key: String, defaultValue: T.BuildType, factory: T) -> AssignablePropertyDescription<T> {
             let property = AssignablePropertyDescription<T>(
                 namespace: namespace,
@@ -48,13 +48,12 @@ public class PropertyContainer {
             return property
         }
 
-        // TODO Remove with Swift 4.2
-        func assignable<T>(name: String, defaultValue: T.BuildType, factory: T) -> ElementAssignablePropertyDescription<T> {
+        func assignable<T>(name: String, swiftName: String, key: String, defaultValue: T.BuildType, factory: T) -> ElementAssignablePropertyDescription<T> {
             let property = ElementAssignablePropertyDescription<T>(
                 namespace: namespace,
                 name: name,
-                swiftName: name,
-                key: name,
+                swiftName: swiftName,
+                key: key,
                 defaultValue: defaultValue,
                 typeFactory: factory)
             properties.append(property)
@@ -82,7 +81,7 @@ public class PropertyContainer {
             properties.append(property)
             return property
         }
-        
+
         func controlState<T>(name: String, key: String, defaultValue: T.BuildType, factory: T) -> ControlStatePropertyDescription<T> {
             let property = ControlStatePropertyDescription<T>(
                 namespace: namespace,
@@ -94,7 +93,6 @@ public class PropertyContainer {
             return property
         }
 
-        // TODO Remove with Swift 4.2
         func controlState<T>(name: String, key: String, defaultValue: T.BuildType, factory: T) -> ElementControlStatePropertyDescription<T> {
             let property = ElementControlStatePropertyDescription<T>(
                 namespace: namespace,
@@ -109,7 +107,6 @@ public class PropertyContainer {
         public func property<T: HasZeroArgumentInitializer>(name: String) -> AssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return assignable(name: name, swiftName: name, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> AssignablePropertyDescription<T> {
             return assignable(name: name, swiftName: name, key: name, defaultValue: defaultValue, factory: T())
         }
@@ -117,75 +114,86 @@ public class PropertyContainer {
         public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String) -> AssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return assignable(name: name, swiftName: swiftName, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, defaultValue: T.BuildType) -> AssignablePropertyDescription<T> {
             return assignable(name: name, swiftName: swiftName, key: name, defaultValue: defaultValue, factory: T())
         }
-        
+
         public func property<T: HasZeroArgumentInitializer>(name: String, key: String) -> AssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return assignable(name: name, swiftName: name, key: key, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, key: String, defaultValue: T.BuildType) -> AssignablePropertyDescription<T> {
             return assignable(name: name, swiftName: name, key: key, defaultValue: defaultValue, factory: T())
         }
-        
+
         public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, key: String) -> AssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return assignable(name: name, swiftName: swiftName, key: key, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, key: String, defaultValue: T.BuildType) -> AssignablePropertyDescription<T> {
             return assignable(name: name, swiftName: swiftName, key: key, defaultValue: defaultValue, factory: T())
         }
 
+
         public func property<T: HasZeroArgumentInitializer>(name: String) -> ElementAssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
-            return assignable(name: name, defaultValue: T.BuildType.defaultValue, factory: T())
+            return assignable(name: name, swiftName: name, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
+        }
+        public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ElementAssignablePropertyDescription<T> {
+            return assignable(name: name, swiftName: name, key: name, defaultValue: defaultValue, factory: T())
         }
 
-        public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ElementAssignablePropertyDescription<T> {
-            return assignable(name: name, defaultValue: defaultValue, factory: T())
+        public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String) -> ElementAssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
+            return assignable(name: name, swiftName: swiftName, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-        
+        public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, defaultValue: T.BuildType) -> ElementAssignablePropertyDescription<T> {
+            return assignable(name: name, swiftName: swiftName, key: name, defaultValue: defaultValue, factory: T())
+        }
+
+        public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, key: String) -> ElementAssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
+            return assignable(name: name, swiftName: swiftName, key: key, defaultValue: T.BuildType.defaultValue, factory: T())
+        }
+        public func property<T: HasZeroArgumentInitializer>(name: String, swiftName: String, key: String, defaultValue: T.BuildType) -> ElementAssignablePropertyDescription<T> {
+            return assignable(name: name, swiftName: swiftName, key: key, defaultValue: defaultValue, factory: T())
+        }
+
+
         public func property<T: HasZeroArgumentInitializer>(name: String) -> ControlStatePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return controlState(name: name, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ControlStatePropertyDescription<T> {
             return controlState(name: name, key: name, defaultValue: defaultValue, factory: T())
         }
 
-        public func property<T: HasZeroArgumentInitializer>(name: String) -> ElementControlStatePropertyDescription<T> where T.BuildType: HasDefaultValue {
-            return controlState(name: name, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
-        }
-
-        public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ElementControlStatePropertyDescription<T> {
-            return controlState(name: name, key: name, defaultValue: defaultValue, factory: T())
-        }
-        
         public func property<T: HasZeroArgumentInitializer>(name: String, key: String) -> ControlStatePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return controlState(name: name, key: key, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, key: String, defaultValue: T.BuildType) -> ControlStatePropertyDescription<T> {
             return controlState(name: name, key: key, defaultValue: defaultValue, factory: T())
         }
 
+
+        public func property<T: HasZeroArgumentInitializer>(name: String) -> ElementControlStatePropertyDescription<T> where T.BuildType: HasDefaultValue {
+            return controlState(name: name, key: name, defaultValue: T.BuildType.defaultValue, factory: T())
+        }
+        public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ElementControlStatePropertyDescription<T> {
+            return controlState(name: name, key: name, defaultValue: defaultValue, factory: T())
+        }
+
+
         public func property<T: HasZeroArgumentInitializer>(name: String) -> ValuePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return value(name: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> ValuePropertyDescription<T> {
             return value(name: name, defaultValue: defaultValue, factory: T())
         }
 
+
         public func property<T: HasZeroArgumentInitializer>(name: String) -> MultipleAttributeAssignablePropertyDescription<T> where T.BuildType: HasDefaultValue {
             return assignable(name: name, defaultValue: T.BuildType.defaultValue, factory: T())
         }
-
         public func property<T: HasZeroArgumentInitializer>(name: String, defaultValue: T.BuildType) -> MultipleAttributeAssignablePropertyDescription<T> {
             return assignable(name: name, defaultValue: defaultValue, factory: T())
         }
-        
+
+
         public func namespaced<T: PropertyContainer>(in namespace: String, optional: Bool = false, _ type: T.Type) -> T {
             let configuration = Configuration(namespace: self.namespace + [Namespace(name: namespace, isOptional: optional)])
             let container = T.init(configuration: configuration)
@@ -193,10 +201,10 @@ public class PropertyContainer {
             return container
         }
     }
-    
+
     let namespace: [Namespace]
     let allProperties: [PropertyDescription]
-    
+
     public required init(configuration: Configuration) {
         self.namespace = configuration.namespace
         self.allProperties = configuration.properties

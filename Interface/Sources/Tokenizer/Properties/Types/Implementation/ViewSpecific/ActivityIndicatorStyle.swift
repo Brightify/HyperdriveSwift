@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum ActivityIndicatorStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UIActivityIndicatorView.Style"
     public static let typeFactory = TypeFactory()
@@ -26,29 +24,29 @@ extension ActivityIndicatorStyle {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension ActivityIndicatorStyle {
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            #if os(tvOS)
+extension ActivityIndicatorStyle {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        #if os(tvOS)
+        switch self {
+        case .whiteLarge:
+            return UIActivityIndicatorView.Style.whiteLarge.rawValue
+        case .white:
+            return UIActivityIndicatorView.Style.white.rawValue
+        default:
+            return nil
+        }
+        #else
             switch self {
             case .whiteLarge:
                 return UIActivityIndicatorView.Style.whiteLarge.rawValue
             case .white:
                 return UIActivityIndicatorView.Style.white.rawValue
-            default:
-                return nil
+            case .gray:
+                return UIActivityIndicatorView.Style.gray.rawValue
             }
-            #else
-                switch self {
-                case .whiteLarge:
-                    return UIActivityIndicatorView.Style.whiteLarge.rawValue
-                case .white:
-                    return UIActivityIndicatorView.Style.white.rawValue
-                case .gray:
-                    return UIActivityIndicatorView.Style.gray.rawValue
-                }
-            #endif
-        }
+        #endif
     }
+}
 #endif

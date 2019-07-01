@@ -45,7 +45,7 @@ public class UIGenerator: Generator {
             SwiftCodeGen.Property.constant(
                 accessibility: child.isExported ? viewAccessibility : .private,
                 name: child.id.description,
-                type: try child.runtimeType(for: .iOS).name)
+                type: try child.runtimeType(for: componentContext.platform).name)
         }
 
         let injectedChildren = root.allInjectedChildren
@@ -61,7 +61,7 @@ public class UIGenerator: Generator {
                 fatalError()
             }
 
-            return .assignment(target: .constant(child.id.description), expression: try providesInitialization.initialization(for: .iOS, context: componentContext))
+            return .assignment(target: .constant(child.id.description), expression: try providesInitialization.initialization(for: componentContext.platform, context: componentContext))
         }
 
         var viewInheritances: [String] = []
@@ -98,7 +98,7 @@ public class UIGenerator: Generator {
                 .init(name: "initialState", type: "State", defaultValue: "State()"),
                 .init(name: "actionPublisher", type: "ActionPublisher<Action>", defaultValue: "ActionPublisher()"),
             ] + injectedChildren.map { child in
-                try MethodParameter(name: child.id.description, type: child.runtimeType(for: .iOS).name)
+                try MethodParameter(name: child.id.description, type: child.runtimeType(for: componentContext.platform).name)
             },
             block:
                 Block(statements: viewInitializations) +
@@ -130,7 +130,7 @@ public class UIGenerator: Generator {
 //            let defaultValue = property.anyDescription.anyDefaultValue
             return SwiftCodeGen.Property.variable(
                 name: item.name,
-                type: item.typeFactory.runtimeType(for: .iOS).name,
+                type: item.typeFactory.runtimeType(for: componentContext.platform).name,
                 value: item.defaultValue.generate(context: SupportedPropertyTypeContext(parentContext: componentContext, value: .value(item.defaultValue))),
                 block: [
                     .expression(.constant("didSet { notify\(item.name.capitalizingFirstLetter())Changed() }"))
@@ -195,7 +195,7 @@ public class UIGenerator: Generator {
             name: "Action",
             cases: resolvedActions.map { action in
                 Structure.EnumCase(name: action.name, arguments: action.parameters.map { parameter -> (name: String?, type: String) in
-                    (name: parameter.label, type: parameter.type.runtimeType(for: .iOS).name)
+                    (name: parameter.label, type: parameter.type.runtimeType(for: componentContext.platform).name)
                 })
             })
 

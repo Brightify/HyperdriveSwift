@@ -137,7 +137,7 @@ public struct Template: XMLElementDeserializable {
 
         if node.name == "attributedText" {
             parentModuleImport = "Hyperdrive"
-            properties = try PropertyHelper.deserializeSupportedProperties(properties: Properties.attributedText.allProperties, in: node) as [Property]
+            properties = try PropertyHelper.deserializeSupportedProperties(properties: Module.Foundation.Properties.attributedText.allProperties, in: node) as [Property]
             type = .attributedText(template: try AttributedTextTemplate(node: node))
         } else {
             throw TokenizationError(message: "Unknown template \(node.name). (\(node))")
@@ -183,11 +183,11 @@ public enum TemplateType {
 }
 
 public struct AttributedTextTemplate {
-    public var attributedText: ElementAssignableProperty<Optional<AttributedText>.TypeFactory>
+    public var attributedText: ElementAssignableProperty<Optional<Module.Foundation.AttributedText>.TypeFactory>
     public var arguments: [String]
 
     init(node: XMLElement) throws {
-        let text = try AttributedText.materialize(from: node)
+        let text = try Module.Foundation.AttributedText.materialize(from: node)
         let description = "attributedText"
         attributedText = ElementAssignableProperty(
             namespace: [],
@@ -196,7 +196,7 @@ public struct AttributedTextTemplate {
                 namespace: [], name: description,
                 swiftName: description, key: description,
                 defaultValue: nil,
-                typeFactory: Optional<AttributedText>.typeFactory),
+                typeFactory: Optional<Module.Foundation.AttributedText>.typeFactory),
             value: .value(text))
         arguments = []
         node.children.forEach {

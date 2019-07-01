@@ -100,14 +100,24 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
             try HyperViewAction(attribute: value)
         }
 
-        toolingProperties = try PropertyHelper.deserializeToolingProperties(properties: ToolingProperties.componentDefinition.allProperties, in: node)
-        properties = try PropertyHelper.deserializeSupportedProperties(properties: View.availableProperties, in: node)
+        let toolingPropertyDescriptions: [PropertyDescription]
+        let propertyDescriptions: [PropertyDescription]
+        switch context.platform {
+        case .iOS, .tvOS:
+            toolingPropertyDescriptions = Module.UIKit.ToolingProperties.componentDefinition.allProperties
+            propertyDescriptions = Module.UIKit.View.availableProperties
+        case .macOS:
+            toolingPropertyDescriptions = Module.AppKit.ToolingProperties.componentDefinition.allProperties
+            propertyDescriptions = Module.AppKit.View.availableProperties
+        }
+        toolingProperties = try PropertyHelper.deserializeToolingProperties(properties: toolingPropertyDescriptions, in: node)
+        properties = try PropertyHelper.deserializeSupportedProperties(properties: propertyDescriptions, in: node)
         overrides = try node.singleOrNoElement(named: "overrides")?.allAttributes.values.map(Override.init) ?? []
         stateDescription = try StateDescription(element: node.singleOrNoElement(named: "state"))
 
         // here we gather all the constraints' fields that do not have a condition and check if any are duplicate
         // in that case we warn the user about it, because it's probably not what they intended
-        let fields = children.flatMap({ $0.layout.constraints.compactMap({ return $0.condition == nil ? $0.field : nil }) }).sorted()
+        let fields = children.flatMap { $0.layout.constraints.compactMap { return $0.condition == nil ? $0.field : nil } }.sorted()
         for (index, field) in fields.enumerated() {
             let nextIndex = index + 1
             guard nextIndex < fields.count else { break }

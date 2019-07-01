@@ -37,6 +37,7 @@ public class LayerProperties: PropertyContainer {
     public let bounds: StaticAssignablePropertyDescription<Rect>
     public let position: StaticAssignablePropertyDescription<Point>
     public let anchorPoint: StaticAssignablePropertyDescription<Point>
+    // TODO: transform: CATransform3D
     
     public required init(configuration: Configuration) {
         cornerRadius = configuration.property(name: "cornerRadius")

@@ -7,7 +7,10 @@
 
 import Foundation
 #if canImport(UIKit)
-    import UIKit
+import UIKit
+#endif
+#if HyperdriveRuntime && canImport(AppKit)
+import AppKit
 #endif
 
 #if canImport(SwiftCodeGen)
@@ -33,11 +36,19 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
+        let colorTypePrefix: String
+        switch context.platform {
+        case .iOS, .tvOS:
+            colorTypePrefix = "UI"
+        case .macOS:
+            colorTypePrefix = "NS"
+        }
+
         switch self {
         case .color(.absolute(let red, let green, let blue, let alpha)):
-            return .constant("UIColor(red: \(red), green: \(green), blue: \(blue), alpha: \(alpha))")
+            return .constant("\(colorTypePrefix)Color(red: \(red), green: \(green), blue: \(blue), alpha: \(alpha))")
         case .color(.named(let name)):
-            return .constant("UIColor.\(name)")
+            return .constant("\(colorTypePrefix)Color.\(name)")
         case .themed(let name):
             return .constant("theme.colors.\(name)")
         }
@@ -68,6 +79,20 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
             return UIColor(red: red, green: green, blue: blue, alpha: alpha)
         case .color(.named(let name)):
             return UIColor.value(forKeyPath: "\(name)Color") as? UIColor
+        case .themed(let name):
+            guard let themedColor = context.themed(color: name) else { return nil }
+            return themedColor.runtimeValue(context: context.child(for: themedColor))
+        }
+    }
+    #endif
+
+    #if HyperdriveRuntime && canImport(AppKit)
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .color(.absolute(let red, let green, let blue, let alpha)):
+            return NSColor(red: red, green: green, blue: blue, alpha: alpha)
+        case .color(.named(let name)):
+            return NSColor.value(forKeyPath: "\(name)Color") as? NSColor
         case .themed(let name):
             guard let themedColor = context.themed(color: name) else { return nil }
             return themedColor.runtimeValue(context: context.child(for: themedColor))
@@ -168,7 +193,12 @@ extension UIColorPropertyType {
         public init() { }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
-            return RuntimeType(name: "UIColor", module: "UIKit")
+            switch platform {
+            case .iOS, .tvOS:
+                return RuntimeType(name: "UIColor", module: "UIKit")
+            case .macOS:
+                return RuntimeType(name: "NSColor", module: "AppKit")
+            }
         }
     }
 }

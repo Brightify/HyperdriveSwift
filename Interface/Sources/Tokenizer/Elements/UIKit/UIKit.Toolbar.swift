@@ -12,41 +12,43 @@ import Foundation
 import UIKit
 #endif
 
-public class Toolbar: View {
-    public override class var availableProperties: [PropertyDescription] {
-        return Properties.toolbar.allProperties
-    }
-
-    public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
-        switch platform {
-        case .iOS:
-            return RuntimeType(name: "UIToolbar", module: "UIKit")
-        case .tvOS:
-            fatalError("View not available in tvOS")
+extension Module.UIKit {
+    public class Toolbar: View {
+        public override class var availableProperties: [PropertyDescription] {
+            return Properties.toolbar.allProperties
         }
-    }
 
-    #if canImport(UIKit)
-    public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
-        #if os(tvOS)
-            fatalError("View not available in tvOS")
-        #else
-            return UIToolbar()
+        public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            switch platform {
+            case .iOS:
+                return RuntimeType(name: "UIToolbar", module: "UIKit")
+            case .tvOS, .macOS:
+                throw TokenizationError.unsupportedElementError(element: Toolbar.self)
+            }
+        }
+
+        #if canImport(UIKit)
+        public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
+            #if os(tvOS)
+                fatalError("View not available in tvOS")
+            #else
+                return UIToolbar()
+            #endif
+        }
         #endif
     }
-    #endif
-}
 
-public class ToolbarProperties: ViewProperties {
-    public let isTranslucent: StaticAssignablePropertyDescription<Bool>
-    public let barStyle: StaticAssignablePropertyDescription<BarStyle>
-    public let barTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    
-    public required init(configuration: Configuration) {
-        isTranslucent = configuration.property(name: "isTranslucent", key: "translucent", defaultValue: true)
-        barStyle = configuration.property(name: "barStyle", defaultValue: .default)
-        barTintColor = configuration.property(name: "barTintColor")
-        
-        super.init(configuration: configuration)
+    public class ToolbarProperties: ViewProperties {
+        public let isTranslucent: StaticAssignablePropertyDescription<Bool>
+        public let barStyle: StaticAssignablePropertyDescription<BarStyle>
+        public let barTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+
+        public required init(configuration: Configuration) {
+            isTranslucent = configuration.property(name: "isTranslucent", key: "translucent", defaultValue: true)
+            barStyle = configuration.property(name: "barStyle", defaultValue: .default)
+            barTintColor = configuration.property(name: "barTintColor")
+
+            super.init(configuration: configuration)
+        }
     }
 }

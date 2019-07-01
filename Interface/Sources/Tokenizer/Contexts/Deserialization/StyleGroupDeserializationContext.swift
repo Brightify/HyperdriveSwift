@@ -11,6 +11,10 @@ public class StyleGroupDeserializationContext: DeserializationContext, HasParent
     public let parentContext: DeserializationContext & HasUIElementFactoryRegistry
     public let element: XMLElement
 
+    public var platform: RuntimePlatform {
+        return parentContext.platform
+    }
+
     public init(parentContext: DeserializationContext & HasUIElementFactoryRegistry, element: XMLElement) {
         self.parentContext = parentContext
         self.element = element

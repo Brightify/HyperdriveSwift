@@ -12,6 +12,10 @@ public class UIElementDeserializationContext: DeserializationContext, HasParentC
     public let element: XMLElement
     public let elementIdProvider: ElementIdProvider
 
+    public var platform: RuntimePlatform {
+        return parentContext.platform
+    }
+
     public init(parentContext: DeserializationContext & HasUIElementFactoryRegistry & CanDeserializeDefinition, element: XMLElement, elementIdProvider: ElementIdProvider) {
         self.parentContext = parentContext
         self.element = element

@@ -12,36 +12,37 @@ import Foundation
 import UIKit
 #endif
 
-public class VisualEffectView: Container {
-    public override class var availableProperties: [PropertyDescription] {
-        return Properties.visualEffectView.allProperties
-    }
-
-    public override var addSubviewMethod: String {
-        return "contentView.addSubview"
-    }
-
-    #if canImport(UIKit)
-    public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
-    return UIVisualEffectView()
-    }
-
-    public override func add(subview: UIView, toInstanceOfSelf: UIView) {
-        guard let visualEffectView = toInstanceOfSelf as? UIVisualEffectView else {
-            return super.add(subview: subview, toInstanceOfSelf: toInstanceOfSelf)
+extension Module.UIKit {
+    public class VisualEffectView: Container {
+        public override class var availableProperties: [PropertyDescription] {
+            return Properties.visualEffectView.allProperties
         }
-        visualEffectView.contentView.addSubview(subview)
-    }
-    #endif
-}
 
-public class VisualEffectViewProperties: ViewProperties {
-    public let effect: StaticAssignablePropertyDescription<VisualEffect?>
-    
-    public required init(configuration: Configuration) {
-        effect = configuration.property(name: "effect")
-        
-        super.init(configuration: configuration)
+        public override var addSubviewMethod: String {
+            return "contentView.addSubview"
+        }
+
+        #if canImport(UIKit)
+        public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
+        return UIVisualEffectView()
+        }
+
+        public override func add(subview: UIView, toInstanceOfSelf: UIView) {
+            guard let visualEffectView = toInstanceOfSelf as? UIVisualEffectView else {
+                return super.add(subview: subview, toInstanceOfSelf: toInstanceOfSelf)
+            }
+            visualEffectView.contentView.addSubview(subview)
+        }
+        #endif
+    }
+
+    public class VisualEffectViewProperties: ViewProperties {
+        public let effect: StaticAssignablePropertyDescription<VisualEffect?>
+
+        public required init(configuration: Configuration) {
+            effect = configuration.property(name: "effect")
+
+            super.init(configuration: configuration)
+        }
     }
 }
-

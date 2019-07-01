@@ -1,22 +1,17 @@
 //
-//  AttributedText.swift
+//  Foundation.AttributedText.swift
 //  ReactantUI
 //
 //  Created by Matyáš Kříž on 25/05/2018.
 //
 
 import Foundation
-#if canImport(UIKit)
-import UIKit
-import HyperdriveInterface
-#endif
 
 #if canImport(SwiftCodeGen)
 import SwiftCodeGen
 #endif
 
 extension Array {
-
     fileprivate func arrayByAppending(_ elements: Element...) -> Array<Element> {
         return arrayByAppending(elements)
     }
@@ -38,37 +33,39 @@ extension Sequence {
     }
 }
 
-public struct AttributedText: ElementSupportedPropertyType, TypedSupportedType, HasStaticTypeFactory {
-    public static let typeFactory = TypeFactory()
+extension Module.Foundation {
+    public struct AttributedText: ElementSupportedPropertyType, TypedSupportedType, HasStaticTypeFactory {
+        public static let typeFactory = TypeFactory()
 
-    public let style: StyleName?
-    public let localProperties: [Property]
-    public let parts: [AttributedText.Part]
+        public let style: StyleName?
+        public let localProperties: [Property]
+        public let parts: [AttributedText.Part]
 
-    public var requiresTheme: Bool {
-        return localProperties.contains(where: { $0.anyValue.requiresTheme }) ||
-            parts.contains(where: { $0.requiresTheme })
-    }
+        public var requiresTheme: Bool {
+            return localProperties.contains(where: { $0.anyValue.requiresTheme }) ||
+                parts.contains(where: { $0.requiresTheme })
+        }
 
-    public enum Part {
-        case transform(TransformedText)
-        indirect case attributed(AttributedTextStyle, [AttributedText.Part])
+        public enum Part {
+            case transform(TransformedText)
+            indirect case attributed(AttributedTextStyle, [AttributedText.Part])
 
-        var requiresTheme: Bool {
-            switch self {
-            case .transform:
-                return false
-            case .attributed(let style, let innerText):
-                return style.properties.contains(where: { $0.anyValue.requiresTheme }) ||
-                    innerText.contains(where: { $0.requiresTheme })
+            var requiresTheme: Bool {
+                switch self {
+                case .transform:
+                    return false
+                case .attributed(let style, let innerText):
+                    return style.properties.contains(where: { $0.anyValue.requiresTheme }) ||
+                        innerText.contains(where: { $0.requiresTheme })
+                }
             }
         }
     }
 }
 
-extension AttributedText {
+extension Module.Foundation.AttributedText {
     public final class TypeFactory: TypedElementSupportedTypeFactory, HasZeroArgumentInitializer {
-        public typealias BuildType = AttributedText
+        public typealias BuildType = Module.Foundation.AttributedText
 
         public var xsdType: XSDType {
             return .builtin(.string)
@@ -82,7 +79,7 @@ extension AttributedText {
     }
 }
 
-extension AttributedText {
+extension Module.Foundation.AttributedText {
     static let attributeKeys = [
         "font": NSAttributedString.Key.font,
         "foregroundColor": NSAttributedString.Key.foregroundColor,
@@ -106,10 +103,10 @@ extension AttributedText {
         "paragraphStyle": NSAttributedString.Key.paragraphStyle,
     ] as [String: NSAttributedString.Key]
 
-    public static func materialize(from element: XMLElement) throws -> AttributedText {
+    public static func materialize(from element: XMLElement) throws -> Module.Foundation.AttributedText {
         let styleName = element.value(ofAttribute: "style") as StyleName?
 
-        func parseTextElement(contents: [XMLContent]) throws -> [AttributedText.Part] {
+        func parseTextElement(contents: [XMLContent]) throws -> [Module.Foundation.AttributedText.Part] {
             return try contents.map { content in
                 switch content {
                 case let textChild as TextElement:
@@ -186,28 +183,11 @@ extension AttributedText {
         let parsedText = try parseTextElement(contents: trimmedContents)
         // FIXME: `AttributedTextStyle` shouldn't be reused here and we should parse the properties ourselves
         let style = try AttributedTextStyle(node: element)
-        return AttributedText(style: styleName, localProperties: style.properties, parts: parsedText)
+        return Module.Foundation.AttributedText(style: styleName, localProperties: style.properties, parts: parsedText)
     }
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
-//        let pipe = DescriptionPipe()
-//
-//        pipe.block(encapsulateIn: .custom(open: "{", close: "}()")) {
-//            pipe.line("let s = NSMutableAttributedString()")
-//            for (text, attributes) in generateStringParts(context: context) {
-//                pipe.block(line: "s.append", encapsulateIn: .parentheses) {
-//                    pipe.block(encapsulateIn: .parentheses) {
-//                        pipe.append(text)
-//                    }
-//                    pipe.line(".attributed(\(attributes))")
-//                }
-//            }
-//            pipe.line("return s")
-//        }
-//
-//        return pipe
-
         var block = Block()
 
         block += .declaration(isConstant: true, name: "s", expression: .invoke(target: .constant("NSMutableAttributedString"), arguments: []))
@@ -218,31 +198,16 @@ extension AttributedText {
                     MethodArgument(value: .invoke(target: .member(target: text, name: "attributed"), arguments: attributes)),
                 ])
             )
-
-//            pipe.block(line: "s.append", encapsulateIn: .parentheses) {
-//                pipe.block(encapsulateIn: .parentheses) {
-//                    pipe.append(text)
-//                }
-//                pipe.line(".attributed(\(attributes))")
-//            }
         }
         block += .return(expression: .constant("s"))
 
         let closure = Closure(block: block)
 
         return .invoke(target: .closure(closure), arguments: [])
-
-//        return """
-//        {
-//            let s = NSMutableAttributedString()
-//            \(generateStringParts(context: context).map { "s.append((\($0.text)).attributed(\($0.attributes)))" }.joined(separator: "\n\t"))
-//            return s
-//        }()
-//        """
     }
 
     private func generateStringParts(context: SupportedPropertyTypeContext) -> [(text: Expression, attributes: [MethodArgument])] {
-        func resolveAttributes(part: AttributedText.Part, inheritedAttributes: [Property], parentElements: [String]) -> [(text: Expression, attributes: [MethodArgument])] {
+        func resolveAttributes(part: Module.Foundation.AttributedText.Part, inheritedAttributes: [Property], parentElements: [String]) -> [(text: Expression, attributes: [MethodArgument])] {
             switch part {
             case .transform(let transformedText):
                 let generatedAttributes = inheritedAttributes.map {
@@ -278,15 +243,8 @@ extension AttributedText {
         }
 
         return parts.flatMap {
-                resolveAttributes(part: $0, inheritedAttributes: localProperties, parentElements: [])
-            }/*.reduce([]) { current, stringPart in
-                guard let lastStringPart = current.last, lastStringPart.attributes == stringPart.attributes else {
-                    return current.arrayByAppending(stringPart)
-                }
-                var mutableCurrent = current
-                mutableCurrent[mutableCurrent.endIndex - 1] = (text: "\(lastStringPart.text) + \(stringPart.text)", attributes: lastStringPart.attributes)
-                return mutableCurrent
-        } as [(text: Expression, attributes: [MethodArgument])]*/
+            resolveAttributes(part: $0, inheritedAttributes: localProperties, parentElements: [])
+        }
     }
     #endif
 
@@ -306,9 +264,9 @@ extension AttributedText {
     }
     #endif
 
-    #if canImport(UIKit)
+    #if HyperdriveRuntime
     public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
-        func resolveAttributes(part: AttributedText.Part, inheritedAttributes: [Property]) throws -> [NSAttributedString] {
+        func resolveAttributes(part: Module.Foundation.AttributedText.Part, inheritedAttributes: [Property]) throws -> [NSAttributedString] {
             switch part {
             case .transform(let transformedText):
                 guard let transformedText = transformedText.runtimeValue(context: context.child(for: transformedText)) as? String
@@ -350,54 +308,56 @@ extension AttributedText {
     #endif
 }
 
-public class AttributedTextProperties: PropertyContainer {
-    public let font: StaticAssignablePropertyDescription<Font?>
-    public let foregroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let backgroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let ligature: StaticAssignablePropertyDescription<Int?>
-    public let kern: StaticAssignablePropertyDescription<Double?>
-    public let underlineStyle: StaticAssignablePropertyDescription<UnderlineStyle?>
-    public let strikethroughStyle: StaticAssignablePropertyDescription<UnderlineStyle?>
-    public let strokeColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let strokeWidth: StaticAssignablePropertyDescription<Double?>
-    public let shadow: StaticMultipleAttributeAssignablePropertyDescription<Shadow?>
-    public let textEffect: StaticAssignablePropertyDescription<String>
-    public let attachmentImage: StaticAssignablePropertyDescription<Image?>
-    public let link: StaticAssignablePropertyDescription<URL?>
-    public let baselineOffset: StaticAssignablePropertyDescription<Double?>
-    public let underlineColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let strikethroughColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let obliqueness: StaticAssignablePropertyDescription<Double?>
-    public let expansion: StaticAssignablePropertyDescription<Double?>
-    public let writingDirection: StaticAssignablePropertyDescription<WritingDirection?>
-    public let verticalGlyphForm: StaticAssignablePropertyDescription<Int?>
+extension Module.Foundation {
+    public class AttributedTextProperties: PropertyContainer {
+        public let font: StaticAssignablePropertyDescription<Font?>
+        public let foregroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let backgroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let ligature: StaticAssignablePropertyDescription<Int?>
+        public let kern: StaticAssignablePropertyDescription<Double?>
+        public let underlineStyle: StaticAssignablePropertyDescription<UnderlineStyle?>
+        public let strikethroughStyle: StaticAssignablePropertyDescription<UnderlineStyle?>
+        public let strokeColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let strokeWidth: StaticAssignablePropertyDescription<Double?>
+        public let shadow: StaticMultipleAttributeAssignablePropertyDescription<Shadow?>
+        public let textEffect: StaticAssignablePropertyDescription<String>
+        public let attachmentImage: StaticAssignablePropertyDescription<Image?>
+        public let link: StaticAssignablePropertyDescription<URL?>
+        public let baselineOffset: StaticAssignablePropertyDescription<Double?>
+        public let underlineColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let strikethroughColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let obliqueness: StaticAssignablePropertyDescription<Double?>
+        public let expansion: StaticAssignablePropertyDescription<Double?>
+        public let writingDirection: StaticAssignablePropertyDescription<WritingDirection?>
+        public let verticalGlyphForm: StaticAssignablePropertyDescription<Int?>
 
-    public let paragraphStyle: StaticMultipleAttributeAssignablePropertyDescription<ParagraphStyle?>
+        public let paragraphStyle: StaticMultipleAttributeAssignablePropertyDescription<ParagraphStyle?>
 
-    public required init(configuration: Configuration) {
-        font = configuration.property(name: "font")
-        foregroundColor = configuration.property(name: "foregroundColor")
-        backgroundColor = configuration.property(name: "backgroundColor")
-        ligature = configuration.property(name: "ligature")
-        kern = configuration.property(name: "kern")
-        strikethroughStyle = configuration.property(name: "strikethroughStyle")
-        underlineStyle = configuration.property(name: "underlineStyle")
-        strokeColor = configuration.property(name: "strokeColor")
-        strokeWidth = configuration.property(name: "strokeWidth")
-        shadow = configuration.property(name: "shadow")
-        textEffect = configuration.property(name: "textEffect")
-        attachmentImage = configuration.property(name: "attachment")
-        link = configuration.property(name: "link")
-        baselineOffset = configuration.property(name: "baselineOffset")
-        underlineColor = configuration.property(name: "underlineColor")
-        strikethroughColor = configuration.property(name: "strikethroughColor")
-        obliqueness = configuration.property(name: "obliqueness")
-        expansion = configuration.property(name: "expansion")
-        writingDirection = configuration.property(name: "writingDirection")
-        verticalGlyphForm = configuration.property(name: "verticalGlyphForm")
+        public required init(configuration: Configuration) {
+            font = configuration.property(name: "font")
+            foregroundColor = configuration.property(name: "foregroundColor")
+            backgroundColor = configuration.property(name: "backgroundColor")
+            ligature = configuration.property(name: "ligature")
+            kern = configuration.property(name: "kern")
+            strikethroughStyle = configuration.property(name: "strikethroughStyle")
+            underlineStyle = configuration.property(name: "underlineStyle")
+            strokeColor = configuration.property(name: "strokeColor")
+            strokeWidth = configuration.property(name: "strokeWidth")
+            shadow = configuration.property(name: "shadow")
+            textEffect = configuration.property(name: "textEffect")
+            attachmentImage = configuration.property(name: "attachment")
+            link = configuration.property(name: "link")
+            baselineOffset = configuration.property(name: "baselineOffset")
+            underlineColor = configuration.property(name: "underlineColor")
+            strikethroughColor = configuration.property(name: "strikethroughColor")
+            obliqueness = configuration.property(name: "obliqueness")
+            expansion = configuration.property(name: "expansion")
+            writingDirection = configuration.property(name: "writingDirection")
+            verticalGlyphForm = configuration.property(name: "verticalGlyphForm")
 
-        paragraphStyle = configuration.property(name: "paragraphStyle")
+            paragraphStyle = configuration.property(name: "paragraphStyle")
 
-        super.init(configuration: configuration)
+            super.init(configuration: configuration)
+        }
     }
 }

@@ -12,39 +12,40 @@ import Foundation
 import UIKit
 #endif
 
-public class TabBar: View {
-    public override class var availableProperties: [PropertyDescription] {
-        return Properties.tabBar.allProperties
+extension Module.UIKit {
+    public class TabBar: View {
+        public override class var availableProperties: [PropertyDescription] {
+            return Properties.tabBar.allProperties
+        }
+
+        #if canImport(UIKit)
+        public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
+            return UITabBar()
+        }
+        #endif
     }
 
-    #if canImport(UIKit)
-    public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
-        return UITabBar()
-    }
-    #endif
-}
+    public class TabBarProperties: ViewProperties {
+        public let isTranslucent: StaticAssignablePropertyDescription<Bool>
+        public let barStyle: StaticAssignablePropertyDescription<BarStyle>
+        public let barTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let itemSpacing: StaticAssignablePropertyDescription<Double>
+        public let itemWidth: StaticAssignablePropertyDescription<Double>
+        public let backgroundImage: StaticAssignablePropertyDescription<Image?>
+        public let shadowImage: StaticAssignablePropertyDescription<Image?>
+        public let selectionIndicatorImage: StaticAssignablePropertyDescription<Image?>
 
-public class TabBarProperties: ViewProperties {
-    public let isTranslucent: StaticAssignablePropertyDescription<Bool>
-    public let barStyle: StaticAssignablePropertyDescription<BarStyle>
-    public let barTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-    public let itemSpacing: StaticAssignablePropertyDescription<Double>
-    public let itemWidth: StaticAssignablePropertyDescription<Double>
-    public let backgroundImage: StaticAssignablePropertyDescription<Image?>
-    public let shadowImage: StaticAssignablePropertyDescription<Image?>
-    public let selectionIndicatorImage: StaticAssignablePropertyDescription<Image?>
-    
-    public required init(configuration: Configuration) {
-        isTranslucent = configuration.property(name: "isTranslucent", key: "translucent", defaultValue: true)
-        barStyle = configuration.property(name: "barStyle", defaultValue: .default)
-        barTintColor = configuration.property(name: "barTintColor")
-        itemSpacing = configuration.property(name: "itemSpacing")
-        itemWidth = configuration.property(name: "itemWidth")
-        backgroundImage = configuration.property(name: "backgroundImage")
-        shadowImage = configuration.property(name: "shadowImage")
-        selectionIndicatorImage = configuration.property(name: "selectionIndicatorImage")
-        
-        super.init(configuration: configuration)
+        public required init(configuration: Configuration) {
+            isTranslucent = configuration.property(name: "isTranslucent", key: "translucent", defaultValue: true)
+            barStyle = configuration.property(name: "barStyle", defaultValue: .default)
+            barTintColor = configuration.property(name: "barTintColor")
+            itemSpacing = configuration.property(name: "itemSpacing")
+            itemWidth = configuration.property(name: "itemWidth")
+            backgroundImage = configuration.property(name: "backgroundImage")
+            shadowImage = configuration.property(name: "shadowImage")
+            selectionIndicatorImage = configuration.property(name: "selectionIndicatorImage")
+
+            super.init(configuration: configuration)
+        }
     }
 }
-    

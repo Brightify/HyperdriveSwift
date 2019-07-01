@@ -45,7 +45,7 @@ public protocol Property {
 
 public protocol TypedProperty: Property {
     associatedtype ValueType = FactoryType.BuildType
-    associatedtype FactoryType: TypedSupportedTypeFactory
+    associatedtype FactoryType
     associatedtype PropertyDescriptionType: TypedPropertyDescription where PropertyDescriptionType.FactoryType == FactoryType
 
     var value: PropertyValue<FactoryType> { get set }
