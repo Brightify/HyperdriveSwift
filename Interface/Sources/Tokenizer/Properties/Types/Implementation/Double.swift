@@ -22,7 +22,7 @@ extension Double: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     }
     #endif
 
-    #if canImport(UIKit)
+    #if HyperdriveRuntime
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         return self
     }

@@ -16,9 +16,7 @@ public enum TextBorderStyle: String, EnumPropertyType, AttributeSupportedPropert
     case line
     case bezel
     case roundedRect
-}
 
-extension TextBorderStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = TextBorderStyle
 
@@ -27,22 +25,20 @@ extension TextBorderStyle {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension TextBorderStyle {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .none:
-                return UITextField.BorderStyle.none.rawValue
-            case .line:
-                return UITextField.BorderStyle.line.rawValue
-            case .bezel:
-                return UITextField.BorderStyle.bezel.rawValue
-            case .roundedRect:
-                return UITextField.BorderStyle.roundedRect.rawValue
-            }
+extension TextBorderStyle {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .none:
+            return UITextField.BorderStyle.none.rawValue
+        case .line:
+            return UITextField.BorderStyle.line.rawValue
+        case .bezel:
+            return UITextField.BorderStyle.bezel.rawValue
+        case .roundedRect:
+            return UITextField.BorderStyle.roundedRect.rawValue
         }
     }
-    
+}
 #endif

@@ -9,7 +9,6 @@
 import Foundation
 
 public final class ObservationTokenTracker {
-
     private var tokens = Set<ObservationToken>()
 
     public init() {

@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 26/06/2019.
 //
 
-import Foundation
-
 extension Module {
     public static let appKit = AppKit()
 
@@ -29,7 +27,7 @@ extension Module {
                 factory(named: "ImageView", for: ImageView.init),
                 factory(named: "ScrollView", for: ScrollView.init),
                 factory(named: "SplitView", for: SplitView.init),
-//                factory(named: "StackView", for: StackView.init),
+                factory(named: "StackView", for: StackView.init),
 //                factory(named: "TextView", for: TextView.init),
                 factory(named: "DatePicker", for: DatePicker.init),
 //                factory(named: "NavigationBar", for: NavigationBar.init),

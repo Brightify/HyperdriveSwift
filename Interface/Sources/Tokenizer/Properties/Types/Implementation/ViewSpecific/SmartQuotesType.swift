@@ -14,9 +14,7 @@ public enum SmartQuotesType: String, EnumPropertyType, AttributeSupportedPropert
     case `default`
     case no
     case yes
-}
 
-extension SmartQuotesType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = SmartQuotesType
 

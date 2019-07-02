@@ -9,7 +9,6 @@
 import Foundation
 
 extension RangeReplaceableCollection {
-
     // TODO: Make sure no one is using it and remove from Reactant ASAP
     /**
      * - parameter until: actually a `while` in disguise, pass a closure that needs to be true for as long as many you want elements

@@ -7,7 +7,6 @@
 
 import Foundation
 import Tokenizer
-
 import SwiftCodeGen
 
 public class UIGenerator: Generator {

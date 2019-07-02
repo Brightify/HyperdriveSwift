@@ -14,9 +14,7 @@ public enum AutocorrectionType: String, EnumPropertyType, AttributeSupportedProp
     case `default`
     case no
     case yes
-}
 
-extension AutocorrectionType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = AutocorrectionType
 

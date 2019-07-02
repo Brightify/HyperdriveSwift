@@ -40,9 +40,7 @@ extension URL: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
         return materialized
     }
-}
 
-extension URL {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = URL
 

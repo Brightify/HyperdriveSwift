@@ -29,7 +29,6 @@ extension Property where T: OptionalType {
 }
 
 private struct PropertyIdProvider {
-    
     private static var lastUsedId = -1
     
     private static let syncQueue = DispatchQueue(label: "PropertyIdProvider_syncQueue")

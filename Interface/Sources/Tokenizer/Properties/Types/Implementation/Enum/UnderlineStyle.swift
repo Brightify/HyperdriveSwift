@@ -23,9 +23,7 @@ public enum UnderlineStyle: String, EnumPropertyType, AttributeSupportedProperty
     case patternDashDot
     case patternDashDotDot
     case byWord
-}
 
-extension UnderlineStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = UnderlineStyle
 
@@ -37,7 +35,6 @@ extension UnderlineStyle {
 import UIKit
 
 extension UnderlineStyle {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .none:

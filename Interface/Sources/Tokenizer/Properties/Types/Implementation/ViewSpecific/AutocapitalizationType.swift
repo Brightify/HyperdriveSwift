@@ -15,9 +15,7 @@ public enum AutocapitalizationType: String, EnumPropertyType {
     case words
     case sentences
     case allCharacters
-}
 
-extension AutocapitalizationType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = AutocapitalizationType
 

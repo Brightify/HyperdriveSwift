@@ -46,9 +46,7 @@ public struct Shadow: MultipleAttributeSupportedPropertyType, TypedSupportedType
 
         return Shadow(offset: offset, blurRadius: blurRadius, color: color)
     }
-}
 
-extension Shadow {
     public class TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
         public typealias BuildType = Shadow
 

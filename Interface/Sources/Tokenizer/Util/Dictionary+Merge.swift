@@ -9,7 +9,6 @@
 import Foundation
 
 extension Dictionary {
-
     public mutating func merge(with dictionary: Dictionary) {
         dictionary.forEach { updateValue($1, forKey: $0) }
     }

@@ -14,9 +14,7 @@ public enum WritingDirection: String, EnumPropertyType, AttributeSupportedProper
     case natural
     case leftToRight
     case rightToLeft
-}
 
-extension WritingDirection {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = WritingDirection
 
@@ -28,7 +26,6 @@ extension WritingDirection {
 import UIKit
 
 extension WritingDirection {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .natural:

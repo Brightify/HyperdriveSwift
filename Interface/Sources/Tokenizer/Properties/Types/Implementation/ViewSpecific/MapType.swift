@@ -17,9 +17,7 @@ public enum MapType: String, EnumPropertyType, AttributeSupportedPropertyType {
     case hybrid
     case satelliteFlyover
     case hybridFlyover
-}
 
-extension MapType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = MapType
 
@@ -28,23 +26,22 @@ extension MapType {
 }
 
 #if canImport(UIKit)
-    import MapKit
+import MapKit
 
-    extension MapType {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .standard:
-                return MKMapType.standard.rawValue
-            case .satellite:
-                return MKMapType.satellite.rawValue
-            case .hybrid:
-                return MKMapType.hybrid.rawValue
-            case .satelliteFlyover:
-                return MKMapType.satelliteFlyover.rawValue
-            case .hybridFlyover:
-                return MKMapType.hybridFlyover.rawValue
-            }
+extension MapType {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .standard:
+            return MKMapType.standard.rawValue
+        case .satellite:
+            return MKMapType.satellite.rawValue
+        case .hybrid:
+            return MKMapType.hybrid.rawValue
+        case .satelliteFlyover:
+            return MKMapType.satelliteFlyover.rawValue
+        case .hybridFlyover:
+            return MKMapType.hybridFlyover.rawValue
         }
     }
+}
 #endif

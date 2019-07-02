@@ -14,9 +14,7 @@ public enum SmartInsertDeleteType: String, EnumPropertyType, AttributeSupportedP
     case `default`
     case no
     case yes
-}
 
-extension SmartInsertDeleteType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = SmartInsertDeleteType
 

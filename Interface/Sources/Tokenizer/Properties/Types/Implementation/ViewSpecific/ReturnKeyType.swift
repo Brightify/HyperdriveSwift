@@ -10,6 +10,7 @@ import Foundation
 
 public enum ReturnKeyType: String, EnumPropertyType, TypedAttributeSupportedPropertyType {
     public static let enumName = "UIReturnKeyType"
+    public static let typeFactory = TypeFactory()
 
     case `default`
     case go
@@ -24,10 +25,6 @@ public enum ReturnKeyType: String, EnumPropertyType, TypedAttributeSupportedProp
     case emergencyCall
     case `continue`
 
-    public static let typeFactory = TypeFactory()
-}
-
-extension ReturnKeyType {
     public final class TypeFactory: EnumTypeFactory, TypedAttributeSupportedTypeFactory {
         public typealias BuildType = ReturnKeyType
 
@@ -36,37 +33,37 @@ extension ReturnKeyType {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension ReturnKeyType {
+extension ReturnKeyType {
 
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .`default`:
-                return UIReturnKeyType.default.rawValue
-            case .go:
-                return UIReturnKeyType.go.rawValue
-            case .google:
-                return UIReturnKeyType.google.rawValue
-            case .join:
-                return UIReturnKeyType.join.rawValue
-            case .next:
-                return UIReturnKeyType.next.rawValue
-            case .route:
-                return UIReturnKeyType.route.rawValue
-            case .search:
-                return UIReturnKeyType.search.rawValue
-            case .send:
-                return UIReturnKeyType.send.rawValue
-            case .yahoo:
-                return UIReturnKeyType.yahoo.rawValue
-            case .done:
-                return UIReturnKeyType.done.rawValue
-            case .emergencyCall:
-                return UIReturnKeyType.emergencyCall.rawValue
-            case .`continue`:
-                return UIReturnKeyType.continue.rawValue
-            }
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .`default`:
+            return UIReturnKeyType.default.rawValue
+        case .go:
+            return UIReturnKeyType.go.rawValue
+        case .google:
+            return UIReturnKeyType.google.rawValue
+        case .join:
+            return UIReturnKeyType.join.rawValue
+        case .next:
+            return UIReturnKeyType.next.rawValue
+        case .route:
+            return UIReturnKeyType.route.rawValue
+        case .search:
+            return UIReturnKeyType.search.rawValue
+        case .send:
+            return UIReturnKeyType.send.rawValue
+        case .yahoo:
+            return UIReturnKeyType.yahoo.rawValue
+        case .done:
+            return UIReturnKeyType.done.rawValue
+        case .emergencyCall:
+            return UIReturnKeyType.emergencyCall.rawValue
+        case .`continue`:
+            return UIReturnKeyType.continue.rawValue
         }
     }
+}
 #endif

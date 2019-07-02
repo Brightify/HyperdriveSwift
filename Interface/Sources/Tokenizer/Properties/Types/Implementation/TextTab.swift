@@ -49,9 +49,6 @@ public struct TextTab: TypedAttributeSupportedPropertyType, HasStaticTypeFactory
     }
     #endif
 
-}
-
-extension TextTab {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = TextTab
 

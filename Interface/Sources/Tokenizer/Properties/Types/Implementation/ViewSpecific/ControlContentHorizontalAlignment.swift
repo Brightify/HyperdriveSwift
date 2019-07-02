@@ -42,7 +42,6 @@ public enum ControlContentHorizontalAlignment: String, EnumPropertyType {
     #endif
     
     #if SanAndreas
-
     public func dematerialize(context: SupportedPropertyTypeContext) -> String {
         switch self {
             case .center:
@@ -59,7 +58,6 @@ public enum ControlContentHorizontalAlignment: String, EnumPropertyType {
                 return "trailing"
         }
     }
-
     #endif
     
     public static func materialize(from value: String) throws -> ControlContentHorizontalAlignment {
@@ -88,9 +86,7 @@ public enum ControlContentHorizontalAlignment: String, EnumPropertyType {
         let values = Set(arrayLiteral: "center", "left", "right", "fill", "leading", "trailing")
         return .enumeration(EnumerationXSDType(name: ControlContentHorizontalAlignment.enumName, base: .string, values: values))
     }
-}
 
-extension ControlContentHorizontalAlignment {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ControlContentHorizontalAlignment
 
@@ -99,32 +95,32 @@ extension ControlContentHorizontalAlignment {
 }
 
 #if canImport(UIKit)
-    import UIKit
-    
-    extension ControlContentHorizontalAlignment {
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .center:
-                return UIControl.ContentHorizontalAlignment.center.rawValue
-            case .left:
-                return UIControl.ContentHorizontalAlignment.left.rawValue
-            case .right:
-                return UIControl.ContentHorizontalAlignment.right.rawValue
-            case .fill:
-                return UIControl.ContentHorizontalAlignment.fill.rawValue
-            case .leading:
-                if #available(iOS 11.0, tvOS 11.0, *) {
-                    return UIControl.ContentHorizontalAlignment.leading.rawValue
-                } else {
-                    return nil
-                }
-            case .trailing:
-                if #available(iOS 11.0, tvOS 11.0, *) {
-                    return UIControl.ContentHorizontalAlignment.trailing.rawValue
-                } else {
-                    return nil
-                }
+import UIKit
+
+extension ControlContentHorizontalAlignment {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .center:
+            return UIControl.ContentHorizontalAlignment.center.rawValue
+        case .left:
+            return UIControl.ContentHorizontalAlignment.left.rawValue
+        case .right:
+            return UIControl.ContentHorizontalAlignment.right.rawValue
+        case .fill:
+            return UIControl.ContentHorizontalAlignment.fill.rawValue
+        case .leading:
+            if #available(iOS 11.0, tvOS 11.0, *) {
+                return UIControl.ContentHorizontalAlignment.leading.rawValue
+            } else {
+                return nil
+            }
+        case .trailing:
+            if #available(iOS 11.0, tvOS 11.0, *) {
+                return UIControl.ContentHorizontalAlignment.trailing.rawValue
+            } else {
+                return nil
             }
         }
     }
+}
 #endif

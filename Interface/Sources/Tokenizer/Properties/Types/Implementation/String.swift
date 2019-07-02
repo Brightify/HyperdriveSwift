@@ -37,9 +37,7 @@ extension String: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     public static func materialize(from value: String) throws -> String {
         return value
     }
-}
 
-extension String {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = String
 

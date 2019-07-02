@@ -36,7 +36,6 @@ public enum ControlContentVerticalAlignment: String, EnumPropertyType {
     #endif
     
     #if SanAndreas
-
     public func dematerialize(context: SupportedPropertyTypeContext) -> String {
         switch self {
             case .center:
@@ -49,7 +48,6 @@ public enum ControlContentVerticalAlignment: String, EnumPropertyType {
                 return "fill"
         }
     }
-
     #endif
     
     public static func materialize(from value: String) throws -> ControlContentVerticalAlignment {
@@ -73,9 +71,7 @@ public enum ControlContentVerticalAlignment: String, EnumPropertyType {
         let values = Set(arrayLiteral: "center", "top", "bottom", "fill")
         return .enumeration(EnumerationXSDType(name: ControlContentVerticalAlignment.enumName, base: .string, values: values))
     }
-}
 
-extension ControlContentVerticalAlignment {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ControlContentVerticalAlignment
 
@@ -83,23 +79,21 @@ extension ControlContentVerticalAlignment {
     }
 }
 
-
 #if canImport(UIKit)
-    import UIKit
-    
-    extension ControlContentVerticalAlignment {
-        
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .center:
-                return UIControl.ContentVerticalAlignment.center.rawValue
-            case .top:
-                return UIControl.ContentVerticalAlignment.top.rawValue
-            case .bottom:
-                return UIControl.ContentVerticalAlignment.bottom.rawValue
-            case .fill:
-                return UIControl.ContentVerticalAlignment.fill.rawValue
-            }
+import UIKit
+
+extension ControlContentVerticalAlignment {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .center:
+            return UIControl.ContentVerticalAlignment.center.rawValue
+        case .top:
+            return UIControl.ContentVerticalAlignment.top.rawValue
+        case .bottom:
+            return UIControl.ContentVerticalAlignment.bottom.rawValue
+        case .fill:
+            return UIControl.ContentVerticalAlignment.fill.rawValue
         }
     }
+}
 #endif

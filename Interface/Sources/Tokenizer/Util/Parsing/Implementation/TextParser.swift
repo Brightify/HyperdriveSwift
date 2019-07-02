@@ -8,7 +8,6 @@
 import Foundation
 
 class TextParser: BaseParser<TransformedText> {
-
     override func parseSingle() throws -> TransformedText {
         if peekToken() == .colon {
             let transformIdentifier: String?

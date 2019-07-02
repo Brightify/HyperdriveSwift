@@ -7,7 +7,10 @@
 //
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
+#endif
+#if HyperdriveRuntime && canImport(AppKit)
+import AppKit
 #endif
 
 /**
@@ -26,9 +29,9 @@ public protocol UIContainer {
     func add(subview: UIView, toInstanceOfSelf: UIView)
     #endif
 
-//    #if HyperdriveRuntime && canImport(AppKit)
-//    func add(subview: NSView, toInstanceOfSelf: NSView)
-//    #endif
+    #if HyperdriveRuntime && canImport(AppKit)
+    func add(subview: NSView, toInstanceOfSelf: NSView)
+    #endif
 }
 
 public extension UIContainer {

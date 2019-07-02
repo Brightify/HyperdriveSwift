@@ -184,7 +184,6 @@ extension EdgeInsets {
 import UIKit
 
 extension EdgeInsets {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         return UIEdgeInsets(top: top.cgFloat, left: left.cgFloat, bottom: bottom.cgFloat, right: right.cgFloat)
     }

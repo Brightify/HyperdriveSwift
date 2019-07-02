@@ -8,7 +8,7 @@
 
 import Foundation
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 #endif
 
 #if canImport(SwiftCodeGen)
@@ -58,9 +58,6 @@ public struct AffineTransformation: TypedAttributeSupportedPropertyType, HasStat
     }
     #endif
 
-}
-
-extension AffineTransformation {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = AffineTransformation
 

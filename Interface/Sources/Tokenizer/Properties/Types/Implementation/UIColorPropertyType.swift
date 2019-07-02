@@ -72,27 +72,21 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
     }
     #endif
 
-    #if canImport(UIKit)
+    #if HyperdriveRuntime
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .color(.absolute(let red, let green, let blue, let alpha)):
+            #if canImport(UIKit)
             return UIColor(red: red, green: green, blue: blue, alpha: alpha)
-        case .color(.named(let name)):
-            return UIColor.value(forKeyPath: "\(name)Color") as? UIColor
-        case .themed(let name):
-            guard let themedColor = context.themed(color: name) else { return nil }
-            return themedColor.runtimeValue(context: context.child(for: themedColor))
-        }
-    }
-    #endif
-
-    #if HyperdriveRuntime && canImport(AppKit)
-    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-        switch self {
-        case .color(.absolute(let red, let green, let blue, let alpha)):
+            #else
             return NSColor(red: red, green: green, blue: blue, alpha: alpha)
+            #endif
         case .color(.named(let name)):
+            #if canImport(UIKit)
+            return UIColor.value(forKeyPath: "\(name)Color") as? UIColor
+            #else
             return NSColor.value(forKeyPath: "\(name)Color") as? NSColor
+            #endif
         case .themed(let name):
             guard let themedColor = context.themed(color: name) else { return nil }
             return themedColor.runtimeValue(context: context.child(for: themedColor))
@@ -180,9 +174,7 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         }
         return .color(color)
     }
-}
 
-extension UIColorPropertyType {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = UIColorPropertyType
 

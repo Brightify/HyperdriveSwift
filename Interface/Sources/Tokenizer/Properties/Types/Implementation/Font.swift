@@ -63,22 +63,21 @@ public enum Font: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension Font {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .system(let weight, let size):
-                return UIFont.systemFont(ofSize: CGFloat(size), weight: UIFont.Weight(rawValue: weight.value))
-            case .named(let name, let size):
-                return UIFont(name: name, size: CGFloat(size))
-            case .themed(let name):
-                guard let themedFont = context.themed(font: name) else { return nil }
-                return themedFont.runtimeValue(context: context.child(for: themedFont))
-            }
+extension Font {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .system(let weight, let size):
+            return UIFont.systemFont(ofSize: CGFloat(size), weight: UIFont.Weight(rawValue: weight.value))
+        case .named(let name, let size):
+            return UIFont(name: name, size: CGFloat(size))
+        case .themed(let name):
+            guard let themedFont = context.themed(font: name) else { return nil }
+            return themedFont.runtimeValue(context: context.child(for: themedFont))
         }
     }
+}
 #endif
 
 extension Font {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 #if canImport(HyperdriveInterface)
 import HyperdriveInterface
 #else

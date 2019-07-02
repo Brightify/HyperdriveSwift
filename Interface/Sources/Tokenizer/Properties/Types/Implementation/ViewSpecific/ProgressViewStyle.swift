@@ -13,9 +13,7 @@ public enum ProgressViewStyle: String, EnumPropertyType {
 
     case `default`
     case bar
-}
 
-extension ProgressViewStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ProgressViewStyle
 
@@ -27,7 +25,6 @@ extension ProgressViewStyle {
 import UIKit
 
 extension ProgressViewStyle {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .default:

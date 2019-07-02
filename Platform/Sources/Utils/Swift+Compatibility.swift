@@ -14,5 +14,4 @@ public extension Sequence {
         return try self.flatMap(transform)
     }
 }
-
 #endif

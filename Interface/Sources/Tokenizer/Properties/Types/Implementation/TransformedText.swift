@@ -109,9 +109,7 @@ extension TransformedText: TypedAttributeSupportedPropertyType {
         let tokens = Lexer.tokenize(input: value, keepWhitespace: true)
         return try TextParser(tokens: tokens).parseSingle()
     }
-}
 
-extension TransformedText {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = TransformedText
 

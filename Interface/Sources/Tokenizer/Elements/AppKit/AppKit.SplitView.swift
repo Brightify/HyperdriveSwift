@@ -32,7 +32,7 @@ extension Module.AppKit {
 
     public class SplitViewProperties: ViewProperties {
         public let isVertical: StaticAssignablePropertyDescription<Bool>
-        public let dividerStyle: StaticAssignablePropertyDescription<Module.AppKit.SplitView.SplitViewDividerStyle>
+        public let dividerStyle: StaticAssignablePropertyDescription<SplitView.SplitViewDividerStyle>
 
         public required init(configuration: Configuration) {
             isVertical = configuration.property(name: "isVertical", key: "vertical", defaultValue: false)
@@ -51,14 +51,12 @@ extension Module.AppKit.SplitView {
         case thick
         case thin
         case paneSplitter
-    }
-}
+        
+        public final class TypeFactory: EnumTypeFactory {
+            public typealias BuildType = Module.AppKit.SplitView.SplitViewDividerStyle
 
-extension Module.AppKit.SplitView.SplitViewDividerStyle {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = Module.AppKit.SplitView.SplitViewDividerStyle
-
-        public init() { }
+            public init() { }
+        }
     }
 }
 

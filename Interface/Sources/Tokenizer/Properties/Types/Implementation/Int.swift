@@ -40,13 +40,7 @@ extension Int: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
         return materialized
     }
-}
 
-extension Int: HasDefaultValue {
-    public static let defaultValue: Int = 0
-}
-
-extension Int {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Int
 
@@ -60,4 +54,8 @@ extension Int {
             return RuntimeType(name: "Int")
         }
     }
+}
+
+extension Int: HasDefaultValue {
+    public static let defaultValue: Int = 0
 }

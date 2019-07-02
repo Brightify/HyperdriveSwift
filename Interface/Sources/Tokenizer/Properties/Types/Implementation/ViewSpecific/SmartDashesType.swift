@@ -14,9 +14,7 @@ public enum SmartDashesType: String, EnumPropertyType, AttributeSupportedPropert
     case `default`
     case no
     case yes
-}
 
-extension SmartDashesType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = SmartDashesType
 

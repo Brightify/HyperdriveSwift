@@ -15,9 +15,7 @@ public enum KeyboardAppearance: String, EnumPropertyType, AttributeSupportedProp
     case `default`
     case dark
     case light
-}
-
-extension KeyboardAppearance {
+    
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = KeyboardAppearance
 
@@ -26,19 +24,18 @@ extension KeyboardAppearance {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension KeyboardAppearance {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .`default`:
-                return UIKeyboardAppearance.default.rawValue
-            case .dark:
-                return UIKeyboardAppearance.dark.rawValue
-            case .light:
-                return UIKeyboardAppearance.light.rawValue
-            }
+extension KeyboardAppearance {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .`default`:
+            return UIKeyboardAppearance.default.rawValue
+        case .dark:
+            return UIKeyboardAppearance.dark.rawValue
+        case .light:
+            return UIKeyboardAppearance.light.rawValue
         }
     }
+}
 #endif

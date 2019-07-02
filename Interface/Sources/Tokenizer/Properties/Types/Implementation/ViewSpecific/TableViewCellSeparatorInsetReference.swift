@@ -13,9 +13,7 @@ public enum TableViewCellSeparatorInsetReference: String, EnumPropertyType, Attr
 
     case fromCellEdges
     case fromAutomaticInsets
-}
 
-extension TableViewCellSeparatorInsetReference {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = TableViewCellSeparatorInsetReference
 
@@ -24,23 +22,22 @@ extension TableViewCellSeparatorInsetReference {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension TableViewCellSeparatorInsetReference {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .fromCellEdges:
-                if #available(iOS 11.0, tvOS 11.0, *) {
-                    return UITableView.SeparatorInsetReference.fromCellEdges.rawValue
-                }
-                return nil
-            case .fromAutomaticInsets:
-                if #available(iOS 11.0, tvOS 11.0, *) {
-                    return UITableView.SeparatorInsetReference.fromAutomaticInsets.rawValue
-                }
-                return nil
+extension TableViewCellSeparatorInsetReference {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .fromCellEdges:
+            if #available(iOS 11.0, tvOS 11.0, *) {
+                return UITableView.SeparatorInsetReference.fromCellEdges.rawValue
             }
+            return nil
+        case .fromAutomaticInsets:
+            if #available(iOS 11.0, tvOS 11.0, *) {
+                return UITableView.SeparatorInsetReference.fromAutomaticInsets.rawValue
+            }
+            return nil
         }
     }
+}
 #endif

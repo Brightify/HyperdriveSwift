@@ -14,9 +14,7 @@ public enum ViewCollapseAxis: String, EnumPropertyType, AttributeSupportedProper
     case horizontal
     case vertical
     case both
-}
 
-extension ViewCollapseAxis {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ViewCollapseAxis
 

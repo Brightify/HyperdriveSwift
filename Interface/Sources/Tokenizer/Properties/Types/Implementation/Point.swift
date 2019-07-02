@@ -8,7 +8,7 @@
 
 import Foundation
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 #endif
 
 #if canImport(SwiftCodeGen)
@@ -51,9 +51,7 @@ public struct Point: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
 
         return Point(x: x, y: y)
     }
-}
 
-extension Point {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Point
 
@@ -70,10 +68,9 @@ extension Point {
 }
 
 #if canImport(UIKit)
-    extension Point {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            return CGPoint(x: x.cgFloat, y: y.cgFloat)
-        }
+extension Point {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        return CGPoint(x: x.cgFloat, y: y.cgFloat)
     }
+}
 #endif

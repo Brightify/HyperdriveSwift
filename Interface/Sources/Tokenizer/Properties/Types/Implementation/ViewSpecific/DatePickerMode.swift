@@ -16,9 +16,7 @@ public enum DatePickerMode: String, EnumPropertyType, AttributeSupportedProperty
     case time
     case dateAndTime
     case countDownTimer
-}
 
-extension DatePickerMode {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = DatePickerMode
 
@@ -30,7 +28,6 @@ extension DatePickerMode {
 import UIKit
 
 extension DatePickerMode {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         #if os(tvOS)
             return nil

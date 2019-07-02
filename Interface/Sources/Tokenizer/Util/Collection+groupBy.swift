@@ -9,7 +9,6 @@
 import Foundation
 
 extension Collection {
-
     public func groupBy<KEY: Hashable>(_ extractKey: (Iterator.Element) -> KEY) -> [(KEY, [Iterator.Element])] {
         return groupBy { Optional(extractKey($0)) }
     }

@@ -67,9 +67,7 @@ public enum VisualEffect: TypedAttributeSupportedPropertyType, HasStaticTypeFact
     }
 
     static var allValues: [VisualEffect] = BlurEffect.allCases.map(VisualEffect.blur) + BlurEffect.allCases.map(VisualEffect.vibrancy)
-}
 
-extension VisualEffect {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = VisualEffect
 
@@ -108,32 +106,31 @@ public enum BlurEffect: String, CaseIterable {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension BlurEffect {
-
-        public var runtimeValue: Any? {
-            switch self {
-            case .extraLight:
-                return UIBlurEffect(style: .extraLight)
-            case .light:
+extension BlurEffect {
+    public var runtimeValue: Any? {
+        switch self {
+        case .extraLight:
+            return UIBlurEffect(style: .extraLight)
+        case .light:
+            return UIBlurEffect(style: .light)
+        case .dark:
+            return UIBlurEffect(style: .dark)
+        case .prominent:
+            if #available(iOS 10.0, tvOS 10.0, *) {
+                return UIBlurEffect(style: .prominent)
+            } else {
+                // FIXME check default values
                 return UIBlurEffect(style: .light)
-            case .dark:
-                return UIBlurEffect(style: .dark)
-            case .prominent:
-                if #available(iOS 10.0, tvOS 10.0, *) {
-                    return UIBlurEffect(style: .prominent)
-                } else {
-                    // FIXME check default values
-                    return UIBlurEffect(style: .light)
-                }
-            case .regular:
-                if #available(iOS 10.0, tvOS 10.0, *) {
-                    return UIBlurEffect(style: .regular)
-                } else {
-                    return UIBlurEffect(style: .light)
-                }
+            }
+        case .regular:
+            if #available(iOS 10.0, tvOS 10.0, *) {
+                return UIBlurEffect(style: .regular)
+            } else {
+                return UIBlurEffect(style: .light)
             }
         }
     }
+}
 #endif

@@ -15,9 +15,7 @@ public enum ScrollViewIndicatorStyle: String, EnumPropertyType, AttributeSupport
     case `default`
     case black
     case white
-}
 
-extension ScrollViewIndicatorStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ScrollViewIndicatorStyle
 
@@ -26,19 +24,18 @@ extension ScrollViewIndicatorStyle {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension ScrollViewIndicatorStyle {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .default:
-                return UIScrollView.IndicatorStyle.default.rawValue
-            case .black:
-                return UIScrollView.IndicatorStyle.black.rawValue
-            case .white:
-                return UIScrollView.IndicatorStyle.white.rawValue
-            }
+extension ScrollViewIndicatorStyle {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .default:
+            return UIScrollView.IndicatorStyle.default.rawValue
+        case .black:
+            return UIScrollView.IndicatorStyle.black.rawValue
+        case .white:
+            return UIScrollView.IndicatorStyle.white.rawValue
         }
     }
+}
 #endif

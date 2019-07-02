@@ -16,9 +16,6 @@ public enum BarStyle: String, EnumPropertyType {
     case black
     case blackTranslucent
     
-}
-
-extension BarStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = BarStyle
 

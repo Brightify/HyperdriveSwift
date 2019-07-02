@@ -14,9 +14,7 @@ public enum SpellCheckingType: String, EnumPropertyType, AttributeSupportedPrope
     case `default`
     case no
     case yes
-}
 
-extension SpellCheckingType {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = SpellCheckingType
 

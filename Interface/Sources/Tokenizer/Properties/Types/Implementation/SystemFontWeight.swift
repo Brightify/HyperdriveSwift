@@ -8,7 +8,7 @@
 
 import Foundation
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 #endif
 
 public enum SystemFontWeight: String, CaseIterable {

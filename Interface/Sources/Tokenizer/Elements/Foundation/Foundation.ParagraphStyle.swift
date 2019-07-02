@@ -48,6 +48,20 @@ extension Module.Foundation {
 
             return try ParagraphStyle(properties: PropertyHelper.deserializeSupportedProperties(properties: properties, from: attributes))
         }
+
+        public class TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
+            public typealias BuildType = Module.Foundation.ParagraphStyle
+
+            public var xsdType: XSDType {
+                return .builtin(.string)
+            }
+
+            public init() { }
+
+            public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
+                return RuntimeType(name: "NSMutableParagraphStyle", module: "Foundation")
+            }
+        }
     }
 
     public class ParagraphStyleProperties: PropertyContainer {
@@ -83,22 +97,6 @@ extension Module.Foundation {
             paragraphSpacingBefore = configuration.property(name: "paragraphSpacingBefore")
 
             super.init(configuration: configuration)
-        }
-    }
-}
-
-extension Module.Foundation.ParagraphStyle {
-    public class TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
-        public typealias BuildType = Module.Foundation.ParagraphStyle
-
-        public var xsdType: XSDType {
-            return .builtin(.string)
-        }
-
-        public init() { }
-
-        public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
-            return RuntimeType(name: "NSMutableParagraphStyle", module: "Foundation")
         }
     }
 }

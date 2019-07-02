@@ -15,9 +15,7 @@ public enum ViewVisibility: String, EnumPropertyType, AttributeSupportedProperty
     case visible
     case hidden
     case collapsed
-}
 
-extension ViewVisibility {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = ViewVisibility
 
@@ -29,7 +27,6 @@ extension ViewVisibility {
 import HyperdriveInterface
 
 extension ViewVisibility {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .visible:

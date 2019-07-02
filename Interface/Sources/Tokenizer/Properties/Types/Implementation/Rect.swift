@@ -8,7 +8,7 @@
 
 import Foundation
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 #endif
 
 #if canImport(SwiftCodeGen)
@@ -73,12 +73,11 @@ extension Rect {
 }
 
 #if canImport(UIKit)
-
-    extension Rect {
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            let origin = CGPoint(x: self.origin.x.cgFloat, y: self.origin.y.cgFloat)
-            let size = CGSize(width: self.size.width.cgFloat, height: self.size.height.cgFloat)
-            return CGRect(origin: origin, size: size)
-        }
+extension Rect {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        let origin = CGPoint(x: self.origin.x.cgFloat, y: self.origin.y.cgFloat)
+        let size = CGSize(width: self.size.width.cgFloat, height: self.size.height.cgFloat)
+        return CGRect(origin: origin, size: size)
     }
+}
 #endif

@@ -48,9 +48,7 @@ public struct Size: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
             throw PropertyMaterializationError.unknownValue(value)
         }
     }
-}
 
-extension Size {
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Size
 
@@ -67,12 +65,11 @@ extension Size {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension Size {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            return CGSize(width: width.cgFloat, height: height.cgFloat)
-        }
+extension Size {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        return CGSize(width: width.cgFloat, height: height.cgFloat)
     }
+}
 #endif

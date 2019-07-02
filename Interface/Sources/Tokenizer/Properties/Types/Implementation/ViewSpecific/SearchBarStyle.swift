@@ -15,9 +15,7 @@ public enum SearchBarStyle: String, EnumPropertyType, AttributeSupportedProperty
     case `default`
     case minimal
     case prominent
-}
 
-extension SearchBarStyle {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = SearchBarStyle
 
@@ -26,19 +24,19 @@ extension SearchBarStyle {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension SearchBarStyle {
+extension SearchBarStyle {
 
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .`default`:
-                return UISearchBar.Style.default.rawValue
-            case .minimal:
-                return UISearchBar.Style.minimal.rawValue
-            case .prominent:
-                return UISearchBar.Style.prominent.rawValue
-            }
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .`default`:
+            return UISearchBar.Style.default.rawValue
+        case .minimal:
+            return UISearchBar.Style.minimal.rawValue
+        case .prominent:
+            return UISearchBar.Style.prominent.rawValue
         }
     }
+}
 #endif

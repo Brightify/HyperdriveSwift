@@ -16,9 +16,7 @@ public enum TextFieldViewMode: String, EnumPropertyType, AttributeSupportedPrope
     case whileEditing
     case unlessEditing
     case always
-}
 
-extension TextFieldViewMode {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = TextFieldViewMode
 
@@ -27,22 +25,20 @@ extension TextFieldViewMode {
 }
 
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 
-    extension TextFieldViewMode {
-
-        public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
-            switch self {
-            case .never:
-                return UITextField.ViewMode.never.rawValue
-            case .whileEditing:
-                return UITextField.ViewMode.whileEditing.rawValue
-            case .unlessEditing:
-                return UITextField.ViewMode.unlessEditing.rawValue
-            case .always:
-                return UITextField.ViewMode.always.rawValue
-            }
+extension TextFieldViewMode {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        switch self {
+        case .never:
+            return UITextField.ViewMode.never.rawValue
+        case .whileEditing:
+            return UITextField.ViewMode.whileEditing.rawValue
+        case .unlessEditing:
+            return UITextField.ViewMode.unlessEditing.rawValue
+        case .always:
+            return UITextField.ViewMode.always.rawValue
         }
     }
-    
+}
 #endif
