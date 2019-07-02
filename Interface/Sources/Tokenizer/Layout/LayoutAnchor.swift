@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum LayoutAnchor: CustomStringConvertible {
     case top
     case bottom

@@ -11,7 +11,6 @@ import UIKit
 #else
 import AppKit
 #endif
-import Foundation
 
 public enum Color {
     case absolute(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)

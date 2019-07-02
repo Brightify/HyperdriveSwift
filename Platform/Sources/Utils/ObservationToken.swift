@@ -6,8 +6,6 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public final class ObservationToken: Hashable, Equatable {
     private let onStop: () -> Void
 

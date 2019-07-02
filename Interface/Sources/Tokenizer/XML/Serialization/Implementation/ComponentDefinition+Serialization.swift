@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 extension ComponentDefinition: XMLElementSerializable {
     public func serialize(context: DataContext) -> XMLSerializableElement {
         var builder = XMLAttributeBuilder()

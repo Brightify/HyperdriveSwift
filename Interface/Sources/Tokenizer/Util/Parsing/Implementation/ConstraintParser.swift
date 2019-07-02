@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 class ConstraintParser: BaseParser<Constraint> {
     private let layoutAttribute: LayoutAttribute
     

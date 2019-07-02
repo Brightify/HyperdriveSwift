@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 extension RangeReplaceableCollection {
     // TODO: Make sure no one is using it and remove from Reactant ASAP
     /**

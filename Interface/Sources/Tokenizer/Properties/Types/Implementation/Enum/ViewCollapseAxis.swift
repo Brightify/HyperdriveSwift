@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 09/08/2018.
 //
 
-import Foundation
-
 public enum ViewCollapseAxis: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "CollapseAxis"
     public static let typeFactory = TypeFactory()

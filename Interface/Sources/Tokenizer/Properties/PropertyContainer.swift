@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public extension Array where Element == PropertyContainer.Namespace {
     var resolvedKeyPath: String {
         return map { $0.name }.joined(separator: ".")

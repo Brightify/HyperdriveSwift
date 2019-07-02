@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-import Foundation
-
 public enum AutocorrectionType: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UITextAutocorrectionType"
     public static let typeFactory = TypeFactory()

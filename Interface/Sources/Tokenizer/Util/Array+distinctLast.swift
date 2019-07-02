@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 13/08/2018.
 //
 
-import Foundation
-
 extension Array {
     func distinctLast(comparator: (Element, Element) -> Bool) -> [Element] {
         var newArray: [Element] = []

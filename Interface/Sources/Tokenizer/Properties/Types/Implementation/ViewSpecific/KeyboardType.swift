@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum KeyboardType: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UIKeyboardType"
     public static let typeFactory = TypeFactory()

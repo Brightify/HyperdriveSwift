@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public class LayerProperties: PropertyContainer {
     public let cornerRadius: StaticAssignablePropertyDescription<Double>
     public let borderWidth: StaticAssignablePropertyDescription<Double>

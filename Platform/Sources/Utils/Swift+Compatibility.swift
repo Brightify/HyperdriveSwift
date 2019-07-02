@@ -6,8 +6,6 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Foundation
-
 #if !swift(>=4.1)
 public extension Sequence {
     func compactMap<ElementOfResult>(_ transform: (Element) throws -> ElementOfResult?) rethrows -> [ElementOfResult] {

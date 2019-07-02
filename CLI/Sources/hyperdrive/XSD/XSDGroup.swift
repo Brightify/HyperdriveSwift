@@ -5,7 +5,6 @@
 //  Created by Matouš Hýbl on 21/03/2018.
 //
 
-import Foundation
 import Tokenizer
 
 struct XSDGroup {

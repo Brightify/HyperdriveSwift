@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 protocol PropertiesContainer {
     static func prepare<T: PropertyContainer>(_ type: T.Type) -> T
 }

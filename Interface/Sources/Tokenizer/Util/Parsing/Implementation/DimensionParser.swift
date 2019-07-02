@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-import Foundation
-
 class DimensionParser: BaseParser<(identifier: String?, value: Double)> {
     override func parseSingle() throws -> (identifier: String?, value: Double) {
         let dimension: (identifier: String?, value: Double)

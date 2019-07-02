@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum ReturnKeyType: String, EnumPropertyType, TypedAttributeSupportedPropertyType {
     public static let enumName = "UIReturnKeyType"
     public static let typeFactory = TypeFactory()

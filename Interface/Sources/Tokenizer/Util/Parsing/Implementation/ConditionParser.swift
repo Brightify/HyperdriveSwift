@@ -5,8 +5,6 @@
 //  Created by Robin Krenecky on 30/04/2018.
 //
 
-import Foundation
-
 extension ConditionParser {
     fileprivate func toBinaryOperation(token: Lexer.Token) -> ConditionBinaryOperation? {
         switch token {

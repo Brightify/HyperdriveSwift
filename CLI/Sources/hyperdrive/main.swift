@@ -1,6 +1,5 @@
 import Generator
 import Tokenizer
-import Foundation
 import xcodeproj
 import SwiftCLI
 

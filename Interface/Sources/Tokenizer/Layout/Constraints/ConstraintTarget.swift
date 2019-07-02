@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 public enum ConstraintTarget {
     case identifier(String)
     case parent

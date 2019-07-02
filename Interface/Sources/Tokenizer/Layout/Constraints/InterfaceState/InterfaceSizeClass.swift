@@ -6,7 +6,6 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Foundation
 #if canImport(UIKit)
 import UIKit
 #endif

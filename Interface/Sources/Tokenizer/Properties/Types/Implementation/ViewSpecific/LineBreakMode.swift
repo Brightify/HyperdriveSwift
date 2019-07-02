@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum LineBreakMode: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "NSLineBreakMode"
     public static let typeFactory = TypeFactory()
@@ -18,9 +16,7 @@ public enum LineBreakMode: String, EnumPropertyType, AttributeSupportedPropertyT
     case byTruncatingHead
     case byTruncatingTail
     case byTruncatingMiddle
-}
 
-extension LineBreakMode {
     public final class TypeFactory: EnumTypeFactory {
         public typealias BuildType = LineBreakMode
 
@@ -32,7 +28,6 @@ extension LineBreakMode {
 import UIKit
 
 extension LineBreakMode {
-
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
         switch self {
         case .byWordWrapping:

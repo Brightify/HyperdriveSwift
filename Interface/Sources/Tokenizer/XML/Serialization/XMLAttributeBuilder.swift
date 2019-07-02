@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 public struct XMLAttributeBuilder {
     public let namespace: String
     public private(set) var attributes: [XMLSerializableAttribute] = []

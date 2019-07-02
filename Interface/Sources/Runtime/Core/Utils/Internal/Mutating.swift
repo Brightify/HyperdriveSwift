@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 15/06/2019.
 //
 
-import Foundation
-
 internal func mutating<T>(_ value: T, mutation: (inout T) -> Void) -> T {
     var mutableValue = value
     mutation(&mutableValue)

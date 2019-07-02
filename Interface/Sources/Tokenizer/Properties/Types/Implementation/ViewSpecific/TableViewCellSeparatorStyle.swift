@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-import Foundation
-
 public enum TableViewCellSeparatorStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UITableViewCell.SeparatorStyle"
     public static let typeFactory = TypeFactory()

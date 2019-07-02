@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 private func +=(lhs: inout [String], rhs: String) {
     lhs.append(rhs)
 }

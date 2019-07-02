@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 03/06/2019.
 //
 
-import Foundation
-
 public class UIElementDeserializationContext: DeserializationContext, HasParentContext, HasElementIdProvider {
     public let parentContext: DeserializationContext & HasUIElementFactoryRegistry & CanDeserializeDefinition
     public let element: XMLElement

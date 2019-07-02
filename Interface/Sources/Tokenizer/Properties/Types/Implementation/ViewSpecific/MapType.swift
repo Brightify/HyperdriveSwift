@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum MapType: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "MKMapType"
     public static let typeFactory = TypeFactory()

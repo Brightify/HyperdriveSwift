@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 02/06/2019.
 //
 
-import Foundation
-
 public protocol DeserializationContext {
     var platform: RuntimePlatform { get }
 }

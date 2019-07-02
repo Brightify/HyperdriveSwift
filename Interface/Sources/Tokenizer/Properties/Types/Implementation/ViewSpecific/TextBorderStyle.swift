@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum TextBorderStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UITextField.BorderStyle"
     public static let typeFactory = TypeFactory()

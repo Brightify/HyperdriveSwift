@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 /**
  * Layout information deserialized from XML element. Contains constraints, compression and hugging priorities as well as the layout ID
  * which is exclusive to ReactantUI.

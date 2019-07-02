@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum BarStyle: String, EnumPropertyType {
     public static let enumName = "UIBarStyle"
     public static let typeFactory = TypeFactory()

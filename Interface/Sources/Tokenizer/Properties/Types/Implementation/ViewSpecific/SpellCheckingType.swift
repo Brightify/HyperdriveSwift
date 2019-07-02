@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-import Foundation
-
 public enum SpellCheckingType: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UITextSpellCheckingType"
     public static let typeFactory = TypeFactory()

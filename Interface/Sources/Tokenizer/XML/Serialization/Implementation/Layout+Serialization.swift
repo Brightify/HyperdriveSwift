@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-import Foundation
-
 extension Layout {
     public func serialize() -> [XMLSerializableAttribute] {
         var builder = XMLAttributeBuilder(namespace: "layout")

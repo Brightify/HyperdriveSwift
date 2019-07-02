@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 class BaseParser<ITEM> {
     private var tokens: [Lexer.Token]
     private var position = 0

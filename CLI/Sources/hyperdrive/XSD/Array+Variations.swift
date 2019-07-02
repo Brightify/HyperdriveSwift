@@ -21,8 +21,6 @@
 // SOFTWARE.
 // https://github.com/NoHomey/swift-array-variations/blob/master/Sources/swift_array_variations.swift
 
-import Foundation
-
 internal func strike(_ array: [Int], from: [Int]) -> [Int] {
     var result: Array<Int> = []
 

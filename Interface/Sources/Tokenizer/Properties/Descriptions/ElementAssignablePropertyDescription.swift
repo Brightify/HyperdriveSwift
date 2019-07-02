@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 04/06/2018.
 //
 
-import Foundation
-
 public typealias StaticElementAssignablePropertyDescription<T> = ElementAssignablePropertyDescription<T.TypeFactory> where T: ElementSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedElementSupportedTypeFactory
 
 /**

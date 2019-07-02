@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 class TextParser: BaseParser<TransformedText> {
     override func parseSingle() throws -> TransformedText {
         if peekToken() == .colon {

@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum SearchBarStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UISearchBar.Style"
     public static let typeFactory = TypeFactory()

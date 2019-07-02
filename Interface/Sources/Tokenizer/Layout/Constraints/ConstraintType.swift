@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 public enum ConstraintType {
     case constant(Double)
     case targeted(target: ConstraintTarget, targetAnchor: LayoutAnchor, multiplier: Double, constant: Double)

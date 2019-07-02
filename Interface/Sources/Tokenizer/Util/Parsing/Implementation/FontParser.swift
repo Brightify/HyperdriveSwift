@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 class FontParser: BaseParser<Font> {
     override func parseSingle() throws -> Font {
         if case .colon? = peekToken() {

@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 02/03/2018.
 //
 
-import Foundation
-
 #if canImport(SwiftCodeGen)
 import SwiftCodeGen
 #endif

@@ -6,7 +6,6 @@
 //
 
 import Tokenizer
-import Foundation
 
 struct XSDSimpleType {
     let name: String

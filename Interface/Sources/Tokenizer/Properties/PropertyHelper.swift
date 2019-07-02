@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 05/03/2018.
 //
 
-import Foundation
-
 public struct PropertyHelper {
     
     public static func deserializeSupportedProperties(properties: [PropertyDescription], in element: SWXMLHash.XMLElement) throws -> [Property] {

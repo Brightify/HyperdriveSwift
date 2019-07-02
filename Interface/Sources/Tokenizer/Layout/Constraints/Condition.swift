@@ -5,7 +5,6 @@
 //  Created by Robin Krenecky on 27/04/2018.
 //
 
-import Foundation
 // canImport(Common) is required because there's no module "Common" in ReactantLiveUI
 #if canImport(Common)
 import Common

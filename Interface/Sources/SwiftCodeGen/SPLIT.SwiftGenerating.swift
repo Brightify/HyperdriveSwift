@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 30/05/2019.
 //
 
-import Foundation
-
 public protocol HasAttributes {
     var attributes: Attributes { get set }
 }

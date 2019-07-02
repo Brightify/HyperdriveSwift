@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 11/07/2018.
 //
 
-import Foundation
-
 struct SimpleProcedure {
     typealias Parameter = (label: String?, value: String)
 

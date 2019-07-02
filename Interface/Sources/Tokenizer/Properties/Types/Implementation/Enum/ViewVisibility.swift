@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum ViewVisibility: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "Visibility"
     public static let typeFactory = TypeFactory()

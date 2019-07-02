@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 26/06/2019.
 //
 
-import Foundation
-
 #if canImport(SwiftCodeGen) && canImport(UIKit)
 public protocol SwiftExtensionWorkaround: ProvidesCodeInitialization, CanInitializeUIKitView { }
 #elseif canImport(SwiftCodeGen) && HyperdriveRuntime && canImport(AppKit)

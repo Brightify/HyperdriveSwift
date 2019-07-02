@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum DatePickerMode: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UIDatePickerMode"
     public static let typeFactory = TypeFactory()

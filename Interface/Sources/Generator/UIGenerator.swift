@@ -5,7 +5,6 @@
 //  Created by Matouš Hýbl on 26/02/2018.
 //
 
-import Foundation
 import Tokenizer
 import SwiftCodeGen
 

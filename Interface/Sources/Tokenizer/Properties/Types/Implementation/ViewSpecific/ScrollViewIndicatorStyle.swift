@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum ScrollViewIndicatorStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UIScrollView.IndicatorStyle"
     public static let typeFactory = TypeFactory()

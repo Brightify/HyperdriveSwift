@@ -6,8 +6,6 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Foundation
-
 final class Logger {
     static let instance = Logger()
 

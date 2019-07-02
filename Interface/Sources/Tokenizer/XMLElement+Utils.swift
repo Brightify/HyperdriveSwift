@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 extension XMLElement {
     func value<T: XMLElementDeserializable>() throws -> T {
         return try T.deserialize(self)

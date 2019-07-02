@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 03/06/2019.
 //
 
-import Foundation
-
 public class MainDeserializationContext: DeserializationContext {
     public let elementFactories: [String: UIElementFactory]
     public let referenceFactory: ComponentReferenceFactory

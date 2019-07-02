@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 01/06/2018.
 //
 
-import Foundation
-
 /**
  * The "file"'s context. This context is available throughout a Component's file.
  * It's used to resolve local styles and delegate global style resolving to global context.

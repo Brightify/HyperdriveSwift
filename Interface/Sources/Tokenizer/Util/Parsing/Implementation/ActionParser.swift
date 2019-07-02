@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 31/05/2019.
 //
 
-import Foundation
-
 // EBNF as of making this parser:
 // ACTION := IDENTIFIER [ '(' PARAMETER [ ',' PARAMETER ] ')' ]
 // PARAMETER := ( INHERITED | STATE_VARIABLE | REFERENCE | CONSTANT )

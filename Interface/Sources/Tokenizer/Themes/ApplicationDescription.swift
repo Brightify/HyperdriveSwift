@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 6/18/18.
 //
 
-import Foundation
-
 /**
  * Structure containing themed resources.
  * An example would be themed XML element **<Fonts>** (and its innards) inside an **<Application>** XML element.

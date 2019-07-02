@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-import Foundation
-
 public enum AutocapitalizationType: String, EnumPropertyType {
     public static let enumName = "UITextAutocapitalizationType"
     public static let typeFactory = TypeFactory()

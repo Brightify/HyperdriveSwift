@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-import Foundation
-
 public enum XSDType {
     case builtin(BuiltinXSDType)
     case enumeration(EnumerationXSDType)

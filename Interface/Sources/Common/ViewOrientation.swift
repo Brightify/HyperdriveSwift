@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 07/06/2018.
 //
 
-import Foundation
-
 public enum ViewOrientation {
     case landscape
     case portrait

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Foundation
 // canImport(Common) is required because there's no module "Common" in ReactantLiveUI
 #if canImport(Common)
 import Common

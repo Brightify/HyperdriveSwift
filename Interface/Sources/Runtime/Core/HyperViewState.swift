@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public protocol HyperViewState: AnyObject {
     init()
 

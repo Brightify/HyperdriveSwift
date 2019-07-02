@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum TextFieldViewMode: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "UITextField.ViewMode"
     public static let typeFactory = TypeFactory()

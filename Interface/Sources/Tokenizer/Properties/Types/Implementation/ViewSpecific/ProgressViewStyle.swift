@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 16/04/2018.
 //
 
-import Foundation
-
 public enum ProgressViewStyle: String, EnumPropertyType {
     public static let enumName = "UIProgressView.Style"
     public static let typeFactory = TypeFactory()

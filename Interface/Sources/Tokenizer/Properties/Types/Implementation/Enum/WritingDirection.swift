@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 28/05/2018.
 //
 
-import Foundation
-
 public enum WritingDirection: String, EnumPropertyType, AttributeSupportedPropertyType {
     public static let enumName = "NSWritingDirection"
     public static let typeFactory = TypeFactory()

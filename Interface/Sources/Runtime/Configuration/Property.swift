@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 /**
  * A definition of a configurable property. It defines its type and a default value. 
  */

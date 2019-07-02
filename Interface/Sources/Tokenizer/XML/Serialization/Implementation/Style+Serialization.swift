@@ -5,8 +5,6 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-import Foundation
-
 extension Style: XMLElementSerializable {
     public func serialize(context: DataContext) -> XMLSerializableElement {
         var builder = XMLAttributeBuilder()

@@ -5,8 +5,6 @@
 //  Created by Matyáš Kříž on 01/06/2018.
 //
 
-import Foundation
-
 /**
  * Context connected to a style group either in a component or in the global scope.
  */

@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 01/06/2018.
 //
 
-import Foundation
-
 /**
  * Context inside a single UI element. It needs the element to which the context should be connected.
  * Has direct connection to `ComponentContext`, not just the `DataContext` handle.

@@ -5,8 +5,6 @@
 //  Created by Tadeas Kriz on 01/06/2018.
 //
 
-import Foundation
-
 /**
  * Context connected to a property (i.e. a field inside a UI element).
  */

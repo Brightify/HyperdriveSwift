@@ -6,8 +6,6 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-import Foundation
-
 public enum TextContentType: String, EnumPropertyType {
     public static let enumName = "UITextContentType"
     public static let typeFactory = TypeFactory()

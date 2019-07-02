@@ -7,7 +7,6 @@
 //
 
 import CoreGraphics
-import Foundation
 
 public extension Double {
     var cgFloat: CGFloat {
