@@ -24,6 +24,7 @@ extension Module {
                 factory(named: "Container", for: Container.init),
                 factory(named: "Label", for: Label.init),
                 factory(named: "TextField", for: TextField.init),
+                factory(named: "HyperTextField", for: HyperTextField.init),
                 factory(named: "Button", for: Button.init),
                 factory(named: "ImageView", for: ImageView.init),
                 factory(named: "ScrollView", for: ScrollView.init),

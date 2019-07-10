@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .executable(
             name: "hyperdrive",
-            targets: ["hyperdrive"]),
+            targets: ["hyperdrive-cli"]),
     ],
     dependencies: [
         .package(url: "https://github.com/tadija/AEXML.git", .exact("4.3.3")),
@@ -32,7 +32,7 @@ let package = Package(
             dependencies: ["Tokenizer", "xcodeproj", "SwiftCLI", "AEXML", "SwiftCodeGen"],
             path: "Interface/Sources/Generator"),
         .target(
-            name: "hyperdrive",
+            name: "hyperdrive-cli",
             dependencies: ["Tokenizer", "Generator", "SwiftCodeGen"],
             path: "CLI/Sources/hyperdrive")
     ]

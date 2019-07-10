@@ -10,7 +10,6 @@
 import UIKit
 
 extension UINavigationController: DialogDismissalListener {
-
     public func dialogWillDismiss() {
         if let listener = topViewController as? DialogDismissalListener {
             listener.dialogWillDismiss()

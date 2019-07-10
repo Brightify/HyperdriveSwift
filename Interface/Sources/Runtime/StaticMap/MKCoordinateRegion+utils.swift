@@ -9,7 +9,6 @@
 import MapKit
 
 extension MKCoordinateRegion {
-    
     public func inset(percent: Double) -> MKCoordinateRegion {
         return inset(horizontalPercent: percent, verticalPercent: percent)
     }

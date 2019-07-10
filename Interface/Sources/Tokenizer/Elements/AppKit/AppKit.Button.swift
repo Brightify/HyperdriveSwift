@@ -24,6 +24,12 @@ extension Module.AppKit {
         case radio
         case `switch`
         case toggle
+
+        public final class TypeFactory: EnumTypeFactory {
+            public typealias BuildType = Module.AppKit.ButtonType
+
+            public init() { }
+        }
     }
 
     public class Button: View {
@@ -31,9 +37,9 @@ extension Module.AppKit {
             return Properties.button.allProperties
         }
 
-//        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
-//            return ControlEventAction.allTouchEvents
-//        }
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return [ControlEventAction()]
+        }
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) -> NSView {
@@ -76,22 +82,12 @@ extension Module.AppKit {
         case mixed
         case off
         case on
-    }
-}
 
-extension Module.AppKit.ButtonType {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = Module.AppKit.ButtonType
+        public final class TypeFactory: EnumTypeFactory {
+            public typealias BuildType = Module.AppKit.NSControlStateValue
 
-        public init() { }
-    }
-}
-
-extension Module.AppKit.NSControlStateValue {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = Module.AppKit.NSControlStateValue
-
-        public init() { }
+            public init() { }
+        }
     }
 }
 

@@ -17,7 +17,7 @@ public struct Platform {
     public typealias View = UIView
     public typealias ViewController = UIViewController
     public typealias ScrollView = UIScrollView
-//    public typealias TextField = Hyperdrive.TextField
+    public typealias TextField = UITextField
     public typealias Window = UIWindow
 
     public typealias NavigationController = UINavigationController
@@ -31,7 +31,7 @@ public struct Platform {
     public typealias Control = NSControl
     public typealias EdgeInsets = NSEdgeInsets
     public typealias ScrollView = NSScrollView
-//    public typealias TextField = NSTextField
+    public typealias TextField = NSTextField
     public typealias View = NSView
     public typealias ViewController = NSViewController
     public typealias Window = NSWindow

@@ -6,17 +6,16 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension Properties {
-    
     public static let layoutMargins = Property<UIEdgeInsets>(defaultValue: .zero)
     public static let closeButtonTitle = Property<String>(defaultValue: "Close")
     public static let defaultBackButton = Property<UIBarButtonItem?>()
 }
 
 extension Properties.Style {
-    
     public static let controllerRoot = style(for: UIView.self)
 
     /// NOTE: Applied after `controllerRoot` style
@@ -31,5 +30,5 @@ extension Properties.Style {
     public static let container = style(for: ContainerView.self)
     public static let view = style(for: UIView.self)
     public static let textField = style(for: HyperTextField.self)
-
 }
+#endif

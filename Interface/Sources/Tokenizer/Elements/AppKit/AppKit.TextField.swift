@@ -19,6 +19,10 @@ extension Module.AppKit {
             return "NSTextField"
         }
 
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return try super.supportedActions(context: context) + [TextEventAction()]
+        }
+
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
             return RuntimeType(name: "NSTextField", module: "AppKit")
         }

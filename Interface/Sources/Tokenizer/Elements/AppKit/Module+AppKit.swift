@@ -35,7 +35,7 @@ extension Module {
 //                factory(named: "PickerView", for: PickerView.init),
 //                factory(named: "SearchBar", for: SearchBar.init),
 //                factory(named: "SegmentedControl", for: SegmentedControl.init),
-//                factory(named: "Slider", for: Slider.init),
+                factory(named: "Slider", for: Slider.init),
                 factory(named: "Stepper", for: Stepper.init),
 //                factory(named: "Switch", for: Switch.init),
 //                factory(named: "TabBar", for: TabBar.init),

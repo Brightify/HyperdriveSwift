@@ -6,6 +6,8 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
+import Foundation
+
 /**
  * ## Visible
  * View is fully visible with no modifications.

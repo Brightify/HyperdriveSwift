@@ -38,6 +38,7 @@ extension Module.UIKit {
         public static let tabBar = prepare(TabBarProperties.self)
         public static let tableView = prepare(TableViewProperties.self)
         public static let textField = prepare(TextFieldProperties.self)
+        public static let hyperTextField = prepare(HyperTextFieldProperties.self)
         public static let textView = prepare(TextViewProperties.self)
         public static let toolbar = prepare(ToolbarProperties.self)
         public static let visualEffectView = prepare(VisualEffectViewProperties.self)

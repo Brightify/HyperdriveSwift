@@ -17,7 +17,7 @@ extension Module.AppKit {
         public static let splitView = prepare(SplitViewProperties.self)
 //        public static let searchBar = prepare(SearchBarProperties.self)
 //        public static let segmentedControl = prepare(SegmentedControlProperties.self)
-//        public static let slider = prepare(SliderProperties.self)
+        public static let slider = prepare(SliderProperties.self)
         public static let stackView = prepare(StackViewProperties.self)
         public static let stepper = prepare(StepperProperties.self)
 //        public static let `switch` = prepare(SwitchProperties.self)

@@ -154,7 +154,6 @@ public class StyleGroupGenerator {
 }
 
 public class StyleGenerator: Generator {
-
     private let context: StyleGroupContext
     private let group: StyleGroup
     private let styleGroupGenerator: StyleGroupGenerator
@@ -170,7 +169,7 @@ public class StyleGenerator: Generator {
         let pipe = DescriptionPipe()
         if imports {
             pipe.lines(
-                "import UIKit",
+                context.platform == .macOS ? "import AppKit" : "import UIKit",
                 "import Hyperdrive",
                 "import SnapKit")
             if configuration.isLiveEnabled {

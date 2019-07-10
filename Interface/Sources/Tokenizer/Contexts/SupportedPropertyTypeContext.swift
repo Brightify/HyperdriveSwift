@@ -5,10 +5,6 @@
 //  Created by Matyáš Kříž on 01/06/2018.
 //
 
-#if canImport(UIKit)
-import UIKit
-#endif
-
 /**
  * Context connected to a property's type.
  */

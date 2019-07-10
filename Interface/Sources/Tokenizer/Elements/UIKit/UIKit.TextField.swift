@@ -12,9 +12,9 @@ import HyperdriveInterface
 #endif
 
 extension Module.UIKit {
-    public class TextField: View {
+    public class HyperTextField: View {
         public override class var availableProperties: [PropertyDescription] {
-            return Properties.textField.allProperties
+            return Properties.hyperTextField.allProperties
         }
 
         public override class var parentModuleImport: String {
@@ -23,6 +23,10 @@ extension Module.UIKit {
 
         public class override func runtimeType() -> String {
             return "HyperdriveInterface.HyperTextField"
+        }
+
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return try super.supportedActions(context: context) + ControlEventAction.allEditingEvents
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
@@ -36,9 +40,71 @@ extension Module.UIKit {
         #endif
     }
 
-    public class TextFieldProperties: ControlProperties {
-        public let text: StaticAssignablePropertyDescription<TransformedText?>
+    public class HyperTextFieldProperties: PropertyContainer {
+        public let textFieldProperties: BaseTextFieldProperties
+
         public let placeholder: StaticAssignablePropertyDescription<TransformedText?>
+        public let contentEdgeInsets: StaticAssignablePropertyDescription<EdgeInsets>
+        public let placeholderColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
+        public let placeholderFont: StaticAssignablePropertyDescription<Font?>
+
+        public required init(configuration: Configuration) {
+            textFieldProperties = configuration.namespaced(swiftNamespace: "textField", BaseTextFieldProperties.self)
+
+            placeholder = configuration.property(name: "placeholder")
+            contentEdgeInsets = configuration.property(name: "contentEdgeInsets")
+            placeholderColor = configuration.property(name: "placeholderColor")
+            placeholderFont = configuration.property(name: "placeholderFont")
+
+            super.init(configuration: configuration)
+        }
+    }
+}
+
+extension Module.UIKit {
+    public class TextField: View {
+        public override class var availableProperties: [PropertyDescription] {
+            return Properties.textField.allProperties
+        }
+
+        public override class var parentModuleImport: String {
+            return "UIKit"
+        }
+
+        public class override func runtimeType() -> String {
+            return "UITextField"
+        }
+
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return try super.supportedActions(context: context) + ControlEventAction.allEditingEvents
+        }
+
+        public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            return RuntimeType(name: "UITextField", module: "UIKit")
+        }
+
+        #if canImport(UIKit)
+        public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
+            return UITextField()
+        }
+        #endif
+    }
+
+    // HyperTextField has its own placeholder and we need to honor its priority, that's why it's declared here as a lonely boi.
+    public class TextFieldProperties: BaseTextFieldProperties {
+        public let placeholder: StaticAssignablePropertyDescription<TransformedText?>
+
+        public required init(configuration: PropertyContainer.Configuration) {
+            placeholder = configuration.property(name: "placeholder")
+
+            super.init(configuration: configuration)
+        }
+    }
+
+    public class BaseTextFieldProperties: ControlProperties {
+        public let text: StaticAssignablePropertyDescription<TransformedText?>
+        public let attributedText: StaticElementAssignablePropertyDescription<Module.Foundation.AttributedText?>
+        public let attributedPlaceholder: StaticElementAssignablePropertyDescription<Module.Foundation.AttributedText?>
         public let font: StaticAssignablePropertyDescription<Font?>
         public let textColor: StaticAssignablePropertyDescription<UIColorPropertyType>
         public let textAlignment: StaticAssignablePropertyDescription<TextAlignment>
@@ -53,15 +119,11 @@ extension Module.UIKit {
         public let clearButtonMode: StaticAssignablePropertyDescription<TextFieldViewMode>
         public let leftViewMode: StaticAssignablePropertyDescription<TextFieldViewMode>
         public let rightViewMode: StaticAssignablePropertyDescription<TextFieldViewMode>
-        public let contentEdgeInsets: StaticAssignablePropertyDescription<EdgeInsets>
-        public let placeholderColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-        public let placeholderFont: StaticAssignablePropertyDescription<Font?>
         public let isSecureTextEntry: StaticAssignablePropertyDescription<Bool>
         public let keyboardType: StaticAssignablePropertyDescription<KeyboardType>
         public let keyboardAppearance: StaticAssignablePropertyDescription<KeyboardAppearance>
         public let contentType: StaticAssignablePropertyDescription<TextContentType?>
         public let returnKey: StaticAssignablePropertyDescription<ReturnKeyType>
-
         public let enablesReturnKeyAutomatically: StaticAssignablePropertyDescription<Bool>
         public let autocapitalizationType: StaticAssignablePropertyDescription<AutocapitalizationType>
         public let autocorrectionType: StaticAssignablePropertyDescription<AutocorrectionType>
@@ -70,9 +132,10 @@ extension Module.UIKit {
         public let smartDashesType: StaticAssignablePropertyDescription<SmartDashesType>
         public let smartInsertDeleteType: StaticAssignablePropertyDescription<SmartInsertDeleteType>
 
-        public required init(configuration: Configuration) {
+        public required init(configuration: PropertyContainer.Configuration) {
             text = configuration.property(name: "text", defaultValue: .text(""))
-            placeholder = configuration.property(name: "placeholder")
+            attributedText = configuration.property(name: "attributedText")
+            attributedPlaceholder = configuration.property(name: "attributedPlaceholder")
             font = configuration.property(name: "font")
             textColor = configuration.property(name: "textColor", defaultValue: .black)
             textAlignment = configuration.property(name: "textAlignment", defaultValue: .natural)
@@ -87,14 +150,11 @@ extension Module.UIKit {
             clearButtonMode = configuration.property(name: "clearButtonMode", defaultValue: .never)
             leftViewMode = configuration.property(name: "leftViewMode", defaultValue: .never)
             rightViewMode = configuration.property(name: "rightViewMode", defaultValue: .never)
-            contentEdgeInsets = configuration.property(name: "contentEdgeInsets")
-            placeholderColor = configuration.property(name: "placeholderColor")
-            placeholderFont = configuration.property(name: "placeholderFont")
             isSecureTextEntry = configuration.property(name: "secure", swiftName: "isSecureTextEntry", key: "secureTextEntry")
             keyboardType = configuration.property(name: "keyboardType", defaultValue: .default)
             keyboardAppearance = configuration.property(name: "keyboardAppearance", defaultValue: .default)
             contentType = configuration.property(name: "contentType")
-            returnKey = configuration.property(name: "returnKey", defaultValue: .default)
+            returnKey = configuration.property(name: "returnKey", swiftName: "returnKeyType", defaultValue: .default)
             enablesReturnKeyAutomatically = configuration.property(name: "enablesReturnKeyAutomatically")
             autocapitalizationType = configuration.property(name: "autocapitalizationType", defaultValue: .sentences)
             autocorrectionType = configuration.property(name: "autocorrectionType", defaultValue: .default)

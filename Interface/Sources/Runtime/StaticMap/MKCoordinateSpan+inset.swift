@@ -9,7 +9,6 @@
 import MapKit
 
 extension MKCoordinateSpan {
-    
     public func inset(percent: Double) -> MKCoordinateSpan {
         return inset(horizontalPercent: percent, verticalPercent: percent)
     }

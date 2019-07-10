@@ -9,7 +9,6 @@
 import MapKit
 
 extension CLLocationCoordinate2D {
-    
     public static func startAndEnd(region: MKCoordinateRegion) -> (start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
         let center = region.center
         let centerLat = center.latitude
@@ -25,7 +24,6 @@ extension CLLocationCoordinate2D {
 }
 
 extension CLLocationCoordinate2D: Hashable {
-    
     public var hashValue: Int {
         return [latitude.hashValue, longitude.hashValue].djbHash()
     }

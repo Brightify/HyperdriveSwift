@@ -256,12 +256,10 @@ public final class HyperTextField: ConfigurableHyperViewBase {
 
     private func updateAttributedPlaceholder() {
         if placeholderAttributes.isEmpty {
-            // We have to set `super.placeholder` because setting `self.placeholder` would call this method again
             textField.placeholder = placeholder
         } else {
             textField.attributedPlaceholder = placeholder.map { NSAttributedString(string: $0, attributes: placeholderAttributes) }
         }
     }
-
 }
 #endif

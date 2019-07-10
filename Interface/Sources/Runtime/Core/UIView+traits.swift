@@ -5,6 +5,7 @@
 //  Created by Tadeáš Kříž on 04/05/2018.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIView {
@@ -12,3 +13,4 @@ public extension UIView {
         return UITraitHelper(for: self)
     }
 }
+#endif

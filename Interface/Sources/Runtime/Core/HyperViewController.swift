@@ -6,12 +6,11 @@
 //  Copyright © 2019 Brightify. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-open class ComposableHyperViewController<View: UIView & ComposableHyperView>: UIViewController {
+open class ComposableHyperViewController<View: Platform.View & ComposableHyperView>: Platform.ViewController {
     public let viewManager: HyperViewManager<View>
 
-    private var _hyperView: View? = nil
     public var hyperView: View {
         guard let hyperView = view as? View else {
             fatalError("View was changed and it not an instance of \(View.self) anymore! If you do that, make sure to override this property to return the correct HyperView instance!")
@@ -27,12 +26,12 @@ open class ComposableHyperViewController<View: UIView & ComposableHyperView>: UI
 
     @available(*, unavailable)
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError("Not supported")
+        fatalError("init(nibName:bundle:) is not supported")
     }
 
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) is not supported")
     }
 
     open override func loadView() {
@@ -43,9 +42,8 @@ open class ComposableHyperViewController<View: UIView & ComposableHyperView>: UI
     }
 }
 
-open class HyperViewController<View: UIView & HyperView>: ComposableHyperViewController<View> {
+open class HyperViewController<View: Platform.View & HyperView>: ComposableHyperViewController<View> {
     public init(initialState: View.State = View.State()) {
         super.init(initialState: initialState, viewFactory: { View(initialState: initialState, actionPublisher: $0) })
     }
 }
-

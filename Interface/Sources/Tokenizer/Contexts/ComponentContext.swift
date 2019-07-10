@@ -170,7 +170,7 @@ public class ComponentContext: DataContext {
                     let typedValue = try foundType.materialize(from: value)
 
                 return [ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: typedValue))]
-//                    return ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value:     ))
+//                    return ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: ))
                 case .stateVariable(let name):
                     return [ResolvedHyperViewAction.Parameter(label: label, kind: .state(property: name, type: .propertyType(state[name]!.typeFactory)))]
                 case .reference(var targetId, let propertyName):
@@ -288,7 +288,7 @@ public class ComponentContext: DataContext {
 
             case .exported?:
                 passthroughProperties = state.map { name, stateItem in
-                    _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false)],
+                    _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)],
                                    name: name,
                                    anyDescription: _StateProperty.Description(name: name, namespace: [], anyDefaultValue: stateItem.defaultValue, anyTypeFactory: stateItem.typeFactory), anyValue: .state(name, factory: stateItem.typeFactory))
                 }
@@ -311,7 +311,7 @@ public class ComponentContext: DataContext {
                     throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
                 }
 
-                return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false)], name: name, anyDescription:
+                return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)], name: name, anyDescription:
                     _StateProperty.Description(name: name, namespace: [], anyDefaultValue: stateProperty.defaultValue, anyTypeFactory: stateProperty.typeFactory), anyValue: propertyValue)
             }
         } else {

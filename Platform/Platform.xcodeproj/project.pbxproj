@@ -84,7 +84,7 @@
 		183E0D0E1EB88F17006CF52A /* UILabel+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E0CE91EB88F09006CF52A /* UILabel+InitTest.swift */; };
 		183E0D0F1EB88F17006CF52A /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E0CEA1EB88F09006CF52A /* UIOffset+InitTest.swift */; };
 		183E0D101EB88F17006CF52A /* UITableView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E0CEB1EB88F09006CF52A /* UITableView+InitTest.swift */; };
-		185121511D834D1F002C4B08 /* Hyperdrive-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185121471D834D1E002C4B08 /* Hyperdrive-iOS.framework */; };
+		185121511D834D1F002C4B08 /* Hyperdrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185121471D834D1E002C4B08 /* Hyperdrive.framework */; };
 		1865665C22C1337800F92C91 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC137F8C1E4E29DA00A0516F /* Reusable.swift */; };
 		1865665F22C1337800F92C91 /* Protos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8DAA6223ECCCB008CBD68 /* Protos.swift */; };
 		1865666022C1337800F92C91 /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC98CE41E62CEFE0018757E /* InternalUtils.swift */; };
@@ -178,7 +178,7 @@
 		18937BBB212796F6009F6CA3 /* ComponentBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D35DD1FBDC9D300A0401D /* ComponentBaseTest.swift */; };
 		18937BBC212796F6009F6CA3 /* ComponentDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D35E51FBE0FE500A0401D /* ComponentDelegateTest.swift */; };
 		18937BBD212796F6009F6CA3 /* MockComponentBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D35E11FBDCA1600A0401D /* MockComponentBase.swift */; };
-		18937BC021279A8B009F6CA3 /* RxHyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1838992821264A1A007CE13E /* RxHyperdrive_iOS.framework */; };
+		18937BC021279A8B009F6CA3 /* Hyperdrive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1838992821264A1A007CE13E /* Hyperdrive.framework */; };
 		18937BC521283325009F6CA3 /* UIBarButtonItem+ClosureAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC137F921E4E29DA00A0516F /* UIBarButtonItem+ClosureAction.swift */; };
 		18937BC621283326009F6CA3 /* UIBarButtonItem+ClosureAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC137F921E4E29DA00A0516F /* UIBarButtonItem+ClosureAction.swift */; };
 		18937BC92128448A009F6CA3 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937BC82128448A009F6CA3 /* Recording.swift */; };
@@ -260,7 +260,7 @@
 		182723472237FF5A001D87AA /* Invalidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invalidable.swift; sourceTree = "<group>"; };
 		182723492238014D001D87AA /* ComposableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableDelegate.swift; sourceTree = "<group>"; };
 		183457881EB16B8B00C972A4 /* ReactantUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactantUI.swift; sourceTree = "<group>"; };
-		1838992821264A1A007CE13E /* RxHyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxHyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1838992821264A1A007CE13E /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1838992A21264A1B007CE13E /* RxReactant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxReactant.h; sourceTree = "<group>"; };
 		1838992B21264A1B007CE13E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		183E0CB11EB888E5006CF52A /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
@@ -300,12 +300,12 @@
 		183E0CE91EB88F09006CF52A /* UILabel+InitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+InitTest.swift"; sourceTree = "<group>"; };
 		183E0CEA1EB88F09006CF52A /* UIOffset+InitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIOffset+InitTest.swift"; sourceTree = "<group>"; };
 		183E0CEB1EB88F09006CF52A /* UITableView+InitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+InitTest.swift"; sourceTree = "<group>"; };
-		185121471D834D1E002C4B08 /* Hyperdrive-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Hyperdrive-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		185121471D834D1E002C4B08 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1851214B1D834D1E002C4B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		185121501D834D1F002C4B08 /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		185121571D834D1F002C4B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		186566AD22C1337800F92C91 /* Hyperdrive-macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Hyperdrive-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1865670322C1338200F92C91 /* Hyperdrive-tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Hyperdrive-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		186566AD22C1337800F92C91 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1865670322C1338200F92C91 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1865672A22C134C300F92C91 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		1865678022C138C600F92C91 /* Showcase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Showcase.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1865678122C138C600F92C91 /* Architecture.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Architecture.playground; sourceTree = "<group>"; };
@@ -469,7 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				185121511D834D1F002C4B08 /* Hyperdrive-iOS.framework in Frameworks */,
+				185121511D834D1F002C4B08 /* Hyperdrive.framework in Frameworks */,
 				CCBC21B692BB8D9057F21C8F /* Pods_Platform_Tests_HyperdriveTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,7 +494,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18937BC021279A8B009F6CA3 /* RxHyperdrive_iOS.framework in Frameworks */,
+				18937BC021279A8B009F6CA3 /* Hyperdrive.framework in Frameworks */,
 				3277B21C8956FE3ADC8E6EEC /* Pods_Platform_Tests_RxHyperdriveTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,12 +831,12 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				185121471D834D1E002C4B08 /* Hyperdrive-iOS.framework */,
+				185121471D834D1E002C4B08 /* Hyperdrive.framework */,
 				185121501D834D1F002C4B08 /* HyperdriveTests.xctest */,
-				1838992821264A1A007CE13E /* RxHyperdrive_iOS.framework */,
+				1838992821264A1A007CE13E /* Hyperdrive.framework */,
 				18937B952127916C009F6CA3 /* RxHyperdriveTests.xctest */,
-				186566AD22C1337800F92C91 /* Hyperdrive-macOS.framework */,
-				1865670322C1338200F92C91 /* Hyperdrive-tvOS.framework */,
+				186566AD22C1337800F92C91 /* Hyperdrive.framework */,
+				1865670322C1338200F92C91 /* Hyperdrive.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1130,7 +1130,7 @@
 			);
 			name = "RxHyperdrive-iOS";
 			productName = RxReactant;
-			productReference = 1838992821264A1A007CE13E /* RxHyperdrive_iOS.framework */;
+			productReference = 1838992821264A1A007CE13E /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		185121461D834D1E002C4B08 /* Hyperdrive-iOS */ = {
@@ -1149,7 +1149,7 @@
 			);
 			name = "Hyperdrive-iOS";
 			productName = Reactant;
-			productReference = 185121471D834D1E002C4B08 /* Hyperdrive-iOS.framework */;
+			productReference = 185121471D834D1E002C4B08 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1851214F1D834D1F002C4B08 /* HyperdriveTests */ = {
@@ -1189,7 +1189,7 @@
 			);
 			name = "Hyperdrive-macOS";
 			productName = Reactant;
-			productReference = 186566AD22C1337800F92C91 /* Hyperdrive-macOS.framework */;
+			productReference = 186566AD22C1337800F92C91 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		186566AF22C1338200F92C91 /* Hyperdrive-tvOS */ = {
@@ -1208,7 +1208,7 @@
 			);
 			name = "Hyperdrive-tvOS";
 			productName = Reactant;
-			productReference = 1865670322C1338200F92C91 /* Hyperdrive-tvOS.framework */;
+			productReference = 1865670322C1338200F92C91 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		18937B942127916C009F6CA3 /* RxHyperdriveTests */ = {
@@ -1812,8 +1812,8 @@
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_RXSWIFT";
 				PRODUCT_BUNDLE_IDENTIFIER = hyperdrive.ios.RxHyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1849,8 +1849,8 @@
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_RXSWIFT";
 				PRODUCT_BUNDLE_IDENTIFIER = hyperdrive.ios.RxHyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 4.2;
@@ -1879,8 +1879,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1910,8 +1910,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1971,8 +1971,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2002,8 +2002,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -2032,8 +2032,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2063,8 +2063,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DENABLE_SAFEAREAINSETS_FALLBACK";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.Hyperdrive;
-				PRODUCT_MODULE_NAME = Hyperdrive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_MODULE_NAME)";
+				PRODUCT_NAME = Hyperdrive;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

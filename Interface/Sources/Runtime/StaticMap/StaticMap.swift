@@ -14,7 +14,6 @@ public enum StaticMapAction {
 }
 
 open class StaticMap: ViewBase<MKCoordinateRegion, StaticMapAction> {
-
     private let image = UIImageView()
     private let tapGestureRecognizer = UITapGestureRecognizer()
 

@@ -32,6 +32,7 @@ Pod::Spec.new do |spec|
     spec.module_name = 'Hyperdrive'
     spec.ios.deployment_target = '11.0'
     spec.tvos.deployment_target = '11.0'
+    spec.osx.deployment_target = '10.12'
     spec.default_subspec = 'Core'
 
     def self.rxSwift(subspec)
@@ -54,7 +55,9 @@ Pod::Spec.new do |spec|
     end
 
     spec.subspec 'Core' do |subspec|
-        subspec.frameworks = 'UIKit'
+        subspec.ios.frameworks = 'UIKit'
+        subspec.tvos.frameworks = 'UIKit'
+        subspec.osx.frameworks = 'AppKit'
         subspec.dependency 'HyperdrivePlatform/Configuration'
 
         snapKit(subspec)
@@ -92,7 +95,6 @@ Pod::Spec.new do |spec|
     end
 
     spec.subspec 'Configuration' do |subspec|
-        subspec.frameworks = 'UIKit'
         subspec.source_files = 'Platform/Sources/Configuration/**/*.swift'
     end
 

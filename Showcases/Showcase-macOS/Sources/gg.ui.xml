@@ -1,0 +1,20 @@
+<GoodGame>
+    <TextField
+        id="field"
+        action:text="textko"
+        layout:top="super inset(20)"
+        layout:leading="super inset(20)"
+        layout:width="300"
+        layout:height="100" />
+
+    <Slider
+        id="slider"
+        layout:leading="super offset(30)"
+        layout:below="field offset(25)"
+        layout:width="250"
+        action:event="moved" />
+
+    <Button
+        layout:below="slider"
+        action:event="WTF" />
+</GoodGame>

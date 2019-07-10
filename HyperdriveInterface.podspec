@@ -10,7 +10,8 @@ Pod::Spec.new do |spec|
     spec.author           = {
         'Tadeas Kriz' => 'tadeas@brightify.org',
         'Matous Hybl' => 'matous@brightify.org',
-        'Filip Dolnik' => 'filip@brightify.org'
+        'Filip Dolnik' => 'filip@brightify.org',
+        'Matyas Kriz' => 'matyas@brightify.org',
     }
     spec.source           = {
         :git => 'https://github.com/Brightify/Hyperdrive.git',
@@ -21,16 +22,33 @@ Pod::Spec.new do |spec|
 
     spec.ios.deployment_target = '9.0'
     spec.tvos.deployment_target = '9.2'
+    spec.osx.deployment_target = '10.12'
 
-    spec.frameworks = 'UIKit'
-    spec.default_subspec = []
+    spec.default_subspec = 'Core'
 
-    # TODO Remove the dependency on Rx so that we don't force it on our users
-    spec.dependency 'RxCocoa'
-    spec.dependency 'RxDataSources'
+    def self.rxCocoa subspec
+        subspec.dependency 'RxCocoa'
+    end
 
-    # TODO Remove the dependency on Kingfisher, or make StaticMap (that's where it's used) into an optional subspec
-    spec.dependency 'Kingfisher'
+    def self.rxDataSources subspec
+        subspec.dependency 'RxDataSources'
+    end
+
+    spec.subspec 'Core' do |subspec|
+        subspec.source_files = 'Sources/**/*.swift'
+    end
+    
+    spec.subspec 'Core+Rx' do |subspec|
+        subspec.dependency 'HyperdriveInterface/Core'
+        rxCocoa(subspec)
+        rxDataSources(subspec)
+        subspec.frameworks = 'UIKit'
+    end
+   
+    spec.subspec 'StaticMap' do |subspec|
+        subspec.dependency 'Kingfisher'
+        subspec.source_files = 'Sources/Runtime/StaticMap/**/*.swift'
+    end
 
     # TODO Remove the dependency on SnapKit so that we don't force it on our users
     spec.dependency 'SnapKit'
@@ -42,6 +60,10 @@ Pod::Spec.new do |spec|
         'Interface/Sources/Runtime/StaticMap/**/*.swift',
         'Interface/Sources/Runtime/Dialog/**/*.swift',
         'Interface/Sources/Runtime/Extensions/**/*.swift',
+    ]
+    spec.osx.exclude_files = [
+        'Interface/Sources/Runtime/CollectionView/**/*.swift',
+        'Interface/Sources/Runtime/TableView/**/*.swift',
     ]
     generator_name = 'hyperdrive'
     spec.preserve_paths = [

@@ -7,14 +7,12 @@
 //
 
 public protocol DialogDismissalListener {
-    
     func dialogWillDismiss()
     
     func dialogDidDismiss()
 }
 
 extension DialogDismissalListener {
-
     public func dialogWillDismiss() { }
 
     public func dialogDidDismiss() { }

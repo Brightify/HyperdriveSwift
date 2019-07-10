@@ -255,10 +255,11 @@ class GenerateCommand: Command {
         }
 
         output.lines(
-              "import UIKit",
-              "import Hyperdrive",
-              "import ReactantUI",
-              "import SnapKit")
+            runtimePlatform == .macOS ? "import AppKit" : "import UIKit",
+            "import Hyperdrive",
+            "import HyperdriveInterface",
+            "import SnapKit"
+        )
 
         if !reactantUICompat.value {
             try output.append(theme(context: globalContext, swiftVersion: swiftVersion, platform: runtimePlatform))
@@ -332,10 +333,11 @@ class GenerateCommand: Command {
             activateLiveReloadBlock = []
         }
 
+        let windowType = globalContext.platform == .macOS ? "NSWindow" : "UIWindow"
         let activateLiveReload = Function(
             accessibility: .public,
             name: "activateLiveInterface",
-            parameters: [MethodParameter(label: "in", name: "window", type: "UIWindow")],
+            parameters: [MethodParameter(label: "in", name: "window", type: windowType)],
             block: activateLiveReloadBlock)
 
         output.append(activateLiveReload)

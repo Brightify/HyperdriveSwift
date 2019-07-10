@@ -12,7 +12,6 @@ public protocol Configurable: class {
 }
 
 extension Configurable {
-
     /**
      * Reloads object's configuration. Essentially just calls `didSet` on its configuration.
      */

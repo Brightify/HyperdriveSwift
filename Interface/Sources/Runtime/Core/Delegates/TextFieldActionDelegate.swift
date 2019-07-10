@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brightify. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public class TextFieldActionDelegate {
@@ -24,3 +25,4 @@ public class TextFieldActionDelegate {
         onTextChanged(sender.text)
     }
 }
+#endif

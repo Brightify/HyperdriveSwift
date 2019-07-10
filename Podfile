@@ -33,6 +33,14 @@ def kingfisher
     pod 'Kingfisher', '~> 4.0'
 end
 
+def devHyperdriveUI
+    pod 'HyperdriveInterface', :path => '.'
+end
+
+def devHyperdrive
+    pod 'HyperdrivePlatform', :path => '.'
+end
+
 def shared
     rxSwift
     rxCocoa
@@ -43,7 +51,7 @@ def shared
 end
 
 def macos
-  platform :osx, '10.13'
+    platform :osx, '10.13'
 end
 
 def ios
@@ -112,6 +120,12 @@ abstract_target 'Interface' do
         snapKit
         kingfisher
     end
+
+    target 'Interface-macOS' do
+        macos
+
+        snapKit
+    end
 end
 
 abstract_target 'LiveInterface' do
@@ -142,4 +156,14 @@ abstract_target 'Showcases' do
 
         tvos
     end
+
+    
+    target 'Showcase-macOS' do
+        project 'Showcases/Showcase-macOS/Showcase-macOS.xcodeproj'
+
+        macos
+        devHyperdrive
+        devHyperdriveUI
+    end
 end
+

@@ -7,7 +7,6 @@
 //
 
 extension Properties.Style {
-    
     public static func style<T>(for type: T.Type, defaultValue: @escaping (T) -> Void = { _ in }) -> Property<(T) -> Void> {
         return Property<(T) -> Void>(defaultValue: defaultValue)
     }

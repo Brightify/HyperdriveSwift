@@ -12,7 +12,7 @@ public extension Array where Element == PropertyContainer.Namespace {
     }
     
     func resolvedAttributeName(name: String) -> String {
-        return (map { $0.name } + [name]).joined(separator: ".")
+        return (filter { !$0.swiftOnly }.map { $0.name } + [name]).joined(separator: ".")
     }
     
     func resolvedSwiftName(target: String) -> String {
@@ -24,6 +24,7 @@ public class PropertyContainer {
     public struct Namespace {
         public let name: String
         public let isOptional: Bool
+        public let swiftOnly: Bool
     }
 
     public final class Configuration {
@@ -192,8 +193,15 @@ public class PropertyContainer {
         }
 
 
+        public func namespaced<T: PropertyContainer>(swiftNamespace: String, optional: Bool = false, _ type: T.Type) -> T {
+            let configuration = Configuration(namespace: self.namespace + [Namespace(name: swiftNamespace, isOptional: optional, swiftOnly: true)])
+            let container = T.init(configuration: configuration)
+            properties.append(contentsOf: container.allProperties)
+            return container
+        }
+
         public func namespaced<T: PropertyContainer>(in namespace: String, optional: Bool = false, _ type: T.Type) -> T {
-            let configuration = Configuration(namespace: self.namespace + [Namespace(name: namespace, isOptional: optional)])
+            let configuration = Configuration(namespace: self.namespace + [Namespace(name: namespace, isOptional: optional, swiftOnly: false)])
             let container = T.init(configuration: configuration)
             properties.append(contentsOf: container.allProperties)
             return container
