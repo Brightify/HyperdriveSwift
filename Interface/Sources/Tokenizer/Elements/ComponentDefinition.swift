@@ -149,7 +149,7 @@ public class ComponentDefinitionAction: UIElementAction {
     public func observe(on view: Expression, handler: UIElementActionObservationHandler) throws -> Statement {
         let listener = Closure(captures: handler.captures, parameters: [(name: "action", type: nil)], block: [
             .if(condition: [.enumUnwrap(case: primaryName, parameters: handler.innerParameters, expression: .constant("action"))], then: [handler.publisher], else: nil)
-            ])
+        ])
 
         return .expression(.invoke(target: .member(target: view, name: "actionPublisher.listen"), arguments: [
             MethodArgument(name: "with", value: .closure(listener)),

@@ -3,18 +3,21 @@
         id="field"
         action:text="textko"
         layout:top="super inset(20)"
-        layout:leading="super inset(20)"
+        layout:fillHorizontally="super inset(50)"
         layout:width="300"
         layout:height="100" />
 
     <Slider
         id="slider"
-        layout:leading="super offset(30)"
+        layout:fillHorizontally="super inset(30)"
         layout:below="field offset(25)"
         layout:width="250"
-        action:event="moved" />
+        action:value="moved" />
 
     <Button
-        layout:below="slider"
+        title="mamma mia11!!11!1!!!1!11!1!"
+        bezel="rounded"
+        layout:below="slider offset(20)"
+        layout:fillHorizontally="super inset(30)"
         action:event="WTF" />
 </GoodGame>

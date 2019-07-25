@@ -33,8 +33,8 @@ public enum ApplicationTheme: String, ReactantThemeDefinition {
 	}
 
 }
-import Hyperdrive
 import AppKit
+import Hyperdrive
 private class __HyperdriveUIBundleToken {
 }
 private let __resourceBundle = Bundle(for: __HyperdriveUIBundleToken.self)
@@ -55,9 +55,9 @@ final class GoodGame: HyperViewBase, HyperView {
 		}
 	}
 	enum Action {
-		case moved
-		case WTF
+		case moved(control: Double)
 		case textko(text: String)
+		case WTF
 
 	}
 	final class Constraints {
@@ -91,37 +91,43 @@ final class GoodGame: HyperViewBase, HyperView {
 	}
 
 	private func observeActions(actionPublisher: ActionPublisher<Action>) {
-		ControlEventObserver.bind(to: slider, handler: {
-			actionPublisher.publish(action: .moved)
-		})
-		ControlEventObserver.bind(to: _1_Button, handler: {
-			actionPublisher.publish(action: .WTF)
+		ControlEventObserver.bind(to: slider, handler: { control in
+			actionPublisher.publish(action: .moved(control: control.doubleValue))
 		})
 		HyperdriveInterface.NSTextFieldObserver.bind(to: field, handler: { text in
 			actionPublisher.publish(action: .textko(text: text))
+		})
+		ControlEventObserver.bind(to: _1_Button, handler: {
+			actionPublisher.publish(action: .WTF)
 		})
 	}
 
 	private func loadView() {
 		self.addSubview(field)
 		self.addSubview(slider)
+		_1_Button.title = "mamma mia11!!11!1!!!1!11!1!"
+		_1_Button.bezelStyle = NSButton.BezelStyle.rounded
 		self.addSubview(_1_Button)
 	}
 
 	private func setupConstraints() {
 		field.snp.makeConstraints({ make in
-			make.width.equalTo(300.0)
-			make.top.equalTo(self).offset(20.0)
+			make.left.equalTo(self).offset(50.0)
+			make.right.equalTo(self).offset(-50.0)
 			make.height.equalTo(100.0)
-			make.leading.equalTo(self).offset(20.0)
+			make.top.equalTo(self).offset(20.0)
+			make.width.equalTo(300.0)
 		})
 		slider.snp.makeConstraints({ make in
-			make.top.equalTo(field.snp.bottom).offset(25.0)
 			make.width.equalTo(250.0)
-			make.leading.equalTo(self).offset(30.0)
+			make.top.equalTo(field.snp.bottom).offset(25.0)
+			make.left.equalTo(self).offset(30.0)
+			make.right.equalTo(self).offset(-30.0)
 		})
 		_1_Button.snp.makeConstraints({ make in
-			make.top.equalTo(slider.snp.bottom)
+			make.top.equalTo(slider.snp.bottom).offset(20.0)
+			make.left.equalTo(self).offset(30.0)
+			make.right.equalTo(self).offset(-30.0)
 		})
 	}
 }

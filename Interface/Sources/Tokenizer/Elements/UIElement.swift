@@ -37,6 +37,8 @@ public struct ResolvedHyperViewAction {
                     return MethodArgument(name: parameter.label, value: value.generate(context: context))
                 case .local(let name, _):
                     return MethodArgument(name: parameter.label, value: .constant(name))
+                case .localReference(let name, let propertyName, _):
+                    return MethodArgument(name: parameter.label, value: .constant("\(name).\(propertyName)"))
                 case .reference(let view, let property?, _):
                     return MethodArgument(name: parameter.label, value: .member(target: .constant(view), name: property))
                 case .reference(let view, nil, _):
@@ -52,7 +54,7 @@ public struct ResolvedHyperViewAction {
                 ])),
                 captures: parameters.compactMap { parameter in
                     switch parameter.kind {
-                    case .constant, .local:
+                    case .constant, .local, .localReference:
                         return nil
                     case .reference(let view, _, _):
                         return .unowned(.constant(view))
@@ -88,7 +90,7 @@ public struct ResolvedHyperViewAction {
         public var kind: Kind
         public var type: SupportedActionType {
             switch kind {
-            case .local(_, let type), .reference(_, _, let type), .state(_, let type):
+            case .local(_, let type), .localReference(_, _, let type), .reference(_, _, let type), .state(_, let type):
                 return type
             case .constant(let value):
                 return .propertyType(value.factory)
@@ -97,6 +99,7 @@ public struct ResolvedHyperViewAction {
 
         public enum Kind {
             case local(name: String, type: SupportedActionType)
+            case localReference(name: String, propertyName: String, type: SupportedActionType)
             case reference(view: String, property: String?, type: SupportedActionType)
             case state(property: String, type: SupportedActionType)
             case constant(value: SupportedPropertyType)
@@ -189,8 +192,20 @@ public struct UIElementActionObservationHandler {
 }
 #endif
 
+public struct UIElementActionParameter {
+    var label: String?
+    var propertyName: String?
+    var type: SupportedActionType
+
+    init(label: String? = nil, propertyName: String? = nil, type: SupportedActionType) {
+        self.label = label
+        self.propertyName = propertyName
+        self.type = type
+    }
+}
+
 public protocol UIElementAction {
-    typealias Parameter = (label: String?, type: SupportedActionType)
+    typealias Parameter = UIElementActionParameter
 
     var primaryName: String { get }
 

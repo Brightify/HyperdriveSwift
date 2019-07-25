@@ -21,8 +21,8 @@ class ViewController: HyperViewController<GoodGame> {
 
     override func handle(action: GoodGame.Action) {
         switch action {
-        case .moved:
-            print("moved here, moved there")
+        case .moved(let value):
+            print("moved here, moved there: \(value)")
         case .WTF:
             print("la buttona pressura")
         case .textko(let text):

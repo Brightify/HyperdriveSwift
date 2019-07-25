@@ -87,7 +87,7 @@ extension Module.UIKit {
 
         public static let allEditingEvents: [ControlEventAction] = [
             ControlEventAction(name: "editingDidBegin", event: .editingDidBegin),
-            ControlEventAction(name: "editingChanged", aliases: ["textChanged"], parameters: [(label: "text", type: .propertyType(String.typeFactory))], event: .editingChanged),
+            ControlEventAction(name: "editingChanged", aliases: ["textChanged"], parameters: [Parameter(label: "text", type: .propertyType(String.typeFactory))], event: .editingChanged),
             ControlEventAction(name: "editingDidEnd", event: .editingDidEnd),
             ControlEventAction(name: "editingDidEndOnExit", event: .editingDidEndOnExit),
         ]

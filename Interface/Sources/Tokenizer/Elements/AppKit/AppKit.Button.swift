@@ -10,35 +10,61 @@ import AppKit
 #endif
 
 extension Module.AppKit {
-    public enum ButtonType: String, EnumPropertyType, AttributeSupportedPropertyType {
-        public static let enumName = "NSButton.ButtonType"
-        public static let typeFactory = TypeFactory()
-
-        case accelerator
-        case momentaryChange
-        case momentaryLight
-        case momentaryPushIn
-        case multiLevelAccelerator
-        case onOff
-        case pushOnPushOff
-        case radio
-        case `switch`
-        case toggle
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = Module.AppKit.ButtonType
-
-            public init() { }
-        }
-    }
-
     public class Button: View {
+        public enum ButtonType: String, EnumPropertyType, AttributeSupportedPropertyType {
+            public static let enumName = "NSButton.ButtonType"
+            public static let typeFactory = TypeFactory()
+
+            case accelerator
+            case momentaryChange
+            case momentaryLight
+            case momentaryPushIn
+            case multiLevelAccelerator
+            case onOff
+            case pushOnPushOff
+            case radio
+            case `switch`
+            case toggle
+
+            public final class TypeFactory: EnumTypeFactory {
+                public typealias BuildType = Module.AppKit.Button.ButtonType
+
+                public init() { }
+            }
+        }
+
+        public enum BezelStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
+            public static let enumName = "NSButton.BezelStyle"
+            public static let typeFactory = TypeFactory()
+
+            case rounded
+            case regularSquare
+            case disclosure
+            case shadowlessSquare
+            case circular
+            case texturedSquare
+            case helpButton
+            case smallSquare
+            case texturedRounded
+            case roundRect
+            case recessed
+            case roundedDisclosure
+            case inline
+
+            public final class TypeFactory: EnumTypeFactory {
+                public typealias BuildType = Module.AppKit.Button.BezelStyle
+
+                public init() { }
+            }
+        }
+
         public override class var availableProperties: [PropertyDescription] {
             return Properties.button.allProperties
         }
 
         public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
-            return [ControlEventAction()]
+            // TODO: check for button type and return based on that if possible
+            return [VoidControlEventAction()]
         }
 
         #if canImport(UIKit)
@@ -49,12 +75,16 @@ extension Module.AppKit {
     }
 
     public class ButtonProperties: ControlProperties {
-        public let title: StaticControlStatePropertyDescription<TransformedText?>
-        public let image: StaticControlStatePropertyDescription<Image?>
-        public let attributedTitle: StaticElementControlStatePropertyDescription<Module.Foundation.AttributedText?>
+        public let title: StaticAssignablePropertyDescription<TransformedText?>
+        public let buttonType: StaticControlStatePropertyDescription<Button.ButtonType?>
+        public let bezelStyle: StaticAssignablePropertyDescription<Button.BezelStyle?>
+        public let image: StaticAssignablePropertyDescription<Image?>
+        public let attributedTitle: StaticElementAssignablePropertyDescription<Module.Foundation.AttributedText?>
 
         public required init(configuration: PropertyContainer.Configuration) {
             title = configuration.property(name: "title")
+            buttonType = configuration.property(name: "type", key: "buttonType")
+            bezelStyle = configuration.property(name: "bezel", swiftName: "bezelStyle", key: "bezelStyle")
             image = configuration.property(name: "image")
             attributedTitle = configuration.property(name: "attributedTitle")
 

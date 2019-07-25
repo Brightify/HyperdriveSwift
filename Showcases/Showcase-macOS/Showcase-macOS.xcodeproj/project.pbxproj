@@ -22,11 +22,7 @@
 		688B0B5022CB787600D4354E /* gg.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gg.ui.xml; sourceTree = "<group>"; };
 		688B0CC322CCE12600D4354E /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		688B0CC522CCE24400D4354E /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		688B0D3822CDCC4700D4354E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		688B0D3A22CDCC4800D4354E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		688B0D3D22CDCC4800D4354E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		688B0D3F22CDCC4800D4354E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		688B0D4022CDCC4800D4354E /* testttt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testttt.entitlements; sourceTree = "<group>"; };
 		6895E4F822CB70E60089BC27 /* Showcase-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Showcase-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6895E4FB22CB70E60089BC27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6895E4FD22CB70E60089BC27 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -68,17 +64,6 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		688B0D3722CDCC4700D4354E /* testttt */ = {
-			isa = PBXGroup;
-			children = (
-				688B0D3822CDCC4700D4354E /* AppDelegate.swift */,
-				688B0D3A22CDCC4800D4354E /* Assets.xcassets */,
-				688B0D3F22CDCC4800D4354E /* Info.plist */,
-				688B0D4022CDCC4800D4354E /* testttt.entitlements */,
-			);
-			path = testttt;
-			sourceTree = "<group>";
-		};
 		6895E4EF22CB70E60089BC27 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +71,6 @@
 				688B0B4C22CB751600D4354E /* Generated */,
 				6895E50B22CB71850089BC27 /* Sources */,
 				6895E50C22CB718C0089BC27 /* Resources */,
-				688B0D3722CDCC4700D4354E /* testttt */,
 				6895E4F922CB70E60089BC27 /* Products */,
 				5CAF800EB9CB35C7C67CF636 /* Pods */,
 				FB23736ACC7C296E7E47ED8E /* Frameworks */,

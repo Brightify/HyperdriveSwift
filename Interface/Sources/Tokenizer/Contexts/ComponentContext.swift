@@ -157,8 +157,11 @@ public class ComponentContext: DataContext {
                 switch parameter {
                 case .inheritedParameters:
                     return elementAction.parameters.enumerated().map { index, parameter in
-                        let (label, type) = parameter
-                        return ResolvedHyperViewAction.Parameter(label: label, kind: .local(name: label ?? "param\(index + 1)", type: type))
+                        if let propertyName = parameter.propertyName {
+                            return ResolvedHyperViewAction.Parameter(label: parameter.label, kind: .localReference(name: parameter.label ?? "param\(index + 1)", propertyName: propertyName, type: parameter.type))
+                        } else {
+                            return ResolvedHyperViewAction.Parameter(label: parameter.label, kind: .local(name: parameter.label ?? "param\(index + 1)", type: parameter.type))
+                        }
                     }
                 case .constant(let type, let value):
                     guard let foundType = RuntimePlatform.iOS.supportedTypes.first(where: {
@@ -190,7 +193,7 @@ public class ComponentContext: DataContext {
 
                     if let propertyName = propertyName {
                         guard let property = targetElement.factory.availableProperties.first(where: { $0.name == propertyName }) else {
-                            throw TokenizationError(message: "Element with id \(targetId) used in \(component.type) doesn't have property named \(propertyName).!")
+                            throw TokenizationError(message: "Element with id \(targetId) used in \(component.type) doesn't have property named \(propertyName)!")
                         }
                         return [ResolvedHyperViewAction.Parameter(label: label, kind: .reference(view: targetId, property: propertyName, type: .propertyType(property.anyTypeFactory)))]
                     } else {

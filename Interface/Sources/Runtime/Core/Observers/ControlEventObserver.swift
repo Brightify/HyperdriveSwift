@@ -97,5 +97,12 @@ public final class ControlEventObserver: NSObject {
         }
         observer.retained(in: control)
     }
+
+    public static func bind(to control: NSControl, handler: @escaping (NSControl) -> Void) {
+        let observer = ControlEventObserver(control: control) { _ in
+            handler(control)
+        }
+        observer.retained(in: control)
+    }
 }
 #endif

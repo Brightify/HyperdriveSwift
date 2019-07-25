@@ -204,7 +204,7 @@ extension Module.UIKit {
             self.factory = factory
 
             parameters = [
-                UIElementAction.Parameter(label: "segment", type: .propertyType(factory))
+                Parameter(label: "segment", type: .propertyType(factory))
             ]
         }
 

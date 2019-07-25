@@ -58,8 +58,8 @@ public struct ControlStateProperty<T: TypedAttributeSupportedTypeFactory>: Typed
         return .expression(
             .invoke(target: .member(target: .constant(namespacedTarget), name: methodName), arguments: [
                 .init(value: application(context: context)),
-                .init(name: "for", value: .constant("[\(stringState)]"))
-            ])
+                context.platform == .macOS ? nil : .init(name: "for", value: .constant("[\(stringState)]")),
+            ].compactMap { $0 })
         )
     }
     #endif

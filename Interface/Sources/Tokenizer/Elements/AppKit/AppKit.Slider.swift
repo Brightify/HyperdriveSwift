@@ -26,7 +26,7 @@ extension Module.AppKit {
 
         public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
             return try super.supportedActions(context: context) + [
-                ControlEventAction()
+                ValueEventAction(name: "value", valueType: .double)
             ]
         }
 
