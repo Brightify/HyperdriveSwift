@@ -32,7 +32,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
 
 // This class is identical to AppKit's ComponentReference. If you make any changes here, you might want to make them there, too.
 //extension Module.UIKit {
-    public class ComponentReference: UIElement, ComponentDefinitionContainer, ProvidesCodeInitialization {
+    public class ComponentReference: UIElement, ComponentDefinitionContainer {
         public var factory: UIElementFactory {
             return backingView.factory
         }
@@ -143,24 +143,6 @@ public class ComponentReferencePassthroughAction: UIElementAction {
             return RuntimeType(name: type, modules: module.map { [$0] } ?? [])
         }
 
-        #if canImport(SwiftCodeGen)
-        public func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            let actionPublisher: MethodArgument
-            if let passthrough = passthroughActions {
-                actionPublisher = MethodArgument(name: "actionPublisher", value: .invoke(target: .constant("actionPublisher.map"), arguments: [
-                    MethodArgument(value: .closure(Closure(parameters: [(name: "action", type: nil)], block: [.return(expression: .constant(".\(passthrough)(action)"))]))),
-                ]))
-            } else {
-                actionPublisher = MethodArgument(name: "actionPublisher", value: .constant("ActionPublisher()"))
-            }
-
-            return .invoke(target: .constant(type), arguments: [
-                MethodArgument(name: "initialState", value: .constant("\(type).State()")),
-                actionPublisher,
-            ])
-        }
-        #endif
-
         public required init(context: UIElementDeserializationContext, backingView: UIElement, factory: UIElementFactory) throws {
             let node = context.element
             type = try node.value(ofAttribute: "type", defaultValue: node.name)
@@ -231,3 +213,23 @@ public class ComponentReferencePassthroughAction: UIElementAction {
         }
     }
 //}
+
+#if canImport(SwiftCodeGen)
+extension ComponentReference: ProvidesCodeInitialization {
+    public func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
+        let actionPublisher: MethodArgument
+        if let passthrough = passthroughActions {
+            actionPublisher = MethodArgument(name: "actionPublisher", value: .invoke(target: .constant("actionPublisher.map"), arguments: [
+                MethodArgument(value: .closure(Closure(parameters: [(name: "action", type: nil)], block: [.return(expression: .constant(".\(passthrough)(action)"))]))),
+            ]))
+        } else {
+            actionPublisher = MethodArgument(name: "actionPublisher", value: .constant("ActionPublisher()"))
+        }
+
+        return .invoke(target: .constant(type), arguments: [
+            MethodArgument(name: "initialState", value: .constant("\(type).State()")),
+            actionPublisher,
+        ])
+    }
+}
+#endif

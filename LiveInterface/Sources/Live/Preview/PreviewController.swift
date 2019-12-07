@@ -8,6 +8,7 @@
 
 import HyperdriveInterface
 import RxSwift
+import UIKit
 
 final class PreviewController: HyperViewController<PreviewRootView> {
     struct Parameters {

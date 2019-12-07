@@ -36,3 +36,4 @@ _docpress
 *.xcworkspace
 .build
 CLI/CLI.xcodeproj
+Interface/Example/Generated/GeneratedUI.swift

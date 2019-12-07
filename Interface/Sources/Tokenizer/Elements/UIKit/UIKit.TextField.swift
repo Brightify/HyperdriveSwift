@@ -35,7 +35,7 @@ extension Module.UIKit {
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
-            return HyperTextField()
+            return HyperdriveInterface.HyperTextField()
         }
         #endif
     }

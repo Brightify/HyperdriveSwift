@@ -1,6 +1,6 @@
 import Generator
 import Tokenizer
-import xcodeproj
+import XcodeProj
 import SwiftCLI
 
 let generateCommand = GenerateCommand()

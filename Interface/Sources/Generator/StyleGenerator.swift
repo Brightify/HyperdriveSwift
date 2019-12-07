@@ -60,7 +60,7 @@ public class StyleGroupGenerator {
                     accessibility: .private,
                     modifiers: .static,
                     name: "___sharedProperties___",
-                    type: "[Hyperdrive.Attribute]",
+                    type: "[HyperdriveInterface.Attribute]",
                     value: .arrayLiteral(items: generate(properties: style.properties))))
         }
 
@@ -87,14 +87,14 @@ public class StyleGroupGenerator {
                 MethodArgument(name: index == 0 ? "subarrays" : nil, value: expression)
             }
 
-            let attributeExpression = Expression.invoke(target: .constant("Array<Hyperdrive.Attribute>"), arguments: arguments)
+            let attributeExpression = Expression.invoke(target: .constant("Array<HyperdriveInterface.Attribute>"), arguments: arguments)
 
             properties.append(
                 .constant(
                     accessibility: accessibility,
                     modifiers: .static,
                     name: childStyle.name,
-                    type: "[Hyperdrive.Attribute]",
+                    type: "[HyperdriveInterface.Attribute]",
                     value: attributeExpression)
             )
         }

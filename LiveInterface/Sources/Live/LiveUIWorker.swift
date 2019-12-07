@@ -207,7 +207,8 @@ public class ReactantLiveUIWorker {
                             var oldStyles = self.styles
                             let mainContext = MainDeserializationContext(
                                 elementFactories: Module.uiKit.elements(for: .iOS),
-                                referenceFactory: Module.uiKit.referenceFactory)
+                                referenceFactory: Module.uiKit.referenceFactory!,
+                                platform: .iOS)
                             let context = StyleGroupDeserializationContext(parentContext: mainContext, element: xml.children.first!.element!)
                             let group = try StyleGroup(context: context)
 //                            let group: StyleGroup = try xml["styleGroup"].value()
@@ -296,7 +297,7 @@ public class ReactantLiveUIWorker {
 //            rootDefinition = try ComponentDefinition(node: node, type: componentType(from: file))
 //        }
 
-        let mainContext = MainDeserializationContext(elementFactories: Module.uiKit.elements(for: .iOS), referenceFactory: Module.uiKit.referenceFactory)
+        let mainContext = MainDeserializationContext(elementFactories: Module.uiKit.elements(for: .iOS), referenceFactory: Module.uiKit.referenceFactory!, platform: .iOS)
         rootDefinition = try mainContext.deserialize(element: node, type: node.name)
 
         if rootDefinition.isRootView {
@@ -408,8 +409,12 @@ extension ReactantLiveUIWorker: Hashable {
 
 extension ReactantLiveUIWorker {
     public class Context: DataContext {
+        public var platform: RuntimePlatform {
+            return globalContext.platform
+        }
         public var configuration: ReactantLiveUIConfiguration
         public var globalContext: GlobalContext
+        public var elementRegistry: ElementRegistry
         public weak var worker: ReactantLiveUIWorker?
 
         public var resourceBundle: Bundle? {
@@ -420,6 +425,7 @@ extension ReactantLiveUIWorker {
             self.configuration = configuration
             self.globalContext = globalContext
             self.worker = worker
+            self.elementRegistry = ElementRegistry()
         }
 
         public func componentInstantiation(named name: String) throws -> () -> UIView {

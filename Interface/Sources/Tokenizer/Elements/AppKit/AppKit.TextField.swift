@@ -34,7 +34,7 @@ extension Module.AppKit {
         #endif
     }
 
-    public class TextFieldProperties: ControlProperties {
+    public class TextFieldProperties: Module.AppKit.ControlProperties {
         public let text: StaticAssignablePropertyDescription<TransformedText?>
         public let placeholder: StaticAssignablePropertyDescription<TransformedText?>
         public let font: StaticAssignablePropertyDescription<Font?>

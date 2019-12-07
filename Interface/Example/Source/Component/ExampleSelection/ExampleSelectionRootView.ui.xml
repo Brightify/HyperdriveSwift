@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExampleSelectionRootView xmlns="http://schema.reactant.tech/ui"
+    xmlns:layout="http://schema.reactant.tech/layout"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schema.reactant.tech/ui http://schema.reactant.tech/ui.xsd
+                        http://schema.reactant.tech/layout http://schema.reactant.tech/layout.xsd"
+    root="true">
+
+    <PlainTableView
+        id="tableView"
+        action:selected="selected(...)"
+        export="true"
+        cell="SelectionCell"
+        layout:edges="super" />
+
+</ExampleSelectionRootView>

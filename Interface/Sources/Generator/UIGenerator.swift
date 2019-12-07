@@ -56,7 +56,7 @@ public class UIGenerator: Generator {
 
             guard let providesInitialization = child as? ProvidesCodeInitialization else {
                 #warning("FIXME Replace with throwing an error")
-                fatalError()
+                fatalError("\(child) doesn't provide initialization!")
             }
 
             return .assignment(target: .constant(child.id.description), expression: try providesInitialization.initialization(for: componentContext.platform, context: componentContext))
@@ -109,11 +109,18 @@ public class UIGenerator: Generator {
                 viewSuperCall +
                 Block(statements: [
                     .emptyLine,
+                ] + root.overrides.filter({ $0.message == .willInit }).map { override in
+                    Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
+                } + [
+                    .emptyLine,
                     .expression(.constant("loadView()")),
                     .expression(.constant("setupConstraints()")),
                     .expression(.constant("initialState.owner = self")),
                     .expression(.constant("observeActions(actionPublisher: actionPublisher)")),
-                ]))
+                    .emptyLine,
+                ]  + root.overrides.filter({ $0.message == .didInit }).map { override in
+                    Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
+                }))
 
         let stateProperties: [SwiftCodeGen.Property] = [
             .variable(accessibility: .fileprivate, modifiers: .weak, name: "owner", type: "\(root.type)?", block: [
@@ -228,7 +235,7 @@ public class UIGenerator: Generator {
             ($0 as? ProvidesCodeInitialization)?.extraDeclarations ?? []
         }
 
-        let overridenMethods = Dictionary(grouping: root.overrides) { $0.message.methodId }
+        let overridenMethods = Dictionary(grouping: root.overrides.filter { !$0.message.isAbstract }) { $0.message.methodId }
         let overrides = overridenMethods.map { _, overrides -> Function in
             func invoke(override: ComponentDefinition.Override) -> Statement {
                 if override.message.parameters.isEmpty && override.receiver.hasSuffix("()") {
@@ -289,6 +296,11 @@ public class UIGenerator: Generator {
     private func loadView() throws -> Function {
         var block = Block()
         var themedProperties = [:] as [String: [Tokenizer.Property]]
+
+        for override in root.overrides.filter({ $0.message == .willLoadView }) {
+            block += Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
+        }
+
         for property in root.properties {
             guard !property.anyValue.requiresTheme else {
                 themedProperties["self", default: []].append(property)
@@ -323,6 +335,10 @@ public class UIGenerator: Generator {
                         Closure(captures: [.weak(.constant("self"))], parameters: [(name: "theme", type: nil)], block: themeApplicationBlock))),
                     ])
             )
+        }
+
+        for override in root.overrides.filter({ $0.message == .didLoadView }) {
+            block += Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
         }
 
         return Function(
@@ -383,8 +399,16 @@ public class UIGenerator: Generator {
     private func setupConstraints() -> Function {
         var block = Block()
 
+        for override in root.overrides.filter({ $0.message == .willSetupConstraints }) {
+            block += Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
+        }
+
         for child in root.children {
             block += viewConstraints(element: child, superName: "self", forUpdate: false)
+        }
+
+        for override in root.overrides.filter({ $0.message == .didSetupConstraints }) {
+            block += Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
         }
 
         return Function(

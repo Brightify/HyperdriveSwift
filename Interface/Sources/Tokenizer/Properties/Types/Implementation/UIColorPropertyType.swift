@@ -47,8 +47,14 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         switch self {
         case .color(.absolute(let red, let green, let blue, let alpha)):
             return .constant("\(colorTypePrefix)Color(red: \(red), green: \(green), blue: \(blue), alpha: \(alpha))")
-        case .color(.named(let name)):
+        case .color(.named(let name)) where Color.systemColorNames.contains(name):
             return .constant("\(colorTypePrefix)Color.\(name)")
+        case .color(.named(let name)):
+            return .invoke(target: .constant("UIColor"), arguments: [
+                MethodArgument(name: "named", value: .constant("\"\(name)\"")),
+                MethodArgument(name: "in", value: .constant("__resourceBundle")),
+                MethodArgument(name: "compatibleWith", value: .constant("nil")),
+            ])
         case .themed(let name):
             return .constant("theme.colors.\(name)")
         }
@@ -81,12 +87,22 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
             #else
             return NSColor(red: red, green: green, blue: blue, alpha: alpha)
             #endif
-        case .color(.named(let name)):
+        case .color(.named(let name)) where Color.systemColorNames.contains(name):
             #if canImport(UIKit)
             return UIColor.value(forKeyPath: "\(name)Color") as? UIColor
             #else
             return NSColor.value(forKeyPath: "\(name)Color") as? NSColor
             #endif
+        case .color(.named(let name)):
+            if #available(iOS 11.0, OSX 10.13, *) {
+                #if canImport(UIKit)
+                return UIColor(named: name, in: context.resourceBundle, compatibleWith: nil)
+                #else
+                return NSColor(named: name, in: context.resourceBundle, compatibleWith: nil)
+                #endif
+            } else {
+                return nil
+            }
         case .themed(let name):
             guard let themedColor = context.themed(color: name) else { return nil }
             return themedColor.runtimeValue(context: context.child(for: themedColor))
@@ -102,12 +118,12 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         func getColor(from value: String) throws -> UIColorPropertyType {
             if let themedName = ApplicationDescription.themedValueName(value: value) {
                 return .themed(themedName)
-            } else if Color.supportedNames.contains(value) {
+            } else if Color.systemColorNames.contains(value) {
                 return .color(.named(value))
             } else if let materializedValue = Color(hex: value) {
                 return .color(materializedValue)
             } else {
-                throw PropertyMaterializationError.unknownValue(value)
+                return .color(.named(value))
             }
         }
 
@@ -187,9 +203,9 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             switch platform {
             case .iOS, .tvOS:
-                return RuntimeType(name: "UIColor", module: "UIKit")
+                return RuntimeType(name: "UIColor?", module: "UIKit")
             case .macOS:
-                return RuntimeType(name: "NSColor", module: "AppKit")
+                return RuntimeType(name: "NSColor?", module: "AppKit")
             }
         }
     }

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
+#if false && canImport(Kingfisher)
 import MapKit
 import Kingfisher
 
@@ -95,3 +96,4 @@ open class StaticMap: ViewBase<MKCoordinateRegion, StaticMapAction> {
         }
     }
 }
+#endif

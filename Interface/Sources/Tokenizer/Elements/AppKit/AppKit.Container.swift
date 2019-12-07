@@ -7,10 +7,14 @@
 
 #if HyperdriveRuntime && canImport(AppKit)
 import AppKit
+#elseif canImport(UIKit)
+import UIKit
 #endif
 
 extension Module.AppKit {
-    public class Container: View, UIContainer {
+    public class Container: Module.AppKit.View, UIContainer {
+        public var providedActions: [(element: UIElementBase, actions: [HyperViewAction])] = []
+
         public var children: [UIElement]
 
         public var addSubviewMethod: String {

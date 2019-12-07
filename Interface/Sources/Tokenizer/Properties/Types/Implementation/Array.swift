@@ -27,7 +27,7 @@ extension Array: TypedSupportedType & SupportedPropertyType & HasStaticTypeFacto
     }
     #endif
 
-    #if canImport(UIKit)
+    #if !GeneratingInterface
     public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
         return try map { try $0.runtimeValue(context: context.child(for: $0)) }
     }

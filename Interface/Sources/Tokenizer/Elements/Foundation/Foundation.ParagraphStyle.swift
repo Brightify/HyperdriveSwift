@@ -100,6 +100,12 @@ extension Module.Foundation {
 }
 
 #if HyperdriveRuntime
+#if canImport(AppKit)
+import AppKit
+#elseif canImport(UIKit)
+import UIKit
+#endif
+
 extension Module.Foundation.ParagraphStyle {
     public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
         let paragraphStyle = NSMutableParagraphStyle()

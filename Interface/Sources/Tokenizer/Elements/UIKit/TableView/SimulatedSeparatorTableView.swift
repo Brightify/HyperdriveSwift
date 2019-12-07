@@ -13,7 +13,7 @@ import SwiftCodeGen
 #if canImport(UIKit)
 import UIKit
 import HyperdriveInterface
-import RxDataSources
+//import RxDataSources
 #endif
 
 extension Module.UIKit {

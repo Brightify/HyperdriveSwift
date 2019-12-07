@@ -248,6 +248,12 @@ extension ComponentDefinition {
 extension ComponentDefinition {
     public struct Override {
         public enum Message: String, CaseIterable {
+            case willInit
+            case didInit
+            case willLoadView
+            case didLoadView
+            case willSetupConstraints
+            case didSetupConstraints
             case willLayoutSubviews
             case didLayoutSubviews
             case willMoveToSuperview
@@ -259,6 +265,16 @@ extension ComponentDefinition {
             case layoutMarginsDidChange
             case safeAreaInsetsDidChange
 
+            public var isAbstract: Bool {
+                switch self {
+                case .willLayoutSubviews, .didLayoutSubviews, .willMoveToSuperview, .didMoveToSuperview, .willMoveToWindow, .didMoveToWindow, .didAddSubview,
+                     .willRemoveSubview, .layoutMarginsDidChange, .safeAreaInsetsDidChange:
+                    return false
+                case .willInit, .didInit, .willLoadView, .didLoadView, .willSetupConstraints, .didSetupConstraints:
+                    return true
+                }
+            }
+
             public var methodId: String {
                 switch self {
                 case .willLayoutSubviews, .didLayoutSubviews:
@@ -266,15 +282,17 @@ extension ComponentDefinition {
                 case .willMoveToSuperview, .didMoveToSuperview, .willMoveToWindow, .didMoveToWindow, .didAddSubview,
                      .willRemoveSubview, .layoutMarginsDidChange, .safeAreaInsetsDidChange:
                     return rawValue
+                case .willInit, .didInit, .willLoadView, .didLoadView, .willSetupConstraints, .didSetupConstraints:
+                    return rawValue
                 }
             }
 
             public var beforeSuper: Bool {
                 switch self {
-                case .willLayoutSubviews, .willMoveToSuperview, .willMoveToWindow, .willRemoveSubview:
+                case .willLayoutSubviews, .willMoveToSuperview, .willMoveToWindow, .willRemoveSubview, .willInit, .willLoadView, .willSetupConstraints:
                     return true
                 case .didLayoutSubviews, .didMoveToSuperview, .didMoveToWindow, .didAddSubview, .layoutMarginsDidChange,
-                     .safeAreaInsetsDidChange:
+                     .safeAreaInsetsDidChange, .didInit, .didLoadView, .didSetupConstraints:
                     return false
                 }
             }
@@ -286,7 +304,7 @@ extension ComponentDefinition {
                 case .willMoveToSuperview, .willMoveToWindow:
                     return "willMove"
                 case .didMoveToSuperview, .didMoveToWindow, .didAddSubview, .willRemoveSubview, .layoutMarginsDidChange,
-                     .safeAreaInsetsDidChange:
+                     .safeAreaInsetsDidChange, .willInit, .didInit, .willLoadView, .didLoadView, .willSetupConstraints, .didSetupConstraints:
                     return rawValue
                 }
             }
@@ -294,7 +312,7 @@ extension ComponentDefinition {
             #if canImport(SwiftCodeGen)
             public var parameters: [MethodParameter] {
                 switch self {
-                case .willLayoutSubviews, .didLayoutSubviews, .didMoveToSuperview, .didMoveToWindow, .layoutMarginsDidChange, .safeAreaInsetsDidChange:
+                case .willLayoutSubviews, .didLayoutSubviews, .didMoveToSuperview, .didMoveToWindow, .layoutMarginsDidChange, .safeAreaInsetsDidChange, .willInit, .didInit, .willLoadView, .didLoadView, .willSetupConstraints, .didSetupConstraints:
 
                     return []
                 case .willMoveToSuperview:

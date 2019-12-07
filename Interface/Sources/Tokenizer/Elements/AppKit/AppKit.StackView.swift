@@ -12,9 +12,9 @@ import AppKit
 
 extension Module.AppKit {
     public class StackView: Container {
-        public override class var availableProperties: [PropertyDescription] {
-            return Properties.stackView.allProperties
-        }
+//        public override class var availableProperties: [PropertyDescription] {
+//            return Properties.stackView.allProperties
+//        }
 
         public override var addSubviewMethod: String {
             return "addArrangedSubview"
@@ -93,6 +93,12 @@ extension Module.AppKit.StackView.UserInterfaceLayoutOrientation {
         }
     }
 }
+#elseif !GeneratingInterface
+extension Module.AppKit.StackView.UserInterfaceLayoutOrientation {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        fatalError("Not supported")
+    }
+}
 #endif
 
 // MARK: - UserInterfaceLayoutOrientation
@@ -116,9 +122,10 @@ extension Module.AppKit.StackView {
     }
 }
 
-#if HyperdriveRuntime && canImport(AppKit)
+#if HyperdriveRuntime
 extension Module.AppKit.StackView.LayoutDistribution {
     public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        #if canImport(AppKit)
         switch self {
         case .equalCentering:
             return NSStackView.Distribution.equalCentering.rawValue
@@ -133,6 +140,9 @@ extension Module.AppKit.StackView.LayoutDistribution {
         case .gravityAreas:
             return NSStackView.Distribution.gravityAreas.rawValue
         }
+        #else
+        fatalError("Not supported on this platform!")
+        #endif
     }
 }
 #endif
@@ -158,9 +168,9 @@ extension Module.AppKit.StackView {
     }
 }
 
-#if HyperdriveRuntime && canImport(AppKit)
+#if !GeneratingInterface && canImport(AppKit)
 extension Module.AppKit.StackView.LayoutAlignment {
-    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+    public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
         switch self {
         case .center:
             return NSStackView.Alignment.center.rawValue
@@ -175,6 +185,12 @@ extension Module.AppKit.StackView.LayoutAlignment {
         case .trailing:
             return NSStackView.Alignment.trailing.rawValue
         }
+    }
+}
+#elseif !GeneratingInterface
+extension Module.AppKit.StackView.LayoutAlignment {
+    public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
+        fatalError("Not supported!")
     }
 }
 #endif

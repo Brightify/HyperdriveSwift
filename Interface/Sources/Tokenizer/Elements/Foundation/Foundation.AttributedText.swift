@@ -273,7 +273,7 @@ extension Module.Foundation.AttributedText {
 
                 let attributes = try Dictionary(inheritedAttributes.compactMap { attribute -> (NSAttributedString.Key, Any)? in
                     guard let attributeValue = try attribute.anyValue.runtimeValue(context: context.child(for: attribute.anyValue)),
-                        let key = AttributedText.attributeKeys[attribute.name] else { return nil }
+                        let key = Module.Foundation.AttributedText.attributeKeys[attribute.name] else { return nil }
                     return (key, attributeValue)
                 }, uniquingKeysWith: { $1 })
                 return [NSAttributedString(string: transformedText, attributes: attributes)]

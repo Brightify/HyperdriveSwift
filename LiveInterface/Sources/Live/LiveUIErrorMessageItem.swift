@@ -7,6 +7,7 @@
 //
 
 import HyperdriveInterface
+import UIKit
 
 final class LiveUIErrorMessageItem: HyperViewBase, HyperView {
 

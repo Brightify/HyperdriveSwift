@@ -10,27 +10,39 @@ let package = Package(
             targets: ["hyperdrive-cli"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/tadija/AEXML.git", .exact("4.3.3")),
-        .package(url: "https://github.com/tuist/xcodeproj.git", .upToNextMajor(from: "6.0.0")),
+        .package(url: "https://github.com/tadija/AEXML.git", .upToNextMinor(from: "4.4.0")),
+        .package(url: "https://github.com/tuist/xcodeproj.git", .upToNextMajor(from: "7.5.0")),
         .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.2.2")
     ],
     targets: [
         .target(
             name: "SwiftCodeGen",
             dependencies: [],
-            path: "Interface/Sources/SwiftCodeGen"),
+            path: "Interface/Sources/SwiftCodeGen",
+            swiftSettings: [
+                .define("GeneratingInterface"),
+            ]),
         .target(
             name: "Common",
             dependencies: [],
-            path: "Interface/Sources/Common"),
+            path: "Interface/Sources/Common",
+            swiftSettings: [
+                .define("GeneratingInterface"),
+            ]),
         .target(
             name: "Tokenizer",
             dependencies: ["Common", "SwiftCodeGen"],
-            path: "Interface/Sources/Tokenizer"),
+            path: "Interface/Sources/Tokenizer",
+            swiftSettings: [
+                .define("GeneratingInterface"),
+            ]),
         .target(
             name: "Generator",
-            dependencies: ["Tokenizer", "xcodeproj", "SwiftCLI", "AEXML", "SwiftCodeGen"],
-            path: "Interface/Sources/Generator"),
+            dependencies: ["Tokenizer", "XcodeProj", "SwiftCLI", "AEXML", "SwiftCodeGen"],
+            path: "Interface/Sources/Generator",
+            swiftSettings: [
+                .define("GeneratingInterface"),
+            ]),
         .target(
             name: "hyperdrive-cli",
             dependencies: ["Tokenizer", "Generator", "SwiftCodeGen"],

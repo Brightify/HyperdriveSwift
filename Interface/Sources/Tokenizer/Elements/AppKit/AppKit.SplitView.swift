@@ -60,7 +60,7 @@ extension Module.AppKit.SplitView {
     }
 }
 
-#if HyperdriveRuntime && canImport(AppKit)
+#if !GeneratingInterface && canImport(AppKit)
 import AppKit
 
 extension Module.AppKit.SplitView.SplitViewDividerStyle {
@@ -75,6 +75,12 @@ extension Module.AppKit.SplitView.SplitViewDividerStyle {
             value = .paneSplitter
         }
         return value.rawValue
+    }
+}
+#elseif !GeneratingInterface
+extension Module.AppKit.SplitView.SplitViewDividerStyle {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        fatalError("Not supported")
     }
 }
 #endif

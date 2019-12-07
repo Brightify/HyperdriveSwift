@@ -9,6 +9,7 @@
 import AppKit
 #endif
 
+//#if GeneratingInterface || canImport(AppKit)
 extension Module.AppKit {
     public class Slider: View {
         public override class var availableProperties: [PropertyDescription] {
@@ -26,15 +27,15 @@ extension Module.AppKit {
 
         public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
             return try super.supportedActions(context: context) + [
-                ControlEventAction()
+//                ControlEventAction()
             ]
         }
 
-        #if HyperdriveRuntime && canImport(AppKit)
-        public override func initialize(context: ReactantLiveUIWorker.Context) throws -> NSView {
-            return NSSlider()
-        }
-        #endif
+//        #if HyperdriveRuntime && canImport(AppKit)
+//        public override func initialize(context: ReactantLiveUIWorker.Context) throws -> NSView {
+//            return NSSlider()
+//        }
+//        #endif
     }
 
     public class SliderProperties: ControlProperties {
@@ -55,3 +56,4 @@ extension Module.AppKit {
         }
     }
 }
+//#endif

@@ -7,6 +7,7 @@
 //
 
 import HyperdriveInterface
+import UIKit
 
 class ViewContainer: UIView {
     var containedView: UIView? {

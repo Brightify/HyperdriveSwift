@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<StackViewRootView xmlns="http://schema.reactant.tech/ui"
+    xmlns:layout="http://schema.reactant.tech/layout"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schema.reactant.tech/ui http://schema.reactant.tech/ui.xsd
+                        http://schema.reactant.tech/layout http://schema.reactant.tech/layout.xsd"
+    rootView="true"
+    backgroundColor="white">
+
+    <overrides
+        didInit="afterInit" />
+
+    <StackView
+        id="stackView"
+        export="true"
+        axis="vertical"
+        spacing="10"
+        layout:fillHorizontally="safeAreaLayoutGuide"
+        layout:top="safeAreaLayoutGuide"
+        layout:bottom=":lte safeAreaLayoutGuide">
+        <View
+            backgroundColor="blue"
+            layout:height="20"/>
+        <View
+            backgroundColor="green"
+            layout:height="20"/>
+    </StackView>
+
+</StackViewRootView>

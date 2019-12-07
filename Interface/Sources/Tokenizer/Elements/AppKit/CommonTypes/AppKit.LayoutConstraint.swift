@@ -32,7 +32,7 @@ extension Module.AppKit {
     }
 }
 
-#if HyperdriveRuntime && canImport(AppKit)
+#if !GeneratingInterface && canImport(AppKit)
 import AppKit
 
 extension Module.AppKit.LayoutConstraint {
@@ -69,6 +69,12 @@ extension Module.AppKit.LayoutConstraint {
         case .notAnAttribute:
             return NSLayoutConstraint.Attribute.notAnAttribute.rawValue
         }
+    }
+}
+#elseif !GeneratingInterface
+extension Module.AppKit.LayoutConstraint {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        fatalError("Not supported!")
     }
 }
 #endif

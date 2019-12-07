@@ -13,7 +13,7 @@ import SwiftCodeGen
 #if canImport(UIKit)
 import UIKit
 import HyperdriveInterface
-import RxDataSources
+//import RxDataSources
 #endif
 
 enum TableViewSource {
@@ -36,7 +36,7 @@ extension Module.UIKit {
             return ToolingProperties.plainTableView.allProperties
         }
 
-        public var cellType: String?
+        public var cellType: String
         public var cellDefinition: ComponentDefinition?
 
         public var componentTypes: [String] {
@@ -60,38 +60,34 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
-            guard let cellType = cellType else {
-                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-            }
+//            guard let cellType = cellType else {
+//                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
+//            }
             return RuntimeType(name: "PlainTableView<\(cellType)>", module: "Hyperdrive")
         }
 
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            guard let cellType = cellType else {
-                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-            }
-            return .constant("PlainTableView<\(cellType)>()")
+//            guard let cellType = cellType else {
+//                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
+//            }
+            return .constant("PlainTableView<\(cellType)>(cellFactory: \(cellType)())")
         }
         #endif
 
         public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
             let node = context.element
-            if let field = node.value(ofAttribute: "field") as String?, !field.isEmpty {
-                cellType = nil
-                cellDefinition = nil
+
+            guard let cellType = node.value(ofAttribute: "cell") as String? else {
+                throw TokenizationError(message: "cell for PlainTableView was not defined.")
+            }
+
+            self.cellType = cellType
+
+            if let cellElement = try node.singleOrNoElement(named: "cell") {
+                cellDefinition = try context.deserialize(element: cellElement, type: cellType)
             } else {
-                guard let cellType = node.value(ofAttribute: "cell") as String? else {
-                    throw TokenizationError(message: "cell for PlainTableView was not defined.")
-                }
-
-                self.cellType = cellType
-
-                if let cellElement = try node.singleOrNoElement(named: "cell") {
-                    cellDefinition = try context.deserialize(element: cellElement, type: cellType)
-                } else {
-                    cellDefinition = nil
-                }
+                cellDefinition = nil
             }
 
             try super.init(context: context, factory: factory)
@@ -99,17 +95,26 @@ extension Module.UIKit {
 
         public override func serialize(context: DataContext) -> XMLSerializableElement {
             var element = super.serialize(context: context)
-            if let cellType = cellType {
-                element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
-            }
+//            if let cellType = cellType {
+            element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
+//            }
             return element
+        }
+
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+
+            return [
+                PlainTableViewAction.rowAction(cellType: cellType),
+                PlainTableViewAction.selected(cellType: cellType),
+                PlainTableViewAction.refresh,
+            ]
         }
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-            guard let cellType = cellType else {
-                throw LiveUIError(message: "cell for PlainTableView was not defined.")
-            }
+//            guard let cellType = cellType else {
+//                throw LiveUIError(message: "cell for PlainTableView was not defined.")
+//            }
             let createCell = try context.componentInstantiation(named: cellType)
             let exampleCount = ToolingProperties.plainTableView.exampleCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.PlainTableView<CellWrapper>(options: [], cellFactory: CellWrapper(wrapped: createCell()))

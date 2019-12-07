@@ -42,10 +42,11 @@ public class ReactantLiveUIViewApplier {
         if let foundView = try? findViewByFieldName(name, element) {
             view = foundView
         } else {
-            guard let initializer = element as? CanInitializeUIKitView else {
-                fatalError("Not Implemented")
-            }
-            view = try initializer.initialize(context: workerContext)
+            view = try workerContext.elementRegistry.initialize(from: element, context: workerContext)
+//            guard let initializer = element as? CanInitializeUIKitView else {
+//                fatalError("Not Implemented")
+//            }
+//            view = try initializer.initialize(context: workerContext)
             // tag views that are initialized without a field automatically
             view.applierTag = "applier-generated-view"
         }
@@ -56,7 +57,8 @@ public class ReactantLiveUIViewApplier {
         }
 
         if let superview = superview, let containedIn = containedIn {
-            containedIn.add(subview: view, toInstanceOfSelf: superview)
+            try workerContext.elementRegistry.add(subview: view, toInstanceOfSelf: superview, containerElement: containedIn)
+//            containedIn.add(subview: view, toInstanceOfSelf: superview)
         }
 
         if let container = element as? UIContainer {
@@ -341,10 +343,10 @@ extension UIView {
 
     var applierTag: String? {
         get {
-            return associatedObject(self, key: &UIView.applierTagKey, defaultValue: nil)
+            return objc_getAssociatedObject(self, &UIView.applierTagKey) as? String
         }
         set {
-            associateObject(self, key: &UIView.applierTagKey, value: newValue)
+            objc_setAssociatedObject(self, &UIView.applierTagKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 }

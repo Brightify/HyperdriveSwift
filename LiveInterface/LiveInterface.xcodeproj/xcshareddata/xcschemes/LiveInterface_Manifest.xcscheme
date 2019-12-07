@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18FF64D522B2BF5F007FB090"
-               BuildableName = "LiveInterface_iOS.framework"
-               BlueprintName = "LiveInterface-iOS"
+               BlueprintIdentifier = "F052EBB1D4180F0B372FAFEE"
+               BuildableName = "LiveInterface_Manifest.framework"
+               BlueprintName = "LiveInterface_Manifest"
                ReferencedContainer = "container:LiveInterface.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,28 +28,11 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18FF64DE22B2BF5F007FB090"
-               BuildableName = "LiveInterfaceTests.xctest"
-               BlueprintName = "LiveInterfaceTests"
-               ReferencedContainer = "container:LiveInterface.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18FF64D522B2BF5F007FB090"
-            BuildableName = "LiveInterface_iOS.framework"
-            BlueprintName = "LiveInterface-iOS"
-            ReferencedContainer = "container:LiveInterface.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
+      <CodeCoverageTargets>
+      </CodeCoverageTargets>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -64,12 +47,16 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18FF64D522B2BF5F007FB090"
-            BuildableName = "LiveInterface_iOS.framework"
-            BlueprintName = "LiveInterface-iOS"
+            BlueprintIdentifier = "F052EBB1D4180F0B372FAFEE"
+            BuildableName = "LiveInterface_Manifest.framework"
+            BlueprintName = "LiveInterface_Manifest"
             ReferencedContainer = "container:LiveInterface.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
+      <EnvironmentVariables>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -82,9 +69,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18FF64D522B2BF5F007FB090"
-            BuildableName = "LiveInterface_iOS.framework"
-            BlueprintName = "LiveInterface-iOS"
+            BlueprintIdentifier = "F052EBB1D4180F0B372FAFEE"
+            BuildableName = "LiveInterface_Manifest.framework"
+            BlueprintName = "LiveInterface_Manifest"
             ReferencedContainer = "container:LiveInterface.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

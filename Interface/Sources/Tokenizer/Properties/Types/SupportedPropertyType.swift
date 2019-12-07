@@ -77,7 +77,7 @@ public protocol SupportedPropertyType {
     func dematerialize(context: SupportedPropertyTypeContext) -> String
     #endif
 
-    #if canImport(UIKit)
+    #if !GeneratingInterface
     func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any?
     #endif
 
@@ -171,7 +171,7 @@ extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFa
         return self?.requiresTheme ?? false
     }
 
-    #if canImport(UIKit)
+    #if !GeneratingInterface
     public func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
         if let wrapped = self {
             return try wrapped.runtimeValue(context: context.child(for: wrapped))

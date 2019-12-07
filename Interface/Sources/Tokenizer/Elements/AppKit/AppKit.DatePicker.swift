@@ -24,15 +24,16 @@ extension Module.AppKit {
             }
         }
 
-        #if canImport(UIKit)
-        public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-            #if os(tvOS)
-            throw TokenizationError.unsupportedElementError(element: DatePicker.self)
-            #else
-            return UIDatePicker()
-            #endif
-        }
-        #endif
+//        #if canImport(UIKit)
+//        public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
+//            
+//            #if os(tvOS)
+//            throw TokenizationError.unsupportedElementError(element: DatePicker.self)
+//            #else
+//            return UIDatePicker()
+//            #endif
+//        }
+//        #endif
     }
 
     public class DatePickerProperties: ControlProperties {

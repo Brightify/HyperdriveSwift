@@ -25,13 +25,13 @@ public protocol UIContainer {
 
     func findChild(byId id: String) -> UIElement?
 
-    #if canImport(UIKit)
-    func add(subview: UIView, toInstanceOfSelf: UIView)
-    #endif
-
-    #if HyperdriveRuntime && canImport(AppKit)
-    func add(subview: NSView, toInstanceOfSelf: NSView)
-    #endif
+//    #if canImport(UIKit)
+//    func add(subview: UIView, toInstanceOfSelf: UIView)
+//    #endif
+//
+//    #if HyperdriveRuntime && canImport(AppKit)
+//    func add(subview: NSView, toInstanceOfSelf: NSView)
+//    #endif
 }
 
 public extension UIContainer {

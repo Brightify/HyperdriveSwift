@@ -9,6 +9,8 @@
 import SwiftCodeGen
 #endif
 
+import Foundation
+
 public enum TransformedText: HasStaticTypeFactory {
     case text(String)
     indirect case transform(Transform, TransformedText)

@@ -9,9 +9,9 @@
 #if canImport(UIKit)
 import UIKit
 
-open class PlainTableView<CELL: UIView>: TableViewBase<CELL.State, PlainTableView.Action>, UITableViewDataSource where CELL: HyperView {
+open class PlainTableView<CELL: UIView>: TableViewBase<CELL.State, PlainTableView<CELL>.Action>, UITableViewDataSource where CELL: HyperView {
     public enum Action {
-        case selected(CELL.State)
+        case selected(CELL.State, indexPath: IndexPath)
         case rowAction(CELL.State, CELL.Action)
         case refresh
     }
@@ -25,7 +25,7 @@ open class PlainTableView<CELL: UIView>: TableViewBase<CELL.State, PlainTableVie
     public init(
         style: UITableView.Style = .plain,
         options: TableViewOptions = .default,
-        cellFactory: @autoclosure @escaping () -> CELL = CELL.init())
+        cellFactory: @autoclosure @escaping () -> CELL)
     {
         self.cellFactory = cellFactory
 
@@ -56,7 +56,7 @@ open class PlainTableView<CELL: UIView>: TableViewBase<CELL.State, PlainTableVie
         super.tableView(tableView, didSelectRowAt: indexPath)
 
         let model = items[indexPath.row]
-        actionPublisher.publish(action: .selected(model))
+        actionPublisher.publish(action: .selected(model, indexPath: indexPath))
     }
 
     open override func performRefresh() {

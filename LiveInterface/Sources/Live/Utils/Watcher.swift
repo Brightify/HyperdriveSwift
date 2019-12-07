@@ -6,6 +6,7 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
+import Foundation
 import RxSwift
 
 /// Watches for file changes inside a specific path and sends an event through `subject` containing the path of changed file.

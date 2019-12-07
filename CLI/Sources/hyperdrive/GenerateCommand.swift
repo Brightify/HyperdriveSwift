@@ -11,7 +11,7 @@ import Common
 import Generator
 import Tokenizer
 import Foundation
-import xcodeproj
+import XcodeProj
 import SwiftCLI
 
 import SwiftCodeGen
@@ -242,6 +242,13 @@ class GenerateCommand: Command {
             imports.formUnion(definition.styles.map { $0.parentModuleImport })
         }
 
+        output.lines(
+            runtimePlatform == .macOS ? "import AppKit" : "import UIKit",
+            "import Hyperdrive",
+            "import HyperdriveInterface",
+            "import SnapKit"
+        )
+
         if !reactantUICompat.value {
             for (offset: index, element: (path: path, group: group)) in globalContextFiles.enumerated() {
                 let configuration = GeneratorConfiguration(minimumMajorVersion: minimumDeploymentTarget,
@@ -253,13 +260,6 @@ class GenerateCommand: Command {
                 output.append(try StyleGenerator(context: styleContext, configuration: configuration).generate(imports: index == 0))
             }
         }
-
-        output.lines(
-            runtimePlatform == .macOS ? "import AppKit" : "import UIKit",
-            "import Hyperdrive",
-            "import HyperdriveInterface",
-            "import SnapKit"
-        )
 
         if !reactantUICompat.value {
             try output.append(theme(context: globalContext, swiftVersion: swiftVersion, platform: runtimePlatform))

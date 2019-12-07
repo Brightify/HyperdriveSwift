@@ -38,14 +38,17 @@ extension Module.AppKit {
         }
 
         public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
-            return [ControlEventAction()]
+            return [ControlEventAction(
+                primaryName: "click",
+                aliases: ["tap"],
+                parameters: [])]
         }
 
-        #if canImport(UIKit)
-        public override func initialize(context: ReactantLiveUIWorker.Context) -> NSView {
-            return NSButton()
-        }
-        #endif
+//        #if canImport(AppKit)
+//        public override func initialize(context: ReactantLiveUIWorker.Context) -> NSView {
+//            return NSButton()
+//        }
+//        #endif
     }
 
     public class ButtonProperties: ControlProperties {
@@ -131,6 +134,18 @@ extension Module.AppKit.NSControlStateValue {
         case .on:
             return NSControl.StateValue.on.rawValue
         }
+    }
+}
+#elseif !GeneratingInterface
+extension Module.AppKit.ButtonType {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        fatalError("Not supported")
+    }
+}
+
+extension Module.AppKit.NSControlStateValue {
+    public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
+        fatalError("Not supported")
     }
 }
 #endif

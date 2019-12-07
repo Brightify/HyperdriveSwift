@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExampleCell xmlns="http://schema.reactant.tech/ui"
+    xmlns:layout="http://schema.reactant.tech/layout"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schema.reactant.tech/ui http://schema.reactant.tech/ui.xsd
+                        http://schema.reactant.tech/layout http://schema.reactant.tech/layout.xsd"
+    type="ExampleCell"
+    anonymous="true">
+
+    <Label
+        text="Test"
+        font="theme.title"
+        backgroundColor="cyan"
+        layout:fillHorizontally="super inset(20)"
+        layout:fillVertically="super inset(0)" />
+</ExampleCell>

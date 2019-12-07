@@ -8,7 +8,10 @@
 
 import RxSwift
 
-extension UIViewController {
+#if canImport(RxSwift)
+import RxSwift
+
+extension Platform.ViewController {
 
     /**
      * Presents a view controller and returns `Observable` that indicates when the view has been successfully presented.
@@ -16,10 +19,14 @@ extension UIViewController {
      * - parameter animated: determines whether the view controller presentation should be animated, default is `true`
      */
     @discardableResult
-    public func present<C: UIViewController>(controller: C, animated: Bool = true) -> Observable<C> {
-        let replay = ReplaySubject<Void>.create(bufferSize: 1)
-        present(controller, animated: animated, completion: { replay.onLast() })
-        return replay.rewrite(with: controller)
+    public func present<C: Platform.ViewController>(controller: C, animated: Bool = true) -> Single<C> {
+        return Single<C>.create { emitter in
+            self.present(controller, animated: animated, completion: {
+                emitter(.success(controller))
+            })
+
+            return Disposables.create()
+        }
     }
 
     /**
@@ -27,31 +34,22 @@ extension UIViewController {
      * - parameter animated: determines whether the view controller dismissal should be animated, default is `true`
      */
     @discardableResult
-    public func dismiss(animated: Bool = true) -> Observable<Void> {
-        let replay = ReplaySubject<Void>.create(bufferSize: 1)
-        dismiss(animated: animated, completion: { replay.onLast() })
-        return replay
+    public func dismiss(animated: Bool = true) -> Completable {
+        return Completable.create { emitter in
+            self.dismiss(animated: animated, completion: {
+                emitter(.completed)
+            })
+
+            return Disposables.create()
+        }
     }
 
     @discardableResult
-    public func present<C: UIViewController>(controller: Observable<C>, animated: Bool = true) -> Observable<C> {
-        let replay = ReplaySubject<C>.create(bufferSize: 1)
-        _ = controller
-            .takeUntil(rx.deallocated)
-            .flatMapLatest { [weak self] controller in
-                self?.present(controller: controller).rewrite(with: controller) ?? .empty()
+    public func present<C: Platform.ViewController>(controller: Single<C>, animated: Bool = true) -> Single<C> {
+        return controller
+            .flatMap { controller in
+                self.present(controller: controller, animated: animated)
             }
-            .subscribe(
-                onNext: { [weak self] controller in
-                    guard self != nil else {
-                        replay.onCompleted()
-                        return
-                    }
-                    replay.onNext(controller)
-                },
-                onDisposed: {
-                    replay.onCompleted()
-            })
-        return replay
     }
 }
+#endif

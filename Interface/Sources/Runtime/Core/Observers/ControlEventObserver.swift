@@ -49,7 +49,7 @@ public final class ControlEventObserver<T: UIControl>: NSObject {
     }
 
     public static func bind<T: UITextField>(to control: T, events: UIControl.Event, handler: @escaping (String?) -> Void) {
-        let observer = ControlEventObserver(control: control, events: events) { control in
+        let observer = ControlEventObserver<T>(control: control, events: events) { control in
             handler(control.text)
         }
         observer.retained(in: control)

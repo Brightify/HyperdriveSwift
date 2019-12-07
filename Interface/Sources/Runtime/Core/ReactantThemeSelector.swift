@@ -5,6 +5,8 @@
 //  Created by Tadeas Kriz on 6/20/18.
 //
 
+import Foundation
+
 public protocol ReactantThemeDefinition {
     var name: String { get }
 }

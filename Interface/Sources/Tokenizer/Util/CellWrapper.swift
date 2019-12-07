@@ -9,7 +9,6 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 import HyperdriveInterface
-import RxDataSources
     
 public final class CellWrapper: HyperViewBase, HyperView {
     public typealias State = EmptyState

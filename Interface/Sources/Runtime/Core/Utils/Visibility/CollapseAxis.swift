@@ -6,6 +6,8 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
+import Foundation
+
 /**
  * Axis on which a **UIView** should collapse.
  * ## Horizontal
