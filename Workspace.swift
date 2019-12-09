@@ -9,4 +9,5 @@ let workspace = Workspace(
     ],
     additionalFiles: [
         "CLI/CLI.xcodeproj",
+        "Podfile",
     ])

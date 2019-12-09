@@ -44,7 +44,7 @@ public final class PlainTableViewObserver<CELL: HyperView & UIView>: NSObject {
         associateObject(object, key: &associationKey, value: self, policy: .retain)
     }
 
-    public static func bindSelected(to tableView: PlainTableView<CELL>, handler: @escaping (CELL.State, IndexPath) -> Void) {
+    public static func bindSelected(to tableView: PlainTableView<CELL>, handler: @escaping (CELL.StateType, IndexPath) -> Void) {
 
         let observer = PlainTableViewObserver(tableView: tableView, callback: { action in
             guard case .selected(let state, let indexPath) = action else { return }
@@ -54,7 +54,7 @@ public final class PlainTableViewObserver<CELL: HyperView & UIView>: NSObject {
         observer.retained(in: tableView)
     }
 
-    public static func bindRowAction(to tableView: PlainTableView<CELL>, handler: @escaping (CELL.State, CELL.Action) -> Void) {
+    public static func bindRowAction(to tableView: PlainTableView<CELL>, handler: @escaping (CELL.StateType, CELL.ActionType) -> Void) {
         let observer = PlainTableViewObserver(tableView: tableView, callback: { action in
             guard case .rowAction(let state, let action) = action else { return }
             handler(state, action)

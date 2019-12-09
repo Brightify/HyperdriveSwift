@@ -18,7 +18,7 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
         return hyperView
     }
 
-    public init(initialState: View.State, viewFactory: @escaping (ActionPublisher<View.Action>) -> View) {
+    public init(initialState: View.StateType, viewFactory: @escaping (ActionPublisher<View.ActionType>) -> View) {
         viewManager = HyperViewManager(initialState: initialState, factory: viewFactory)
 
         super.init(nibName: nil, bundle: nil)
@@ -38,12 +38,12 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
         view = viewManager.load(actionHandler: handle(action:))
     }
 
-    open func handle(action: View.Action) {
+    open func handle(action: View.ActionType) {
     }
 }
 
 open class HyperViewController<View: Platform.View & HyperView>: ComposableHyperViewController<View> {
-    public init(initialState: View.State = View.State()) {
+    public init(initialState: View.StateType = View.StateType()) {
         super.init(initialState: initialState, viewFactory: { View(initialState: initialState, actionPublisher: $0) })
     }
 }

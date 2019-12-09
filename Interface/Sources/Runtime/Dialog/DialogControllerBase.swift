@@ -26,7 +26,7 @@ open class DialogHyperViewController<View: UIView & HyperView>: HyperViewControl
 //        }
 //    }
 
-    public override init(initialState: View.State = View.State()) {
+    public override init(initialState: View.StateType = View.StateType()) {
         super.init(initialState: initialState)
 
         modalTransitionStyle = .crossDissolve

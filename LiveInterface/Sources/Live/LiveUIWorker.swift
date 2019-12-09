@@ -49,13 +49,7 @@ public class ReactantLiveUIWorker {
 
     private(set) var context: ReactantLiveUIWorker.Context {
         didSet {
-            resetErrors()
-            let now = Date()
-            var definitionsCopy = definitions
-            for key in definitionsCopy.keys {
-                definitionsCopy[key]?.loaded = now
-            }
-            definitions = definitionsCopy
+            notifyContextChanged()
         }
     }
 
@@ -168,6 +162,16 @@ public class ReactantLiveUIWorker {
         }
         self.definitions = currentDefinitions
 
+    }
+
+    private func notifyContextChanged() {
+        resetErrors()
+        let now = Date()
+        var definitionsCopy = definitions
+        for key in definitionsCopy.keys {
+            definitionsCopy[key]?.loaded = now
+        }
+        definitions = definitionsCopy
     }
 
     private func apply(definition: ComponentDefinition, view: LiveHyperViewBase, setConstraint: @escaping (String, SnapKit.Constraint) -> Bool) throws {
@@ -311,6 +315,7 @@ public class ReactantLiveUIWorker {
 
     public func setSelectedTheme(name: String) {
         context.globalContext.currentTheme = name
+        notifyContextChanged()
     }
 
     private func logError(_ error: Error, in path: String) {
@@ -398,13 +403,30 @@ public class ReactantLiveUIWorker {
 }
 
 extension ReactantLiveUIWorker: Hashable {
-    public var hashValue: Int {
-        return configuration.resourceBundle.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(configuration.resourceBundle)
     }
 
     public static func ==(lhs: ReactantLiveUIWorker, rhs: ReactantLiveUIWorker) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
+}
+
+private func configure(registry: ElementRegistry, configuration: ReactantLiveUIConfiguration) {
+    registry.register(fallbackInserter: { (subview: UIView, container: UIView, element: UIContainer) in
+        container.addSubview(subview)
+        return true
+    })
+    registry.register(inserter: { (subview: UIView, container: UIStackView, element: Module.UIKit.StackView) in
+        container.addArrangedSubview(subview)
+    })
+
+    registry.register(factory: { (element: ComponentReference, context) throws -> UIView in
+        guard let factory = configuration.componentTypes[element.type] else {
+            throw LiveUIError(message: "Unknown component \(element.type)!")
+        }
+        return factory.1()
+    })
 }
 
 extension ReactantLiveUIWorker {
@@ -426,6 +448,8 @@ extension ReactantLiveUIWorker {
             self.globalContext = globalContext
             self.worker = worker
             self.elementRegistry = ElementRegistry()
+
+            configure(registry: elementRegistry, configuration: configuration)
         }
 
         public func componentInstantiation(named name: String) throws -> () -> UIView {

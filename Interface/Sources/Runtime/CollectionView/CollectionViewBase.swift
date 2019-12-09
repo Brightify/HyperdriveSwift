@@ -177,8 +177,8 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
         }
     }
     
-    open func configure<T: HyperView>(cell: CollectionViewCellWrapper<T>, factory: @escaping () -> T, model: T.State,
-                          mapAction: @escaping (T.Action) -> ACTION) -> Void {
+    open func configure<T: HyperView>(cell: CollectionViewCellWrapper<T>, factory: @escaping () -> T, model: T.StateType,
+                          mapAction: @escaping (T.ActionType) -> ACTION) -> Void {
         if configurationChangeTime != cell.configurationChangeTime {
             cell.configuration = configuration
             cell.configurationChangeTime = configurationChangeTime
@@ -193,8 +193,8 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
     open func dequeueAndConfigure<T: HyperView>(identifier: CollectionViewCellIdentifier<T>,
                                                 for indexPath: IndexPath,
                                                 factory: @escaping () -> T,
-                                                model: T.State,
-                                                mapAction: @escaping (T.Action) -> ACTION) -> CollectionViewCellWrapper<T> {
+                                                model: T.StateType,
+                                                mapAction: @escaping (T.ActionType) -> ACTION) -> CollectionViewCellWrapper<T> {
         let cell = collectionView.dequeue(identifier: identifier, for: indexPath)
         configure(cell: cell, factory: factory, model: model, mapAction: mapAction)
         return cell
@@ -203,8 +203,8 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
     open func dequeueAndConfigure<T: HyperView>(identifier: CollectionViewCellIdentifier<T>,
                                                 forRow row: Int,
                                                 factory: @escaping () -> T,
-                                                model: T.State,
-                                                mapAction: @escaping (T.Action) -> ACTION) -> CollectionViewCellWrapper<T> {
+                                                model: T.StateType,
+                                                mapAction: @escaping (T.ActionType) -> ACTION) -> CollectionViewCellWrapper<T> {
         return dequeueAndConfigure(identifier: identifier,
                                    for: IndexPath(row: row, section: 0),
                                    factory: factory,
@@ -212,15 +212,14 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
                                    mapAction: mapAction)
     }
     
-    open func configure<T: HyperView>(view: CollectionReusableViewWrapper<T>, factory: @escaping () -> T, model: T.State,
-                          mapAction: @escaping (T.Action) -> ACTION) -> Void {
+    open func configure<T: HyperView>(view: CollectionReusableViewWrapper<T>, factory: @escaping () -> T, model: T.StateType,
+                          mapAction: @escaping (T.ActionType) -> ACTION) -> Void {
         if configurationChangeTime != view.configurationChangeTime {
             view.configuration = configuration
             view.configurationChangeTime = configurationChangeTime
         }
         let component = view.cachedViewOrCreated(factory: factory)
         component.state.apply(from: model)
-        component.actionPublisher
         component.actionPublisher.setListener(forObjectKey: self) { [actionPublisher] action in
             actionPublisher.publish(action: mapAction(action))
         }
@@ -229,8 +228,8 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
     open func dequeueAndConfigure<T: HyperView>(identifier: CollectionSupplementaryViewIdentifier<T>,
                                                 for indexPath: IndexPath,
                                                 factory: @escaping () -> T,
-                                                model: T.State,
-                                                mapAction: @escaping (T.Action) -> ACTION) -> CollectionReusableViewWrapper<T> {
+                                                model: T.StateType,
+                                                mapAction: @escaping (T.ActionType) -> ACTION) -> CollectionReusableViewWrapper<T> {
         let view = collectionView.dequeue(identifier: identifier, for: indexPath)
         configure(view: view, factory: factory, model: model, mapAction: mapAction)
         return view
@@ -239,8 +238,8 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
     open func dequeueAndConfigure<T: HyperView>(identifier: CollectionSupplementaryViewIdentifier<T>,
                                                 forRow row: Int,
                                                 factory: @escaping () -> T,
-                                                model: T.State,
-                                                mapAction: @escaping (T.Action) -> ACTION) -> CollectionReusableViewWrapper<T> {
+                                                model: T.StateType,
+                                                mapAction: @escaping (T.ActionType) -> ACTION) -> CollectionReusableViewWrapper<T> {
         return dequeueAndConfigure(identifier: identifier,
                                    for: IndexPath(row: row, section: 0),
                                    factory: factory,

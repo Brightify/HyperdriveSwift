@@ -173,7 +173,7 @@ public class StyleGenerator: Generator {
                 "import Hyperdrive",
                 "import SnapKit")
             if configuration.isLiveEnabled {
-                pipe.lines(ifSimulator("import ReactantLiveUI"))
+                pipe.lines(ifSimulator("import HyperdriveLiveInterface"))
             }
         }
         let styleImports = Set(group.styles.map { $0.parentModuleImport })

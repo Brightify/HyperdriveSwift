@@ -56,16 +56,12 @@ let targets = HyperdrivePlatform.allCases.map {
 
         ],
         dependencies: [
-            TargetDependency.package(product: "SnapKit"),
-            TargetDependency.package(product: "Kingfisher"),
+            TargetDependency.cocoapods(path: ".."),
         ])
 }
 
 let project = Project(
     name: "Interface",
-    packages: [
-        Package.package(url: "https://github.com/onevcat/Kingfisher.git", from: "5.0.0"),
-    ],
     targets: targets,
     additionalFiles: [
         "../HyperdriveInterface.podspec",

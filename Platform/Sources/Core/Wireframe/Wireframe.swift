@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 public protocol Wireframe {
 }

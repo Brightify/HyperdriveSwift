@@ -7,21 +7,21 @@
 //
 
 public class HyperViewManager<View: Platform.View & ComposableHyperView> {
-    private var state: View.State
+    private var state: View.StateType
     private weak var view: View? {
         didSet {
             notifyViewChanged()
         }
     }
 
-    private let factory: (ActionPublisher<View.Action>) -> View
+    private let factory: (ActionPublisher<View.ActionType>) -> View
 
-    public init(initialState: View.State, factory: @escaping (ActionPublisher<View.Action>) -> View) {
+    public init(initialState: View.StateType, factory: @escaping (ActionPublisher<View.ActionType>) -> View) {
         state = initialState
         self.factory = factory
     }
 
-    public func load(actionHandler: @escaping (View.Action) -> Void) -> View {
+    public func load(actionHandler: @escaping (View.ActionType) -> Void) -> View {
         let view = factory(ActionPublisher(publisher: actionHandler))
         self.view = view
         return view

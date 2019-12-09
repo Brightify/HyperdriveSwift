@@ -62,13 +62,11 @@ let targets = HyperdrivePlatform.allCases.map {
             ]
         ),
         dependencies: [
-            TargetDependency.package(product: "SnapKit"),
-            TargetDependency.package(product: "Kingfisher"),
-            TargetDependency.package(product: "RxCocoa"),
+            TargetDependency.cocoapods(path: ".."),
             TargetDependency.project(target: "HyperdriveInterface-\($0.name)", path: "../Interface"),
         ],
         settings: Settings(base: [
-            "OTHER_SWIFT_FLAGS": "-DHyperdriveRuntime",
+            "OTHER_SWIFT_FLAGS": "$(inherited) -DHyperdriveRuntime",
             "SWIFT_OBJC_BRIDGING_HEADER": "Sources/Live/LiveInterface-Bridging-Header.h",
         ], defaultSettings: .recommended))
 }
@@ -90,17 +88,17 @@ let playground = Target(
     ],
     actions: [
         TargetAction.pre(
-            path: "/usr/bin/xcrun",
+            tool: "xcrun",
             arguments: [
                 "swift", "run",
                 "--package-path", "$SRCROOT/..",
                 "hyperdrive", "generate",
                 "--live-configurations", "Debug",
-                "--live-platforms", "iOS",
+                "--live-platforms", "iphonesimulator",
                 "--platform", "iOS",
                 "--inputPath", "$SRCROOT/../Interface/Example/Source",
                 "--outputFile", "$SRCROOT/../Interface/Example/Generated/GeneratedUI.swift",
-                "--xcodeprojPath", "$SRCROOT/tuistLiveInterface.xcodeproj",
+                "--xcodeprojPath", "$SRCROOT/LiveInterface.xcodeproj",
                 "--description", "$SRCROOT/../Interface/Example/Source/Example.hyperdrive.xml",
             ],
             name: "Generate Hyperdrive Interface",
@@ -116,9 +114,6 @@ let playground = Target(
 
 let project = Project(
     name: "LiveInterface",
-    packages: [
-        Package.package(url: "https://github.com/onevcat/Kingfisher.git", from: "5.0.0"),
-    ],
     targets: targets + [playground],
     additionalFiles: [
         "../HyperdriveLiveInterface.podspec",

@@ -266,7 +266,7 @@ class GenerateCommand: Command {
         }
 
         if enableLive {
-            output.append("import ReactantLiveUI")
+            output.append("import HyperdriveLiveInterface")
         }
         for imp in imports {
             output.append("import \(imp)")

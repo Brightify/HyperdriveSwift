@@ -9,14 +9,14 @@
 #if canImport(UIKit)
 import UIKit
 
-open class SimpleCollectionView<CELL: UIView>: FlowCollectionViewBase<CELL.State, SimpleCollectionView.Action>, UICollectionViewDataSource where CELL: HyperView {
+open class SimpleCollectionView<CELL: UIView>: FlowCollectionViewBase<CELL.StateType, SimpleCollectionView<CELL>.Action>, UICollectionViewDataSource where CELL: HyperView {
     public enum Action {
-        case selected(CELL.State)
-        case cellAction(CELL.State, CELL.Action)
+        case selected(CELL.StateType)
+        case cellAction(CELL.StateType, CELL.ActionType)
         case refresh
     }
 
-    public typealias MODEL = CELL.State
+    public typealias MODEL = CELL.StateType
     
     private let cellIdentifier = CollectionViewCellIdentifier<CELL>()
 

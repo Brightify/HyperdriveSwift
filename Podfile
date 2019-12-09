@@ -1,8 +1,8 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
-install! 'cocoapods',
-  :generate_multiple_pod_projects => true,
-  :incremental_installation => true
+#install! 'cocoapods',
+#  :generate_multiple_pod_projects => true,
+#  :incremental_installation => true
 
 workspace 'Hyperdrive'
 
@@ -10,15 +10,11 @@ use_frameworks!
 inhibit_all_warnings!
 
 def rxSwift
-    pod 'RxSwift', '~> 4.0'
+    pod 'RxSwift', '~> 5.0'
 end
 
 def rxCocoa
-    pod 'RxCocoa', '~> 4.0'
-end
-
-def rxDataSources
-    pod 'RxDataSources', '~> 3.0'
+    pod 'RxCocoa', '~> 5.0'
 end
 
 def rxOptional
@@ -26,28 +22,47 @@ def rxOptional
 end
 
 def snapKit
-    pod 'SnapKit', '~> 4.0'
+    pod 'SnapKit', '~> 5.0'
 end
 
 def kingfisher
-    pod 'Kingfisher', '~> 4.0'
+    pod 'Kingfisher', '~> 5.0'
 end
 
-def devHyperdriveUI
-    pod 'HyperdriveInterface', :path => '.'
+def quick
+  pod 'Quick', '~> 2.0'
 end
 
-def devHyperdrive
-    pod 'HyperdrivePlatform', :path => '.'
+def nimble
+  pod 'Nimble', '~> 8.0'
+end
+
+def cuckoo
+  pod 'Cuckoo', :git => 'https://github.com/Brightify/Cuckoo.git', :branch => 'master'
+end
+
+def rxNimble
+  pod 'RxNimble'
+end
+
+def rxTest
+  pod 'RxTest'
 end
 
 def shared
     rxSwift
     rxCocoa
-    rxDataSources
     rxOptional
     snapKit
     kingfisher
+end
+
+def sharedTests
+  quick
+  nimble
+  cuckoo
+  rxNimble
+  rxTest
 end
 
 def macos
@@ -60,11 +75,6 @@ end
 
 def tvos
     platform :tvos, '11.0'
-end
-
-abstract_target 'CLI' do
-  project 'CLI/CLI.xcodeproj'
-  macos
 end
 
 abstract_target 'Platform' do
@@ -95,17 +105,15 @@ abstract_target 'Platform' do
     end
 
     abstract_target 'Tests' do
-        pod 'Quick', '~> 1.3'
-        pod 'Nimble', '~> 7.1'
-        pod 'Cuckoo', :git => 'https://github.com/Brightify/Cuckoo.git', :branch => 'master'
-        pod 'RxNimble'
-        pod 'RxTest'
+        sharedTests
 
-        target 'HyperdriveTests' do
+        target 'HyperdriveTests-iOS' do
+            ios
             snapKit
         end
 
-        target 'RxHyperdriveTests' do
+        target 'RxHyperdriveTests-iOS' do
+            ios
             shared
         end
     end
@@ -114,14 +122,14 @@ end
 abstract_target 'Interface' do
     project 'Interface/Interface.xcodeproj'
 
-    target 'Interface-iOS' do
+    target 'HyperdriveInterface-iOS' do
         ios
 
         snapKit
         kingfisher
     end
 
-    target 'Interface-macOS' do
+    target 'HyperdriveInterface-macOS' do
         macos
 
         snapKit
@@ -131,39 +139,58 @@ end
 abstract_target 'LiveInterface' do
     project 'LiveInterface/LiveInterface.xcodeproj'
 
-    target 'LiveInterface-iOS' do
+    target 'HyperdriveLiveInterface-iOS' do
         ios
+
+        snapKit
+        rxSwift
+        rxCocoa
     end
 
-    target 'LiveInterface-tvOS' do
+    target 'HyperdriveLiveInterface-tvOS' do
         tvos
+
+        snapKit
+        rxSwift
+        rxCocoa
     end
 
-    target 'LiveInterface-macOS' do
+    target 'HyperdriveLiveInterface-macOS' do
         macos
+
+        snapKit
+        rxSwift
+        rxCocoa
+    end
+
+    target 'HyperdriveInterfacePlayground' do
+        ios
+        shared
     end
 end
 
-abstract_target 'Showcases' do
-    target 'Showcase-iOS' do
-        project 'Showcases/Showcase-iOS/Showcase-iOS.xcodeproj'
+#abstract_target 'Showcases' do
+#    target 'Showcase-iOS' do
+#        project 'Showcases/Showcase-iOS/Showcase-iOS.xcodeproj'
+#
+#        ios
+#    end
+#
+#    target 'Showcase-tvOS' do
+#        project 'Showcases/Showcase-tvOS/Showcase-tvOS.xcodeproj'
+#
+#        tvos
+#    end
+#
+#
+#    target 'Showcase-macOS' do
+#        project 'Showcases/Showcase-macOS/Showcase-macOS.xcodeproj'
+#
+#        macos
+#        devHyperdrive
+#        devHyperdriveUI
+#    end
+#end
 
-        ios
-    end
 
-    target 'Showcase-tvOS' do
-        project 'Showcases/Showcase-tvOS/Showcase-tvOS.xcodeproj'
-
-        tvos
-    end
-
-    
-    target 'Showcase-macOS' do
-        project 'Showcases/Showcase-macOS/Showcase-macOS.xcodeproj'
-
-        macos
-        devHyperdrive
-        devHyperdriveUI
-    end
-end
 

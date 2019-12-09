@@ -1,70 +1,57 @@
 PODS:
-  - Cuckoo (1.0.6)
-  - Differentiator (3.1.0)
-  - HyperdriveInterface (2.0.0.alpha-1):
-    - HyperdriveInterface/Core (= 2.0.0.alpha-1)
-    - SnapKit
-  - HyperdriveInterface/Core (2.0.0.alpha-1):
-    - SnapKit
-  - HyperdrivePlatform (2.0.0-alpha.1):
-    - HyperdrivePlatform/Core (= 2.0.0-alpha.1)
-  - HyperdrivePlatform/Configuration (2.0.0-alpha.1)
-  - HyperdrivePlatform/Core (2.0.0-alpha.1):
-    - HyperdrivePlatform/Configuration
-    - SnapKit (~> 4.0)
-  - Kingfisher (4.10.1)
-  - Nimble (7.3.4)
-  - Quick (1.3.4)
-  - RxBlocking (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxNimble (4.4.0):
-    - RxNimble/RxBlocking (= 4.4.0)
-  - RxNimble/Core (4.4.0):
-    - Nimble (~> 7.0)
-    - RxSwift (~> 4.2)
-  - RxNimble/RxBlocking (4.4.0):
+  - Cuckoo (1.3.0):
+    - Cuckoo/Swift (= 1.3.0)
+  - Cuckoo/Swift (1.3.0)
+  - Kingfisher (5.11.0):
+    - Kingfisher/Core (= 5.11.0)
+  - Kingfisher/Core (5.11.0)
+  - Nimble (8.0.4)
+  - Quick (2.2.0)
+  - RxBlocking (5.0.1):
+    - RxSwift (~> 5)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxNimble (4.6.0):
+    - RxNimble/RxBlocking (= 4.6.0)
+  - RxNimble/Core (4.6.0):
+    - Nimble (~> 8.0)
+    - RxSwift (~> 5.0)
+  - RxNimble/RxBlocking (4.6.0):
     - RxBlocking
     - RxNimble/Core
-  - RxOptional (3.6.2):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.5.0)
-  - RxTest (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - SnapKit (4.2.0)
+  - RxOptional (3.2.0):
+    - RxCocoa
+    - RxSwift
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - RxTest (5.0.1):
+    - RxSwift (~> 5)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Cuckoo (from `https://github.com/Brightify/Cuckoo.git`, branch `master`)
-  - HyperdriveInterface (from `.`)
-  - HyperdrivePlatform (from `.`)
-  - Kingfisher (~> 4.0)
-  - Nimble (~> 7.1)
-  - Quick (~> 1.3)
-  - RxCocoa (~> 4.0)
-  - RxDataSources (~> 3.0)
+  - Kingfisher (~> 5.0)
+  - Nimble (~> 8.0)
+  - Quick (~> 2.0)
+  - RxCocoa (~> 5.0)
   - RxNimble
   - RxOptional (~> 3.0)
-  - RxSwift (~> 4.0)
+  - RxSwift (~> 5.0)
   - RxTest
-  - SnapKit (~> 4.0)
+  - SnapKit (~> 5.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Differentiator
+  trunk:
     - Kingfisher
     - Nimble
     - Quick
     - RxBlocking
     - RxCocoa
-    - RxDataSources
     - RxNimble
     - RxOptional
+    - RxRelay
     - RxSwift
     - RxTest
     - SnapKit
@@ -73,33 +60,26 @@ EXTERNAL SOURCES:
   Cuckoo:
     :branch: master
     :git: https://github.com/Brightify/Cuckoo.git
-  HyperdriveInterface:
-    :path: "."
-  HyperdrivePlatform:
-    :path: "."
 
 CHECKOUT OPTIONS:
   Cuckoo:
-    :commit: b5c472b4a267f1c54b317f3c178f66e3972732c8
+    :commit: cd58a7f09ebcc6003812584e34b961ac09e12b76
     :git: https://github.com/Brightify/Cuckoo.git
 
 SPEC CHECKSUMS:
-  Cuckoo: 07232f5b79761c11655d172d5fdc86e77bad56fc
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  HyperdriveInterface: bc1d8806126fb82759646385c0e55038fbbbe48d
-  HyperdrivePlatform: e3baa27ce7bfdc79e8a91311ba89127622cbad57
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
-  Quick: f4f7f063c524394c73ed93ac70983c609805d481
-  RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxNimble: ba6caf0195c37fd50dd4b967624b66ff580d781a
-  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Cuckoo: 4045c5a8ce378c919c20c5ff3d6dd11ded0ec699
+  Kingfisher: 4569606189149e19c7d9439f47e885d0679b7a90
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxNimble: abdbe797eed9ed087df75fd72d52d1c7e96c875f
+  RxOptional: d2d6a68064bc16b4801332c40663967f481b0234
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: f0f0a2d652db63ffad005086c9c5ea7c79ae433b
+PODFILE CHECKSUM: 71b7ef1ca15a7d1a9dfea9c86437ed858a8f17a7
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4

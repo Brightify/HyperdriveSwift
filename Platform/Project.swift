@@ -56,7 +56,7 @@ let targets = HyperdrivePlatform.allCases.map {
         resources: [
         ],
         dependencies: [
-            TargetDependency.package(product: "SnapKit"),
+            TargetDependency.cocoapods(path: ".."),
         ])
 }
 
@@ -80,9 +80,7 @@ let rxTargets = HyperdrivePlatform.allCases.map {
         resources: [
         ],
         dependencies: [
-            TargetDependency.package(product: "SnapKit"),
-            TargetDependency.package(product: "RxSwift"),
-            TargetDependency.package(product: "RxCocoa"),
+            TargetDependency.cocoapods(path: ".."),
         ]
     )
 }
@@ -110,8 +108,7 @@ let testTargets = HyperdrivePlatform.allCases.map {
         resources: [
         ],
         dependencies: [
-            TargetDependency.package(product: "Quick"),
-            TargetDependency.package(product: "Nimble"),
+            TargetDependency.cocoapods(path: ".."),
         ])
 }
 
@@ -142,13 +139,6 @@ let schemes = [
 
 let project = Project(
     name: "Platform",
-    packages: [
-        Package.package(url: "https://github.com/ReactiveX/RxSwift.git", from: "4.0.0"),
-        Package.package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
-        Package.package(url: "https://github.com/onevcat/Kingfisher.git", from: "5.0.0"),
-        Package.package(url: "https://github.com/Quick/Quick.git", from: "2.0.0"),
-        Package.package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0"),
-    ],
     targets: targets + rxTargets + testTargets + rxTestTargets,
     schemes: schemes,
     additionalFiles: [

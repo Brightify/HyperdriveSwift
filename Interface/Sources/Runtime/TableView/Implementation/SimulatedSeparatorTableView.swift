@@ -10,15 +10,15 @@
 import UIKit
 
 public enum SimulatedSeparatorTableViewAction<CELL: HyperView> {
-    case selected(CELL.State)
-    case rowAction(CELL.State, CELL.Action)
+    case selected(CELL.StateType)
+    case rowAction(CELL.StateType, CELL.ActionType)
     case refresh
 }
 
-open class SimulatedSeparatorTableView<CELL: UIView>: TableViewBase<CELL.State, SimulatedSeparatorTableViewAction<CELL>>, UITableViewDataSource where CELL: HyperView {
+open class SimulatedSeparatorTableView<CELL: UIView>: TableViewBase<CELL.StateType, SimulatedSeparatorTableViewAction<CELL>>, UITableViewDataSource where CELL: HyperView {
 
-    public typealias MODEL = CELL.State
-    public typealias SECTION = SectionModel<Void, CELL.State>
+    public typealias MODEL = CELL.StateType
+    public typealias SECTION = SectionModel<Void, CELL.StateType>
 
     private let cellIdentifier = TableViewCellIdentifier<CELL>()
     private let footerIdentifier = TableViewHeaderFooterIdentifier<UITableViewHeaderFooterView>(name: "Separator")

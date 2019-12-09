@@ -14,13 +14,13 @@
         id="stackView"
         export="true"
         axis="vertical"
-        spacing="10"
+        spacing="100"
         layout:fillHorizontally="safeAreaLayoutGuide"
         layout:top="safeAreaLayoutGuide"
         layout:bottom=":lte safeAreaLayoutGuide">
         <View
             backgroundColor="blue"
-            layout:height="20"/>
+            layout:height="30"/>
         <View
             backgroundColor="green"
             layout:height="20"/>

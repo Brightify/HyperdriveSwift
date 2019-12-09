@@ -230,6 +230,28 @@ public class UIGenerator: Generator {
                     default: [.return(expression: .constant("nil"))])
                 ]))
         }
+        if configuration.isLiveEnabled && !constraintFields.isEmpty {
+            liveAccessors.append(.init(
+                accessibility: viewAccessibility,
+                modifiers: .override,
+                name: "setConstraint",
+                parameters: [
+                    MethodParameter(label: "named", name: "name", type: "String"),
+                    MethodParameter(name: "constraint", type: "SnapKit.Constraint"),
+                ],
+                returnType: "Bool",
+                block: [.switch(
+                    expression: .constant("name"),
+                    cases: constraintFields.map { property -> (Expression, Block) in
+                        (.constant("\"\(property.name)\""), [
+                            .assignment(target: .constant("layout.\(property.name)"), expression: .constant("constraint")),
+                            .return(expression: .constant("true")),
+                        ])
+                    },
+                    default: [.return(expression: .constant("false"))]
+                )]
+            ))
+        }
 
         let elementContainerDeclarations = root.allChildren.flatMap {
             ($0 as? ProvidesCodeInitialization)?.extraDeclarations ?? []

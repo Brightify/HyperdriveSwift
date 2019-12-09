@@ -7,12 +7,12 @@
 //
 
 public protocol ComposableHyperView: AnyObject {
-    associatedtype State: HyperViewState
-    associatedtype Action
+    associatedtype StateType: HyperViewState
+    associatedtype ActionType
 
-    var actionPublisher: ActionPublisher<Action> { get }
+    var actionPublisher: ActionPublisher<ActionType> { get }
 
-    var state: State { get }
+    var state: StateType { get }
 
     static var triggerReloadPaths: Set<String> { get }
 }
@@ -24,7 +24,7 @@ extension ComposableHyperView {
 }
 
 public protocol HyperView: ComposableHyperView {
-    init(initialState: State, actionPublisher: ActionPublisher<Action>)
+    init(initialState: StateType, actionPublisher: ActionPublisher<ActionType>)
 }
 
 #if canImport(UIKit)

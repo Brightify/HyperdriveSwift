@@ -57,6 +57,8 @@ public class LiveKeyPath {
     
 }
 
+import SnapKit
+
 open class LiveHyperViewBase: HyperViewBase {
     internal let xmlPath: String
     internal let typeName: String
@@ -69,9 +71,11 @@ open class LiveHyperViewBase: HyperViewBase {
 
         super.init()
 
-        worker.register(self, setConstraint: { name, constraint in
-            return false
-        })
+        worker.register(self, setConstraint: setConstraint)
+    }
+
+    open func setConstraint(named name: String, constraint: SnapKit.Constraint) -> Bool {
+        return false
     }
 
     open func stateProperty(named name: String) -> LiveKeyPath? {
@@ -90,11 +94,11 @@ open class LiveHyperViewBase: HyperViewBase {
 }
 
 public extension HyperView where Self: LiveHyperViewBase {
-    func live<T>(keyPath: ReferenceWritableKeyPath<State, T>) -> LiveKeyPath {
+    func live<T>(keyPath: ReferenceWritableKeyPath<StateType, T>) -> LiveKeyPath {
         return LiveKeyPath(object: state, keyPath: keyPath)
     }
 
-    func live<T>(keyPath: ReferenceWritableKeyPath<State, T?>) -> LiveKeyPath {
+    func live<T>(keyPath: ReferenceWritableKeyPath<StateType, T?>) -> LiveKeyPath {
         return LiveKeyPath(object: state, keyPath: keyPath)
     }
 }

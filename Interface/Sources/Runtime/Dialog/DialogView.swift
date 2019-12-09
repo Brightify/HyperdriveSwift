@@ -8,6 +8,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import SnapKit
 
 public final class DialogView: ConfigurableHyperViewBase {
     private let contentContainer = ContainerView()

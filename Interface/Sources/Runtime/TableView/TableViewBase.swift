@@ -197,8 +197,8 @@ open class TableViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, ComposableHy
         layoutFooterView()
     }
 
-    open func configure<T: HyperView>(cell: TableViewCellWrapper<T>, factory: @escaping () -> T, model: T.State,
-                          mapAction: @escaping (T.Action) -> ACTION) -> Void {
+    open func configure<T: HyperView>(cell: TableViewCellWrapper<T>, factory: @escaping () -> T, model: T.StateType,
+                          mapAction: @escaping (T.ActionType) -> ACTION) -> Void {
         if configurationChangeTime != cell.configurationChangeTime {
             cell.configuration = configuration
             cell.configurationChangeTime = configurationChangeTime
@@ -212,14 +212,14 @@ open class TableViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, ComposableHy
     }
     
     open func dequeueAndConfigure<T: HyperView>(identifier: TableViewCellIdentifier<T>, factory: @escaping () -> T,
-                                    model: T.State, mapAction: @escaping (T.Action) -> ACTION) -> TableViewCellWrapper<T> {
+                                    model: T.StateType, mapAction: @escaping (T.ActionType) -> ACTION) -> TableViewCellWrapper<T> {
         let cell = tableView.dequeue(identifier: identifier)
         configure(cell: cell, factory: factory, model: model, mapAction: mapAction)
         return cell
     }
     
-    open func configure<T: HyperView>(view: TableViewHeaderFooterWrapper<T>, factory: @escaping () -> T, model: T.State,
-                          mapAction: @escaping (T.Action) -> ACTION) -> Void {
+    open func configure<T: HyperView>(view: TableViewHeaderFooterWrapper<T>, factory: @escaping () -> T, model: T.StateType,
+                          mapAction: @escaping (T.ActionType) -> ACTION) -> Void {
         if configurationChangeTime != view.configurationChangeTime {
             view.configuration = configuration
             view.configurationChangeTime = configurationChangeTime
@@ -233,7 +233,7 @@ open class TableViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, ComposableHy
     }
     
     open func dequeueAndConfigure<T: HyperView>(identifier: TableViewHeaderFooterIdentifier<T>, factory: @escaping () -> T,
-                                    model: T.State, mapAction: @escaping (T.Action) -> ACTION) -> TableViewHeaderFooterWrapper<T> {
+                                    model: T.StateType, mapAction: @escaping (T.ActionType) -> ACTION) -> TableViewHeaderFooterWrapper<T> {
         let view = tableView.dequeue(identifier: identifier)
         configure(view: view, factory: factory, model: model, mapAction: mapAction)
         return view

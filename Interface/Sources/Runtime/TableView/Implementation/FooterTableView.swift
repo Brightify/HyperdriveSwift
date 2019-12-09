@@ -11,15 +11,15 @@ import UIKit
 //import RxDataSources
 
 public enum FooterTableViewAction<CELL: HyperView, FOOTER: HyperView> {
-    case selected(CELL.State)
-    case rowAction(CELL.State, CELL.Action)
-    case footerAction(FOOTER.State, FOOTER.Action)
+    case selected(CELL.StateType)
+    case rowAction(CELL.StateType, CELL.ActionType)
+    case footerAction(FOOTER.StateType, FOOTER.ActionType)
     case refresh
 }
 
-open class FooterTableView<CELL: UIView, FOOTER: UIView>: TableViewBase<SectionModel<FOOTER.State, CELL.State>, FooterTableViewAction<CELL, FOOTER>>, UITableViewDataSource where CELL: HyperView, FOOTER: HyperView {
-    public typealias MODEL = CELL.State
-    public typealias SECTION = SectionModel<FOOTER.State, CELL.State>
+open class FooterTableView<CELL: UIView, FOOTER: UIView>: TableViewBase<SectionModel<FOOTER.StateType, CELL.StateType>, FooterTableViewAction<CELL, FOOTER>>, UITableViewDataSource where CELL: HyperView, FOOTER: HyperView {
+    public typealias MODEL = CELL.StateType
+    public typealias SECTION = SectionModel<FOOTER.StateType, CELL.StateType>
 
     private let cellIdentifier = TableViewCellIdentifier<CELL>()
     private let footerIdentifier = TableViewHeaderFooterIdentifier<FOOTER>()

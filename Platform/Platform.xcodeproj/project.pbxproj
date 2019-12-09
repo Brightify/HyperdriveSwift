@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,14 +47,11 @@
 		1B327A4CCE22A2F25DF10894 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
 		1B91EE25963075416BF13C2A /* ComponentWithDelegate+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B590EB6ACE777E39814716 /* ComponentWithDelegate+RxSwift.swift */; };
 		1C0AAD861E6BB7CF53534F1F /* UIViewController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926103EEC56D38430CEF107 /* UIViewController+RxNavigation.swift */; };
-		1D044027860C5D796FA07A11 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 8A9FD9D1A322594F08F2FD0F /* Quick */; };
 		1D8EE46B38D289758164824B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		1EE27824784F1D9B9CC125D3 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		1EFD51841F7732A17CB9159E /* AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CCEC5FBE04181A6AA1A4F /* AttributeTest.swift */; };
 		1FC1E1DA2A73871CF8B0C89E /* Rules+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B10AE48C58CDB16AD3EC7E /* Rules+String.swift */; };
 		2094B5D1FEE11A372A9F37E7 /* ComponentBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2562097D81031AB9E62FA2 /* ComponentBaseTest.swift */; };
-		214FA53E348F9AE90FDB1507 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = AD37C72E2EF666569447DB58 /* Nimble */; };
-		21C837F3B60B3FBD29DD15A4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA057BA98AF3D2021AC12BB3 /* RxSwift */; };
 		22AAC3E7636B61E7B4053EF4 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */; };
 		23BB0C830FBFDBA15A778B6C /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
 		2438812FBABB404D2E7AE8D2 /* ComponentDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669C809556CEF857F0E1858 /* ComponentDelegateTest.swift */; };
@@ -72,6 +69,7 @@
 		2A103F578031C945FA052A29 /* Recycler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE1CFF7E301CB6EA3C1BAF /* Recycler.swift */; };
 		2A4A867DA5456350D3717748 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C01D07EFAD77281E12290 /* ValidationError.swift */; };
 		2A50326171FE64A1DAA4446B /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2956D61EA8BBB9FE551BBA2B /* Hash.swift */; };
+		2AA26B87F3DF5A7C74092F3D /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */; };
 		2B04C91077D653A0B81B12B5 /* Dictionary+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */; };
 		2B1055FBE83414F98EA73E4B /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8967B5AB208A7B7F9EB75 /* UIOffset+InitTest.swift */; };
 		2B5761832F8649E13293DA99 /* drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3407FF2A7E861F709A0B1B /* drive.swift */; };
@@ -91,12 +89,11 @@
 		2FE90E65DE0A2F5214291141 /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */; };
 		2FEAFF10ACE177897B2E38EC /* PropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732254D94160F7357A79AA13 /* PropertyTest.swift */; };
 		3127500C63346A52476B7DB7 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F574ED353CEDBE8AEDC19 /* UIView+Reusable.swift */; };
+		3137CE3F89BB99F432D61042 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */; };
 		316E8E512ADA55C4FC34D11B /* StyleableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDAE85F78DE409A7D6D53B /* StyleableTest.swift */; };
 		331B0E340F3C909004B7BBF0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
-		337E5AC51485452CD7118244 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A980572D3174C13D3A4CA8A0 /* SnapKit */; };
 		342F3C77719247E2410559B0 /* ObserverType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A8F552B0CCD7DAF045C98 /* ObserverType+Utils.swift */; };
 		343C67923B6E81B0769179E8 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
-		3506AC217EF3010979F8A590 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D9167DE22107D48288F012AB /* RxCocoa */; };
 		369DD9E6A18A57346457F948 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D776FB3EB2C403603BE0BEF /* Platform.swift */; };
 		36D786F03F2CC7A0927E66AB /* UIColor+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD53DB9127AAFC105C0CA215 /* UIColor+InitTest.swift */; };
 		3704571514668CCB578F00C4 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3CA5F34C21648B11A1C74 /* Array+Utils.swift */; };
@@ -154,13 +151,11 @@
 		4DD520B9529B0955C273E5D5 /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */; };
 		4E347971F0EF8B86C7B53D6F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A212C9BD86059258CC72D28A /* ActivityIndicator.swift */; };
 		4E6461BA223E8D43F6C76915 /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
-		4EB938FA2FD4A977ADEA7208 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A094E8B930458877B09A2A7 /* RxSwift */; };
 		4F5580B0109B27011F43B8A8 /* Swift+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6625B970821EB2048105D55 /* Swift+Compatibility.swift */; };
 		4FADB95F3A167FC5A27CC06A /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F574ED353CEDBE8AEDC19 /* UIView+Reusable.swift */; };
 		501B31F03AEF5777624087FB /* SynchronizedRecycler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896B940C4ADFE47A82E7A21 /* SynchronizedRecycler.swift */; };
 		5066E441297774C12FC919AE /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0AA222372DFEE60E8CEBC1 /* CGPoint+InitTest.swift */; };
 		515B4FD066CEECFD3BEA6FB9 /* Dictionary+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */; };
-		535DAE1418C128DD33C000D0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 31F0A8660B4CA5125E7744D0 /* RxCocoa */; };
 		535EBF9093B09CAA33489277 /* ConfigurableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */; };
 		547567FDE3E337F27A3B04AB /* ObserverType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A8F552B0CCD7DAF045C98 /* ObserverType+Utils.swift */; };
 		54A2C0DC8024308D9E9CCC80 /* CGRect+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A779D5A2B2B845A0D38B78 /* CGRect+InitTest.swift */; };
@@ -185,12 +180,12 @@
 		61978501EA26AEB5534AFD92 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD398B6CDF22C870787395 /* CGAffineTransform+ShortcutTest.swift */; };
 		62509CB1687AA91E5BBD0D03 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D050F522BB5E725ACE4C3B3 /* Reusable.swift */; };
 		63FE3E17953A4CD8B5DA2629 /* Sequence+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B24BE6FBD41A1CE9A9624D5 /* Sequence+Utils.swift */; };
-		640872E1195010AE6849CC7F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85E990ECE83401417E8EAA32 /* SnapKit */; };
 		6441BE9AAAD7804A8208CD8F /* UINavigationController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6E434D527F7969024B589 /* UINavigationController+RxNavigation.swift */; };
 		64A59EB01CB468B6907C0252 /* ObservableConvertibleType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027DC58EC85C602E3581EFA /* ObservableConvertibleType+Utils.swift */; };
 		65939F16E8D614193AA3419D /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2956D61EA8BBB9FE551BBA2B /* Hash.swift */; };
 		6668EA2D524566D3CD76C0E3 /* Swift+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6625B970821EB2048105D55 /* Swift+Compatibility.swift */; };
 		668DBAF5448D071823F49A01 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
+		66BF319B281ED693332DBCD6 /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */; };
 		67FC835442D3EA5D8F01DBFB /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C01D07EFAD77281E12290 /* ValidationError.swift */; };
 		688AA9A5AFBAA0CA237FCBE0 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		68CC901FFC1231EBCF98B75A /* FutureControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370C1CC3B66FFF08F311E1F /* FutureControllerProvider.swift */; };
@@ -200,12 +195,10 @@
 		6AB180D633A3192F38896232 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F574ED353CEDBE8AEDC19 /* UIView+Reusable.swift */; };
 		6AD1D607343C07972026F678 /* UIBarButtonItem+ClosureAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA490BA685B03B67F74890 /* UIBarButtonItem+ClosureAction.swift */; };
 		6ADCDA4506BCBAF18AF8DE22 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
-		6B214E07CBFADE446B60FA6A /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = BF9E92805561707ED34159D6 /* Quick */; };
 		6B2E4189D1DF89878C783734 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */; };
 		6B4A66063091E205979B48E4 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		6B52F2ADC6CB9C6868F5DF39 /* UIButton+UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A3A2B1A17E3B8263490AC /* UIButton+UtilsTest.swift */; };
 		6C7F4F1F0F117221F88970D1 /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8695AF4B4B11020F481ED55 /* InternalUtils.swift */; };
-		6CE26687A89E73D5CDD42889 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6ED960A57069AFE64808B943 /* SnapKit */; };
 		6CED4E45FD2590E19768EA06 /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */; };
 		6DA3207BAB20E5FA7D2E19D5 /* ComponentDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669C809556CEF857F0E1858 /* ComponentDelegateTest.swift */; };
 		6DE811C2ABCE4C607DF1E115 /* RangeReplaceableCollection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFB6F9890BC5DD951F0C39 /* RangeReplaceableCollection+Utils.swift */; };
@@ -261,6 +254,7 @@
 		8F36416CFF200FF29E92EB29 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD398B6CDF22C870787395 /* CGAffineTransform+ShortcutTest.swift */; };
 		8F7419BAC4905E64AAEB149A /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */; };
 		90E87C9E0E718F81B5A62B64 /* ObservationTokenTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08496FCEAAB7E7A0C45C8305 /* ObservationTokenTracker.swift */; };
+		92F1822322B87C8576A38568 /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */; };
 		93A6D1FFD4FF31ACC5F34F2C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		93EBE95D9266477E42197EC4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
 		93F1ECE82256546931ADF911 /* String+EmailValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96BC3B07C8D674C14F1B1AD /* String+EmailValidationError.swift */; };
@@ -269,7 +263,6 @@
 		95907DF5F04D1C616D07312D /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8695AF4B4B11020F481ED55 /* InternalUtils.swift */; };
 		96C78A9F4CEB54B6B7F91281 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3CA5F34C21648B11A1C74 /* Array+Utils.swift */; };
 		9770E9101F668248C1710BFE /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9DE6DDD5A771D56486212 /* Rules.swift */; };
-		97B57055F154C998BF7A466E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 88B320EE92A3372B59228138 /* Nimble */; };
 		97DA3030E499DDBAD7922D50 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		97E7064C1ECF2B9B9598FE1E /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9DE6DDD5A771D56486212 /* Rules.swift */; };
 		99A24E43421249EEE2687A09 /* ConfigurableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */; };
@@ -282,6 +275,7 @@
 		9E260B82B4B7E5BA54CCB979 /* Rx+recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = B896ADACAF2D42204EE8C3DC /* Rx+recording.swift */; };
 		9F898546C6527004F38139DE /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		9FCEE0F9AFAC3910733727DD /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
+		A20C706F9901D34BEC5866F2 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */; };
 		A259C6D06EF790BABADD982D /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */; };
 		A3043520847537A5D3935880 /* UIView+stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6F30E1114835883B562CD /* UIView+stack.swift */; };
 		A30C5873D9E73847D96DB25D /* Component+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E672D921DE4EB3B72E578B4 /* Component+RxSwift.swift */; };
@@ -309,7 +303,6 @@
 		AF4FA0B22E7977DF941AF114 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */; };
 		AFAFF13D6A1ABCD111DB647F /* MockComponentBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD26BA62A087F830C4D47 /* MockComponentBase.swift */; };
 		AFBB76ACC59CCA8E391A464E /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
-		B06D9B0BCF74F5EF7CE18FD0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF5DEF202D8C6A4E1FBED8B1 /* RxSwift */; };
 		B0CA85D1C2451A80A4307EF3 /* CGSize+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1741C37B0C348ADDEBA86F4 /* CGSize+InitTest.swift */; };
 		B1A216CAADDD9E29D9BA5943 /* ConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0C9B45E2F703BE347C9C /* ConfigurationTest.swift */; };
 		B24FEBE78254DEF0D25438F7 /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8695AF4B4B11020F481ED55 /* InternalUtils.swift */; };
@@ -348,7 +341,6 @@
 		C3A901C305BB903140310F78 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9DE6DDD5A771D56486212 /* Rules.swift */; };
 		C3FCAD5ADB2C444BE0284CC5 /* UINavigationController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6E434D527F7969024B589 /* UINavigationController+RxNavigation.swift */; };
 		C475F8424C417064C2265411 /* UIFont+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC36FAD1E9F383C2B216D0C /* UIFont+InitTest.swift */; };
-		C4A07995E0E4B5EF99938B86 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 22CC84B37569278B17435A1C /* Quick */; };
 		C4C337ECCC39722407581340 /* MockComponentBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CD26BA62A087F830C4D47 /* MockComponentBase.swift */; };
 		C55A0B26BF83CE3D478B669E /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D776FB3EB2C403603BE0BEF /* Platform.swift */; };
 		C7703452729B0952311D32EB /* Wireframe+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8E757C5439F1F2A908CCD /* Wireframe+RxSwift.swift */; };
@@ -364,7 +356,6 @@
 		CDC5A485EEA26D0B04C77F67 /* ComponentTestParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170739AFD0AB69C1982631B /* ComponentTestParts.swift */; };
 		CE611CCE21DEF798F96676EA /* RangeReplaceableCollection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFB6F9890BC5DD951F0C39 /* RangeReplaceableCollection+Utils.swift */; };
 		CE97EF87C9CA8F724D1F0878 /* UINavigationController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6E434D527F7969024B589 /* UINavigationController+RxNavigation.swift */; };
-		CF143523BC3821FB02C229C0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4571C714AAA5D692944960A9 /* RxCocoa */; };
 		CF21628AA85647F37145D0ED /* ConfigurableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */; };
 		D07A8F4FC8A17D0819B47808 /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		D16C60F41EB50548D1091DC4 /* AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CCEC5FBE04181A6AA1A4F /* AttributeTest.swift */; };
@@ -378,6 +369,7 @@
 		D4C3D7A3430685336937C2F3 /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0AA222372DFEE60E8CEBC1 /* CGPoint+InitTest.swift */; };
 		D6D2D2C10A46E969CF3B6218 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		D6F936D6B9F76393992B23D1 /* ComponentTestParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170739AFD0AB69C1982631B /* ComponentTestParts.swift */; };
+		D7AEEFB9284F952C5BD1F56D /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */; };
 		D7F239CBF0A28D7314E202D7 /* RxSwiftComponentBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85EB403368AB160A40595FE /* RxSwiftComponentBehavior.swift */; };
 		D8B88072C6EE858F37E7E8BB /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07065C8645CAE3F05CAE4CEC /* AssociatedObject.swift */; };
 		D8BF3CF6FBA6F7E2F83E3460 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */; };
@@ -393,8 +385,6 @@
 		DF2B2CFDE9E065EDF2A984FD /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB40813E9F843FA4EC7B197 /* Wireframe.swift */; };
 		DF50D191DB97B0717E09DBF1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A212C9BD86059258CC72D28A /* ActivityIndicator.swift */; };
 		DF79DDED924DD2E94C04E057 /* UINavigationController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283895DABDC68A924C05C60 /* UINavigationController+Navigation.swift */; };
-		DF9ECD395E3C054E937121D7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA63ACA85D55FE2438D78692 /* SnapKit */; };
-		E1A90AF79ED5E06CF98B70AA /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 0D1761A1B24571003756E18A /* Nimble */; };
 		E202D67330A8903EDC115775 /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1921F73921F5AFFC97C0026 /* PercentUtilsTest.swift */; };
 		E239201A7B376B0A4CB19F7C /* Wireframe+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C8E757C5439F1F2A908CCD /* Wireframe+RxSwift.swift */; };
 		E3C9F9835CE183EB402C7080 /* UIFont+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC36FAD1E9F383C2B216D0C /* UIFont+InitTest.swift */; };
@@ -407,7 +397,6 @@
 		E8A38DE0662D9E375629E63F /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		E93E1DFA1F19FE9B7D28C086 /* Driven.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961FB451E824898D957D2E4 /* Driven.swift */; };
 		E9499F3A366D45D10C822447 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278E383F09B7FBFEC5A3E7B /* Lock.swift */; };
-		E96DAF790A939392BC1BF8B7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 11896F405558925927B885DC /* SnapKit */; };
 		EB6DFA37260F71F81E7412B3 /* ObservableConvertibleType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027DC58EC85C602E3581EFA /* ObservableConvertibleType+Utils.swift */; };
 		EC0E3B538EA48DE6D10431A9 /* ObservationTokenTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08496FCEAAB7E7A0C45C8305 /* ObservationTokenTracker.swift */; };
 		EC0F5874530A2530AC927457 /* UIViewController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926103EEC56D38430CEF107 /* UIViewController+RxNavigation.swift */; };
@@ -415,7 +404,6 @@
 		EDEC105F612FF242CC02E6D8 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
 		EE2F6462D069C082633B86F4 /* Dictionary+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */; };
 		EFE8E7640E86CBC26F6D5742 /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8967B5AB208A7B7F9EB75 /* UIOffset+InitTest.swift */; };
-		F023F41172BD71E0A4621BB5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89FC864C22EE61B760200291 /* SnapKit */; };
 		F0B2D1A27935BB8D961DCF30 /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		F11C8BD268E8481E84C74518 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
 		F1FDD27FECD56DA5B7262F96 /* UIBarButtonItem+ClosureAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA490BA685B03B67F74890 /* UIBarButtonItem+ClosureAction.swift */; };
@@ -561,10 +549,13 @@
 
 /* Begin PBXFileReference section */
 		013BA67160CDEAAD6EFBA662 /* UITableView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+InitTest.swift"; sourceTree = "<group>"; };
+		049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		07065C8645CAE3F05CAE4CEC /* AssociatedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		07B6F30E1114835883B562CD /* UIView+stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+stack.swift"; sourceTree = "<group>"; };
 		08496FCEAAB7E7A0C45C8305 /* ObservationTokenTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationTokenTracker.swift; sourceTree = "<group>"; };
 		0C931B7B38AF99B493D9ED9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		19215C6E794419B3D1BCDBE1 /* UIEdgeInsets+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+InitTest.swift"; sourceTree = "<group>"; };
 		1B24BE6FBD41A1CE9A9624D5 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
 		1CE6E434D527F7969024B589 /* UINavigationController+RxNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+RxNavigation.swift"; sourceTree = "<group>"; };
@@ -572,6 +563,8 @@
 		2956D61EA8BBB9FE551BBA2B /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+AttributeTest.swift"; sourceTree = "<group>"; };
 		3041E5B5DBD54D5E886869B4 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
+		364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		37F68FE45D5E11801081614C /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3407FF2A7E861F709A0B1B /* drive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drive.swift; sourceTree = "<group>"; };
 		3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ModificatorsTest.swift"; sourceTree = "<group>"; };
@@ -590,11 +583,14 @@
 		59FDA4563685B8E0ED10660B /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD32DAE589F13A2EA3CADC3 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
 		5C2D8E39456CD0C3397B8879 /* Platform_Manifest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Platform_Manifest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E672D921DE4EB3B72E578B4 /* Component+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+RxSwift.swift"; sourceTree = "<group>"; };
 		5FFD0E01A788FF16204C6191 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C965FBCBB30F3E5CAC085BF /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D050F522BB5E725ACE4C3B3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		6D273522F21BC5AB23905B6D /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		72E44EF7E22B87CA8E142375 /* ActionMapper+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionMapper+RxSwift.swift"; sourceTree = "<group>"; };
 		732254D94160F7357A79AA13 /* PropertyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTest.swift; sourceTree = "<group>"; };
 		74FE1CFF7E301CB6EA3C1BAF /* Recycler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recycler.swift; sourceTree = "<group>"; };
@@ -607,6 +603,7 @@
 		8FFA490BA685B03B67F74890 /* UIBarButtonItem+ClosureAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ClosureAction.swift"; sourceTree = "<group>"; };
 		94979919FE0CA6ED5411AD2D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9921A12665E21A64A17FA616 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A05CCEC5FBE04181A6AA1A4F /* AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTest.swift; sourceTree = "<group>"; };
 		A10B0C9B45E2F703BE347C9C /* ConfigurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTest.swift; sourceTree = "<group>"; };
 		A212C9BD86059258CC72D28A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -623,14 +620,19 @@
 		B2653C3C272B3FC806466E99 /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+InitTest.swift"; sourceTree = "<group>"; };
 		B2B10AE48C58CDB16AD3EC7E /* Rules+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rules+String.swift"; sourceTree = "<group>"; };
+		B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8695AF4B4B11020F481ED55 /* InternalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUtils.swift; sourceTree = "<group>"; };
 		B896ADACAF2D42204EE8C3DC /* Rx+recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+recording.swift"; sourceTree = "<group>"; };
 		BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		C1C8E757C5439F1F2A908CCD /* Wireframe+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wireframe+RxSwift.swift"; sourceTree = "<group>"; };
 		C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableTest.swift; sourceTree = "<group>"; };
 		C6625B970821EB2048105D55 /* Swift+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Compatibility.swift"; sourceTree = "<group>"; };
-		CA4B8071C3C563A9B9AB422D /* HyperdrivePlatform.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = HyperdrivePlatform.podspec; path = ../HyperdrivePlatform.podspec; sourceTree = "<group>"; };
+		C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_HyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4B8071C3C563A9B9AB422D /* HyperdrivePlatform.podspec */ = {isa = PBXFileReference; name = HyperdrivePlatform.podspec; path = ../HyperdrivePlatform.podspec; sourceTree = "<group>"; };
 		CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_RxHyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
 		CDEE159BB2CE124FD7B68651 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		CED8967B5AB208A7B7F9EB75 /* UIOffset+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOffset+InitTest.swift"; sourceTree = "<group>"; };
@@ -642,15 +644,19 @@
 		E1921F73921F5AFFC97C0026 /* PercentUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentUtilsTest.swift; sourceTree = "<group>"; };
 		E3F56D769C212E1C42B219E1 /* UIStackView+ArrangedChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+ArrangedChildren.swift"; sourceTree = "<group>"; };
 		E5920E777734543693E46CB4 /* UILabel+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+InitTest.swift"; sourceTree = "<group>"; };
+		E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E896B940C4ADFE47A82E7A21 /* SynchronizedRecycler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedRecycler.swift; sourceTree = "<group>"; };
 		EB93428613A20AEA59E89743 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ECF7EE65F063C52BF72B2D50 /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0A8F552B0CCD7DAF045C98 /* ObserverType+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObserverType+Utils.swift"; sourceTree = "<group>"; };
 		F04CD26BA62A087F830C4D47 /* MockComponentBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComponentBase.swift; sourceTree = "<group>"; };
 		F45A3A2B1A17E3B8263490AC /* UIButton+UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UtilsTest.swift"; sourceTree = "<group>"; };
 		F73C01D07EFAD77281E12290 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BC3B07C8D674C14F1B1AD /* String+EmailValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidationError.swift"; sourceTree = "<group>"; };
 		FBC36FAD1E9F383C2B216D0C /* UIFont+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+InitTest.swift"; sourceTree = "<group>"; };
+		FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_RxHyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD53DB9127AAFC105C0CA215 /* UIColor+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+InitTest.swift"; sourceTree = "<group>"; };
 		FE52917011EDDF0AE147021C /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -660,7 +666,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CE26687A89E73D5CDD42889 /* SnapKit in Frameworks */,
+				3137CE3F89BB99F432D61042 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,9 +674,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				640872E1195010AE6849CC7F /* SnapKit in Frameworks */,
-				B06D9B0BCF74F5EF7CE18FD0 /* RxSwift in Frameworks */,
-				CF143523BC3821FB02C229C0 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +688,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96DAF790A939392BC1BF8B7 /* SnapKit in Frameworks */,
+				2AA26B87F3DF5A7C74092F3D /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +703,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F023F41172BD71E0A4621BB5 /* SnapKit in Frameworks */,
+				92F1822322B87C8576A38568 /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,8 +718,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A07995E0E4B5EF99938B86 /* Quick in Frameworks */,
-				E1A90AF79ED5E06CF98B70AA /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,9 +725,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF9ECD395E3C054E937121D7 /* SnapKit in Frameworks */,
-				21C837F3B60B3FBD29DD15A4 /* RxSwift in Frameworks */,
-				3506AC217EF3010979F8A590 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,8 +732,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B214E07CBFADE446B60FA6A /* Quick in Frameworks */,
-				97B57055F154C998BF7A466E /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +739,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AEEFB9284F952C5BD1F56D /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,9 +747,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				337E5AC51485452CD7118244 /* SnapKit in Frameworks */,
-				4EB938FA2FD4A977ADEA7208 /* RxSwift in Frameworks */,
-				535DAE1418C128DD33C000D0 /* RxCocoa in Frameworks */,
+				66BF319B281ED693332DBCD6 /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,8 +755,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D044027860C5D796FA07A11 /* Quick in Frameworks */,
-				214FA53E348F9AE90FDB1507 /* Nimble in Frameworks */,
+				A20C706F9901D34BEC5866F2 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,6 +847,12 @@
 		58B46D657184B20C17D754A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */,
+				B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */,
+				5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */,
+				CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */,
+				C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */,
+				FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -930,6 +930,7 @@
 				58B46D657184B20C17D754A0 /* Frameworks */,
 				21074C269F869197ABE9A046 /* Playgrounds */,
 				27DEB2C0E6E68A9C2BCC82AF /* Products */,
+				E81E002557749131512B5746 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1115,6 +1116,26 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		E81E002557749131512B5746 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */,
+				15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */,
+				049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */,
+				364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */,
+				10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */,
+				ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */,
+				5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */,
+				E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */,
+				71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */,
+				9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */,
+				C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */,
+				37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1133,10 +1154,6 @@
 			dependencies = (
 			);
 			name = "HyperdriveTests-macOS";
-			packageProductDependencies = (
-				BF9E92805561707ED34159D6 /* Quick */,
-				88B320EE92A3372B59228138 /* Nimble */,
-			);
 			productName = HyperdriveTests;
 			productReference = 6C965FBCBB30F3E5CAC085BF /* HyperdriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1145,11 +1162,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B067139A648863740C656518 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-iOS" */;
 			buildPhases = (
+				558D4F5278D13DDC3C9D4A9D /* [CP] Check Pods Manifest.lock */,
 				D1DF4EFFD0C2E88576C85E7C /* Sources */,
 				4286168EC68630259E93E5A4 /* Resources */,
 				0FBF7D0AFFA7C83D1D40A024 /* Embed Precompiled Frameworks */,
 				3034686224C1006AF42E2741 /* Embed Frameworks */,
 				C30EAC3041F4270214B43C47 /* Frameworks */,
+				C6F74C56E8096A0A0EA2258D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1164,21 +1183,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F654D4EB95AA9C5C35251D /* Build configuration list for PBXNativeTarget "HyperdriveTests-iOS" */;
 			buildPhases = (
+				E28C8E1B2ECD6CC649607882 /* [CP] Check Pods Manifest.lock */,
 				35A3A44D96C9C3B8C995F2D4 /* Sources */,
 				2010B81DF81FCF9F995EACFF /* Resources */,
 				903E65DC0A827D380E7DF1F3 /* Embed Precompiled Frameworks */,
 				6CD0EFA65426DC77742E0BF2 /* Embed Frameworks */,
 				F8105CDE67690889219E82EB /* Frameworks */,
+				26301528F95403A69C6F5DEA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "HyperdriveTests-iOS";
-			packageProductDependencies = (
-				8A9FD9D1A322594F08F2FD0F /* Quick */,
-				AD37C72E2EF666569447DB58 /* Nimble */,
-			);
 			productName = HyperdriveTests;
 			productReference = 59FDA4563685B8E0ED10660B /* HyperdriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1187,6 +1204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3B1758EBB1713D542FF901F /* Build configuration list for PBXNativeTarget "Hyperdrive-macOS" */;
 			buildPhases = (
+				EE48E539EA5447D2FD869DAD /* [CP] Check Pods Manifest.lock */,
 				692C98C9F99893815F290AEA /* Sources */,
 				5CC2AB2ADA9E2B86FAAD23F3 /* Resources */,
 				502DE0AB444917BB4E1E961D /* Embed Precompiled Frameworks */,
@@ -1198,9 +1216,6 @@
 			dependencies = (
 			);
 			name = "Hyperdrive-macOS";
-			packageProductDependencies = (
-				89FC864C22EE61B760200291 /* SnapKit */,
-			);
 			productName = Hyperdrive;
 			productReference = 37F68FE45D5E11801081614C /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1220,11 +1235,6 @@
 			dependencies = (
 			);
 			name = "RxHyperdrive-macOS";
-			packageProductDependencies = (
-				AA63ACA85D55FE2438D78692 /* SnapKit */,
-				BA057BA98AF3D2021AC12BB3 /* RxSwift */,
-				D9167DE22107D48288F012AB /* RxCocoa */,
-			);
 			productName = Hyperdrive;
 			productReference = EB93428613A20AEA59E89743 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1233,6 +1243,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CD6782A8DD5F5E55FE7EAC8 /* Build configuration list for PBXNativeTarget "Hyperdrive-tvOS" */;
 			buildPhases = (
+				E5A14E73857956F95FF17BE9 /* [CP] Check Pods Manifest.lock */,
 				D61223861DC325CB4E4D0018 /* Sources */,
 				86E9055D07EFCFBCB7A675D7 /* Resources */,
 				99E9804733CA7BECC97F3ACA /* Embed Precompiled Frameworks */,
@@ -1244,9 +1255,6 @@
 			dependencies = (
 			);
 			name = "Hyperdrive-tvOS";
-			packageProductDependencies = (
-				6ED960A57069AFE64808B943 /* SnapKit */,
-			);
 			productName = Hyperdrive;
 			productReference = FE52917011EDDF0AE147021C /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1304,11 +1312,6 @@
 			dependencies = (
 			);
 			name = "RxHyperdrive-tvOS";
-			packageProductDependencies = (
-				85E990ECE83401417E8EAA32 /* SnapKit */,
-				EF5DEF202D8C6A4E1FBED8B1 /* RxSwift */,
-				4571C714AAA5D692944960A9 /* RxCocoa */,
-			);
 			productName = Hyperdrive;
 			productReference = 9921A12665E21A64A17FA616 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1336,6 +1339,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9A9F8F1A6F63B9EC9655757 /* Build configuration list for PBXNativeTarget "Hyperdrive-iOS" */;
 			buildPhases = (
+				75922678A3183087CA66E71C /* [CP] Check Pods Manifest.lock */,
 				E70A10A580741EB5F315B55A /* Sources */,
 				81B9950FCD401027370DCE40 /* Resources */,
 				1E3DD52B6A0AC896EFE8B550 /* Embed Precompiled Frameworks */,
@@ -1347,9 +1351,6 @@
 			dependencies = (
 			);
 			name = "Hyperdrive-iOS";
-			packageProductDependencies = (
-				11896F405558925927B885DC /* SnapKit */,
-			);
 			productName = Hyperdrive;
 			productReference = 6D273522F21BC5AB23905B6D /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1369,10 +1370,6 @@
 			dependencies = (
 			);
 			name = "HyperdriveTests-tvOS";
-			packageProductDependencies = (
-				22CC84B37569278B17435A1C /* Quick */,
-				0D1761A1B24571003756E18A /* Nimble */,
-			);
 			productName = HyperdriveTests;
 			productReference = 7CB97CC57C5258DE7D916E9D /* HyperdriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1381,6 +1378,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 365A568CDA1D8534B86FC66F /* Build configuration list for PBXNativeTarget "RxHyperdrive-iOS" */;
 			buildPhases = (
+				8ADC3B698BBD11CD9ED5C766 /* [CP] Check Pods Manifest.lock */,
 				B840ACE898939D8FFA0F2B17 /* Sources */,
 				FB11F52D4417D3CA8D2E77B3 /* Resources */,
 				76D3CFDB51DFCA2167FDC98B /* Embed Precompiled Frameworks */,
@@ -1392,11 +1390,6 @@
 			dependencies = (
 			);
 			name = "RxHyperdrive-iOS";
-			packageProductDependencies = (
-				A980572D3174C13D3A4CA8A0 /* SnapKit */,
-				9A094E8B930458877B09A2A7 /* RxSwift */,
-				31F0A8660B4CA5125E7744D0 /* RxCocoa */,
-			);
 			productName = Hyperdrive;
 			productReference = 5FFD0E01A788FF16204C6191 /* Hyperdrive.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1416,13 +1409,6 @@
 				en,
 			);
 			mainGroup = 9D7C152144902B3C72C457DD;
-			packageReferences = (
-				BE33821A76C086CFF7886B41 /* XCRemoteSwiftPackageReference "Nimble" */,
-				F70A61AA1C22ABA4421A717D /* XCRemoteSwiftPackageReference "Quick" */,
-				CBBCBC96083DA81A3B70B0AE /* XCRemoteSwiftPackageReference "RxSwift" */,
-				BAF7EC035589CB05B8C2C361 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				417E2AF8F0C33634C211A342 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-			);
 			productRefGroup = 27DEB2C0E6E68A9C2BCC82AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1567,6 +1553,23 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
+		26301528F95403A69C6F5DEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		31DA7F737A2A8E899EEF06F0 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1608,6 +1611,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		558D4F5278D13DDC3C9D4A9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-RxHyperdriveTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75922678A3183087CA66E71C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Hyperdrive-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		76D3CFDB51DFCA2167FDC98B /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1651,6 +1698,28 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
+		8ADC3B698BBD11CD9ED5C766 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-RxHyperdrive-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		903E65DC0A827D380E7DF1F3 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1693,6 +1762,23 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
+		C6F74C56E8096A0A0EA2258D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CFD5C6466CADD2F5AE8B8486 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,6 +1792,72 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		E28C8E1B2ECD6CC649607882 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-HyperdriveTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5A14E73857956F95FF17BE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Hyperdrive-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE48E539EA5447D2FD869DAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Hyperdrive-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F0DC9EE83F2E8C96FCFA305D /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2350,6 +2502,7 @@
 		};
 		2BAA7216BD746495FEF1E1F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2382,6 +2535,7 @@
 		};
 		348A5DC6839153A1F5566300 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -2427,6 +2581,7 @@
 		};
 		4F29EBFA32170F08512A9003 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2523,6 +2678,7 @@
 		};
 		64BCDBFB357D3C83A5DB5D40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2553,6 +2709,7 @@
 		};
 		69E73DC52FFE51FE4A46F0FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2587,6 +2744,7 @@
 		};
 		7327A49E68A222898737724D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -2737,6 +2895,7 @@
 		};
 		9622C664F7D576D6B4B2E2AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2768,6 +2927,7 @@
 		};
 		988EDBFB3750164048734891 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2802,6 +2962,7 @@
 		};
 		A5A2D212D68F9B849F27FB7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2956,6 +3117,7 @@
 		};
 		E5238D0E724F1B7F0D604E8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -2980,6 +3142,7 @@
 		};
 		E5EE27C0FF7FC5E21F7A00EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3013,6 +3176,7 @@
 		};
 		FB171C73144DB665805AF0B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -3067,7 +3231,6 @@
 				515BEF2B08414730BB545CB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		1CD6782A8DD5F5E55FE7EAC8 /* Build configuration list for PBXNativeTarget "Hyperdrive-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3076,7 +3239,6 @@
 				64BCDBFB357D3C83A5DB5D40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		29C5EC27AA4DDD26F7A1CDA2 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3085,7 +3247,6 @@
 				02EA79FA6F80F6A364F1B50B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		34F654D4EB95AA9C5C35251D /* Build configuration list for PBXNativeTarget "HyperdriveTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3094,7 +3255,6 @@
 				E5238D0E724F1B7F0D604E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		365A568CDA1D8534B86FC66F /* Build configuration list for PBXNativeTarget "RxHyperdrive-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3103,7 +3263,6 @@
 				E5EE27C0FF7FC5E21F7A00EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		8C9E4E30271AFBB88A4F3EB5 /* Build configuration list for PBXProject "Platform" */ = {
 			isa = XCConfigurationList;
@@ -3112,7 +3271,6 @@
 				90BD0C9E4C60BA11CDB83C91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		96C65E7B496207CB703CA450 /* Build configuration list for PBXNativeTarget "HyperdriveTests-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3121,7 +3279,6 @@
 				472C2578E23D64B3D6C9A642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		B067139A648863740C656518 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3130,7 +3287,6 @@
 				7327A49E68A222898737724D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		CE02044C765B4236E5B5C5FF /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3139,7 +3295,6 @@
 				8B2EDE9FFE63EE0BE70007AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		D54A26913F4079BBAE7EDD69 /* Build configuration list for PBXNativeTarget "HyperdriveTests-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3148,7 +3303,6 @@
 				FD37FBEC2E676EC401227AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		D9A9F8F1A6F63B9EC9655757 /* Build configuration list for PBXNativeTarget "Hyperdrive-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3157,7 +3311,6 @@
 				A5A2D212D68F9B849F27FB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		E4105A98071924693D909828 /* Build configuration list for PBXNativeTarget "Platform_Manifest" */ = {
 			isa = XCConfigurationList;
@@ -3166,7 +3319,6 @@
 				1899DABE27EA7E0CEC0B6BFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		E85B4CA35C44850D3C2F1BBA /* Build configuration list for PBXNativeTarget "RxHyperdrive-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3175,7 +3327,6 @@
 				17B4032B4C5E4C64CD2FAF6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		F3B1758EBB1713D542FF901F /* Build configuration list for PBXNativeTarget "Hyperdrive-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3184,127 +3335,8 @@
 				2BAA7216BD746495FEF1E1F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		417E2AF8F0C33634C211A342 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		BAF7EC035589CB05B8C2C361 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		BE33821A76C086CFF7886B41 /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-		CBBCBC96083DA81A3B70B0AE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-		F70A61AA1C22ABA4421A717D /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0D1761A1B24571003756E18A /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Nimble;
-		};
-		11896F405558925927B885DC /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		22CC84B37569278B17435A1C /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Quick;
-		};
-		31F0A8660B4CA5125E7744D0 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxCocoa;
-		};
-		4571C714AAA5D692944960A9 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxCocoa;
-		};
-		6ED960A57069AFE64808B943 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		85E990ECE83401417E8EAA32 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		88B320EE92A3372B59228138 /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Nimble;
-		};
-		89FC864C22EE61B760200291 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		8A9FD9D1A322594F08F2FD0F /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Quick;
-		};
-		9A094E8B930458877B09A2A7 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxSwift;
-		};
-		A980572D3174C13D3A4CA8A0 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		AA63ACA85D55FE2438D78692 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		AD37C72E2EF666569447DB58 /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Nimble;
-		};
-		BA057BA98AF3D2021AC12BB3 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxSwift;
-		};
-		BF9E92805561707ED34159D6 /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Quick;
-		};
-		D9167DE22107D48288F012AB /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxCocoa;
-		};
-		EF5DEF202D8C6A4E1FBED8B1 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 986A6BE8F33D75809CB02E6B /* Project object */;
 }

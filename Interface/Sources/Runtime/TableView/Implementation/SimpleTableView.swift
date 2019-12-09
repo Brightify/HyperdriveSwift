@@ -10,17 +10,17 @@
 import UIKit
 
 public enum SimpleTableViewAction<HEADER: HyperView, CELL: HyperView, FOOTER: HyperView> {
-    case selected(CELL.State)
-    case headerAction(HEADER.State, HEADER.Action)
-    case rowAction(CELL.State, CELL.Action)
-    case footerAction(FOOTER.State, FOOTER.Action)
+    case selected(CELL.StateType)
+    case headerAction(HEADER.StateType, HEADER.ActionType)
+    case rowAction(CELL.StateType, CELL.ActionType)
+    case footerAction(FOOTER.StateType, FOOTER.ActionType)
     case refresh
 }
 
-open class SimpleTableView<HEADER: UIView, CELL: UIView, FOOTER: UIView>: TableViewBase<SectionModel<(header: HEADER.State, footer: FOOTER.State), CELL.State>, SimpleTableViewAction<HEADER, CELL, FOOTER>>, UITableViewDataSource where HEADER: HyperView, CELL: HyperView, FOOTER: HyperView {
+open class SimpleTableView<HEADER: UIView, CELL: UIView, FOOTER: UIView>: TableViewBase<SectionModel<(header: HEADER.StateType, footer: FOOTER.StateType), CELL.StateType>, SimpleTableViewAction<HEADER, CELL, FOOTER>>, UITableViewDataSource where HEADER: HyperView, CELL: HyperView, FOOTER: HyperView {
 
-    public typealias MODEL = CELL.State
-    public typealias SECTION = SectionModel<(header: HEADER.State, footer: FOOTER.State), CELL.State>
+    public typealias MODEL = CELL.StateType
+    public typealias SECTION = SectionModel<(header: HEADER.StateType, footer: FOOTER.StateType), CELL.StateType>
     
     private let cellIdentifier = TableViewCellIdentifier<CELL>()
     private let headerIdentifier = TableViewHeaderFooterIdentifier<HEADER>()

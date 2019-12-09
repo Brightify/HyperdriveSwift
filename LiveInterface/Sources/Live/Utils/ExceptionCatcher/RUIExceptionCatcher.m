@@ -9,7 +9,7 @@
 
 @implementation RUIExceptionCatcher
 
-+(nullable id)catchExceptionIn:(nonnull id (^)(void))block error:(NSError**)errorPtr {
++(nullable id)catchExceptionIn:(__attribute__((noescape)) id _Nonnull (^_Nonnull)(void))block error:(NSError* _Nullable*_Nullable)errorPtr {
     @try {
         return block();
     }
