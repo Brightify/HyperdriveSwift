@@ -46,6 +46,7 @@
 		19012D7C61BAD0297A203B10 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
 		1B327A4CCE22A2F25DF10894 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
 		1B91EE25963075416BF13C2A /* ComponentWithDelegate+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B590EB6ACE777E39814716 /* ComponentWithDelegate+RxSwift.swift */; };
+		1BB9FD8C68D8C7693479F58B /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94948426EB51AE860D863C88 /* Pods_Platform_Hyperdrive_macOS.framework */; };
 		1C0AAD861E6BB7CF53534F1F /* UIViewController+RxNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926103EEC56D38430CEF107 /* UIViewController+RxNavigation.swift */; };
 		1D8EE46B38D289758164824B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		1EE27824784F1D9B9CC125D3 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
@@ -69,7 +70,6 @@
 		2A103F578031C945FA052A29 /* Recycler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE1CFF7E301CB6EA3C1BAF /* Recycler.swift */; };
 		2A4A867DA5456350D3717748 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C01D07EFAD77281E12290 /* ValidationError.swift */; };
 		2A50326171FE64A1DAA4446B /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2956D61EA8BBB9FE551BBA2B /* Hash.swift */; };
-		2AA26B87F3DF5A7C74092F3D /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */; };
 		2B04C91077D653A0B81B12B5 /* Dictionary+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */; };
 		2B1055FBE83414F98EA73E4B /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8967B5AB208A7B7F9EB75 /* UIOffset+InitTest.swift */; };
 		2B5761832F8649E13293DA99 /* drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3407FF2A7E861F709A0B1B /* drive.swift */; };
@@ -89,7 +89,6 @@
 		2FE90E65DE0A2F5214291141 /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */; };
 		2FEAFF10ACE177897B2E38EC /* PropertyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732254D94160F7357A79AA13 /* PropertyTest.swift */; };
 		3127500C63346A52476B7DB7 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F574ED353CEDBE8AEDC19 /* UIView+Reusable.swift */; };
-		3137CE3F89BB99F432D61042 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */; };
 		316E8E512ADA55C4FC34D11B /* StyleableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDAE85F78DE409A7D6D53B /* StyleableTest.swift */; };
 		331B0E340F3C909004B7BBF0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
 		342F3C77719247E2410559B0 /* ObserverType+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A8F552B0CCD7DAF045C98 /* ObserverType+Utils.swift */; };
@@ -185,7 +184,7 @@
 		65939F16E8D614193AA3419D /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2956D61EA8BBB9FE551BBA2B /* Hash.swift */; };
 		6668EA2D524566D3CD76C0E3 /* Swift+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6625B970821EB2048105D55 /* Swift+Compatibility.swift */; };
 		668DBAF5448D071823F49A01 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
-		66BF319B281ED693332DBCD6 /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */; };
+		6698C9A1D4CDBBA66E970062 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEAA0A43640CBB5F73BB84C /* Pods_Platform_Hyperdrive_tvOS.framework */; };
 		67FC835442D3EA5D8F01DBFB /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C01D07EFAD77281E12290 /* ValidationError.swift */; };
 		688AA9A5AFBAA0CA237FCBE0 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		68CC901FFC1231EBCF98B75A /* FutureControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370C1CC3B66FFF08F311E1F /* FutureControllerProvider.swift */; };
@@ -199,6 +198,7 @@
 		6B4A66063091E205979B48E4 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEE159BB2CE124FD7B68651 /* Recording.swift */; };
 		6B52F2ADC6CB9C6868F5DF39 /* UIButton+UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A3A2B1A17E3B8263490AC /* UIButton+UtilsTest.swift */; };
 		6C7F4F1F0F117221F88970D1 /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8695AF4B4B11020F481ED55 /* InternalUtils.swift */; };
+		6CE2581F4205FF2121F9A643 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28E240304A12EF8BE223CB5 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */; };
 		6CED4E45FD2590E19768EA06 /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */; };
 		6DA3207BAB20E5FA7D2E19D5 /* ComponentDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7669C809556CEF857F0E1858 /* ComponentDelegateTest.swift */; };
 		6DE811C2ABCE4C607DF1E115 /* RangeReplaceableCollection+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFB6F9890BC5DD951F0C39 /* RangeReplaceableCollection+Utils.swift */; };
@@ -227,6 +227,7 @@
 		7BEDEC01066BF1E2B4F6BE3A /* UILabel+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5920E777734543693E46CB4 /* UILabel+InitTest.swift */; };
 		7BEF6872ECA7778E8CBA16D1 /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1921F73921F5AFFC97C0026 /* PercentUtilsTest.swift */; };
 		7C5EB8025E792CDF13B542FD /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94979919FE0CA6ED5411AD2D /* UIView+Utils.swift */; };
+		7D909FF0D001FA7403EF23AB /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D1B0BAEC7861009C8DF0EC /* Pods_Platform_RxHyperdrive_iOS.framework */; };
 		7E9C0DD46C7ECFD3FF0F6F01 /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1921F73921F5AFFC97C0026 /* PercentUtilsTest.swift */; };
 		7EA160B2F811D0E58C13F8F3 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
 		7F2CB71CC708D5E02E737278 /* Sequence+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD32DAE589F13A2EA3CADC3 /* Sequence+Utils.swift */; };
@@ -254,7 +255,6 @@
 		8F36416CFF200FF29E92EB29 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD398B6CDF22C870787395 /* CGAffineTransform+ShortcutTest.swift */; };
 		8F7419BAC4905E64AAEB149A /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */; };
 		90E87C9E0E718F81B5A62B64 /* ObservationTokenTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08496FCEAAB7E7A0C45C8305 /* ObservationTokenTracker.swift */; };
-		92F1822322B87C8576A38568 /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */; };
 		93A6D1FFD4FF31ACC5F34F2C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		93EBE95D9266477E42197EC4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
 		93F1ECE82256546931ADF911 /* String+EmailValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96BC3B07C8D674C14F1B1AD /* String+EmailValidationError.swift */; };
@@ -275,7 +275,6 @@
 		9E260B82B4B7E5BA54CCB979 /* Rx+recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = B896ADACAF2D42204EE8C3DC /* Rx+recording.swift */; };
 		9F898546C6527004F38139DE /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		9FCEE0F9AFAC3910733727DD /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
-		A20C706F9901D34BEC5866F2 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */; };
 		A259C6D06EF790BABADD982D /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */; };
 		A3043520847537A5D3935880 /* UIView+stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6F30E1114835883B562CD /* UIView+stack.swift */; };
 		A30C5873D9E73847D96DB25D /* Component+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E672D921DE4EB3B72E578B4 /* Component+RxSwift.swift */; };
@@ -305,6 +304,7 @@
 		AFBB76ACC59CCA8E391A464E /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		B0CA85D1C2451A80A4307EF3 /* CGSize+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1741C37B0C348ADDEBA86F4 /* CGSize+InitTest.swift */; };
 		B1A216CAADDD9E29D9BA5943 /* ConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B0C9B45E2F703BE347C9C /* ConfigurationTest.swift */; };
+		B20314413EF216006A700D99 /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F101017CCE9C7C922AF20E18 /* Pods_Platform_Hyperdrive_iOS.framework */; };
 		B24FEBE78254DEF0D25438F7 /* InternalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8695AF4B4B11020F481ED55 /* InternalUtils.swift */; };
 		B280A087A1098402D95D059F /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F574ED353CEDBE8AEDC19 /* UIView+Reusable.swift */; };
 		B4464BA2E27D86AC09EB71B1 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
@@ -369,7 +369,6 @@
 		D4C3D7A3430685336937C2F3 /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0AA222372DFEE60E8CEBC1 /* CGPoint+InitTest.swift */; };
 		D6D2D2C10A46E969CF3B6218 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
 		D6F936D6B9F76393992B23D1 /* ComponentTestParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170739AFD0AB69C1982631B /* ComponentTestParts.swift */; };
-		D7AEEFB9284F952C5BD1F56D /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */; };
 		D7F239CBF0A28D7314E202D7 /* RxSwiftComponentBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85EB403368AB160A40595FE /* RxSwiftComponentBehavior.swift */; };
 		D8B88072C6EE858F37E7E8BB /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07065C8645CAE3F05CAE4CEC /* AssociatedObject.swift */; };
 		D8BF3CF6FBA6F7E2F83E3460 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */; };
@@ -407,6 +406,7 @@
 		F0B2D1A27935BB8D961DCF30 /* WireframeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335427A6F2731E6DEA89856 /* WireframeTest.swift */; };
 		F11C8BD268E8481E84C74518 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33F99CF10F105E0C6215AC /* ObservationToken.swift */; };
 		F1FDD27FECD56DA5B7262F96 /* UIBarButtonItem+ClosureAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA490BA685B03B67F74890 /* UIBarButtonItem+ClosureAction.swift */; };
+		F2FF04259AA201FAD0B9BE30 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBABEE39960A926D68E2F71B /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */; };
 		F413111D76CFDAFCDB5D0C2B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D050F522BB5E725ACE4C3B3 /* Reusable.swift */; };
 		F43C49D1C2C631F67622BA9A /* UIEdgeInsets+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19215C6E794419B3D1BCDBE1 /* UIEdgeInsets+InitTest.swift */; };
 		F4E1ECCEAF9A5AEFECEEC08D /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73C01D07EFAD77281E12290 /* ValidationError.swift */; };
@@ -549,22 +549,19 @@
 
 /* Begin PBXFileReference section */
 		013BA67160CDEAAD6EFBA662 /* UITableView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+InitTest.swift"; sourceTree = "<group>"; };
-		049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		07065C8645CAE3F05CAE4CEC /* AssociatedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		07B6F30E1114835883B562CD /* UIView+stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+stack.swift"; sourceTree = "<group>"; };
 		08496FCEAAB7E7A0C45C8305 /* ObservationTokenTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationTokenTracker.swift; sourceTree = "<group>"; };
 		0C931B7B38AF99B493D9ED9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		10B01E0F9F0D4DF98D597434 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		19215C6E794419B3D1BCDBE1 /* UIEdgeInsets+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+InitTest.swift"; sourceTree = "<group>"; };
 		1B24BE6FBD41A1CE9A9624D5 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
+		1BEAA0A43640CBB5F73BB84C /* Pods_Platform_Hyperdrive_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE6E434D527F7969024B589 /* UINavigationController+RxNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+RxNavigation.swift"; sourceTree = "<group>"; };
 		21C9DE6DDD5A771D56486212 /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		2956D61EA8BBB9FE551BBA2B /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		2C8CD72F92B5C99DD55486ED /* NSAttributedString+AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+AttributeTest.swift"; sourceTree = "<group>"; };
 		3041E5B5DBD54D5E886869B4 /* Collection+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utils.swift"; sourceTree = "<group>"; };
-		364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		37F68FE45D5E11801081614C /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3407FF2A7E861F709A0B1B /* drive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drive.swift; sourceTree = "<group>"; };
 		3BE988BB10D2289601B133A2 /* UIColor+ModificatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ModificatorsTest.swift"; sourceTree = "<group>"; };
@@ -579,38 +576,46 @@
 		4E33F99CF10F105E0C6215AC /* ObservationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationToken.swift; sourceTree = "<group>"; };
 		4F74D6EBDEAAE28F235F221A /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		5335427A6F2731E6DEA89856 /* WireframeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeTest.swift; sourceTree = "<group>"; };
+		5828D1F7805E6734428EB680 /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		59A779D5A2B2B845A0D38B78 /* CGRect+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+InitTest.swift"; sourceTree = "<group>"; };
 		59FDA4563685B8E0ED10660B /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD32DAE589F13A2EA3CADC3 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
 		5C2D8E39456CD0C3397B8879 /* Platform_Manifest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Platform_Manifest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E672D921DE4EB3B72E578B4 /* Component+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+RxSwift.swift"; sourceTree = "<group>"; };
 		5FFD0E01A788FF16204C6191 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C965FBCBB30F3E5CAC085BF /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D050F522BB5E725ACE4C3B3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		6D273522F21BC5AB23905B6D /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6DD53B25230282A281F326E8 /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		70D1B0BAEC7861009C8DF0EC /* Pods_Platform_RxHyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_RxHyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71382F2CB2CE77C765BFC8D7 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		72E44EF7E22B87CA8E142375 /* ActionMapper+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionMapper+RxSwift.swift"; sourceTree = "<group>"; };
 		732254D94160F7357A79AA13 /* PropertyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTest.swift; sourceTree = "<group>"; };
 		74FE1CFF7E301CB6EA3C1BAF /* Recycler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recycler.swift; sourceTree = "<group>"; };
 		7669C809556CEF857F0E1858 /* ComponentDelegateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentDelegateTest.swift; sourceTree = "<group>"; };
+		7A55D6B2C2A0943DE2B4DDC2 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		7CB97CC57C5258DE7D916E9D /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB40813E9F843FA4EC7B197 /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		7E73BDE18CB169095D54D8E9 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		81A88AD68B8934D93AC7FCC3 /* Architecture.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Architecture.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84EBA64FF8D8103145FF038B /* Showcase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Showcase.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86D3FEA7EC687CD1F700F374 /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		89FDAE85F78DE409A7D6D53B /* StyleableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleableTest.swift; sourceTree = "<group>"; };
+		8E52601A6B37D530DAF61828 /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8FFA490BA685B03B67F74890 /* UIBarButtonItem+ClosureAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ClosureAction.swift"; sourceTree = "<group>"; };
+		94948426EB51AE860D863C88 /* Pods_Platform_Hyperdrive_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94979919FE0CA6ED5411AD2D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		9921A12665E21A64A17FA616 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		9A78233B6B4549C004978640 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A05CCEC5FBE04181A6AA1A4F /* AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTest.swift; sourceTree = "<group>"; };
 		A10B0C9B45E2F703BE347C9C /* ConfigurationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTest.swift; sourceTree = "<group>"; };
 		A212C9BD86059258CC72D28A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A278E383F09B7FBFEC5A3E7B /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		A283895DABDC68A924C05C60 /* UINavigationController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Navigation.swift"; sourceTree = "<group>"; };
+		A28E240304A12EF8BE223CB5 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_HyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AD79E66079C24F86D8BE9D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		A633BA174979E6B0157C1A60 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		A8F145100D6EAAEF628443E8 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		A8FEE5D6281377A1183B07BE /* Array+UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+UtilsTest.swift"; sourceTree = "<group>"; };
 		A926103EEC56D38430CEF107 /* UIViewController+RxNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RxNavigation.swift"; sourceTree = "<group>"; };
 		A961FB451E824898D957D2E4 /* Driven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driven.swift; sourceTree = "<group>"; };
@@ -620,19 +625,15 @@
 		B2653C3C272B3FC806466E99 /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B271218F425D000DEFC6AFBA /* UICollectionView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+InitTest.swift"; sourceTree = "<group>"; };
 		B2B10AE48C58CDB16AD3EC7E /* Rules+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rules+String.swift"; sourceTree = "<group>"; };
-		B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-iOS/Pods-Platform-Hyperdrive-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8695AF4B4B11020F481ED55 /* InternalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUtils.swift; sourceTree = "<group>"; };
 		B896ADACAF2D42204EE8C3DC /* Rx+recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+recording.swift"; sourceTree = "<group>"; };
 		BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		C1C8E757C5439F1F2A908CCD /* Wireframe+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wireframe+RxSwift.swift"; sourceTree = "<group>"; };
 		C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableTest.swift; sourceTree = "<group>"; };
 		C6625B970821EB2048105D55 /* Swift+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Compatibility.swift"; sourceTree = "<group>"; };
-		C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_HyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4B8071C3C563A9B9AB422D /* HyperdrivePlatform.podspec */ = {isa = PBXFileReference; name = HyperdrivePlatform.podspec; path = ../HyperdrivePlatform.podspec; sourceTree = "<group>"; };
+		CBABEE39960A926D68E2F71B /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_RxHyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
-		CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_RxHyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
 		CDEE159BB2CE124FD7B68651 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		CED8967B5AB208A7B7F9EB75 /* UIOffset+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOffset+InitTest.swift"; sourceTree = "<group>"; };
@@ -644,21 +645,20 @@
 		E1921F73921F5AFFC97C0026 /* PercentUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentUtilsTest.swift; sourceTree = "<group>"; };
 		E3F56D769C212E1C42B219E1 /* UIStackView+ArrangedChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+ArrangedChildren.swift"; sourceTree = "<group>"; };
 		E5920E777734543693E46CB4 /* UILabel+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+InitTest.swift"; sourceTree = "<group>"; };
-		E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E896B940C4ADFE47A82E7A21 /* SynchronizedRecycler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedRecycler.swift; sourceTree = "<group>"; };
+		EA8F5D131DB79216C9B4AC50 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		EB93428613A20AEA59E89743 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ECF7EE65F063C52BF72B2D50 /* HyperdriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0A8F552B0CCD7DAF045C98 /* ObserverType+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObserverType+Utils.swift"; sourceTree = "<group>"; };
 		F04CD26BA62A087F830C4D47 /* MockComponentBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComponentBase.swift; sourceTree = "<group>"; };
+		F101017CCE9C7C922AF20E18 /* Pods_Platform_Hyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45A3A2B1A17E3B8263490AC /* UIButton+UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UtilsTest.swift"; sourceTree = "<group>"; };
 		F73C01D07EFAD77281E12290 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
-		F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BC3B07C8D674C14F1B1AD /* String+EmailValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidationError.swift"; sourceTree = "<group>"; };
 		FBC36FAD1E9F383C2B216D0C /* UIFont+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+InitTest.swift"; sourceTree = "<group>"; };
-		FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_RxHyperdriveTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD53DB9127AAFC105C0CA215 /* UIColor+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+InitTest.swift"; sourceTree = "<group>"; };
 		FE52917011EDDF0AE147021C /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE6A7F7B8EA8CFA73C5EB55 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,7 +666,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3137CE3F89BB99F432D61042 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */,
+				6698C9A1D4CDBBA66E970062 /* Pods_Platform_Hyperdrive_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,7 +688,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AA26B87F3DF5A7C74092F3D /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */,
+				B20314413EF216006A700D99 /* Pods_Platform_Hyperdrive_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +703,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92F1822322B87C8576A38568 /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */,
+				1BB9FD8C68D8C7693479F58B /* Pods_Platform_Hyperdrive_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,7 +739,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7AEEFB9284F952C5BD1F56D /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */,
+				F2FF04259AA201FAD0B9BE30 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +747,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BF319B281ED693332DBCD6 /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */,
+				7D909FF0D001FA7403EF23AB /* Pods_Platform_RxHyperdrive_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +755,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A20C706F9901D34BEC5866F2 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */,
+				6CE2581F4205FF2121F9A643 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,12 +847,12 @@
 		58B46D657184B20C17D754A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F7CA46FFFDEB0130790123E8 /* Pods_Platform_Hyperdrive_iOS.framework */,
-				B735707661463ACBB43573DE /* Pods_Platform_Hyperdrive_macOS.framework */,
-				5E2AA61D8316DDDA922D9470 /* Pods_Platform_Hyperdrive_tvOS.framework */,
-				CDA1A9811CDE7BE8E1A0EE32 /* Pods_Platform_RxHyperdrive_iOS.framework */,
-				C82DED924609FFFC3B617194 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */,
-				FD32C0D1E3174DFAE20D5962 /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */,
+				F101017CCE9C7C922AF20E18 /* Pods_Platform_Hyperdrive_iOS.framework */,
+				94948426EB51AE860D863C88 /* Pods_Platform_Hyperdrive_macOS.framework */,
+				1BEAA0A43640CBB5F73BB84C /* Pods_Platform_Hyperdrive_tvOS.framework */,
+				70D1B0BAEC7861009C8DF0EC /* Pods_Platform_RxHyperdrive_iOS.framework */,
+				A28E240304A12EF8BE223CB5 /* Pods_Platform_Tests_HyperdriveTests_iOS.framework */,
+				CBABEE39960A926D68E2F71B /* Pods_Platform_Tests_RxHyperdriveTests_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -930,8 +930,28 @@
 				58B46D657184B20C17D754A0 /* Frameworks */,
 				21074C269F869197ABE9A046 /* Playgrounds */,
 				27DEB2C0E6E68A9C2BCC82AF /* Products */,
-				E81E002557749131512B5746 /* Pods */,
+				A053D9415E6357C4D10BFD07 /* Pods */,
 			);
+			sourceTree = "<group>";
+		};
+		A053D9415E6357C4D10BFD07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10B01E0F9F0D4DF98D597434 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */,
+				6DD53B25230282A281F326E8 /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */,
+				5828D1F7805E6734428EB680 /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */,
+				86D3FEA7EC687CD1F700F374 /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */,
+				8E52601A6B37D530DAF61828 /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */,
+				A8F145100D6EAAEF628443E8 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */,
+				71382F2CB2CE77C765BFC8D7 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */,
+				FEE6A7F7B8EA8CFA73C5EB55 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */,
+				9A78233B6B4549C004978640 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */,
+				EA8F5D131DB79216C9B4AC50 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */,
+				7E73BDE18CB169095D54D8E9 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */,
+				7A55D6B2C2A0943DE2B4DDC2 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		A4CB28354F3B19673CBB5711 /* Wireframe */ = {
@@ -1116,26 +1136,6 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		E81E002557749131512B5746 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */,
-				15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */,
-				049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */,
-				364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */,
-				10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */,
-				ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */,
-				5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */,
-				E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */,
-				71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */,
-				9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */,
-				C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */,
-				37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1162,13 +1162,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B067139A648863740C656518 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-iOS" */;
 			buildPhases = (
-				558D4F5278D13DDC3C9D4A9D /* [CP] Check Pods Manifest.lock */,
+				198F87E4FDFA7E7968BF6C03 /* [CP] Check Pods Manifest.lock */,
 				D1DF4EFFD0C2E88576C85E7C /* Sources */,
 				4286168EC68630259E93E5A4 /* Resources */,
 				0FBF7D0AFFA7C83D1D40A024 /* Embed Precompiled Frameworks */,
 				3034686224C1006AF42E2741 /* Embed Frameworks */,
 				C30EAC3041F4270214B43C47 /* Frameworks */,
-				C6F74C56E8096A0A0EA2258D /* [CP] Embed Pods Frameworks */,
+				0C2A2D36A65B89BA45B63F08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1183,13 +1183,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F654D4EB95AA9C5C35251D /* Build configuration list for PBXNativeTarget "HyperdriveTests-iOS" */;
 			buildPhases = (
-				E28C8E1B2ECD6CC649607882 /* [CP] Check Pods Manifest.lock */,
+				3D3B7B7264B777F4413DD1CA /* [CP] Check Pods Manifest.lock */,
 				35A3A44D96C9C3B8C995F2D4 /* Sources */,
 				2010B81DF81FCF9F995EACFF /* Resources */,
 				903E65DC0A827D380E7DF1F3 /* Embed Precompiled Frameworks */,
 				6CD0EFA65426DC77742E0BF2 /* Embed Frameworks */,
 				F8105CDE67690889219E82EB /* Frameworks */,
-				26301528F95403A69C6F5DEA /* [CP] Embed Pods Frameworks */,
+				05826AE1AE9531A4BA4310D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1204,7 +1204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3B1758EBB1713D542FF901F /* Build configuration list for PBXNativeTarget "Hyperdrive-macOS" */;
 			buildPhases = (
-				EE48E539EA5447D2FD869DAD /* [CP] Check Pods Manifest.lock */,
+				CA6B6BC8DE65DB9B48B3D2C9 /* [CP] Check Pods Manifest.lock */,
 				692C98C9F99893815F290AEA /* Sources */,
 				5CC2AB2ADA9E2B86FAAD23F3 /* Resources */,
 				502DE0AB444917BB4E1E961D /* Embed Precompiled Frameworks */,
@@ -1243,7 +1243,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CD6782A8DD5F5E55FE7EAC8 /* Build configuration list for PBXNativeTarget "Hyperdrive-tvOS" */;
 			buildPhases = (
-				E5A14E73857956F95FF17BE9 /* [CP] Check Pods Manifest.lock */,
+				A2591AA721DBDE0391FA292E /* [CP] Check Pods Manifest.lock */,
 				D61223861DC325CB4E4D0018 /* Sources */,
 				86E9055D07EFCFBCB7A675D7 /* Resources */,
 				99E9804733CA7BECC97F3ACA /* Embed Precompiled Frameworks */,
@@ -1339,7 +1339,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9A9F8F1A6F63B9EC9655757 /* Build configuration list for PBXNativeTarget "Hyperdrive-iOS" */;
 			buildPhases = (
-				75922678A3183087CA66E71C /* [CP] Check Pods Manifest.lock */,
+				F586812151D0ABA33B7DD28B /* [CP] Check Pods Manifest.lock */,
 				E70A10A580741EB5F315B55A /* Sources */,
 				81B9950FCD401027370DCE40 /* Resources */,
 				1E3DD52B6A0AC896EFE8B550 /* Embed Precompiled Frameworks */,
@@ -1378,7 +1378,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 365A568CDA1D8534B86FC66F /* Build configuration list for PBXNativeTarget "RxHyperdrive-iOS" */;
 			buildPhases = (
-				8ADC3B698BBD11CD9ED5C766 /* [CP] Check Pods Manifest.lock */,
+				48C6787277D46D1432CEC247 /* [CP] Check Pods Manifest.lock */,
 				B840ACE898939D8FFA0F2B17 /* Sources */,
 				FB11F52D4417D3CA8D2E77B3 /* Resources */,
 				76D3CFDB51DFCA2167FDC98B /* Embed Precompiled Frameworks */,
@@ -1525,35 +1525,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FBF7D0AFFA7C83D1D40A024 /* Embed Precompiled Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Precompiled Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Skipping, nothing to be embedded.\"";
-		};
-		1E3DD52B6A0AC896EFE8B550 /* Embed Precompiled Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Precompiled Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Skipping, nothing to be embedded.\"";
-		};
-		26301528F95403A69C6F5DEA /* [CP] Embed Pods Frameworks */ = {
+		05826AE1AE9531A4BA4310D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1569,6 +1541,73 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-HyperdriveTests-iOS/Pods-Platform-Tests-HyperdriveTests-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		0C2A2D36A65B89BA45B63F08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FBF7D0AFFA7C83D1D40A024 /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		198F87E4FDFA7E7968BF6C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-RxHyperdriveTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E3DD52B6A0AC896EFE8B550 /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
 		31DA7F737A2A8E899EEF06F0 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1598,6 +1637,50 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
+		3D3B7B7264B777F4413DD1CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-HyperdriveTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48C6787277D46D1432CEC247 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-RxHyperdrive-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		502DE0AB444917BB4E1E961D /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1611,50 +1694,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
-		};
-		558D4F5278D13DDC3C9D4A9D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-RxHyperdriveTests-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75922678A3183087CA66E71C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Platform-Hyperdrive-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		76D3CFDB51DFCA2167FDC98B /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1698,28 +1737,6 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
-		8ADC3B698BBD11CD9ED5C766 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Platform-RxHyperdrive-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		903E65DC0A827D380E7DF1F3 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1762,60 +1779,7 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
-		C6F74C56E8096A0A0EA2258D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-iOS/Pods-Platform-Tests-RxHyperdriveTests-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFD5C6466CADD2F5AE8B8486 /* Embed Precompiled Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Precompiled Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Skipping, nothing to be embedded.\"";
-		};
-		E28C8E1B2ECD6CC649607882 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Platform-Tests-HyperdriveTests-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5A14E73857956F95FF17BE9 /* [CP] Check Pods Manifest.lock */ = {
+		A2591AA721DBDE0391FA292E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1837,7 +1801,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE48E539EA5447D2FD869DAD /* [CP] Check Pods Manifest.lock */ = {
+		CA6B6BC8DE65DB9B48B3D2C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1859,6 +1823,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CFD5C6466CADD2F5AE8B8486 /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
 		F0DC9EE83F2E8C96FCFA305D /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1872,6 +1850,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		F586812151D0ABA33B7DD28B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Platform-Hyperdrive-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2502,7 +2502,7 @@
 		};
 		2BAA7216BD746495FEF1E1F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 364A37439CF9FECED7E6DCEF /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */;
+			baseConfigurationReference = 86D3FEA7EC687CD1F700F374 /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2535,7 +2535,7 @@
 		};
 		348A5DC6839153A1F5566300 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71DAD020FB32190E2E67D6D4 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */;
+			baseConfigurationReference = 9A78233B6B4549C004978640 /* Pods-Platform-Tests-HyperdriveTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -2581,7 +2581,7 @@
 		};
 		4F29EBFA32170F08512A9003 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 049FDD2DFC08A4580B5888DC /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */;
+			baseConfigurationReference = 5828D1F7805E6734428EB680 /* Pods-Platform-Hyperdrive-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2678,7 +2678,7 @@
 		};
 		64BCDBFB357D3C83A5DB5D40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECF35E5F24157857401C41F5 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */;
+			baseConfigurationReference = A8F145100D6EAAEF628443E8 /* Pods-Platform-Hyperdrive-tvOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2709,7 +2709,7 @@
 		};
 		69E73DC52FFE51FE4A46F0FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D88B9B70A31E91C01479E81 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */;
+			baseConfigurationReference = 71382F2CB2CE77C765BFC8D7 /* Pods-Platform-RxHyperdrive-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2744,7 +2744,7 @@
 		};
 		7327A49E68A222898737724D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37D01B5CAE65D9E0F513D1E0 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */;
+			baseConfigurationReference = 7A55D6B2C2A0943DE2B4DDC2 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -2895,7 +2895,7 @@
 		};
 		9622C664F7D576D6B4B2E2AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10D989CE12CC20168209C31C /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 8E52601A6B37D530DAF61828 /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2927,7 +2927,7 @@
 		};
 		988EDBFB3750164048734891 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B32884D122466F2293F111B7 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */;
+			baseConfigurationReference = 10B01E0F9F0D4DF98D597434 /* Pods-Platform-Hyperdrive-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2962,7 +2962,7 @@
 		};
 		A5A2D212D68F9B849F27FB7B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15327684A62DFE146E56803A /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */;
+			baseConfigurationReference = 6DD53B25230282A281F326E8 /* Pods-Platform-Hyperdrive-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3117,7 +3117,7 @@
 		};
 		E5238D0E724F1B7F0D604E8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A4F5BA24E83B625A84B9233 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */;
+			baseConfigurationReference = EA8F5D131DB79216C9B4AC50 /* Pods-Platform-Tests-HyperdriveTests-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -3142,7 +3142,7 @@
 		};
 		E5EE27C0FF7FC5E21F7A00EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7D2F85119DEE17FD8A73126 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */;
+			baseConfigurationReference = FEE6A7F7B8EA8CFA73C5EB55 /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3176,7 +3176,7 @@
 		};
 		FB171C73144DB665805AF0B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7B5D5A266A20EB6F2BBA62D /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */;
+			baseConfigurationReference = 7E73BDE18CB169095D54D8E9 /* Pods-Platform-Tests-RxHyperdriveTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;

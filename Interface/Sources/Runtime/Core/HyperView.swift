@@ -30,6 +30,20 @@ public protocol HyperView: ComposableHyperView {
 #if canImport(UIKit)
 import UIKit
 
+public protocol HasNavigationItem {
+    var leftBarButtonItems: [UIBarButtonItem]? { get }
+    var rightBarButtonItems: [UIBarButtonItem]? { get }
+}
+
+public extension HasNavigationItem {
+    var leftBarButtonItems: [UIBarButtonItem]? {
+        return nil
+    }
+    var rightBarButtonItems: [UIBarButtonItem]? {
+        return nil
+    }
+}
+
 open class HyperViewBase: UIView {
     public init() {
         super.init(frame: .zero)

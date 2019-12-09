@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-open class ControlBase<STATE, ACTION>: UIControl, ComponentWithDelegate, Configurable {
+open class ControlBase<STATE, ACTION>: UIControl, ComponentWithDelegate {
     public typealias StateType = STATE
     public typealias ActionType = ACTION
 
@@ -16,13 +16,6 @@ open class ControlBase<STATE, ACTION>: UIControl, ComponentWithDelegate, Configu
     
     public let componentDelegate: ComponentDelegate<STATE, ACTION>
 
-    open var configuration: Configuration = .global {
-        didSet {
-            layoutMargins = configuration.get(valueFor: Properties.layoutMargins)
-            configuration.get(valueFor: Properties.Style.control)(self)
-        }
-    }
-    
     open override class var requiresConstraintBasedLayout: Bool {
         return true
     }
@@ -62,7 +55,6 @@ open class ControlBase<STATE, ACTION>: UIControl, ComponentWithDelegate, Configu
         setupConstraints()
 
         resetActionMapping()
-        reloadConfiguration()
         
         afterInit()
         

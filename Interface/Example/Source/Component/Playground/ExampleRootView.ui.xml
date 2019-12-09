@@ -49,32 +49,32 @@
     </templates>
 
     <View
-    backgroundColor="blue"
-    id="test"
-    layout:leading="[!(horizontal == compact) and (vertical == regular) and pad or width :lt 100] coolConstraint = super;
-    [(horizontal == compact or vertical == compact or pad) and height :gte 20] coolConstraint = self;
-    [false] uniqueConstraint = :gte 10"
-    layout:top="safeAreaLayoutGuide.top"
-    layout:width="100"
-    layout:height="50" />
+        backgroundColor="blue"
+        id="test"
+        layout:leading="[!(horizontal == compact) and (vertical == regular) and pad or width :lt 100] coolConstraint = super;
+                        [(horizontal == compact or vertical == compact or pad) and height :gte 20] coolConstraint = self;
+                        [false] uniqueConstraint = :gte 10"
+        layout:top="safeAreaLayoutGuide.top"
+        layout:width="100"
+        layout:height="50" />
     <View
-    collapseAxis="horizontal"
-    backgroundColor="red"
-    layout:leading="super"
-    layout:top="test.bottom offset(10)"
-    layout:width="100"
-    layout:height="50" />
+        collapseAxis="horizontal"
+        backgroundColor="red"
+        layout:leading="super"
+        layout:top="test.bottom offset(10)"
+        layout:width="100"
+        layout:height="50" />
 
     <View/>
     <ImageView
-    layout:edges="super"
-    layoutMargins="10,10,10,10"
-    image="theme.falcon"
-    visibility="visible"
-    clipsToBounds="true"
-    layout:compressionPriority="high"
-    layout:huggingPriority="low"
-    contentMode="scaleAspectFill" />
+        layout:edges="super"
+        layoutMargins="10,10,10,10"
+        image="theme.falcon"
+        visibility="visible"
+        clipsToBounds="true"
+        layout:compressionPriority="high"
+        layout:huggingPriority="low"
+        contentMode="scaleAspectFill" />
 
     <!--  <VisualEffectView
      effect="blur:light"

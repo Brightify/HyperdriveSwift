@@ -60,7 +60,6 @@
 		13EBE2771316D9C69A1F7A4B /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F7E406F83D9858B2EC3C3 /* Double.swift */; };
 		13EFACC577E43CA43A3AF007 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB03DA17E4C70E09B9A7494 /* PreviewController.swift */; };
 		1428B939E66167C9F37CFA2E /* UIKit.ComponentReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686DBC61F6D0120B30FE510 /* UIKit.ComponentReference.swift */; };
-		14CED22976534D2528717750 /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D7D6DF0F69241EBE9051FC /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */; };
 		14D06A6ACAAAFC59B9724BB5 /* TextBorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A847E1671D2890732D5366 /* TextBorderStyle.swift */; };
 		14DC7102EF6372F7CED05B90 /* Swift+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C9CEBB8379D6A57F73D77A /* Swift+Compatibility.swift */; };
 		14E2CBEAD33912670C075A80 /* SystemFontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413EA488DF4866C3D0CB732 /* SystemFontWeight.swift */; };
@@ -162,14 +161,12 @@
 		30B3F8F8BF179A20DF2D2AA3 /* Module+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641C50B10D308739C08F0AB5 /* Module+MapKit.swift */; };
 		314E100E0A850518A97129FC /* DimensionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FA02DBECBA233CF0D0A217 /* DimensionParser.swift */; };
 		32600E7DBB4D9FE0187577E8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAB631D18DF2147E71573D6 /* Logger.swift */; };
-		327C7E990AE3BA519BBDF431 /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0CBD38B34370C568345CAB /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */; };
 		329026E1EEEBE7B2D98AB729 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822EE5D49A83A5FB885BBF5 /* String.swift */; };
 		32E033FBD5BF7D0439859776 /* LayerProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC02270B087E03CF2AE349 /* LayerProperties.swift */; };
 		32EACECB1F5473B684157DB1 /* XMLSerializableAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164E292969929EFB4434FB92 /* XMLSerializableAttribute.swift */; };
 		3329617201A46D9154F64691 /* AutocapitalizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956A91A675A72ECEE15DCA87 /* AutocapitalizationType.swift */; };
 		332AC8161BD406FD30026A52 /* EnumPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1FE640A34218FDDFEA3731 /* EnumPropertyType.swift */; };
 		334CF4015DFE54D0019BE064 /* StyleGroupContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803514A62CB6DD65CC3B8FB0 /* StyleGroupContext.swift */; };
-		33A58302DD35643FBA78DB6C /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24F0138CDF6ACE23BAEA0F1 /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */; };
 		33F2D94B2D5376D75637093B /* ControlContentHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E6633EE95A5FA8F2F2C2F2 /* ControlContentHorizontalAlignment.swift */; };
 		34047E35726BF0261970517C /* PreviewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02149E011C01DA7DC2165B /* PreviewListController.swift */; };
 		341D12EE66212BB034745ABF /* MainDeserializationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3A3EC89071EC76675FD9D /* MainDeserializationContext.swift */; };
@@ -345,6 +342,7 @@
 		727FA7EB698989AD3CF3091D /* AppKit.ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD3DE04DD01E432F8DB34D /* AppKit.ScrollView.swift */; };
 		728CD480F2719B5E39B35413 /* UIKit.Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80FC86142F54B3A3F1680D /* UIKit.Toolbar.swift */; };
 		72A9A9ED1840E4159696975E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F7E406F83D9858B2EC3C3 /* Double.swift */; };
+		7306008661D3C0E67CE996F4 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE72897EA63882E5AFED15 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */; };
 		73141A72E31DA36B27AFDC69 /* UIWindow+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF5AA8165468C39C380483 /* UIWindow+Debug.swift */; };
 		732174F687050F8DDD979AB1 /* AppKit.SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83D12498F8D1D452EE97174 /* AppKit.SplitView.swift */; };
 		747CF5692C6C2C38DF45C3E9 /* WebKit.iOS.WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF92AE14311AD265191A6AC /* WebKit.iOS.WebView.swift */; };
@@ -389,6 +387,7 @@
 		809C21AE293960902B99AFB9 /* UIKit.TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD9C964E795A950A1F3932 /* UIKit.TextView.swift */; };
 		80EA59DDE5B6E3F93EFB798B /* LiveUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84E01A5A84C081CB26197C /* LiveUIManager.swift */; };
 		81720BEEC0950CD09D224FC6 /* TextTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906D3D88B6C84D4F89F3E00 /* TextTab.swift */; };
+		8275A5570C0EEA668745D874 /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83844D46CE3F8F228E2FDA5B /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */; };
 		82B8DB0421985E5F6BEE6DD6 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB03DA17E4C70E09B9A7494 /* PreviewController.swift */; };
 		82BBD18C786ECCE96290A76D /* ActionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD5B9945BA1CE894B9FB3C /* ActionParser.swift */; };
 		82BC963A29640E514874A6E2 /* PropertyMaterializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF912756ED5CE8DF40EDD5E /* PropertyMaterializationError.swift */; };
@@ -533,6 +532,7 @@
 		A90DE9B6C142A6B7EE651908 /* MapKit.iOS.MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7947580DDA4BF8AEA2D8EE59 /* MapKit.iOS.MapView.swift */; };
 		A913BA9C292E03B32F3140CC /* Color+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDC1B10F706E33D83300AA8 /* Color+Names.swift */; };
 		A9599663A5077ABD9074A258 /* UIColorPropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E5708769F81A8756C0D6A1 /* UIColorPropertyType.swift */; };
+		A967CE63B1E8B6EB242987A2 /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B32DE8B0EA11916E7FD5F /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */; };
 		A9B121A0AF1FC566638BBDA6 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76640EE48CDDF26A9BE27D84 /* ConstraintPriority.swift */; };
 		A9F0CA762A2F616263FEDD98 /* SmartDashesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C741908DFBE8303D69EE2FB1 /* SmartDashesType.swift */; };
 		AA0DA466E9796308B982E19B /* AnyPropertyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198228DC8C30FBDED0C9E2E /* AnyPropertyDescription.swift */; };
@@ -545,7 +545,6 @@
 		ACBD11C6922F81D603B490DD /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CBF1388CF02D9E0A01237 /* Array.swift */; };
 		AD153320C98DBBC1DD4FE864 /* DeserializationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2750A49EBFED63F037842B /* DeserializationContext.swift */; };
 		AD56535155B3B7167B6F0600 /* UIKit.SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F634FF17F2287E2104C1B27 /* UIKit.SegmentedControl.swift */; };
-		AD99D0F7F19F1F4BDBD9E7F9 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E857C39CA0C360996F96C3 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */; };
 		ADC71458348A23DD7654A202 /* SmartInsertDeleteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93FCF5B3BFC2264565C5337 /* SmartInsertDeleteType.swift */; };
 		AE070482158B3D22031EEA80 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F76F64364B35D17CADD5283 /* Shadow.swift */; };
 		AED685B438AAEF34D15C37FE /* StyleDeserializationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6950FBB0AE47A7A3BFBC89E /* StyleDeserializationContext.swift */; };
@@ -569,6 +568,7 @@
 		B3F3A3626FCEEFC64A7C0D14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA41036D09EB6893F55F6A /* ViewController.swift */; };
 		B3F48AC6E26588A017D0E55E /* SimpleProcedure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA253B826CE806A7D0DD68B /* SimpleProcedure.swift */; };
 		B3F59EA93BA3F99D506C83E4 /* AppKit.ComponentReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7387D66AF92B59EDDD3D7AD4 /* AppKit.ComponentReference.swift */; };
+		B425F91D803063E756E72C3A /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97500A0043942ADFC47984F5 /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */; };
 		B46E5CF6293EA27ACE5CE686 /* LayerProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC02270B087E03CF2AE349 /* LayerProperties.swift */; };
 		B4A1D6A5972E011252DCEBFB /* WebKit.macOS.WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA841892DE416D2A5AD6EBD6 /* WebKit.macOS.WebView.swift */; };
 		B4A64D5CF3044CDF0AD7D676 /* Collection+groupBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453CCDA84371ABF0E0D1FE50 /* Collection+groupBy.swift */; };
@@ -858,7 +858,6 @@
 		053C0AAE74491ADBF83726D0 /* Array+distinctLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+distinctLast.swift"; sourceTree = "<group>"; };
 		05B0BBB080A616F3FCDDB1A4 /* ValuePropertyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePropertyDescription.swift; sourceTree = "<group>"; };
 		05E4703B5D0EFAC6C473D4F0 /* TransformedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedText.swift; sourceTree = "<group>"; };
-		0653123DE2F44185B15ABCC1 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-iOS/Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		07CC07557A2B167182C46EDE /* ConstraintModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintModifier.swift; sourceTree = "<group>"; };
 		084ECBC92C493CC4FD0EB6E6 /* AppKit.Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.Container.swift; sourceTree = "<group>"; };
 		087C034DC550B96C39A1A69E /* SwiftExtensionWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensionWorkaround.swift; sourceTree = "<group>"; };
@@ -890,6 +889,8 @@
 		16527F9A540FE201FCA5318D /* MultipleAttributeAssignablePropertyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAttributeAssignablePropertyDescription.swift; sourceTree = "<group>"; };
 		16FA9CAD1D8DE865A6DCCEBF /* TableViewCellSeparatorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellSeparatorStyle.swift; sourceTree = "<group>"; };
 		1737925684F7EB3C8AF27380 /* UIKit.VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.VisualEffectView.swift; sourceTree = "<group>"; };
+		185FE4F342414A459B3F204E /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-tvOS/Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		1883FF84D80D60BD5D7DC84A /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-iOS/Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		198A581FBA38EEA95C1A133A /* PlainCell.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PlainCell.ui.xml; sourceTree = "<group>"; };
 		1A471B7618042EDCC78534E1 /* ConstraintRelation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
 		1A900D5F1CEA89917F74C262 /* UIKit.PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.PickerView.swift; sourceTree = "<group>"; };
@@ -898,7 +899,6 @@
 		1E8DFA4F74826B8FC5FEABA3 /* RectEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectEdge.swift; sourceTree = "<group>"; };
 		1EB20A7A93BC4A9C3C93AB60 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		207B97180E9B025421EA8615 /* PropertyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHelper.swift; sourceTree = "<group>"; };
-		20C4D7B14B2C75C75D5D5F9E /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveInterfacePlayground/Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		215F0D6F125A9F7E6DFD1FE8 /* Hyperdrive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hyperdrive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2163BB90AD6E0FBB59B5D210 /* HeaderView.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeaderView.ui.xml; sourceTree = "<group>"; };
 		224AFA59ECC540F0C30CD3B0 /* UIKit.Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.Properties.swift; sourceTree = "<group>"; };
@@ -906,6 +906,7 @@
 		231CCC2664519184406DD962 /* AppKit.ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.ImageView.swift; sourceTree = "<group>"; };
 		23ED3C2D327EB8495DCE350E /* ConstraintType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintType.swift; sourceTree = "<group>"; };
 		2413EA488DF4866C3D0CB732 /* SystemFontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemFontWeight.swift; sourceTree = "<group>"; };
+		25BC8795FF8FC51FC5F36D94 /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveInterfacePlayground/Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		26D8C4023746F77974D1C8E0 /* ComponentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPath.swift; sourceTree = "<group>"; };
 		2710428F1A0EE46F594B75EF /* UIKit.Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.Button.swift; sourceTree = "<group>"; };
 		282C04B761F8166332801AD5 /* ExampleSelectionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSelectionRootView.swift; sourceTree = "<group>"; };
@@ -921,10 +922,8 @@
 		31911494D94EB7D372A44012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31976638268A2FCF82FEB346 /* FooterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableView.swift; sourceTree = "<group>"; };
 		32AB7D2EC47E94281A4B58EA /* XMLElementSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLElementSerializable.swift; sourceTree = "<group>"; };
-		32F6F2F86D908ADF15A468C8 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-tvOS/Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		34BC28E5ED325342EE36D61C /* LiveUIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUIError.swift; sourceTree = "<group>"; };
 		3603D52DF3C99DF1D8F16BD8 /* Foundation.Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foundation.Properties.swift; sourceTree = "<group>"; };
-		36AA4EC9327765F539B427FB /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveInterfacePlayground/Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig"; sourceTree = "<group>"; };
 		3733042D5B2C044798E4C876 /* ControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlState.swift; sourceTree = "<group>"; };
 		37EA23F51A3BC032D703727F /* ElementAssignableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAssignableProperty.swift; sourceTree = "<group>"; };
 		37F8829C8DAF3B005769DD87 /* ViewCollapseAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollapseAxis.swift; sourceTree = "<group>"; };
@@ -966,11 +965,10 @@
 		588CD7D15203C2639F175654 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		5B43ECB9C3F7407EC5E5C33F /* AppKit.Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.Button.swift; sourceTree = "<group>"; };
 		5BB9EDE0C23243456D79C5D8 /* AnyAssignableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAssignableProperty.swift; sourceTree = "<group>"; };
+		5E8F7AE5E8508903AF5BA278 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-macOS/Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5E963C7528E9AFB2C877BF0B /* ProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyle.swift; sourceTree = "<group>"; };
 		641C50B10D308739C08F0AB5 /* Module+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Module+MapKit.swift"; sourceTree = "<group>"; };
-		65D7D6DF0F69241EBE9051FC /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6608E0E2CCCFEB8EBF551873 /* PropertyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDescription.swift; sourceTree = "<group>"; };
-		66437A42EF557332641AC9C9 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-iOS/Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		66D2E6C4E70F1E31D1674F0B /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		6771BDB9C5A102B02B9A66F6 /* DatePickerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerMode.swift; sourceTree = "<group>"; };
 		67CAE04F458AF30E8E73C721 /* StyleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleContainer.swift; sourceTree = "<group>"; };
@@ -980,12 +978,12 @@
 		6B588FDDEBBC8004BB3CBE85 /* XMLSerializableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLSerializableElement.swift; sourceTree = "<group>"; };
 		6B79824D633936F57AB5A02C /* ExampleSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSelectionController.swift; sourceTree = "<group>"; };
 		6C6EDB1852B312D91457A8E5 /* AppKit.Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.Properties.swift; sourceTree = "<group>"; };
-		6CA25246B5DFF6BD60683CE4 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-tvOS/Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6CA7001C16A5D12B4DA59224 /* ActivityIndicatorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorStyle.swift; sourceTree = "<group>"; };
 		6CAF5258537C592BBE2F5590 /* Module+WebKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Module+WebKit.swift"; sourceTree = "<group>"; };
 		6DB5E4823CBB529D3AA8A2AE /* ScrollViewIndicatorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewIndicatorStyle.swift; sourceTree = "<group>"; };
 		6E4BEFD1D4D7360B42CCA2FC /* GeneratedUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedUI.swift; sourceTree = "<group>"; };
 		6F84E4F0B122D31F1DF704D6 /* LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAnchor.swift; sourceTree = "<group>"; };
+		6FEF1C788B4D59062AF0B0E2 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-macOS/Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		709B8C3F718C39752C2D1E74 /* PreviewListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewListCell.swift; sourceTree = "<group>"; };
 		70CC07DBB83BFA1686023562 /* UIKit.ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.ScrollView.swift; sourceTree = "<group>"; };
 		70CC24E8E2C6298C2C494FA0 /* Double+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CGFloat.swift"; sourceTree = "<group>"; };
@@ -1009,6 +1007,7 @@
 		811FE876D651AAE5655B5868 /* ATest.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ATest.ui.xml; sourceTree = "<group>"; };
 		82047804017C829EDEFB43C4 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		8204CC48AB4597A7DA17EBA9 /* LiveUIWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUIWorker.swift; sourceTree = "<group>"; };
+		83844D46CE3F8F228E2FDA5B /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F9E37E30BAAA1DA741740E /* LiveUIApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUIApplier.swift; sourceTree = "<group>"; };
 		8677E0F6E8D28C847595605A /* LiveInterface_Manifest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiveInterface_Manifest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8686DBC61F6D0120B30FE510 /* UIKit.ComponentReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.ComponentReference.swift; sourceTree = "<group>"; };
@@ -1035,11 +1034,13 @@
 		9255FF4849494C1CAC57FFA1 /* AppKit.DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.DatePicker.swift; sourceTree = "<group>"; };
 		928B1989E1FB9B54BCA9A62A /* UIKit.ControlEventAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.ControlEventAction.swift; sourceTree = "<group>"; };
 		9365DC5619AAAEB4FB060F27 /* ExampleRootView.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ExampleRootView.ui.xml; sourceTree = "<group>"; };
+		93FE72897EA63882E5AFED15 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveInterfacePlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		941821C3F3C1BA2A750612F7 /* HyperdriveLiveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveLiveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		956A91A675A72ECEE15DCA87 /* AutocapitalizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocapitalizationType.swift; sourceTree = "<group>"; };
 		95AFD9CC69FA88A323F0F207 /* SmartQuotesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartQuotesType.swift; sourceTree = "<group>"; };
 		95CA41036D09EB6893F55F6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		965531503B6E0C67926448AF /* PropertyContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyContext.swift; sourceTree = "<group>"; };
+		97500A0043942ADFC47984F5 /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9772610C8655684EA9E011AB /* SimulatedSeparatorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatedSeparatorTableView.swift; sourceTree = "<group>"; };
 		97C002EDB66AEF0CEE513755 /* ConditionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionParser.swift; sourceTree = "<group>"; };
 		9824C302FB3AC9DF69E8E607 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1064,6 +1065,7 @@
 		A8625C3CE11A58CBFEEFEE0B /* ModuleRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleRegistry.swift; sourceTree = "<group>"; };
 		A906D3D88B6C84D4F89F3E00 /* TextTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTab.swift; sourceTree = "<group>"; };
 		A94E92ED98194489F79AAAC1 /* AssignableProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignableProperty.swift; sourceTree = "<group>"; };
+		A9AD7BBEFA9EB2B647EB6904 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-tvOS/Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AA9C003661498599C0EAD991 /* UIKit.Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.Slider.swift; sourceTree = "<group>"; };
 		B098B3488A2F998D23963929 /* SimulatedSeparatorTableViewRootView.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedSeparatorTableViewRootView.ui.xml; sourceTree = "<group>"; };
 		B15435759C54F66FD7BC43F1 /* SimulatedSeparatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatedSeparatorTableViewController.swift; sourceTree = "<group>"; };
@@ -1071,6 +1073,7 @@
 		B1F0CC62A3CCB6DC1269AAA1 /* WritingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingDirection.swift; sourceTree = "<group>"; };
 		B2FE960206E88E3D2CC0E31F /* UIKit.Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.Switch.swift; sourceTree = "<group>"; };
 		B4070F0BD8327E1F7C8B1A4A /* TransformationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationParser.swift; sourceTree = "<group>"; };
+		B51C4E6E91A78B3975FB9250 /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveInterfacePlayground/Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig"; sourceTree = "<group>"; };
 		B53F940C33323DD0D376A298 /* LayoutAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAxis.swift; sourceTree = "<group>"; };
 		B5EA6F2EB51789E8E12D5B59 /* DimensionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimensionType.swift; sourceTree = "<group>"; };
 		B630F7CF6C8FE1F4B3C0A3C3 /* MainWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWireframe.swift; sourceTree = "<group>"; };
@@ -1086,12 +1089,12 @@
 		C1E9AF09BF3D03B22ED683CC /* UIKit.ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.ProgressView.swift; sourceTree = "<group>"; };
 		C2B9C132BF7CDDBAE559116D /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
 		C3823FC549CA2CE59A7B4B13 /* UIKit.PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.PageControl.swift; sourceTree = "<group>"; };
+		C43AC8F7B5CF5065AC9CC07D /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-iOS/Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4C3EAB10AAD02EBF69EC634 /* ProgressViewRootView.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ProgressViewRootView.ui.xml; sourceTree = "<group>"; };
 		C517D7AA8261EDFF1514F51B /* Dictionary+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
 		C5C4AC5C63CC9785C7317156 /* SearchBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarStyle.swift; sourceTree = "<group>"; };
 		C5EF068565AE4CF803C9A80C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C64CD95C4621734327AE0B37 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		C6E857C39CA0C360996F96C3 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveInterfacePlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C741908DFBE8303D69EE2FB1 /* SmartDashesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDashesType.swift; sourceTree = "<group>"; };
 		C83D58E5F0921D2C39BCAD62 /* AppKit.Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.Slider.swift; sourceTree = "<group>"; };
 		C8BC01C55E220E35A747894C /* HeaderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewController.swift; sourceTree = "<group>"; };
@@ -1110,6 +1113,7 @@
 		D7373BE9C4C8A78B16B2C5B9 /* LineBreakMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineBreakMode.swift; sourceTree = "<group>"; };
 		D878F9C778E44C6249444661 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D93FCF5B3BFC2264565C5337 /* SmartInsertDeleteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartInsertDeleteType.swift; sourceTree = "<group>"; };
+		D96B32DE8B0EA11916E7FD5F /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96C29484821AA766A7412B1 /* CGColorPropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorPropertyType.swift; sourceTree = "<group>"; };
 		DA02149E011C01DA7DC2165B /* PreviewListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewListController.swift; sourceTree = "<group>"; };
 		DA841892DE416D2A5AD6EBD6 /* WebKit.macOS.WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKit.macOS.WebView.swift; sourceTree = "<group>"; };
@@ -1126,18 +1130,15 @@
 		E8103C5E63206D661AC1DEBF /* MapKit.macOS.MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKit.macOS.MapView.swift; sourceTree = "<group>"; };
 		E880F2154826D901DF6617FE /* ContentMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMode.swift; sourceTree = "<group>"; };
 		E97B4188D17FCEF44A9583E6 /* ElementControlStateProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementControlStateProperty.swift; sourceTree = "<group>"; };
-		EC0CBD38B34370C568345CAB /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED471AF81414F8626C86545D /* UIKit.TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.TabBar.swift; sourceTree = "<group>"; };
 		EDE475F834970454AE7E2BB5 /* Module+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Module+Foundation.swift"; sourceTree = "<group>"; };
 		EE60372F58EFE524F1F58253 /* ExampleSelectionRootView.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ExampleSelectionRootView.ui.xml; sourceTree = "<group>"; };
 		EE62466D5FBD1EE1087BDBD3 /* Module+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Module+UIKit.swift"; sourceTree = "<group>"; };
 		EFD38D43216A6B8F9B366BD3 /* TextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentType.swift; sourceTree = "<group>"; };
-		F0D711E913E3F25975704484 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-macOS/Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F0E3488678B7CE8538F988EC /* ExampleRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRootView.swift; sourceTree = "<group>"; };
 		F1BA9437F4BC16C8F6FC5BEE /* AssignablePropertyDesciption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignablePropertyDesciption.swift; sourceTree = "<group>"; };
 		F1FE7AC48F74A0B9A9DC3947 /* ExampleCell.ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ExampleCell.ui.xml; sourceTree = "<group>"; };
 		F21D4699C1A2DD59B794A717 /* FooterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableViewController.swift; sourceTree = "<group>"; };
-		F24F0138CDF6ACE23BAEA0F1 /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F259177201D12F9E527AFB0C /* HyperdriveLiveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveLiveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27BB1481F48A88B8E0C9D3E /* SizeClassType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeClassType.swift; sourceTree = "<group>"; };
 		F35801612A41009046817CAF /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -1146,7 +1147,6 @@
 		F595BCD69A9BBDDFE0292F77 /* VisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffect.swift; sourceTree = "<group>"; };
 		F6933BDCA86F0674C108F5BC /* AutocorrectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocorrectionType.swift; sourceTree = "<group>"; };
 		F6A64126386ABD7A09317E7A /* AppKit.ControlEventAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKit.ControlEventAction.swift; sourceTree = "<group>"; };
-		F6C83CCA88E9A5C11117690D /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-LiveInterface-HyperdriveLiveInterface-macOS/Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		F73D32EBE8B54A4DD65A230D /* Example.hyperdrive.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Example.hyperdrive.xml; sourceTree = "<group>"; };
 		F80566D6AD497CDC7B21C5E1 /* UIKit.DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.DatePicker.swift; sourceTree = "<group>"; };
 		F834EB930428289091F35090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1164,7 +1164,7 @@
 			files = (
 				8D9EA2BDEE03E665194A9091 /* Hyperdrive.framework in Frameworks */,
 				6BCDEE299D9E26BB1654D9FF /* HyperdriveLiveInterface.framework in Frameworks */,
-				AD99D0F7F19F1F4BDBD9E7F9 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework in Frameworks */,
+				7306008661D3C0E67CE996F4 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1173,7 +1173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				206C89AC1876922D8EB0F3AF /* HyperdriveInterface.framework in Frameworks */,
-				327C7E990AE3BA519BBDF431 /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework in Frameworks */,
+				8275A5570C0EEA668745D874 /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,7 +1182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5340338F6AACB534CFA433C3 /* HyperdriveInterface.framework in Frameworks */,
-				14CED22976534D2528717750 /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework in Frameworks */,
+				B425F91D803063E756E72C3A /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1198,7 +1198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				687C30F815845742B4E6C878 /* HyperdriveInterface.framework in Frameworks */,
-				33A58302DD35643FBA78DB6C /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework in Frameworks */,
+				A967CE63B1E8B6EB242987A2 /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,22 +1279,6 @@
 				EE60372F58EFE524F1F58253 /* ExampleSelectionRootView.ui.xml */,
 			);
 			path = ExampleSelection;
-			sourceTree = "<group>";
-		};
-		27A08723C1AA57E654F60317 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				20C4D7B14B2C75C75D5D5F9E /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */,
-				36AA4EC9327765F539B427FB /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */,
-				66437A42EF557332641AC9C9 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */,
-				0653123DE2F44185B15ABCC1 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */,
-				F0D711E913E3F25975704484 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */,
-				F6C83CCA88E9A5C11117690D /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */,
-				6CA25246B5DFF6BD60683CE4 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */,
-				32F6F2F86D908ADF15A468C8 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		2CC328A5E16557ACC86F14AF /* Footer */ = {
@@ -1600,6 +1584,22 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		7C7E8D015B7862DE7FC70E92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25BC8795FF8FC51FC5F36D94 /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */,
+				B51C4E6E91A78B3975FB9250 /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */,
+				C43AC8F7B5CF5065AC9CC07D /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */,
+				1883FF84D80D60BD5D7DC84A /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */,
+				5E8F7AE5E8508903AF5BA278 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */,
+				6FEF1C788B4D59062AF0B0E2 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */,
+				A9AD7BBEFA9EB2B647EB6904 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */,
+				185FE4F342414A459B3F204E /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		7DC183CE8CD9DDD6A15AF1FA /* Manifest */ = {
 			isa = PBXGroup;
 			children = (
@@ -1801,10 +1801,10 @@
 		BC22B7B10F9E8987F5C290F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6E857C39CA0C360996F96C3 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */,
-				F24F0138CDF6ACE23BAEA0F1 /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */,
-				65D7D6DF0F69241EBE9051FC /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */,
-				EC0CBD38B34370C568345CAB /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */,
+				93FE72897EA63882E5AFED15 /* Pods_LiveInterface_HyperdriveInterfacePlayground.framework */,
+				D96B32DE8B0EA11916E7FD5F /* Pods_LiveInterface_HyperdriveLiveInterface_iOS.framework */,
+				97500A0043942ADFC47984F5 /* Pods_LiveInterface_HyperdriveLiveInterface_macOS.framework */,
+				83844D46CE3F8F228E2FDA5B /* Pods_LiveInterface_HyperdriveLiveInterface_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1985,7 +1985,7 @@
 				7DC183CE8CD9DDD6A15AF1FA /* Manifest */,
 				BC22B7B10F9E8987F5C290F0 /* Frameworks */,
 				D3FC66F6732AEB9D1748C85C /* Products */,
-				27A08723C1AA57E654F60317 /* Pods */,
+				7C7E8D015B7862DE7FC70E92 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2108,7 +2108,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9F73E5CA8DD14064EAF6EFF /* Build configuration list for PBXNativeTarget "HyperdriveLiveInterface-tvOS" */;
 			buildPhases = (
-				D50FAFB7E17FACA8D692CB8F /* [CP] Check Pods Manifest.lock */,
+				26BBD7674E2AA6F9D0E33BFC /* [CP] Check Pods Manifest.lock */,
 				BC5FF06C0931E544F00B4EEF /* Headers */,
 				1D94C8FF429299C4D7BDB45C /* Sources */,
 				8E57A33D9A9022B54C3517D6 /* Resources */,
@@ -2129,7 +2129,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B3213FD45D9227897E2753 /* Build configuration list for PBXNativeTarget "HyperdriveLiveInterface-iOS" */;
 			buildPhases = (
-				300CC1448B83C0990DDA8DD5 /* [CP] Check Pods Manifest.lock */,
+				3BDA8DEC3304D8B73FCC188F /* [CP] Check Pods Manifest.lock */,
 				29A94FC71709B9B90C72410F /* Headers */,
 				30F0BEE389754212FEA53316 /* Sources */,
 				DDCC716E3A4F061A8C72606A /* Resources */,
@@ -2150,7 +2150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3396A5A57FF59DA1BE3A0401 /* Build configuration list for PBXNativeTarget "HyperdriveLiveInterface-macOS" */;
 			buildPhases = (
-				4071DC74452CBD69E6B70117 /* [CP] Check Pods Manifest.lock */,
+				5FF5A197BAEAFA0B2071551D /* [CP] Check Pods Manifest.lock */,
 				D8D7BB2301D5267FA2A63FF5 /* Headers */,
 				B1CDCB506E8ABF3DC4A998FF /* Sources */,
 				2BC80D212605F8B927710232 /* Resources */,
@@ -2171,14 +2171,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C73A74D2EB539606548D2C16 /* Build configuration list for PBXNativeTarget "HyperdriveInterfacePlayground" */;
 			buildPhases = (
-				025AAF753651F066275CDF72 /* [CP] Check Pods Manifest.lock */,
+				C0B9EFF9CF71B27655839943 /* [CP] Check Pods Manifest.lock */,
 				CEE1177FEDA558BA4231F852 /* Generate Hyperdrive Interface */,
 				F6DEB21922AD187B68E0E838 /* Sources */,
 				A69F1404FF843D10F7C1E988 /* Resources */,
 				543484B7631634AE365BEE2D /* Embed Precompiled Frameworks */,
 				88406507A525FB1FCBA59BAF /* Embed Frameworks */,
 				41F7AAAA871A71F69EDE4C0E /* Frameworks */,
-				645AE669B2D446447317A67B /* [CP] Embed Pods Frameworks */,
+				83AC034DC77010B8429D8F2E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2280,7 +2280,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		025AAF753651F066275CDF72 /* [CP] Check Pods Manifest.lock */ = {
+		26BBD7674E2AA6F9D0E33BFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2295,14 +2295,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiveInterface-HyperdriveInterfacePlayground-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LiveInterface-HyperdriveLiveInterface-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		300CC1448B83C0990DDA8DD5 /* [CP] Check Pods Manifest.lock */ = {
+		3BDA8DEC3304D8B73FCC188F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2324,7 +2324,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4071DC74452CBD69E6B70117 /* [CP] Check Pods Manifest.lock */ = {
+		543484B7631634AE365BEE2D /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		5FF5A197BAEAFA0B2071551D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2346,7 +2360,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		543484B7631634AE365BEE2D /* Embed Precompiled Frameworks */ = {
+		693D1258329D70EFBF276A16 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2360,7 +2374,7 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
-		645AE669B2D446447317A67B /* [CP] Embed Pods Frameworks */ = {
+		83AC034DC77010B8429D8F2E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2377,19 +2391,27 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiveInterface-HyperdriveInterfacePlayground/Pods-LiveInterface-HyperdriveInterfacePlayground-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		693D1258329D70EFBF276A16 /* Embed Precompiled Frameworks */ = {
+		C0B9EFF9CF71B27655839943 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Embed Precompiled Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LiveInterface-HyperdriveInterfacePlayground-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		C3189E1F81B0E0D464237B4F /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2422,28 +2444,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/bin/xcrun swift run --package-path $SRCROOT/.. hyperdrive generate --live-configurations Debug --live-platforms iphonesimulator --platform iOS --inputPath $SRCROOT/../Interface/Example/Source --outputFile $SRCROOT/../Interface/Example/Generated/GeneratedUI.swift --xcodeprojPath $SRCROOT/LiveInterface.xcodeproj --description $SRCROOT/../Interface/Example/Source/Example.hyperdrive.xml";
-		};
-		D50FAFB7E17FACA8D692CB8F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiveInterface-HyperdriveLiveInterface-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		E1633B2DBE6F37EF2A6C29EE /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3293,7 +3293,7 @@
 /* Begin XCBuildConfiguration section */
 		3286388DFD56C217821C01CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66437A42EF557332641AC9C9 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */;
+			baseConfigurationReference = C43AC8F7B5CF5065AC9CC07D /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3330,7 +3330,7 @@
 		};
 		32B2CCA87E02FBC494601AD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0653123DE2F44185B15ABCC1 /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */;
+			baseConfigurationReference = 1883FF84D80D60BD5D7DC84A /* Pods-LiveInterface-HyperdriveLiveInterface-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3416,7 +3416,7 @@
 		};
 		561A93C73F536D1EE80C89D2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6C83CCA88E9A5C11117690D /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */;
+			baseConfigurationReference = 6FEF1C788B4D59062AF0B0E2 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -3451,7 +3451,7 @@
 		};
 		775D11EB3D5E648D47CE48B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20C4D7B14B2C75C75D5D5F9E /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */;
+			baseConfigurationReference = 25BC8795FF8FC51FC5F36D94 /* Pods-LiveInterface-HyperdriveInterfacePlayground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -3477,7 +3477,7 @@
 		};
 		96872EB216C1C597091DF965 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CA25246B5DFF6BD60683CE4 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */;
+			baseConfigurationReference = A9AD7BBEFA9EB2B647EB6904 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3511,7 +3511,7 @@
 		};
 		9AA8ECF567A36FBED44D04B7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36AA4EC9327765F539B427FB /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */;
+			baseConfigurationReference = B51C4E6E91A78B3975FB9250 /* Pods-LiveInterface-HyperdriveInterfacePlayground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -3661,7 +3661,7 @@
 		};
 		D098492CA5389837A486FB3D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32F6F2F86D908ADF15A468C8 /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */;
+			baseConfigurationReference = 185FE4F342414A459B3F204E /* Pods-LiveInterface-HyperdriveLiveInterface-tvOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -3694,7 +3694,7 @@
 		};
 		DF08843743D5B851B56319D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0D711E913E3F25975704484 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */;
+			baseConfigurationReference = 5E8F7AE5E8508903AF5BA278 /* Pods-LiveInterface-HyperdriveLiveInterface-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;

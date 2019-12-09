@@ -65,9 +65,13 @@ final class ExampleSelectionController: HyperViewController<ExampleSelectionRoot
         super.handle(action: action)
 
         switch action {
+        case .toggleTheme:
+            ApplicationTheme.selector.select(
+                theme: ApplicationTheme.selector.currentTheme == .day ? .night : .day)
+        case .refresh:
+            hyperView.set(exampleTypes: ExampleType.allCases)
         case .selected(let exampleType, _):
             reactions.exampleSelected(exampleType.type)
         }
-//
     }
 }

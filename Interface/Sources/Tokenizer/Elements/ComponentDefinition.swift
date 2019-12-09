@@ -21,6 +21,104 @@ public enum AccessModifier: String {
     case `internal`
 }
 
+public struct NavigationItem {
+    public var leftBarButtonItems: BarButtonItemContainer?
+    public var rightBarButtonItems: BarButtonItemContainer?
+
+    public var allItems: [BarButtonItem] {
+        return (leftBarButtonItems?.items ?? []) + (rightBarButtonItems?.items ?? [])
+    }
+
+    public init(element: XMLElement) throws {
+        leftBarButtonItems = try element.singleOrNoElement(named: "leftBarButtonItems").map(BarButtonItemContainer.init)
+        rightBarButtonItems = try element.singleOrNoElement(named: "rightBarButtonItems").map(BarButtonItemContainer.init)
+    }
+
+    public struct BarButtonItemContainer {
+        public var items: [BarButtonItem]
+
+        public init(element: XMLElement) throws {
+            items = try element.xmlChildren.map(BarButtonItem.init)
+        }
+    }
+
+    public struct BarButtonItem {
+        public var id: String
+        public var isExported: Bool
+        public var kind: Kind
+
+        public init(element: XMLElement) throws {
+            id = element.name
+            isExported = element.value(ofAttribute: "export") ?? false
+
+            let style = try element.singleOrNoElement(named: "style").map { try Kind.Style(from: $0.nonEmptyTextOrThrow()) }
+            if let systemElement = try element.singleOrNoElement(named: "system") {
+                guard let systemItem = try Kind.SystemItem(rawValue: systemElement.nonEmptyTextOrThrow()) else {
+                    throw TokenizationError(message: "Unsupported system item '\(systemElement.text ?? "")'.")
+                }
+                kind = .system(systemItem)
+
+            } else if let title = try element.singleOrNoElement(named: "title") {
+                kind = .title(title.text ?? "", style: style ?? .plain)
+            } else if let imageElement = try element.singleOrNoElement(named: "image") {
+                let landscapeImagePhone = try element.singleOrNoElement(named: "landscapeImagePhone").map {
+                    try Image.materialize(from: $0.nonEmptyTextOrThrow())
+                }
+
+                let image = try Image.materialize(from: imageElement.nonEmptyTextOrThrow())
+                kind = .image(image, landscapeImagePhone: landscapeImagePhone, style: style ?? .plain)
+            } else {
+                throw TokenizationError(message: "Unknown barButtonItem type!")
+            }
+        }
+
+        public enum Kind {
+            case system(SystemItem)
+            case title(String, style: Style = .plain)
+            case image(Image, landscapeImagePhone: Image?, style: Style = .plain)
+            case view(Module.UIKit.View)
+
+            public enum Style: String {
+                case plain
+                case done
+
+                init(from name: String) throws {
+                    guard let style = Style(rawValue: name) else {
+                        throw TokenizationError(message: "Unknown BarButtonItem style \(name)!")
+                    }
+                    self = style
+                }
+            }
+
+            public enum SystemItem: String {
+                case done
+                case cancel
+                case edit
+                case save
+                case add
+                case flexibleSpace
+                case fixedSpace
+                case compose
+                case reply
+                case action
+                case organize
+                case bookmarks
+                case search
+                case refresh
+                case stop
+                case camera
+                case trash
+                case play
+                case pause
+                case rewind
+                case fastForward
+                case undo
+                case redo
+            }
+        }
+    }
+}
+
 /**
  * Contains the structure of a Component's file.
  */
@@ -40,7 +138,8 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
     public var toolingProperties: [String: Property]
     public var overrides: [Override]
     public var stateDescription: StateDescription
-    
+    public var navigationItem: NavigationItem?
+
     public static var parentModuleImport: String {
         return "Hyperdrive"
     }
@@ -113,6 +212,11 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
         properties = try PropertyHelper.deserializeSupportedProperties(properties: propertyDescriptions, in: node)
         overrides = try node.singleOrNoElement(named: "overrides")?.allAttributes.values.map(Override.init) ?? []
         stateDescription = try StateDescription(element: node.singleOrNoElement(named: "state"))
+        navigationItem = try node.singleOrNoElement(named: "navigationItem").map(NavigationItem.init(element:))
+
+        handledActions.append(contentsOf: navigationItem?.allItems.map { item in
+            HyperViewAction(name: item.id, eventName: BarButtonItemTapAction.primaryName(for: item), parameters: [])
+        } ?? [])
 
         // here we gather all the constraints' fields that do not have a condition and check if any are duplicate
         // in that case we warn the user about it, because it's probably not what they intended
@@ -165,10 +269,39 @@ extension ComponentDefinition {
 //        let actions = resolvedActions.map { action in
 //            ComponentDefinitionAction(action: action)
 //        }
+        let navigationItemActions = navigationItem?.allItems.map(BarButtonItemTapAction.init) ?? []
         return [
             ViewTapAction(),
-        ]
+        ] + navigationItemActions
     }
+}
+
+public class BarButtonItemTapAction: UIElementAction {
+    public let primaryName: String
+
+    public let aliases: Set<String> = []
+
+    public let parameters: [Parameter] = []
+
+    private let item: NavigationItem.BarButtonItem
+
+    init(item: NavigationItem.BarButtonItem) {
+        self.item = item
+        primaryName = Self.primaryName(for: item)
+    }
+
+    public static func primaryName(for item: NavigationItem.BarButtonItem) -> String {
+        return "tapBarButtonItem_\(item.id)"
+    }
+
+    #if canImport(SwiftCodeGen)
+    public func observe(on view: Expression, handler: UIElementActionObservationHandler) throws -> Statement {
+        return .expression(.invoke(target: .constant("UIBarButtonItemObserver.bind"), arguments: [
+            MethodArgument(name: "to", value: Expression.member(target: view, name: item.id)),
+            MethodArgument(name: "handler", value: .closure(handler.listener)),
+        ]))
+    }
+    #endif
 }
 
 extension ComponentDefinition {

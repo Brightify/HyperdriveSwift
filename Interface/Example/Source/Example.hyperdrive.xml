@@ -6,26 +6,26 @@
     </Themes>
 
     <Colors>
-        <shared
-            themeIndependentTitle="black" />
-        <day
-            overlayBackground="white"
-            textOnOverlay="black" />
-        <night
-            overlayBackground="aNamedColor"
-            textOnOverlay="white" />
+        <themeIndependentTitle
+            default="black" />
+
+        <overlayBackground
+            day="white"
+            night="aNamedColor" />
+
+        <textOnOverlay
+            day="black"
+            night="white" />
     </Colors>
 
     <Images>
-        <day
-            falcon="falcon_day" />
-        <night
-            falcon="falcon_night" />
+        <falcon
+            day="falcon_day"
+            night="falcon_night" />
     </Images>
-    
+
     <Fonts>
-        <shared
-            title=":bold@30"
-            custom="Helvetica@15" />
+        <title default=":bold@30" />
+        <custom default="Helvetica@15" />
     </Fonts>
 </Application>

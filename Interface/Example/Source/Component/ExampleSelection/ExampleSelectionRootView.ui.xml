@@ -4,7 +4,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://schema.reactant.tech/ui http://schema.reactant.tech/ui.xsd
                         http://schema.reactant.tech/layout http://schema.reactant.tech/layout.xsd"
-    root="true">
+    root="true"
+    backgroundColor="overlayBackground">
+
+    <navigationItem>
+        <leftBarButtonItems>
+            <refresh>
+                <title>Refresh</title>
+            </refresh>
+        </leftBarButtonItems>
+        <rightBarButtonItems>
+            <toggleTheme>
+                <system>camera</system>
+            </toggleTheme>
+        </rightBarButtonItems>
+    </navigationItem>
 
     <PlainTableView
         id="tableView"

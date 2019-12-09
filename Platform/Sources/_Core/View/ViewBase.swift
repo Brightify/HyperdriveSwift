@@ -10,18 +10,11 @@
 #if canImport(UIKit)
 import UIKit
 
-open class ViewBase<STATE, ACTION>: UIView, ComponentWithDelegate, Configurable {
+open class ViewBase<STATE, ACTION>: UIView, ComponentWithDelegate {
     public typealias StateType = STATE
     public typealias ActionType = ACTION
 
     public let lifetimeTracking = ObservationTokenTracker()
-
-    open var configuration: Configuration = .global {
-        didSet {
-            layoutMargins = configuration.get(valueFor: Properties.layoutMargins)
-            configuration.get(valueFor: Properties.Style.view)(self)
-        }
-    }
 
     public let componentDelegate: ComponentDelegate<STATE, ACTION>
 
@@ -64,7 +57,6 @@ open class ViewBase<STATE, ACTION>: UIView, ComponentWithDelegate, Configurable 
         setupConstraints()
 
         resetActionMapping()
-        reloadConfiguration()
 
         afterInit()
 

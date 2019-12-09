@@ -36,6 +36,15 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
 
     open override func loadView() {
         view = viewManager.load(actionHandler: handle(action:))
+
+        if let hasNavigationItem = view as? HasNavigationItem {
+            if navigationItem.leftBarButtonItems == nil && hasNavigationItem.leftBarButtonItems != nil {
+                navigationItem.leftBarButtonItems = hasNavigationItem.leftBarButtonItems
+            }
+            if navigationItem.rightBarButtonItems == nil && hasNavigationItem.rightBarButtonItems != nil {
+                navigationItem.rightBarButtonItems = hasNavigationItem.rightBarButtonItems
+            }
+        }
     }
 
     open func handle(action: View.ActionType) {

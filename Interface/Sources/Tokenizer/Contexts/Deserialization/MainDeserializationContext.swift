@@ -18,9 +18,11 @@ public class MainDeserializationContext: DeserializationContext {
 }
 
 extension MainDeserializationContext: HasUIElementFactoryRegistry {
+    private static let ignoredElements: Set<String> = ["styles", "templates", "overrides", "state", "navigationItem"]
+
     public func factory(for elementName: String) -> UIElementFactory? {
         // FIXME We have to move this outside of this method, probably inside ComponentReference so it decides which elements to filter out.
-        if elementName == "styles" || elementName == "templates" || elementName == "overrides" || elementName == "state" {
+        if Self.ignoredElements.contains(elementName) {
             return nil
         } else if let elementFactory = elementFactories[elementName] {
             return elementFactory

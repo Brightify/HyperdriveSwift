@@ -13,7 +13,7 @@ public struct ThemeContainer<T: AttributeSupportedPropertyType & HasStaticTypeFa
     public typealias ItemName = String
 
     private var defaultItems: [ItemName: T] = [:]
-    private var themedItems: [ApplicationDescription.ThemeName: [ItemName: T]] = [:]
+    private var themedItems: [ItemName: [ApplicationDescription.ThemeName: T]] = [:]
 
     /**
      * Given a theme and an item name returns its property type.
@@ -22,11 +22,7 @@ public struct ThemeContainer<T: AttributeSupportedPropertyType & HasStaticTypeFa
      * - returns: property type corresponding to passed theme and item if present, otherwise nil
      */
     public subscript(theme theme: String, item item: String) -> T? {
-        guard let themeItems = themedItems[theme] else {
-            return defaultItems[item]
-        }
-
-        return themeItems[item] ?? defaultItems[item]
+        return themedItems[item]?[theme] ?? defaultItems[item]
     }
 
     /**
@@ -34,7 +30,7 @@ public struct ThemeContainer<T: AttributeSupportedPropertyType & HasStaticTypeFa
      */
     public var allItemNames: Set<ItemName> {
         let defaultItemNames = defaultItems.keys
-        let themedItemNames = themedItems.values.flatMap { $0.keys }
+        let themedItemNames = themedItems.keys
         return Set(defaultItemNames).union(themedItemNames)
     }
 
@@ -42,12 +38,12 @@ public struct ThemeContainer<T: AttributeSupportedPropertyType & HasStaticTypeFa
 
     public init(node: XMLElement) throws {
         for child in node.xmlChildren {
-            for (name, attribute) in child.allAttributes {
+            for (theme, attribute) in child.allAttributes {
                 let item = try T.materialize(from: attribute.text)
-                if child.name == "shared" {
-                    defaultItems[name] = item
+                if theme == "default" {
+                    defaultItems[child.name] = item
                 } else {
-                    themedItems[child.name, default: [:]][name] = item
+                    themedItems[child.name, default: [:]][theme] = item
                 }
             }
         }

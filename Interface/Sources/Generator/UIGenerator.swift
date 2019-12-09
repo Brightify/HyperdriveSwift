@@ -74,6 +74,69 @@ public class UIGenerator: Generator {
             viewInheritances.append("ComposableHyperView")
         }
 
+        var navigationItemProperties: [SwiftCodeGen.Property] = []
+        if let navigationItem = root.navigationItem {
+            viewInheritances.append("HasNavigationItem")
+
+            func instantiateItem(kind: NavigationItem.BarButtonItem.Kind) throws -> Expression {
+                let invokeArguments: [MethodArgument]
+                switch kind {
+                case .image(let image, landscapeImagePhone: let landscapeImagePhone, let style):
+                    let imageContext = SupportedPropertyTypeContext(parentContext: componentContext, value: AnyPropertyValue.value(image))
+                    invokeArguments = [
+                        MethodArgument(name: "image", value: image.generate(context: imageContext)),
+                        MethodArgument(name: "landscapeImagePhone", value: landscapeImagePhone?.generate(context: imageContext) ?? .constant("nil")),
+                        MethodArgument(name: "style", value: .constant(".\(style.rawValue)")),
+                    ]
+                case .system(let systemItem):
+                    invokeArguments = [
+                        MethodArgument(name: "barButtonSystemItem", value: .constant(".\(systemItem.rawValue)")),
+                    ]
+                case .title(let title, let style):
+                    invokeArguments = [
+                        MethodArgument(name: "title", value: .constant("\"\(title)\"")),
+                        MethodArgument(name: "style", value: .constant(".\(style.rawValue)")),
+                    ]
+                case .view(let view):
+                    return .invoke(target: .constant("UIBarButtonItem"), arguments: [
+                        MethodArgument(name: "customView", value: try view.initialization(for: componentContext.platform, context: componentContext)),
+                    ])
+                }
+                return .invoke(target: .constant("UIBarButtonItem"), arguments: invokeArguments + [
+                    MethodArgument(name: "target", value: .constant("nil")),
+                    MethodArgument(name: "action", value: .constant("nil")),
+                ])
+            }
+
+            navigationItemProperties = try navigationItem.allItems.map { item in
+                .constant(
+                    accessibility: item.isExported ? viewAccessibility : .private,
+                    name: item.id,
+                    type: "UIBarButtonItem",
+                    value: try instantiateItem(kind: item.kind))
+            }
+
+            if let leftBarButtonItems = navigationItem.leftBarButtonItems {
+                navigationItemProperties.append(
+                    .variable(accessibility: viewAccessibility, name: "leftBarButtonItems", type: "[UIBarButtonItem]?", block: [
+                        .return(expression: .arrayLiteral(items: leftBarButtonItems.items.map {
+                            .constant("\($0.id)")
+                        }))
+                    ])
+                )
+            }
+
+            if let rightBarButtonItems = navigationItem.rightBarButtonItems {
+                navigationItemProperties.append(
+                    .variable(accessibility: viewAccessibility, name: "rightBarButtonItems", type: "[UIBarButtonItem]?", block: [
+                        .return(expression: .arrayLiteral(items: rightBarButtonItems.items.map {
+                            .constant("\($0.id)")
+                        }))
+                    ])
+                )
+            }
+        }
+
         let viewSuperCall: Block
         if configuration.isLiveEnabled {
             viewSuperCall = [
@@ -291,7 +354,7 @@ public class UIGenerator: Generator {
             name: root.type,
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
-            properties: viewProperties + viewDeclarations,
+            properties: viewProperties + viewDeclarations + navigationItemProperties,
             functions: [viewInit, observeActions(resolvedActions: resolvedActions), loadView(), setupConstraints()] + liveAccessors + overrides)
 
         let styleExtension = Structure.extension(

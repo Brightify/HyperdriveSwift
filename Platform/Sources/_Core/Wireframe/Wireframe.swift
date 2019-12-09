@@ -55,7 +55,7 @@ extension Wireframe {
     /**
      * Used when you need a navigation controller embedded inside a controller that is already inside a navigation controller and is supposed to have a close button.
      */
-    public func branchNavigation(controller: UIViewController, closeButtonTitle: String?) -> UINavigationController {
+    public func branchNavigation(controller: UIViewController, closeButtonTitle: String? = nil) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: controller)
         if let closeButtonTitle = closeButtonTitle {
             controller.navigationItem.leftBarButtonItem = UIBarButtonItem(title: closeButtonTitle, style: .done) { [weak navigationController] in
@@ -63,14 +63,6 @@ extension Wireframe {
             }
         }
         return navigationController
-    }
-
-    /**
-     * Used when you need a navigation controller embedded inside a controller that is already inside a navigation controller and is supposed to have a close button.
-     */
-    public func branchNavigation<S, T>(controller: ControllerBase<S, T>) -> UINavigationController {
-        let closeButtonTitle = controller.configuration.get(valueFor: Properties.closeButtonTitle)
-        return branchNavigation(controller: controller, closeButtonTitle: closeButtonTitle)
     }
 }
 #endif
