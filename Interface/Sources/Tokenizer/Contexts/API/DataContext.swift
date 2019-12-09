@@ -43,22 +43,6 @@ public protocol DataContext {
     #endif
 }
 
-public protocol HasParentContext {
-    associatedtype ParentContext
-
-    var parentContext: ParentContext { get }
-}
-
-public protocol HasGlobalContext: HasParentContext {
-    var globalContext: GlobalContext { get }
-}
-
-extension HasParentContext where Self: HasGlobalContext {
-    public var parentContext: GlobalContext {
-        return globalContext
-    }
-}
-
 // WARNING:
 // this extension and the one below are nearly identical and if you change something in this one,
 // you most likely want to change it in the other extension as well

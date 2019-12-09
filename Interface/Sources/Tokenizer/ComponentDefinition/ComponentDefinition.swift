@@ -10,115 +10,6 @@
 import UIKit
 #endif
 
-public protocol ComponentDefinitionContainer {
-    var componentTypes: [String] { get }
-
-    var componentDefinitions: [ComponentDefinition] { get }
-}
-
-public enum AccessModifier: String {
-    case `public`
-    case `internal`
-}
-
-public struct NavigationItem {
-    public var leftBarButtonItems: BarButtonItemContainer?
-    public var rightBarButtonItems: BarButtonItemContainer?
-
-    public var allItems: [BarButtonItem] {
-        return (leftBarButtonItems?.items ?? []) + (rightBarButtonItems?.items ?? [])
-    }
-
-    public init(element: XMLElement) throws {
-        leftBarButtonItems = try element.singleOrNoElement(named: "leftBarButtonItems").map(BarButtonItemContainer.init)
-        rightBarButtonItems = try element.singleOrNoElement(named: "rightBarButtonItems").map(BarButtonItemContainer.init)
-    }
-
-    public struct BarButtonItemContainer {
-        public var items: [BarButtonItem]
-
-        public init(element: XMLElement) throws {
-            items = try element.xmlChildren.map(BarButtonItem.init)
-        }
-    }
-
-    public struct BarButtonItem {
-        public var id: String
-        public var isExported: Bool
-        public var kind: Kind
-
-        public init(element: XMLElement) throws {
-            id = element.name
-            isExported = element.value(ofAttribute: "export") ?? false
-
-            let style = try element.singleOrNoElement(named: "style").map { try Kind.Style(from: $0.nonEmptyTextOrThrow()) }
-            if let systemElement = try element.singleOrNoElement(named: "system") {
-                guard let systemItem = try Kind.SystemItem(rawValue: systemElement.nonEmptyTextOrThrow()) else {
-                    throw TokenizationError(message: "Unsupported system item '\(systemElement.text ?? "")'.")
-                }
-                kind = .system(systemItem)
-
-            } else if let title = try element.singleOrNoElement(named: "title") {
-                kind = .title(title.text ?? "", style: style ?? .plain)
-            } else if let imageElement = try element.singleOrNoElement(named: "image") {
-                let landscapeImagePhone = try element.singleOrNoElement(named: "landscapeImagePhone").map {
-                    try Image.materialize(from: $0.nonEmptyTextOrThrow())
-                }
-
-                let image = try Image.materialize(from: imageElement.nonEmptyTextOrThrow())
-                kind = .image(image, landscapeImagePhone: landscapeImagePhone, style: style ?? .plain)
-            } else {
-                throw TokenizationError(message: "Unknown barButtonItem type!")
-            }
-        }
-
-        public enum Kind {
-            case system(SystemItem)
-            case title(String, style: Style = .plain)
-            case image(Image, landscapeImagePhone: Image?, style: Style = .plain)
-            case view(Module.UIKit.View)
-
-            public enum Style: String {
-                case plain
-                case done
-
-                init(from name: String) throws {
-                    guard let style = Style(rawValue: name) else {
-                        throw TokenizationError(message: "Unknown BarButtonItem style \(name)!")
-                    }
-                    self = style
-                }
-            }
-
-            public enum SystemItem: String {
-                case done
-                case cancel
-                case edit
-                case save
-                case add
-                case flexibleSpace
-                case fixedSpace
-                case compose
-                case reply
-                case action
-                case organize
-                case bookmarks
-                case search
-                case refresh
-                case stop
-                case camera
-                case trash
-                case play
-                case pause
-                case rewind
-                case fastForward
-                case undo
-                case redo
-            }
-        }
-    }
-}
-
 /**
  * Contains the structure of a Component's file.
  */
@@ -231,37 +122,6 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
     }
 }
 
-#if canImport(SwiftCodeGen)
-import SwiftCodeGen
-#endif
-
-public class ComponentDefinitionAction: UIElementAction {
-    public let primaryName: String
-
-    public let aliases: Set<String> = []
-
-    public let parameters: [Parameter]
-
-    init(action: ResolvedHyperViewAction) {
-        primaryName = action.name
-        parameters = action.parameters.map { parameter in
-            Parameter(label: parameter.label, type: parameter.type)
-        }
-    }
-
-    #if canImport(SwiftCodeGen)
-    public func observe(on view: Expression, handler: UIElementActionObservationHandler) throws -> Statement {
-        let listener = Closure(captures: handler.captures, parameters: [(name: "action", type: nil)], block: [
-            .if(condition: [.enumUnwrap(case: primaryName, parameters: handler.innerParameters, expression: .constant("action"))], then: [handler.publisher], else: nil)
-            ])
-
-        return .expression(.invoke(target: .member(target: view, name: "actionPublisher.listen"), arguments: [
-            MethodArgument(name: "with", value: .closure(listener)),
-        ]))
-    }
-    #endif
-}
-
 extension ComponentDefinition {
     public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
 //        let resolvedActions = try context.resolve(actions: providedActions)
@@ -276,33 +136,7 @@ extension ComponentDefinition {
     }
 }
 
-public class BarButtonItemTapAction: UIElementAction {
-    public let primaryName: String
 
-    public let aliases: Set<String> = []
-
-    public let parameters: [Parameter] = []
-
-    private let item: NavigationItem.BarButtonItem
-
-    init(item: NavigationItem.BarButtonItem) {
-        self.item = item
-        primaryName = Self.primaryName(for: item)
-    }
-
-    public static func primaryName(for item: NavigationItem.BarButtonItem) -> String {
-        return "tapBarButtonItem_\(item.id)"
-    }
-
-    #if canImport(SwiftCodeGen)
-    public func observe(on view: Expression, handler: UIElementActionObservationHandler) throws -> Statement {
-        return .expression(.invoke(target: .constant("UIBarButtonItemObserver.bind"), arguments: [
-            MethodArgument(name: "to", value: Expression.member(target: view, name: item.id)),
-            MethodArgument(name: "handler", value: .closure(handler.listener)),
-        ]))
-    }
-    #endif
-}
 
 extension ComponentDefinition {
     static func componentTypes(in elements: [UIElement]) -> [String] {
