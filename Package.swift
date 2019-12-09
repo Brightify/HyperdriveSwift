@@ -12,7 +12,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/tadija/AEXML.git", .upToNextMinor(from: "4.4.0")),
         .package(url: "https://github.com/tuist/xcodeproj.git", .upToNextMajor(from: "7.5.0")),
-        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.2.2")
+        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.2.2"),
     ],
     targets: [
         .target(

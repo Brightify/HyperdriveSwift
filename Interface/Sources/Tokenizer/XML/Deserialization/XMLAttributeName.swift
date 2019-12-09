@@ -5,6 +5,8 @@
 //  Created by Tadeas Kriz on 09/12/2019.
 //
 
+import Foundation
+
 public protocol XMLAttributeName {
     init(from value: String) throws
 }

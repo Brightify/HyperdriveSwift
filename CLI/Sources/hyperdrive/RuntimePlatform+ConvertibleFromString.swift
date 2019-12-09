@@ -6,6 +6,7 @@
 //
 
 import Tokenizer
+import SwiftCLI
 
 extension RuntimePlatform: ConvertibleFromString {
     public static func convert(from: String) -> RuntimePlatform? {
