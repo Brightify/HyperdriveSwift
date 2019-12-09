@@ -32,6 +32,7 @@
 		0F7FE8AF6B01BE666293BFE5 /* TableViewHeaderFooterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */; };
 		0FC43ADBB809C0871AD6F542 /* HyperViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE51858CC85848274CAD76 /* HyperViewState.swift */; };
 		10765C9FC1A22A2C049308B1 /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE051BF60581E3C723B4ABC /* Visibility.swift */; };
+		11B1EA886D22EF65ABE60B20 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */; };
 		1215DA012F0F605FF485A766 /* UIView+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */; };
 		147F25FD6D569F85C964919A /* HyperViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE51858CC85848274CAD76 /* HyperViewState.swift */; };
 		168067765D2DD2FCDDDDA665 /* Array+subarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */; };
@@ -39,8 +40,6 @@
 		176ED6D90EA18450CF4DC68B /* Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EE07EFB31710BB4D9EDA04 /* Scrollable.swift */; };
 		17D570E1EF11D6FAE042BE66 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */; };
 		17E5ECE51A50B34E024AF483 /* BaseSubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */; };
-		18A27DF7239E927B00853657 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DF6239E927B00853657 /* UIBarButtonItemObserver.swift */; };
-		18A27DF8239E927B00853657 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27DF6239E927B00853657 /* UIBarButtonItemObserver.swift */; };
 		18C23DA94F61038D75654413 /* UIScrollView+Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */; };
 		18C34E3111206AAB44EBFF72 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827F30EDF723E5D1B0A8322 /* TextField.swift */; };
 		1A4A0849ACF4C224D767DA17 /* ActionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F21B15DFEE4A4B6157854 /* ActionPublisher.swift */; };
@@ -53,6 +52,7 @@
 		28698DC7942C3AD2FEED4B51 /* MKCoordinateSpan+inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */; };
 		2948603B235D7421513104FB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051AF3EB684A3D3AFB52F4F /* Configuration.swift */; };
 		2CDECC032307BCA20FD05109 /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392A069963D28FFC12CD6EBB /* PagingCollectionView.swift */; };
+		2CF8727A94140E7F2F824F28 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */; };
 		2D2B86FAC7965CFF449E8768 /* CollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BFBD6B272B175DDDBA572 /* CollectionViewBase.swift */; };
 		2D573474E107179C5CE0D579 /* Configuration+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4612602B3EBF4FCCC95E228 /* Configuration+Style.swift */; };
 		2E95536A58640FF3FD9D2D59 /* SimulatedSeparatorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */; };
@@ -99,6 +99,7 @@
 		515A37B277C0EBC83401725F /* Configuration+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D34C1914BCF63A4AC5718B /* Configuration+CollectionView.swift */; };
 		515D0CC882A9702972F63328 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076E5EBA0F6CE148FB8B645 /* DialogView.swift */; };
 		5590780A00132CEB3EFC06A5 /* Configuration+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */; };
+		57BF4FD2F28F8FBF064BBEDC /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CB49DEAAEAF7AC1BBDF9B1 /* Pods_Interface_HyperdriveInterface_iOS.framework */; };
 		587DC3E0AC391CDB12A0D306 /* MKCoordinateSpan+inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */; };
 		58A6622483B4287D2A22459B /* ReactantThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */; };
 		59F0E07FA0730FDE5213C8B5 /* HyperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */; };
@@ -140,6 +141,7 @@
 		7EBDB2429458CC6FE5B4A19D /* ViewOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */; };
 		7FA2EA801941937EABCF0E46 /* HyperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */; };
 		804742E54DC479CFCF143998 /* SimpleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */; };
+		81BA12EEBD43DAF9EA5C4A18 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635054B9824243AEE663384A /* Pods_Interface_HyperdriveInterface_macOS.framework */; };
 		826CF566640E69C97935D047 /* TextFieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */; };
 		8288484D0241C52E095EB477 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */; };
 		8367C163774466E6D5268877 /* SimulatedSeparatorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */; };
@@ -155,11 +157,11 @@
 		8CE3117329D6F4180FE14BDF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */; };
 		8D8FABCCA4FFEB88492FE2ED /* DialogControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFB03498C39AB6CC55EE59 /* DialogControllerBase.swift */; };
 		8DEB49FDCD1587A7E13F83CF /* CollectionReusableViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28141B682E7B0CE7D961D455 /* CollectionReusableViewWrapper.swift */; };
+		8F832760FA61C2C2338FD757 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */; };
 		9000C26D4E11D7595309B919 /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7047ACC149E30C884C3B1AE /* FooterTableView.swift */; };
 		906E5F4394896EDD46A9415F /* SimpleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */; };
 		90C21EBB97B77977D181FFAA /* ConstraintAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */; };
 		91FA5BE514E53BF9F3023574 /* Properties+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050B5FA8035B176958E4AE80 /* Properties+Core.swift */; };
-		954299E968D6132447F9D8DA /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBADE86EA8C23F7FEBB5158A /* Pods_Interface_HyperdriveInterface_macOS.framework */; };
 		9782F02B164002C62FDB98DD /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8006FB9CC472075641DB44A8 /* PickerView.swift */; };
 		992D7FB11E8E1AF06E71379A /* Configuration+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */; };
 		994983B62977D36F4379CC17 /* Mutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */; };
@@ -255,7 +257,6 @@
 		E4BE63F098B8F01C941E685B /* UIScrollView+Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */; };
 		E59AA663285A395B0792D9BD /* Properties+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */; };
 		E5AA3C73784BCF520FF1586C /* HyperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C88A2EF956F35292D87D7 /* HyperView.swift */; };
-		E66D2EFD23288C53C8DCB68E /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04145E4A4447280AF5D15596 /* Pods_Interface_HyperdriveInterface_iOS.framework */; };
 		E866C02C32639DBBB97B7134 /* TableViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252FDEB7B5591B56EBED370E /* TableViewCellWrapper.swift */; };
 		E9EFFB5558564E9E8CDC2949 /* AnyCollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E0450C9F6B681C1D4AE03 /* AnyCollectionSupplementaryViewIdentifier.swift */; };
 		EA851DCF264D980CA962B8CC /* UIView+traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7695A9733A0350AFAE987A /* UIView+traits.swift */; };
@@ -320,15 +321,12 @@
 /* Begin PBXFileReference section */
 		00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAction.swift; sourceTree = "<group>"; };
 		0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionView.swift; sourceTree = "<group>"; };
-		04145E4A4447280AF5D15596 /* Pods_Interface_HyperdriveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AF406A3B53177EA383BDC7 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		050B5FA8035B176958E4AE80 /* Properties+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Properties+Core.swift"; sourceTree = "<group>"; };
-		07F2D01258C0518951228642 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		0EABAAEF1542318A8E8869F3 /* TableViewHeaderFooterIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterIdentifier.swift; sourceTree = "<group>"; };
 		180C8C75CBD691962CA3CC71 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1827F30EDF723E5D1B0A8322 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1848E7AE198FAE8DBF39935C /* AnyTableViewHeaderFooterIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTableViewHeaderFooterIdentifier.swift; sourceTree = "<group>"; };
-		18A27DF6239E927B00853657 /* UIBarButtonItemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemObserver.swift; sourceTree = "<group>"; };
 		1D14432CE1C949078C5042C2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		1DFFD67395BE49CA2A4C7E31 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CE51858CC85848274CAD76 /* HyperViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperViewState.swift; sourceTree = "<group>"; };
@@ -339,6 +337,7 @@
 		26FF9D370D71B51B7D0E0B2F /* MKCoordinateRegion+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+utils.swift"; sourceTree = "<group>"; };
 		28141B682E7B0CE7D961D455 /* CollectionReusableViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableViewWrapper.swift; sourceTree = "<group>"; };
 		28D34C1914BCF63A4AC5718B /* Configuration+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+CollectionView.swift"; sourceTree = "<group>"; };
+		29F2C424862C0B7E5D21942C /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		2AEAB911322FA776BC4B1D90 /* CollapseAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapseAxis.swift; sourceTree = "<group>"; };
 		2D01833FBF67471B09370F20 /* UINavigationController+DialogDismissalListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+DialogDismissalListener.swift"; sourceTree = "<group>"; };
 		31AFB03498C39AB6CC55EE59 /* DialogControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogControllerBase.swift; sourceTree = "<group>"; };
@@ -349,6 +348,7 @@
 		3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
 		4033D419609B1AE113CEB2C4 /* AnyTableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTableViewCellIdentifier.swift; sourceTree = "<group>"; };
 		4069D3C53D5CA323699FA586 /* StaticMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticMap.swift; sourceTree = "<group>"; };
+		407E4E7F48DFE274ACB33D72 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		41A187B3B25F3EB053089FC9 /* ReactantTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantTableView.swift; sourceTree = "<group>"; };
 		4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSubConfiguration.swift; sourceTree = "<group>"; };
 		4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldActionDelegate.swift; sourceTree = "<group>"; };
@@ -362,18 +362,21 @@
 		5D1D8EE2C0A62FF44793FB28 /* SimpleTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableView.swift; sourceTree = "<group>"; };
 		6076E5EBA0F6CE148FB8B645 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		60F56ED679D4A5FE33512AD7 /* DialogDismissalListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogDismissalListener.swift; sourceTree = "<group>"; };
+		635054B9824243AEE663384A /* Pods_Interface_HyperdriveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7695A9733A0350AFAE987A /* UIView+traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+traits.swift"; sourceTree = "<group>"; };
 		6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+Core.swift"; sourceTree = "<group>"; };
-		6FAC0C3AE83A1F447ED80262 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		72B81F3DC75FF88A34F4BD8F /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperViewController.swift; sourceTree = "<group>"; };
+		7A8B4349B545541503367CDC /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB59104AF60AFC4ECB0455E /* CollectionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewState.swift; sourceTree = "<group>"; };
 		7F18996653833B4DA42F783D /* ReactantCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantCollectionView.swift; sourceTree = "<group>"; };
 		8006FB9CC472075641DB44A8 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemObserver.swift; sourceTree = "<group>"; };
 		8BB2EED46C3462AC59006FCC /* NSTextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldObserver.swift; sourceTree = "<group>"; };
 		8CB732EF8240AB9985D2015E /* Collection+CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+CLLocationCoordinate2D.swift"; sourceTree = "<group>"; };
 		908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9613FCFA6B8CC496D6356A6E /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
+		963CDD4F552FE3D992BEEA32 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		96F9ABB9E16EB3A664E9ECBF /* AssociatedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableViewObserver.swift; sourceTree = "<group>"; };
 		9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutating.swift; sourceTree = "<group>"; };
@@ -384,7 +387,6 @@
 		A75B9ED0AB5BC2750C0D2176 /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
 		AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+subarrays.swift"; sourceTree = "<group>"; };
 		AE97385C885BDD52B14C851A /* NSShadow+convenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSShadow+convenienceInit.swift"; sourceTree = "<group>"; };
-		AF821E9D1CAF118C409F4370 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+inset.swift"; sourceTree = "<group>"; };
 		B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterWrapper.swift; sourceTree = "<group>"; };
 		B5C169CA090838E1C3D29590 /* ControlEventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEventObserver.swift; sourceTree = "<group>"; };
@@ -395,7 +397,7 @@
 		C1AFAF74F6250A44E4D57ACA /* PlainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableView.swift; sourceTree = "<group>"; };
 		C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrientation.swift; sourceTree = "<group>"; };
 		C4F45133587F62BFED05E09F /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
-		C6B3FAD80F4DC4D43116B85A /* HyperdriveInterface.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = HyperdriveInterface.podspec; path = ../HyperdriveInterface.podspec; sourceTree = "<group>"; };
+		C6B3FAD80F4DC4D43116B85A /* HyperdriveInterface.podspec */ = {isa = PBXFileReference; name = HyperdriveInterface.podspec; path = ../HyperdriveInterface.podspec; sourceTree = "<group>"; };
 		C9258C8EAABCC2918E9169D5 /* FlowCollectionViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCollectionViewBase.swift; sourceTree = "<group>"; };
 		C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attribute.swift"; sourceTree = "<group>"; };
 		CDE55A9B53DF051EAF031649 /* Interface_Manifest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Interface_Manifest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,9 +409,8 @@
 		E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantThemeSelector.swift; sourceTree = "<group>"; };
 		E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Properties+TableView.swift"; sourceTree = "<group>"; };
 		E54018F503238AFDE5B5A8ED /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
-		E6B2C13EAD400E830C66D5FC /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Visibility.swift"; sourceTree = "<group>"; };
-		EBADE86EA8C23F7FEBB5158A /* Pods_Interface_HyperdriveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4CB49DEAAEAF7AC1BBDF9B1 /* Pods_Interface_HyperdriveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5290AB2041E879CCEA76230 /* CollectionViewCellWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWrapper.swift; sourceTree = "<group>"; };
 		F64061B66C4AD9354B6FA67B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+TableView.swift"; sourceTree = "<group>"; };
@@ -427,7 +428,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E66D2EFD23288C53C8DCB68E /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */,
+				57BF4FD2F28F8FBF064BBEDC /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +443,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954299E968D6132447F9D8DA /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */,
+				81BA12EEBD43DAF9EA5C4A18 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +529,7 @@
 				06171B8F4A2825E3EA09B5B2 /* Manifest */,
 				8669DD744E583841B9FB42EE /* Frameworks */,
 				D915546D32FDCFF0B7A27868 /* Products */,
-				9D02069346E83D8E53EC994E /* Pods */,
+				892DACD9BB22B0C2A441B559 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -571,7 +572,7 @@
 				A0EA37AA3C36681B768AD4F4 /* GestureRecognizerObserver.swift */,
 				8BB2EED46C3462AC59006FCC /* NSTextFieldObserver.swift */,
 				9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */,
-				18A27DF6239E927B00853657 /* UIBarButtonItemObserver.swift */,
+				89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */,
 			);
 			path = Observers;
 			sourceTree = "<group>";
@@ -611,10 +612,22 @@
 		8669DD744E583841B9FB42EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04145E4A4447280AF5D15596 /* Pods_Interface_HyperdriveInterface_iOS.framework */,
-				EBADE86EA8C23F7FEBB5158A /* Pods_Interface_HyperdriveInterface_macOS.framework */,
+				F4CB49DEAAEAF7AC1BBDF9B1 /* Pods_Interface_HyperdriveInterface_iOS.framework */,
+				635054B9824243AEE663384A /* Pods_Interface_HyperdriveInterface_macOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		892DACD9BB22B0C2A441B559 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				407E4E7F48DFE274ACB33D72 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */,
+				963CDD4F552FE3D992BEEA32 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */,
+				7A8B4349B545541503367CDC /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */,
+				29F2C424862C0B7E5D21942C /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		894AAA86B3C18A40DE3A405E /* Visibility */ = {
@@ -671,18 +684,6 @@
 				0EABAAEF1542318A8E8869F3 /* TableViewHeaderFooterIdentifier.swift */,
 			);
 			path = Identifier;
-			sourceTree = "<group>";
-		};
-		9D02069346E83D8E53EC994E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				07F2D01258C0518951228642 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */,
-				AF821E9D1CAF118C409F4370 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */,
-				6FAC0C3AE83A1F447ED80262 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */,
-				E6B2C13EAD400E830C66D5FC /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		AEC83BA6243D95DC88470BCF /* Delegates */ = {
@@ -812,7 +813,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F78F9A7258F60A69311547F8 /* Build configuration list for PBXNativeTarget "HyperdriveInterface-iOS" */;
 			buildPhases = (
-				10C1862721A64797C8447D42 /* [CP] Check Pods Manifest.lock */,
+				4899062DD3B7A7EC7A358117 /* [CP] Check Pods Manifest.lock */,
 				9AEF4A13E0B7AEB789FAEA2B /* Sources */,
 				007BB5E4F878677439F3F95E /* Resources */,
 				23066DE90558328CD853FEBC /* Embed Precompiled Frameworks */,
@@ -851,7 +852,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5030554D85077DFD83644CAF /* Build configuration list for PBXNativeTarget "HyperdriveInterface-macOS" */;
 			buildPhases = (
-				E6EC797AA3AC3315FD42E193 /* [CP] Check Pods Manifest.lock */,
+				23D8A9EDC8015EFBEDFD0EAE /* [CP] Check Pods Manifest.lock */,
 				AA47EC325FC8991C89BF88FA /* Sources */,
 				A7400C0AAF6E795D39756387 /* Resources */,
 				CAEB2429AF9DCB304D6D0DF8 /* Embed Precompiled Frameworks */,
@@ -945,7 +946,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10C1862721A64797C8447D42 /* [CP] Check Pods Manifest.lock */ = {
+		23066DE90558328CD853FEBC /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		23D8A9EDC8015EFBEDFD0EAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4899062DD3B7A7EC7A358117 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -966,20 +1003,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		23066DE90558328CD853FEBC /* Embed Precompiled Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Precompiled Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
 		6FB023613DF5020929094192 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1008,28 +1031,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
-		};
-		E6EC797AA3AC3315FD42E193 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FBD8081A4991934B9EC78C2C /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1099,6 +1100,7 @@
 				0B22D0F3FDEA33DF51C838E2 /* GestureRecognizerObserver.swift in Sources */,
 				9DDA59DDD4D3010302D58787 /* NSTextFieldObserver.swift in Sources */,
 				85D94BBFF37FA4F2BAD296BA /* PlainTableViewObserver.swift in Sources */,
+				2CF8727A94140E7F2F824F28 /* UIBarButtonItemObserver.swift in Sources */,
 				E2F3CB7070080209ADFEB546 /* ReactantThemeSelector.swift in Sources */,
 				3284D6AB090D1F0C08AF3E6D /* UIButton+BackgroundColor.swift in Sources */,
 				EBD54ADAEB74FFC3B0EF7E36 /* UIView+traits.swift in Sources */,
@@ -1110,7 +1112,6 @@
 				ECB07931BC342FD96F4ECD6B /* CollapseAxis.swift in Sources */,
 				BBC2DF4E236BC8411E1F6643 /* ConstraintAction.swift in Sources */,
 				72826E8154AB88C0F06AE344 /* UIView+Visibility.swift in Sources */,
-				18A27DF8239E927B00853657 /* UIBarButtonItemObserver.swift in Sources */,
 				A665BC2A6D3F34A80D307C4A /* Visibility.swift in Sources */,
 				69BD5D15F5BE6BEA478F7EC4 /* PickerView.swift in Sources */,
 				A10A1B9EEF1E71BC3EB445EF /* TextField.swift in Sources */,
@@ -1203,6 +1204,7 @@
 				9B87658CDF017BABB4EE12FC /* GestureRecognizerObserver.swift in Sources */,
 				B55CF330175172788C0A5416 /* NSTextFieldObserver.swift in Sources */,
 				3005FAB285C784E627F6744A /* PlainTableViewObserver.swift in Sources */,
+				11B1EA886D22EF65ABE60B20 /* UIBarButtonItemObserver.swift in Sources */,
 				58A6622483B4287D2A22459B /* ReactantThemeSelector.swift in Sources */,
 				C459124FEC544404FFBC0A75 /* UIButton+BackgroundColor.swift in Sources */,
 				EA851DCF264D980CA962B8CC /* UIView+traits.swift in Sources */,
@@ -1214,7 +1216,6 @@
 				ACCB87E41428944488725D6B /* CollapseAxis.swift in Sources */,
 				7A5C52386A93B0092B237F49 /* ConstraintAction.swift in Sources */,
 				1215DA012F0F605FF485A766 /* UIView+Visibility.swift in Sources */,
-				18A27DF7239E927B00853657 /* UIBarButtonItemObserver.swift in Sources */,
 				B3FA7EC7275C18C9DCCCC36A /* Visibility.swift in Sources */,
 				A8907A57AE49D30A826A6B74 /* PickerView.swift in Sources */,
 				CE70B7D26E08703D8A0EE1F8 /* TextField.swift in Sources */,
@@ -1299,6 +1300,7 @@
 				AAB8CAB85D7F25D4FF9D6F20 /* GestureRecognizerObserver.swift in Sources */,
 				49DF692DBBE70119DD6A7F0F /* NSTextFieldObserver.swift in Sources */,
 				08F84A5A4A96D0584CE325E6 /* PlainTableViewObserver.swift in Sources */,
+				8F832760FA61C2C2338FD757 /* UIBarButtonItemObserver.swift in Sources */,
 				38BCBE23CA02451F769E8ACD /* ReactantThemeSelector.swift in Sources */,
 				83FB392B88DF0DEA80D430BA /* UIButton+BackgroundColor.swift in Sources */,
 				7C895EF84FDBC948A19A20EB /* UIView+traits.swift in Sources */,
@@ -1414,7 +1416,7 @@
 		};
 		8322066FEB98361D5CB08818 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FAC0C3AE83A1F447ED80262 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */;
+			baseConfigurationReference = 7A8B4349B545541503367CDC /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1448,7 +1450,7 @@
 		};
 		8F00CD1DBBFB0CEFC954D647 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF821E9D1CAF118C409F4370 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */;
+			baseConfigurationReference = 963CDD4F552FE3D992BEEA32 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1482,7 +1484,7 @@
 		};
 		9F1173DA87E050B63D8043FF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07F2D01258C0518951228642 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */;
+			baseConfigurationReference = 407E4E7F48DFE274ACB33D72 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1607,7 +1609,7 @@
 		};
 		C104C4D296A83263EDD8EFED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6B2C13EAD400E830C66D5FC /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */;
+			baseConfigurationReference = 29F2C424862C0B7E5D21942C /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1728,7 +1730,6 @@
 				EEC4554851836CC27E7435E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		5030554D85077DFD83644CAF /* Build configuration list for PBXNativeTarget "HyperdriveInterface-macOS" */ = {
 			isa = XCConfigurationList;
@@ -1737,7 +1738,6 @@
 				C104C4D296A83263EDD8EFED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		895DDC205DB1F1C67D602C3C /* Build configuration list for PBXNativeTarget "Interface_Manifest" */ = {
 			isa = XCConfigurationList;
@@ -1746,7 +1746,6 @@
 				A7DBC79E00285323184038B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		8DB1075B8291FCC01941DE9C /* Build configuration list for PBXProject "Interface" */ = {
 			isa = XCConfigurationList;
@@ -1755,7 +1754,6 @@
 				C9A3AAAA9ED5C19069D27497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		F78F9A7258F60A69311547F8 /* Build configuration list for PBXNativeTarget "HyperdriveInterface-iOS" */ = {
 			isa = XCConfigurationList;
@@ -1764,7 +1762,6 @@
 				8F00CD1DBBFB0CEFC954D647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
