@@ -20,8 +20,8 @@ Pod::Spec.new do |spec|
     spec.social_media_url = 'https://twitter.com/BrightifyOrg'
     spec.requires_arc = true
 
-    spec.ios.deployment_target = '9.0'
-    spec.tvos.deployment_target = '9.2'
+    spec.ios.deployment_target = '11.0'
+    spec.tvos.deployment_target = '11.0'
     spec.osx.deployment_target = '10.12'
 
     spec.default_subspec = 'Core'
