@@ -37,6 +37,12 @@
 		160E7ED3CDEB987D417283BF /* FutureControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370C1CC3B66FFF08F311E1F /* FutureControllerProvider.swift */; };
 		16F5FA881EF84A7CC6A7732A /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94979919FE0CA6ED5411AD2D /* UIView+Utils.swift */; };
 		186588A40BC2FC543D5D24A6 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
+		18A27FB223A03DB700853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
+		18A27FB323A03DE400853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
+		18A27FB423A03DE400853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
+		18A27FB523A03DE500853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
+		18A27FB623A03DE600853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
+		18A27FB723A03DE600853657 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */; };
 		19012D7C61BAD0297A203B10 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
 		1B327A4CCE22A2F25DF10894 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
 		1D8EE46B38D289758164824B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
@@ -448,6 +454,7 @@
 		0C931B7B38AF99B493D9ED9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		172B857C14B43A8984446D13 /* Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-macOS/Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		1773296357FAFA1A8DA649B4 /* Pods_Platform_Hyperdrive_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Hyperdrive_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockBarButtonItem.swift; sourceTree = "<group>"; };
 		1A549DF409EA33E3BCFC3193 /* Pods-Platform-Hyperdrive-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-macOS/Pods-Platform-Hyperdrive-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		1B24BE6FBD41A1CE9A9624D5 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
 		1B52A91ED1E41DD5F1420405 /* Pods-Platform-Hyperdrive-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Hyperdrive-tvOS/Pods-Platform-Hyperdrive-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -911,6 +918,7 @@
 				07B6F30E1114835883B562CD /* UIView+stack.swift */,
 				785B589BCB7752F8AC450701 /* Internal */,
 				B7A9E29A2279F310137E911F /* Recycler */,
+				18A27FB123A03DB700853657 /* BlockBarButtonItem.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2051,6 +2059,7 @@
 				BA257A752B7ECEB8A64D54C3 /* AssociatedObject.swift in Sources */,
 				CD786493C7A9BB19588CFDD5 /* InternalUtils.swift in Sources */,
 				CCC7178EBD189BB06AD9C0D3 /* Lock.swift in Sources */,
+				18A27FB623A03DE600853657 /* BlockBarButtonItem.swift in Sources */,
 				343C67923B6E81B0769179E8 /* ObservationToken.swift in Sources */,
 				082F6CAF0C910884B6734579 /* ObservationTokenTracker.swift in Sources */,
 				E3D23A30B890788EDFF69762 /* Platform.swift in Sources */,
@@ -2101,6 +2110,7 @@
 				501B31F03AEF5777624087FB /* SynchronizedRecycler.swift in Sources */,
 				B280A087A1098402D95D059F /* UIView+Reusable.swift in Sources */,
 				BED9582C3EACEAB2990C8E36 /* Sequence+Utils.swift in Sources */,
+				18A27FB323A03DE400853657 /* BlockBarButtonItem.swift in Sources */,
 				955B6836486A17CC8ABB5DDC /* Swift+Compatibility.swift in Sources */,
 				38688608EF7614CDFFEDBEB5 /* UIBarButtonItem+ClosureAction.swift in Sources */,
 				3F8970A94B48387732B20B87 /* UIImage+Utils.swift in Sources */,
@@ -2160,6 +2170,7 @@
 				40967EADB2213D143FD459CE /* AssociatedObject.swift in Sources */,
 				581F39365AD55A29F401A7D6 /* InternalUtils.swift in Sources */,
 				12617A1A63C62546C2AF03AB /* Lock.swift in Sources */,
+				18A27FB523A03DE500853657 /* BlockBarButtonItem.swift in Sources */,
 				668DBAF5448D071823F49A01 /* ObservationToken.swift in Sources */,
 				EC0E3B538EA48DE6D10431A9 /* ObservationTokenTracker.swift in Sources */,
 				41DEFE1A57DEE6D62A9C9BCA /* Platform.swift in Sources */,
@@ -2207,6 +2218,7 @@
 				38AA9DDCD85140319738F493 /* AssociatedObject.swift in Sources */,
 				95907DF5F04D1C616D07312D /* InternalUtils.swift in Sources */,
 				9DCC5C3A992007600CCF9F34 /* Lock.swift in Sources */,
+				18A27FB723A03DE600853657 /* BlockBarButtonItem.swift in Sources */,
 				EDEC105F612FF242CC02E6D8 /* ObservationToken.swift in Sources */,
 				0BE8A3F2610992EF30903A2D /* ObservationTokenTracker.swift in Sources */,
 				369DD9E6A18A57346457F948 /* Platform.swift in Sources */,
@@ -2296,6 +2308,7 @@
 				A5336D45D740304CE3D87997 /* SynchronizedRecycler.swift in Sources */,
 				4FADB95F3A167FC5A27CC06A /* UIView+Reusable.swift in Sources */,
 				409EE337817B938AAA6DF2D8 /* Sequence+Utils.swift in Sources */,
+				18A27FB423A03DE400853657 /* BlockBarButtonItem.swift in Sources */,
 				6668EA2D524566D3CD76C0E3 /* Swift+Compatibility.swift in Sources */,
 				F1FDD27FECD56DA5B7262F96 /* UIBarButtonItem+ClosureAction.swift in Sources */,
 				4632190BFD2CE3011AD85679 /* UIImage+Utils.swift in Sources */,
@@ -2345,6 +2358,7 @@
 				8B8E64CA195AB279B6185E2F /* SynchronizedRecycler.swift in Sources */,
 				4939A77B0BE21434DE0CF849 /* UIView+Reusable.swift in Sources */,
 				63FE3E17953A4CD8B5DA2629 /* Sequence+Utils.swift in Sources */,
+				18A27FB223A03DB700853657 /* BlockBarButtonItem.swift in Sources */,
 				2F9F29FD5BDD622109FE88E5 /* Swift+Compatibility.swift in Sources */,
 				2512B50B235843088AF31846 /* UIBarButtonItem+ClosureAction.swift in Sources */,
 				6FA6790DD9F20CB87A2B4C7F /* UIImage+Utils.swift in Sources */,
