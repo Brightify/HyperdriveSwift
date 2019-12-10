@@ -36,30 +36,19 @@ Pod::Spec.new do |spec|
     spec.default_subspec = 'Core'
 
     def self.rxSwift(subspec)
-        subspec.dependency 'RxSwift', '~> 4.0'
-    end
-    def self.snapKit(subspec)
-        subspec.dependency 'SnapKit', '~> 4.0'
+        subspec.dependency 'RxSwift', '~> 5.0'
     end
     def self.rxCocoa(subspec)
-        subspec.dependency 'RxCocoa', '~> 4.0'
+        subspec.dependency 'RxCocoa', '~> 5.0'
     end
-    def self.rxDataSources(subspec)
-        subspec.dependency 'RxDataSources', '~> 3.0'
-    end
-    def self.rxOptional(subspec)
-        subspec.dependency 'RxOptional', '~> 3.0'
-    end
-    def self.kingfisher(subspec)
-        subspec.dependency 'Kingfisher', '~> 4.0'
+    def self.rxRelay(subspec)
+        subspec.dependency 'RxRelay', '~> 5.0'
     end
 
     spec.subspec 'Core' do |subspec|
         subspec.ios.frameworks = 'UIKit'
         subspec.tvos.frameworks = 'UIKit'
         subspec.osx.frameworks = 'AppKit'
-
-        snapKit(subspec)
 
         subspec.source_files = [
             'Platform/Sources/Core/**/*.swift',
@@ -83,8 +72,8 @@ Pod::Spec.new do |spec|
             'Platform/RxSources/Utils+RxSwift/**/*.swift'
         ]
 
-        rxOptional(rxcore)
         rxSwift(rxcore)
+        rxRelay(rxcode)
         rxCocoa(rxcore)
     end
 

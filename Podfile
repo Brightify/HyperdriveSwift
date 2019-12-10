@@ -53,7 +53,6 @@ def shared
     rxSwift
     rxCocoa
     rxOptional
-    snapKit
     kingfisher
 end
 
@@ -107,7 +106,6 @@ abstract_target 'Platform' do
     allPlatforms.each { |platform|
         target "Hyperdrive-#{platform.name}" do
             platform.apply()
-            snapKit
         end
     }
 
@@ -124,7 +122,6 @@ abstract_target 'Platform' do
         allPlatforms.each { |platform|
             target "HyperdriveTests-#{platform.name}" do
                 platform.apply()
-                snapKit
             end
         }
 
@@ -175,6 +172,7 @@ abstract_target 'LiveInterface' do
 
     target 'HyperdriveInterfacePlayground' do
         HyperdrivePlatform.ios(self).apply
+        snapKit
         shared
     end
 end

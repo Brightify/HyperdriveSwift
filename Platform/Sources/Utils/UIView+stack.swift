@@ -8,7 +8,6 @@
 
 #if canImport(UIKit)
 import UIKit
-import SnapKit
 
 /*public*/ extension UIView {
 
@@ -23,43 +22,70 @@ import SnapKit
      */
     func stack(views: [UIView],
                       withSpacing spacing: CGFloat = 0,
+                      inset: UIEdgeInsets = .zero,
                       axis: NSLayoutConstraint.Axis = .horizontal,
-                      lowerPriorityOfLastConstraint: Bool = false) {
+                      lastConstraintPriority: UILayoutPriority = .required) {
         var previousView: UIView?
         let lastView = views.last
+
         for view in views {
             view.removeFromSuperview()
             addSubview(view)
+
+            let leadingConstraint: NSLayoutConstraint?
+            let topConstraint: NSLayoutConstraint?
+            let trailingConstraint: NSLayoutConstraint?
+            let bottomConstraint: NSLayoutConstraint?
+
             switch axis {
             case .horizontal:
-                view.snp.makeConstraints { make in
-                    if let previousView = previousView {
-                        make.leading.equalTo(previousView.snp.trailing).offset(spacing)
-                    } else {
-                        make.leading.equalToSuperview()
-                    }
-
-                    make.top.bottom.equalToSuperview()
-                    if view === lastView {
-                        make.trailing.equalToSuperview().priority(lowerPriorityOfLastConstraint ? .high : .required)
-                    }
+                if let previousView = previousView {
+                    leadingConstraint = view.leadingAnchor.constraint(equalTo: previousView.trailingAnchor, constant: spacing)
+                } else {
+                    leadingConstraint = view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset.left)
                 }
+
+                topConstraint = view.topAnchor.constraint(equalTo: self.topAnchor, constant: inset.top)
+                bottomConstraint = view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: inset.bottom)
+
+                if view === lastView {
+                    trailingConstraint = view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: inset.right)
+                    trailingConstraint?.priority = lastConstraintPriority
+                } else {
+                    trailingConstraint = nil
+                }
+
             case .vertical:
-                view.snp.makeConstraints { make in
-                    if let previousView = previousView {
-                        make.top.equalTo(previousView.snp.bottom).offset(spacing)
-                    } else {
-                        make.top.equalToSuperview()
-                    }
 
-                    make.leading.trailing.equalToSuperview()
-                    if view === lastView {
-                        make.bottom.equalToSuperview().priority(lowerPriorityOfLastConstraint ? .high : .required)
-                    }
+                if let previousView = previousView {
+                    topConstraint = view.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: spacing)
+                } else {
+                    topConstraint = view.topAnchor.constraint(equalTo: self.topAnchor, constant: inset.top)
                 }
+
+                leadingConstraint = view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset.left)
+                trailingConstraint = view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: inset.right)
+
+                if view === lastView {
+                    bottomConstraint = view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: inset.bottom)
+                    bottomConstraint?.priority = lastConstraintPriority
+                } else {
+                    bottomConstraint = nil
+                }
+
             @unknown default:
-                break
+                leadingConstraint = nil
+                topConstraint = nil
+                trailingConstraint = nil
+                bottomConstraint = nil
             }
+
+            NSLayoutConstraint.activate([
+                leadingConstraint,
+                topConstraint,
+                bottomConstraint,
+                trailingConstraint,
+            ].compactMap { $0 })
 
             previousView = view
         }
