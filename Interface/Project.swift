@@ -57,12 +57,44 @@ let targets = HyperdrivePlatform.allCases.map {
         ],
         dependencies: [
             TargetDependency.cocoapods(path: ".."),
+        ],
+        settings: Settings(base: [
+            "OTHER_SWIFT_FLAGS": "$(inherited) -DEnableHelperExtensions",
+        ], defaultSettings: .recommended))
+}
+
+let testTargets = HyperdrivePlatform.allCases.map {
+    Target(
+        name: "HyperdriveInterfaceTests-\($0.name)",
+        platform: $0.platform,
+        product: .unitTests,
+        productName: "HyperdriveInterfaceTests",
+        bundleId: "org.brightify.hyperdrive.InterfaceTests",
+        deploymentTarget: $0.deploymentTarget,
+        infoPlist: "Metadata/Info-Tests.plist",
+        sources: [
+           "Tests/**",
+        ],
+        resources: [
+        ],
+        dependencies: [
+            TargetDependency.cocoapods(path: ".."),
         ])
+}
+
+let schemes = HyperdrivePlatform.allCases.map {
+    Scheme(
+        name: "HyperdriveInterface-\($0.name)",
+        shared: true,
+        buildAction: BuildAction(targets: ["HyperdriveInterface-\($0.name)"]),
+        testAction: TestAction(targets: ["HyperdriveInterfaceTests-\($0.name)"]),
+        runAction: nil)
 }
 
 let project = Project(
     name: "Interface",
-    targets: targets,
+    targets: targets + testTargets,
+    schemes: schemes,
     additionalFiles: [
         "../HyperdriveInterface.podspec",
     ])

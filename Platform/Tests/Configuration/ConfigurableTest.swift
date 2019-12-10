@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Hyperdrive
 
-private typealias Configuration = Reactant.Configuration
+private typealias Configuration = Hyperdrive.Configuration
 
 class ConfigurableTest: QuickSpec {
     

@@ -8,6 +8,7 @@
 
 import Foundation
 
+#if EnableExperimentalFeatures
 public class DriveFactory<T> {
     private let factory: (Drive<T>) -> T
 
@@ -101,3 +102,4 @@ extension Drive where T: PerformsNavigation {
         push(value: route)
     }
 }
+#endif

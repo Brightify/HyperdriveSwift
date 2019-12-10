@@ -6,7 +6,7 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
-import Reactant
+import Hyperdrive
 
 typealias Recordable<Element> = (@escaping (Element) -> Void) -> ObservationToken
 

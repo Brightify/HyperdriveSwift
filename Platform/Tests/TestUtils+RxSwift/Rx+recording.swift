@@ -8,7 +8,7 @@
 
 import RxSwift
 import RxTest
-import Reactant
+import Hyperdrive
 
 private final class RecordingObserver<ElementType>
 : ObserverType {

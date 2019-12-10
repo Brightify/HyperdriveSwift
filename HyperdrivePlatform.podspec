@@ -58,24 +58,18 @@ Pod::Spec.new do |spec|
         subspec.ios.frameworks = 'UIKit'
         subspec.tvos.frameworks = 'UIKit'
         subspec.osx.frameworks = 'AppKit'
-        subspec.dependency 'HyperdrivePlatform/Configuration'
 
         snapKit(subspec)
 
         subspec.source_files = [
-            # 'Platform/Sources/_Core/**/*.swift',
             'Platform/Sources/Core/**/*.swift',
-            'Platform/Sources/Utils/**/*.swift'
-        ]
-        subspec.exclude_files = [
-            'Platform/Sources/_Core/Styling/Extensions/**/*.swift'
         ]
     end
 
     spec.subspec 'Interface' do |subspec|
         subspec.dependency 'HyperdriveInterface'
         subspec.source_files = [
-            'Platform/Sources/Interface/ExportHyperdriveInterface.swift'
+            'Platform/InterfaceBridge/ExportHyperdriveInterface.swift'
         ]
     end
 
@@ -85,8 +79,8 @@ Pod::Spec.new do |spec|
             'OTHER_SWIFT_FLAGS' => '-DENABLE_RXSWIFT'
         }
         rxcore.source_files = [
-            'Platform/Sources/Core+RxSwift/**/*.swift',
-            'Platform/Sources/Utils+RxSwift/**/*.swift'
+            'Platform/RxSources/Core+RxSwift/**/*.swift',
+            'Platform/RxSources/Utils+RxSwift/**/*.swift'
         ]
 
         rxOptional(rxcore)
@@ -94,71 +88,21 @@ Pod::Spec.new do |spec|
         rxCocoa(rxcore)
     end
 
-    spec.subspec 'Configuration' do |subspec|
-        subspec.source_files = 'Platform/Sources/Configuration/**/*.swift'
-    end
-
-    spec.subspec 'Validation' do |subspec|
-        subspec.source_files = 'Platform/Sources/Validation/**/*.swift'
-    end
-
-    spec.subspec 'TableView' do |subspec|
-        subspec.frameworks = 'UIKit'
-        subspec.dependency 'HyperdrivePlatform/Core'
-        rxCocoa(subspec)
-        rxDataSources(subspec)
-        subspec.source_files = [
-            'Platform/Source/TableView/**/*.swift',
-            'Platform/Source/CollectionView/CollectionViewState.swift'
-        ]
-    end
-
-    spec.subspec 'CollectionView' do |subspec|
-        subspec.frameworks = 'UIKit'
-        subspec.dependency 'HyperdrivePlatform/Core'
-        subspec.source_files = 'Source/CollectionView/**/*.swift'
-    end
-
-    spec.subspec 'ActivityIndicator' do |subspec|
-        subspec.frameworks = 'UIKit'
-        rxCocoa(subspec)
-        subspec.source_files = 'Source/ActivityIndicator/**/*.swift'
-    end
-
-    spec.subspec 'StaticMap' do |subspec|
-        subspec.frameworks = ['UIKit', 'MapKit']
-        subspec.dependency 'HyperdrivePlatform/Core'
-        kingfisher(subspec)
-        subspec.source_files = 'Source/StaticMap/**/*.swift'
-    end
-
-    spec.subspec 'FallbackSafeAreaInsets' do |subspec|
-        subspec.ios.deployment_target = '11.0'
-        subspec.tvos.deployment_target = '11.0'
-
-        subspec.dependency 'HyperdrivePlatform/Core'
-        subspec.pod_target_xcconfig = {
-            'OTHER_SWIFT_FLAGS' => '-DENABLE_SAFEAREAINSETS_FALLBACK'
-        }
-    end
-
     spec.subspec 'All-iOS' do |subspec|
         subspec.dependency 'HyperdrivePlatform/Core'
-        subspec.dependency 'HyperdrivePlatform/Configuration'
-        subspec.dependency 'HyperdrivePlatform/Validation'
-        subspec.dependency 'HyperdrivePlatform/TableView'
-        subspec.dependency 'HyperdrivePlatform/CollectionView'
-        subspec.dependency 'HyperdrivePlatform/StaticMap'
-        subspec.dependency 'HyperdrivePlatform/ActivityIndicator'
+        subspec.dependency 'HyperdrivePlatform/Core+RxSwift'
+        subspec.dependency 'HyperdrivePlatform/Interface'
     end
 
     spec.subspec 'All-tvOS' do |subspec|
         subspec.dependency 'HyperdrivePlatform/Core'
-        subspec.dependency 'HyperdrivePlatform/Configuration'
-        subspec.dependency 'HyperdrivePlatform/Validation'
-        subspec.dependency 'HyperdrivePlatform/TableView'
-        subspec.dependency 'HyperdrivePlatform/CollectionView'
-        subspec.dependency 'HyperdrivePlatform/StaticMap'
-        subspec.dependency 'HyperdrivePlatform/ActivityIndicator'
+        subspec.dependency 'HyperdrivePlatform/Core+RxSwift'
+        subspec.dependency 'HyperdrivePlatform/Interface'
+    end
+
+    spec.subspec 'All-macOS' do |subspec|
+        subspec.dependency 'HyperdrivePlatform/Core'
+        subspec.dependency 'HyperdrivePlatform/Core+RxSwift'
+        subspec.dependency 'HyperdrivePlatform/Interface'
     end
 end

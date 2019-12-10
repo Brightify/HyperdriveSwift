@@ -65,106 +65,116 @@ def sharedTests
   rxTest
 end
 
-def macos
-    platform :osx, '10.13'
+
+class HyperdrivePlatform
+    def initialize(podfile, name, platform, version)
+        @podfile = podfile
+        @name = name
+        @platform = platform
+        @version = version
+    end
+
+    def name
+        @name
+    end
+
+    def apply()
+        @podfile.platform @platform, @version
+    end
+
+    def self.ios(podfile)
+        return HyperdrivePlatform.new(podfile, 'iOS', :ios, '11.0')
+    end
+    def self.macos(podfile)
+        return HyperdrivePlatform.new(podfile, 'macOS', :osx, '10.13')
+    end
+    def self.tvos(podfile)
+        return HyperdrivePlatform.new(podfile, 'tvOS', :tvos, '11.0')
+    end
+
+    def self.allPlatforms(podfile)
+        return [ios(podfile), macos(podfile), tvos(podfile)]
+    end
 end
 
-def ios
-    platform :ios, '11.0'
-end
-
-def tvos
-    platform :tvos, '11.0'
+def allPlatforms
+    HyperdrivePlatform.allPlatforms(self)
 end
 
 abstract_target 'Platform' do
     project 'Platform/Platform.xcodeproj'
 
-    target 'Hyperdrive-iOS' do
-        ios
+    allPlatforms.each { |platform|
+        target "Hyperdrive-#{platform.name}" do
+            platform.apply()
+            snapKit
+        end
+    }
 
-        snapKit
-    end
-
-    target 'Hyperdrive-macOS' do
-        macos
-
-        snapKit
-    end
-
-    target 'Hyperdrive-tvOS' do
-        tvos
-
-        snapKit
-    end
-
-    target 'RxHyperdrive-iOS' do
-        ios
-
-        shared
-    end
+    allPlatforms.each { |platform|
+        target "RxHyperdrive-#{platform.name}" do
+            platform.apply()
+            shared
+        end
+    }
 
     abstract_target 'Tests' do
         sharedTests
 
-        target 'HyperdriveTests-iOS' do
-            ios
-            snapKit
-        end
+        allPlatforms.each { |platform|
+            target "HyperdriveTests-#{platform.name}" do
+                platform.apply()
+                snapKit
+            end
+        }
 
-        target 'RxHyperdriveTests-iOS' do
-            ios
-            shared
-        end
+        allPlatforms.each { |platform|
+            target "RxHyperdriveTests-#{platform.name}" do
+                platform.apply()
+                shared
+            end
+        }
     end
 end
 
 abstract_target 'Interface' do
     project 'Interface/Interface.xcodeproj'
 
-    target 'HyperdriveInterface-iOS' do
-        ios
+    allPlatforms.each { |platform|
+        target "HyperdriveInterface-#{platform.name}" do
+            platform.apply()
+            snapKit
+            kingfisher
+        end
+    }
 
-        snapKit
-        kingfisher
-    end
+    abstract_target 'Tests' do
+        sharedTests
 
-    target 'HyperdriveInterface-macOS' do
-        macos
-
-        snapKit
+        allPlatforms.each { |platform|
+            target "HyperdriveInterfaceTests-#{platform.name}" do
+                platform.apply()
+                snapKit
+                kingfisher
+            end
+        }
     end
 end
 
 abstract_target 'LiveInterface' do
     project 'LiveInterface/LiveInterface.xcodeproj'
 
-    target 'HyperdriveLiveInterface-iOS' do
-        ios
-
-        snapKit
-        rxSwift
-        rxCocoa
-    end
-
-    target 'HyperdriveLiveInterface-tvOS' do
-        tvos
-
-        snapKit
-        rxSwift
-        rxCocoa
-    end
-
-    target 'HyperdriveLiveInterface-macOS' do
-        macos
-
-        snapKit
-        rxSwift
-        rxCocoa
-    end
+    allPlatforms.each { |platform|
+        target "HyperdriveLiveInterface-#{platform.name}" do
+            platform.apply()
+            snapKit
+            rxSwift
+            rxCocoa
+        end
+    }
 
     target 'HyperdriveInterfacePlayground' do
-        ios
+        HyperdrivePlatform.ios(self).apply
         shared
     end
 end

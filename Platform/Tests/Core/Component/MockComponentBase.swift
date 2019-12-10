@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-@testable import Reactant
+@testable import Hyperdrive
 import RxSwift
 import Cuckoo
 

@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import Reactant
+import Hyperdrive
 
 enum TestingEnum {
     case withValue(Int)

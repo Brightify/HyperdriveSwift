@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-@testable import Reactant
+@testable import Hyperdrive
 import RxSwift
 import Cuckoo
 

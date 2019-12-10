@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brightify. All rights reserved.
 //
 
+#if EnableExperimentalFeatures
 import Foundation
 
 public protocol PerformsNavigation {
@@ -39,3 +40,4 @@ public protocol DrivenPresenter: AnyObject, HandlesActions, SubmitsEvents {
 public protocol DrivenController: AnyObject, ReceivesEvents, PerformsActions {
     var driver: Drive<Self> { get }
 }
+#endif

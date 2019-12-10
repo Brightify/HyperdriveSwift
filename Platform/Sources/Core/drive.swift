@@ -8,6 +8,7 @@
 
 import Foundation
 
+#if EnableExperimentalFeatures
 public protocol HDWireframe {
 }
 
@@ -46,3 +47,4 @@ public extension HDWireframe {
 //
 //    }
 }
+#endif

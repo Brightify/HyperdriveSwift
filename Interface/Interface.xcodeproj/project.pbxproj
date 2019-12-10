@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		00AC291C3F9878DE30A54B57 /* Mutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */; };
 		019C570A7841E2AC3E1F74F3 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32712811512083C9F95489A7 /* ContainerView.swift */; };
+		01C8EE478C86D700A5DCF452 /* CGAffineTransform+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CB591E764AFB6FF8244E5 /* CGAffineTransform+Shortcut.swift */; };
 		01E7717BC4340466E37ECE80 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D42CEE2F1D255829825B79 /* Properties.swift */; };
 		035C73ED1C0E5321C6E91FC3 /* UITraitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6AEB434B5A20E7693B413 /* UITraitHelper.swift */; };
 		03C598FA505C6D8E8CED7BEC /* TableViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252FDEB7B5591B56EBED370E /* TableViewCellWrapper.swift */; };
 		03D0EBA78DC5ABED07511C69 /* CollapseAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAB911322FA776BC4B1D90 /* CollapseAxis.swift */; };
+		054BC5B78F1B1FCB79C53D7F /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5109B66733AD1AED5C5E8 /* PercentUtilsTest.swift */; };
 		06E79867040DAF44EB01867C /* CollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BFBD6B272B175DDDBA572 /* CollectionViewBase.swift */; };
 		0702B78D58B3B8914F1054F9 /* MKCoordinateRegion+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9D370D71B51B7D0E0B2F /* MKCoordinateRegion+utils.swift */; };
+		07B9FCC155259FC7B5ED9694 /* UIFont+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA0CD06FA16562EAB88AA /* UIFont+InitTest.swift */; };
 		07FDE8BC0F91975B91D3C956 /* CollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC18998B9C1828D349757B0 /* CollectionSupplementaryViewIdentifier.swift */; };
 		08F84A5A4A96D0584CE325E6 /* PlainTableViewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */; };
 		0941C2A48ABDE09AE0F33CA2 /* ReactantTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A187B3B25F3EB053089FC9 /* ReactantTableView.swift */; };
@@ -28,12 +31,21 @@
 		0D8695781C8C8AF88A06C890 /* CollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BFBD6B272B175DDDBA572 /* CollectionViewBase.swift */; };
 		0DCB6A47320DE363854FB5CD /* ViewOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */; };
 		0E1784CBC16E7AA95F3E6642 /* TableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75B9ED0AB5BC2750C0D2176 /* TableViewCellIdentifier.swift */; };
+		0ECA0D33949BF519E2D57581 /* StyleableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B5B07329F1E71F06FCAF9 /* StyleableTest.swift */; };
 		0F2C63D8DD44DFFD53098BB0 /* SubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7619198AFED0965ECFE17B /* SubConfiguration.swift */; };
+		0F746F86D83ADD1B4CB43DD0 /* UIFont+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982BB7DFA55B8C981405162 /* UIFont+Init.swift */; };
 		0F7FE8AF6B01BE666293BFE5 /* TableViewHeaderFooterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */; };
 		0FC43ADBB809C0871AD6F542 /* HyperViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE51858CC85848274CAD76 /* HyperViewState.swift */; };
+		10297DB7FAB11478B2BC42C9 /* PercentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C1D4ED546C3BE99F4CB1B /* PercentUtils.swift */; };
 		10765C9FC1A22A2C049308B1 /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE051BF60581E3C723B4ABC /* Visibility.swift */; };
 		11B1EA886D22EF65ABE60B20 /* UIBarButtonItemObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */; };
+		11E90961D57A61E5445E5FB4 /* CGRect+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C363A0A9FF2DAF0D4E25550 /* CGRect+InitTest.swift */; };
 		1215DA012F0F605FF485A766 /* UIView+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */; };
+		121975FB2BD66D644DB61FFC /* UITableView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454F051327417C77032997C9 /* UITableView+InitTest.swift */; };
+		12CE8F0E0A81EC07051D2716 /* AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A401808BE98FA2F248FF87 /* AttributeTest.swift */; };
+		12E4E7ADF7D0525040F83783 /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDF05AA9B47383321BFA2 /* NSAttributedString+AttributeTest.swift */; };
+		13617EB24E1B1020CC6170E6 /* Pods_Interface_HyperdriveInterface_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A71748F7175A806AAEB1285 /* Pods_Interface_HyperdriveInterface_tvOS.framework */; };
+		14756782E39F862F33AC340D /* UITableView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31C4CFCF91D4E99081AB6B /* UITableView+Init.swift */; };
 		147F25FD6D569F85C964919A /* HyperViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE51858CC85848274CAD76 /* HyperViewState.swift */; };
 		168067765D2DD2FCDDDDA665 /* Array+subarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */; };
 		16DABE7DFE7FA6ED4B9ACF63 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D94452DB70CE42B06C839 /* TableViewCell.swift */; };
@@ -42,12 +54,24 @@
 		17E5ECE51A50B34E024AF483 /* BaseSubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */; };
 		18C23DA94F61038D75654413 /* UIScrollView+Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */; };
 		18C34E3111206AAB44EBFF72 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827F30EDF723E5D1B0A8322 /* TextField.swift */; };
+		19ECF896B3EED531BFE0100D /* UITableView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31C4CFCF91D4E99081AB6B /* UITableView+Init.swift */; };
 		1A4A0849ACF4C224D767DA17 /* ActionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F21B15DFEE4A4B6157854 /* ActionPublisher.swift */; };
 		1BBD4E59C44DE497839F92E4 /* ReactantTableView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254532730B86D29C1D37A80F /* ReactantTableView+Delegates.swift */; };
+		1CC944D9FD694BA37339E06A /* UITabBarController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950975C24B43776D71B1521 /* UITabBarController+Styles.swift */; };
 		1D1D300FC15AD6460E8FB429 /* StaticMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3C53D5CA323699FA586 /* StaticMap.swift */; };
+		2022819EE7272DB9CA6AA02A /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF96B46E578092599B30243 /* UILabel+Init.swift */; };
+		2058E4A2C5C3B6108D9EC500 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6663F1D4E303D37D3BB0451 /* NSAttributedString+Attribute.swift */; };
 		207DADAE641534748F6ED0B1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D94452DB70CE42B06C839 /* TableViewCell.swift */; };
+		215AAD6BBB35BA0C0C8F6695 /* CGSize+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41C0C6FF0D27D5BAFB37AD /* CGSize+InitTest.swift */; };
+		219AB651B06FE3B4ECDAAF73 /* CGPoint+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B621B26D55FA1F9B04D40 /* CGPoint+Init.swift */; };
+		21AA0198D0C7FCDA954B0752 /* PercentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C1D4ED546C3BE99F4CB1B /* PercentUtils.swift */; };
 		21D756446B558B2F88B5C211 /* Configuration+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D34C1914BCF63A4AC5718B /* Configuration+CollectionView.swift */; };
+		2294FF0ED57D277EED8A4C30 /* UITabBarController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950975C24B43776D71B1521 /* UITabBarController+Styles.swift */; };
+		22C2C1063937D3C170A4D864 /* CGPoint+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B621B26D55FA1F9B04D40 /* CGPoint+Init.swift */; };
+		233114B60B5771886766C988 /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5109B66733AD1AED5C5E8 /* PercentUtilsTest.swift */; };
+		23E862C3D6F0A50EB5562F79 /* UILabel+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274C75837B7DCFB9C427A3B /* UILabel+InitTest.swift */; };
 		264E2FEBC39A44E602CD538F /* ButtonActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D48E4A670A2E9FF852DA85 /* ButtonActionDelegate.swift */; };
+		2727B561B85C0AB68C377030 /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61809B194EE6C687405F7461 /* UIColor+ModificatorsTest.swift */; };
 		282213BB82BA6FEC21FEDCD6 /* Configuration+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */; };
 		28698DC7942C3AD2FEED4B51 /* MKCoordinateSpan+inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */; };
 		2948603B235D7421513104FB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051AF3EB684A3D3AFB52F4F /* Configuration.swift */; };
@@ -56,26 +80,37 @@
 		2D2B86FAC7965CFF449E8768 /* CollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07BFBD6B272B175DDDBA572 /* CollectionViewBase.swift */; };
 		2D573474E107179C5CE0D579 /* Configuration+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4612602B3EBF4FCCC95E228 /* Configuration+Style.swift */; };
 		2E95536A58640FF3FD9D2D59 /* SimulatedSeparatorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */; };
-		2F8D6B3CCED9C8B2D3ABE308 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */; };
+		2F58B9A0E206436DC3EABA5B /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3296CE4A0D63FC5968CD40 /* UIColor+Init.swift */; };
+		2F7F3BA0BAC03FD39FC19FF2 /* UINavigationController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B20E946019F5A030780DB /* UINavigationController+Styles.swift */; };
 		3005FAB285C784E627F6744A /* PlainTableViewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */; };
 		307471A74C4D0530E8277A18 /* PlainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFAF74F6250A44E4D57ACA /* PlainTableView.swift */; };
 		30B98F34C55F0DBF1B96EE1C /* SimpleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */; };
 		310752041930761779908C15 /* HyperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */; };
 		310933DF44C626EED4592059 /* ReactantCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18996653833B4DA42F783D /* ReactantCollectionView.swift */; };
+		318A886AD7E5818CA1C8821A /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE64A539699938DE84AEDA /* UIButton+Utils.swift */; };
+		327542EA010F7D29268947BC /* Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1534EC6E9A233BDD88ED5142 /* Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework */; };
 		3284D6AB090D1F0C08AF3E6D /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */; };
 		32D98768BE1728B4AB89B240 /* AnyTableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033D419609B1AE113CEB2C4 /* AnyTableViewCellIdentifier.swift */; };
 		32EF5CCE498C41E8C5A05B26 /* AnyTableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033D419609B1AE113CEB2C4 /* AnyTableViewCellIdentifier.swift */; };
 		3486980B623E7A0A4B3C8169 /* ControllerRootViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95D32061B467F456076729E /* ControllerRootViewContainer.swift */; };
+		361E5E7E6ADF572F1298F8CD /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF96B46E578092599B30243 /* UILabel+Init.swift */; };
 		37495A42F5E14480786035E7 /* ReactantCollectionView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCAB3D5D5488FC67943F54 /* ReactantCollectionView+Delegates.swift */; };
 		389A31C697B22CF2AF328DC6 /* Properties+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */; };
 		38BCBE23CA02451F769E8ACD /* ReactantThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */; };
 		39569D9377E0DB148245234A /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392A069963D28FFC12CD6EBB /* PagingCollectionView.swift */; };
 		3AC0F8934ED3D8EE0D32E851 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF406A3B53177EA383BDC7 /* Property.swift */; };
 		3ACFCA3EA40AF2AA439E5659 /* ReactantCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18996653833B4DA42F783D /* ReactantCollectionView.swift */; };
+		3AF94B5AE2337CE32D958895 /* UIEdgeInsets+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03E394C66614C49B86CEBC /* UIEdgeInsets+Init.swift */; };
+		3B1713EF7A7352FF745BA827 /* UIFont+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA0CD06FA16562EAB88AA /* UIFont+InitTest.swift */; };
+		3B2E5CB8A3B16573AF1D9BFE /* CGRect+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C363A0A9FF2DAF0D4E25550 /* CGRect+InitTest.swift */; };
+		3BD8B7CB738A6C3EFAFBFABF /* CGRect+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644239E2A19A9DBE02018BD /* CGRect+Init.swift */; };
 		3C11DA689CC5AECB8576F0BB /* Properties+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269DE578FB8FBC7A951B4CDD /* Properties+Style.swift */; };
 		3D500E7183CF348DFD3DD54F /* TableViewHeaderFooterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */; };
+		3D687225AB25CB25CDE573A4 /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7451C12967573985BF7C6 /* UIOffset+InitTest.swift */; };
+		3D74A2FCC738762B8A8E8A91 /* UINavigationController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B20E946019F5A030780DB /* UINavigationController+Styles.swift */; };
 		3D9297B9396E0BEAD74DAB9E /* CollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC18998B9C1828D349757B0 /* CollectionSupplementaryViewIdentifier.swift */; };
 		3E16441ED6A8D56E827B377C /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B81F3DC75FF88A34F4BD8F /* Configurable.swift */; };
+		3E5C362CDF69AFE914507B17 /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDF05AA9B47383321BFA2 /* NSAttributedString+AttributeTest.swift */; };
 		3F4EDF53582FA68D710D9866 /* Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EE07EFB31710BB4D9EDA04 /* Scrollable.swift */; };
 		3F955FA882411A5BF09EDC69 /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7047ACC149E30C884C3B1AE /* FooterTableView.swift */; };
 		3FD7392CF4EA1BBDC67EFC0E /* UINavigationController+DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01833FBF67471B09370F20 /* UINavigationController+DialogDismissalListener.swift */; };
@@ -83,7 +118,9 @@
 		4125F90ABE3EEC0278A277CA /* PlainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFAF74F6250A44E4D57ACA /* PlainTableView.swift */; };
 		423E7C053DC65B33F3D601B1 /* CollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC18998B9C1828D349757B0 /* CollectionSupplementaryViewIdentifier.swift */; };
 		426CC9AD1EA8068A391F0C5B /* AnyTableViewHeaderFooterIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E7AE198FAE8DBF39935C /* AnyTableViewHeaderFooterIdentifier.swift */; };
+		452A66F6A268F5B47282C867 /* UIFont+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA0CD06FA16562EAB88AA /* UIFont+InitTest.swift */; };
 		465AD7D0BF1129234BD2F47F /* HyperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C88A2EF956F35292D87D7 /* HyperView.swift */; };
+		46FEE037B01F4EF5D027CDFF /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61809B194EE6C687405F7461 /* UIColor+ModificatorsTest.swift */; };
 		479C3CB3F878471863A327FC /* Mutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */; };
 		47CF9A3D3FCF27C2A54614C3 /* CLLocationCoordinate2D+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050370B5A9767825A10B3C2 /* CLLocationCoordinate2D+utils.swift */; };
 		49D92E11EE22C351ABC59E4F /* BaseSubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */; };
@@ -96,8 +133,16 @@
 		4E2BBEA015E4954B62843C4A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32712811512083C9F95489A7 /* ContainerView.swift */; };
 		4E2E807E69F3D0F251E6BF88 /* AnyCollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E0450C9F6B681C1D4AE03 /* AnyCollectionSupplementaryViewIdentifier.swift */; };
 		4E5BA7CDAD8A431C9854D3F5 /* TableViewHeaderFooterIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABAAEF1542318A8E8869F3 /* TableViewHeaderFooterIdentifier.swift */; };
+		4E9625DAE9E3F26E819DBA85 /* UICollectionView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3F9FA05224C75156003E7 /* UICollectionView+Init.swift */; };
+		4F4797F78C5684D3441EF134 /* UIButton+UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572BD88467F25FB634B3160D /* UIButton+UtilsTest.swift */; };
+		513DE78732FC7C493615B7F1 /* UIFont+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D437F1CE1054E4FB18474 /* UIFont+System.swift */; };
 		515A37B277C0EBC83401725F /* Configuration+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D34C1914BCF63A4AC5718B /* Configuration+CollectionView.swift */; };
 		515D0CC882A9702972F63328 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076E5EBA0F6CE148FB8B645 /* DialogView.swift */; };
+		5202015EE51D74314F194C81 /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3296CE4A0D63FC5968CD40 /* UIColor+Init.swift */; };
+		5318659DC9FBA976E471FE81 /* UIButton+UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572BD88467F25FB634B3160D /* UIButton+UtilsTest.swift */; };
+		54353C078A6EF13E14B2549A /* UITableView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454F051327417C77032997C9 /* UITableView+InitTest.swift */; };
+		54457A7015B0E2EDC8B01FAE /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7451C12967573985BF7C6 /* UIOffset+InitTest.swift */; };
+		5515F812F0275356D1A982FA /* CGSize+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F184AF7B3F50FA63C74142D /* CGSize+Init.swift */; };
 		5590780A00132CEB3EFC06A5 /* Configuration+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */; };
 		587DC3E0AC391CDB12A0D306 /* MKCoordinateSpan+inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */; };
 		58A6622483B4287D2A22459B /* ReactantThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */; };
@@ -106,6 +151,7 @@
 		5B73EC7CBF9894FA93211C11 /* HyperViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE51858CC85848274CAD76 /* HyperViewState.swift */; };
 		5B987482F9BCA43C7A6D168D /* UINavigationController+DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01833FBF67471B09370F20 /* UINavigationController+DialogDismissalListener.swift */; };
 		5C9E7A79AC70560DE8195C8A /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB59104AF60AFC4ECB0455E /* CollectionViewState.swift */; };
+		5D9575341325811BA16E9693 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB47E6F58200F46D3F3FB33 /* CGAffineTransform+ShortcutTest.swift */; };
 		5DC26B699B5E824F5BEAA66F /* UINavigationController+DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01833FBF67471B09370F20 /* UINavigationController+DialogDismissalListener.swift */; };
 		5FE84CFA99A831D673F1CA99 /* CollectionViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5290AB2041E879CCEA76230 /* CollectionViewCellWrapper.swift */; };
 		5FFB3C333B4BEE05DECA7C34 /* TextFieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */; };
@@ -113,44 +159,58 @@
 		6078923DFCDFD2B6D6D5BC32 /* TableViewHeaderFooterIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EABAAEF1542318A8E8869F3 /* TableViewHeaderFooterIdentifier.swift */; };
 		6152A4723DBB6DA851DF9191 /* Configuration+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */; };
 		61F0969809560974FF1C4854 /* FlowCollectionViewBase+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031DD9073B9E48F6013DD81 /* FlowCollectionViewBase+Delegates.swift */; };
+		62A9C5FBFCBEE36B99E9E187 /* UIColor+Modificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8332B68792380C54FCD1991 /* UIColor+Modificators.swift */; };
 		63615A1194BE5354E1BEC6BB /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D42CEE2F1D255829825B79 /* Properties.swift */; };
 		63ECEC3D366960FAA5FBDBE9 /* Collection+CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB732EF8240AB9985D2015E /* Collection+CLLocationCoordinate2D.swift */; };
 		6439B67C6FBA9C978E9F7629 /* ReactantCollectionView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCAB3D5D5488FC67943F54 /* ReactantCollectionView+Delegates.swift */; };
 		66550971ED16B766C4CBC86F /* PlainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFAF74F6250A44E4D57ACA /* PlainTableView.swift */; };
 		669217E496AB6A30C2AEE530 /* BaseSubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */; };
 		67BBA0A70B4906B8F0B843E2 /* AnyTableViewHeaderFooterIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E7AE198FAE8DBF39935C /* AnyTableViewHeaderFooterIdentifier.swift */; };
-		67F0035FC0A092B9982B9BEE /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F45133587F62BFED05E09F /* Attribute.swift */; };
 		68175BE76076F69E0A20066B /* TableViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE797812A350EA1A2759B9F /* TableViewBase.swift */; };
+		699ECE1440C8F03A4A7C739F /* UIColor+ModificatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61809B194EE6C687405F7461 /* UIColor+ModificatorsTest.swift */; };
+		69AAF344B5BC79303A8921FF /* InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF953FEC6C46CF62C499172 /* InterfaceTests.swift */; };
 		69BD5D15F5BE6BEA478F7EC4 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8006FB9CC472075641DB44A8 /* PickerView.swift */; };
 		6A2709E0AB7A1A39AB2AF510 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF406A3B53177EA383BDC7 /* Property.swift */; };
 		6F0A76785080F314FE40241E /* Properties+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543946D3A45EEABAC94ABD88 /* Properties+CollectionView.swift */; };
 		70C9FCAC20DEA9BAA53EBD17 /* HyperViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FC78EF20B01C49A53C7F0F /* HyperViewManager.swift */; };
 		72826E8154AB88C0F06AE344 /* UIView+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */; };
 		73D76E4FBFEC853B4F25346C /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E4E0BC346D1302A44AB0E /* Platform.swift */; };
+		7475099ADCB484F0659B3BA1 /* UINavigationController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B20E946019F5A030780DB /* UINavigationController+Styles.swift */; };
+		7488C69154CBEDE46694A3AB /* InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF953FEC6C46CF62C499172 /* InterfaceTests.swift */; };
+		75718673F99D2F04BFA8AEF3 /* UIEdgeInsets+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03E394C66614C49B86CEBC /* UIEdgeInsets+Init.swift */; };
 		772D4B8A4D0A35741315A100 /* SimulatedSeparatorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */; };
 		778CB55FF6DDD963C918F33B /* StaticMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3C53D5CA323699FA586 /* StaticMap.swift */; };
+		798222523E0187692753B729 /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D757419779CF29C266928 /* UICollectionView+InitTest.swift */; };
 		7A5C52386A93B0092B237F49 /* ConstraintAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */; };
 		7B5E2036CCAB2D60F4EDECEF /* Properties+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543946D3A45EEABAC94ABD88 /* Properties+CollectionView.swift */; };
 		7B733287396D6D9BED8C329F /* ControlEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C169CA090838E1C3D29590 /* ControlEventObserver.swift */; };
 		7BCEA7A1606D2167A006E078 /* NSShadow+convenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97385C885BDD52B14C851A /* NSShadow+convenienceInit.swift */; };
 		7C219D1D04DB958A69F29BB8 /* FlowCollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9258C8EAABCC2918E9169D5 /* FlowCollectionViewBase.swift */; };
+		7C24F0D38A465D8143390AF0 /* CGAffineTransform+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CB591E764AFB6FF8244E5 /* CGAffineTransform+Shortcut.swift */; };
+		7C705E41CD7FAAF93AE89969 /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC3C1D40A87EF217515BDCA /* Pods_Interface_HyperdriveInterface_iOS.framework */; };
 		7C895EF84FDBC948A19A20EB /* UIView+traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7695A9733A0350AFAE987A /* UIView+traits.swift */; };
 		7CA9FA36647B357F19FA72A0 /* TableViewHeaderFooterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */; };
 		7E2976AA940AF5D0DBC37909 /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4B43727BDFD5820B87F0B /* HeaderTableView.swift */; };
+		7E7FB7E52F09E6AC13F89F45 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6663F1D4E303D37D3BB0451 /* NSAttributedString+Attribute.swift */; };
 		7EBDB2429458CC6FE5B4A19D /* ViewOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */; };
 		7FA2EA801941937EABCF0E46 /* HyperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */; };
+		80000015F13A658B724BD419 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB47E6F58200F46D3F3FB33 /* CGAffineTransform+ShortcutTest.swift */; };
 		804742E54DC479CFCF143998 /* SimpleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */; };
 		826CF566640E69C97935D047 /* TextFieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */; };
 		8288484D0241C52E095EB477 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */; };
+		8342D21400173AFD8F0F6621 /* UIOffset+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BFABC9C78899DF208A4E91 /* UIOffset+Init.swift */; };
 		8367C163774466E6D5268877 /* SimulatedSeparatorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */; };
 		837D267F65E6D55AC4CC5DF5 /* SubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7619198AFED0965ECFE17B /* SubConfiguration.swift */; };
 		83FB392B88DF0DEA80D430BA /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */; };
 		84DF714CE4A0C92CA094A273 /* TableViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252FDEB7B5591B56EBED370E /* TableViewCellWrapper.swift */; };
 		85644CD423B68C9844A421A4 /* ButtonActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D48E4A670A2E9FF852DA85 /* ButtonActionDelegate.swift */; };
 		8574AC7E9E5F87FD74D36436 /* ReactantTableView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254532730B86D29C1D37A80F /* ReactantTableView+Delegates.swift */; };
-		85CB4B2DAE6A93C7491709D8 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F45133587F62BFED05E09F /* Attribute.swift */; };
 		85D94BBFF37FA4F2BAD296BA /* PlainTableViewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */; };
+		87F5778E31049F7BE684D054 /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3296CE4A0D63FC5968CD40 /* UIColor+Init.swift */; };
 		8809BF6F52F89F8F81E505E7 /* Array+subarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */; };
+		899336F4DB16D88E3194ADBC /* UILabel+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274C75837B7DCFB9C427A3B /* UILabel+InitTest.swift */; };
+		8AD462085365EAEEB6087697 /* UITableView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454F051327417C77032997C9 /* UITableView+InitTest.swift */; };
+		8B3A8E9F1B88A573B3F95AEB /* UILabel+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274C75837B7DCFB9C427A3B /* UILabel+InitTest.swift */; };
 		8C84AAB65360A258CC05EFAC /* CollectionReusableViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28141B682E7B0CE7D961D455 /* CollectionReusableViewWrapper.swift */; };
 		8CE3117329D6F4180FE14BDF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */; };
 		8D8FABCCA4FFEB88492FE2ED /* DialogControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFB03498C39AB6CC55EE59 /* DialogControllerBase.swift */; };
@@ -160,17 +220,26 @@
 		906E5F4394896EDD46A9415F /* SimpleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */; };
 		90C21EBB97B77977D181FFAA /* ConstraintAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */; };
 		91FA5BE514E53BF9F3023574 /* Properties+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050B5FA8035B176958E4AE80 /* Properties+Core.swift */; };
+		92C494DBDC369F6190099618 /* CGRect+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644239E2A19A9DBE02018BD /* CGRect+Init.swift */; };
+		958D37A1624023861E938081 /* PercentUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5109B66733AD1AED5C5E8 /* PercentUtilsTest.swift */; };
+		962E593E7AC9D12E6DA0682B /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D757419779CF29C266928 /* UICollectionView+InitTest.swift */; };
 		9782F02B164002C62FDB98DD /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8006FB9CC472075641DB44A8 /* PickerView.swift */; };
+		98041EEBC856A9D7B752F38C /* UIOffset+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7451C12967573985BF7C6 /* UIOffset+InitTest.swift */; };
 		992D7FB11E8E1AF06E71379A /* Configuration+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */; };
 		994983B62977D36F4379CC17 /* Mutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */; };
+		99C32356A2205C74DEC56FBB /* UICollectionView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3F9FA05224C75156003E7 /* UICollectionView+Init.swift */; };
 		99CD8CBC61E7666F67FDC6CD /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54018F503238AFDE5B5A8ED /* TableViewState.swift */; };
 		99FAD22CDC2350575E4561DC /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9ABB9E16EB3A664E9ECBF /* AssociatedObject.swift */; };
 		9A3B1DE1AD721D6EA82B6589 /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB59104AF60AFC4ECB0455E /* CollectionViewState.swift */; };
+		9B349AF635563E74B2F1B62F /* UIOffset+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BFABC9C78899DF208A4E91 /* UIOffset+Init.swift */; };
 		9B87658CDF017BABB4EE12FC /* GestureRecognizerObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EA37AA3C36681B768AD4F4 /* GestureRecognizerObserver.swift */; };
 		9C25B512528B88CD670BDEF9 /* HyperViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FC78EF20B01C49A53C7F0F /* HyperViewManager.swift */; };
 		9C9761FE187C4C1717697B7B /* HyperViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FC78EF20B01C49A53C7F0F /* HyperViewManager.swift */; };
+		9C9D13F2B6CB0E8BC814DB3D /* CGSize+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F184AF7B3F50FA63C74142D /* CGSize+Init.swift */; };
+		9CBD0618EE2F811F08819A38 /* UIEdgeInsets+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783870BA5BBC47C52F294A5A /* UIEdgeInsets+InitTest.swift */; };
 		9CC3F36CDB18CD499C93C9F1 /* ButtonActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D48E4A670A2E9FF852DA85 /* ButtonActionDelegate.swift */; };
 		9DDA59DDD4D3010302D58787 /* NSTextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2EED46C3462AC59006FCC /* NSTextFieldObserver.swift */; };
+		9E4ABBF959636C4CB6946255 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13DBD6B8CBC4432412EC7B3 /* Attribute.swift */; };
 		9F4A245BA2C405FBB3D31CBF /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392A069963D28FFC12CD6EBB /* PagingCollectionView.swift */; };
 		9FCCA9DD3B744D1C4625BD95 /* SimpleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D8EE2C0A62FF44793FB28 /* SimpleTableView.swift */; };
 		9FEFF400E6C766C8B9F98BEE /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF406A3B53177EA383BDC7 /* Property.swift */; };
@@ -180,97 +249,140 @@
 		A0C1C1C61C687172B7153F18 /* Array+subarrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */; };
 		A0E8E7DB2A7143E479B5A9CC /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E4E0BC346D1302A44AB0E /* Platform.swift */; };
 		A10A1B9EEF1E71BC3EB445EF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827F30EDF723E5D1B0A8322 /* TextField.swift */; };
+		A11C39FA9683C327AD6DBCA7 /* Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3001D5877B4BDC48484395FB /* Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework */; };
 		A31BC50A5ED6C4C17E5E0B40 /* DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F56ED679D4A5FE33512AD7 /* DialogDismissalListener.swift */; };
+		A358FB805D55D49117D89C87 /* CGSize+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41C0C6FF0D27D5BAFB37AD /* CGSize+InitTest.swift */; };
 		A3E1746C01AB51C9F1287CF4 /* Configuration+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4612602B3EBF4FCCC95E228 /* Configuration+Style.swift */; };
 		A43971F1D81C862EF7542893 /* DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F56ED679D4A5FE33512AD7 /* DialogDismissalListener.swift */; };
 		A4A803F5009AB953EF09A0F3 /* Configuration+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */; };
 		A5E52887C85C440C2392404A /* MKCoordinateRegion+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9D370D71B51B7D0E0B2F /* MKCoordinateRegion+utils.swift */; };
 		A665BC2A6D3F34A80D307C4A /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE051BF60581E3C723B4ABC /* Visibility.swift */; };
+		A76226CFF91BB6ECCAF811B3 /* UIColor+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15E3CBD0C63223E2F208DC /* UIColor+InitTest.swift */; };
 		A7721661CE3CD4FBD74C3742 /* FlowCollectionViewBase+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031DD9073B9E48F6013DD81 /* FlowCollectionViewBase+Delegates.swift */; };
 		A8865E67DC5710A2333CF527 /* AnyCollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7753FDF93AC30BFFF8D2230 /* AnyCollectionViewCellIdentifier.swift */; };
 		A8907A57AE49D30A826A6B74 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8006FB9CC472075641DB44A8 /* PickerView.swift */; };
+		A8B4FAE97652DBBDD41E278F /* CGAffineTransform+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CB591E764AFB6FF8244E5 /* CGAffineTransform+Shortcut.swift */; };
 		A9BD2B2321185D96EC3B476F /* DialogControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFB03498C39AB6CC55EE59 /* DialogControllerBase.swift */; };
 		AA586D93A4D400B04AD01B7D /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32712811512083C9F95489A7 /* ContainerView.swift */; };
 		AAB8CAB85D7F25D4FF9D6F20 /* GestureRecognizerObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EA37AA3C36681B768AD4F4 /* GestureRecognizerObserver.swift */; };
+		AB1466EA78765C8CABA8E416 /* UIOffset+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BFABC9C78899DF208A4E91 /* UIOffset+Init.swift */; };
 		ABA369230E6290154A1BA13E /* TableViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE797812A350EA1A2759B9F /* TableViewBase.swift */; };
 		ABF5952C33690B880D193357 /* FlowCollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9258C8EAABCC2918E9169D5 /* FlowCollectionViewBase.swift */; };
 		AC24F905DC305DC71E5B84A7 /* UITraitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6AEB434B5A20E7693B413 /* UITraitHelper.swift */; };
 		ACCB87E41428944488725D6B /* CollapseAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAB911322FA776BC4B1D90 /* CollapseAxis.swift */; };
+		AD15BC28FA9305DF6D02C049 /* Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D20A883165D36C2725C6F5 /* Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework */; };
 		AE1E6A0C584D6B2B16AC07EB /* ControllerRootViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95D32061B467F456076729E /* ControllerRootViewContainer.swift */; };
-		AF3AFF5B66AE619E76A6A9B4 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */; };
+		AEEC41B04C5639AB5B7C71D1 /* PercentUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11C1D4ED546C3BE99F4CB1B /* PercentUtils.swift */; };
 		AF9BA168D53ECBE496D36547 /* ControlEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C169CA090838E1C3D29590 /* ControlEventObserver.swift */; };
 		AFF1D903001413F28A9DA4FC /* CollectionReusableViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28141B682E7B0CE7D961D455 /* CollectionReusableViewWrapper.swift */; };
 		B0F1E2D9279974B2D7178D03 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D42CEE2F1D255829825B79 /* Properties.swift */; };
 		B1F0EA8EFF9A1D1F961945C7 /* Collection+CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB732EF8240AB9985D2015E /* Collection+CLLocationCoordinate2D.swift */; };
 		B242B9C553FB48D0EC4DB117 /* NSShadow+convenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97385C885BDD52B14C851A /* NSShadow+convenienceInit.swift */; };
-		B2FA9250C461A39E8ADCA5AF /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F45133587F62BFED05E09F /* Attribute.swift */; };
+		B24FD2CE79630DEBCEB3090B /* CGSize+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41C0C6FF0D27D5BAFB37AD /* CGSize+InitTest.swift */; };
+		B288740A365DD21D4EB7A945 /* StyleableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B5B07329F1E71F06FCAF9 /* StyleableTest.swift */; };
 		B3258EE801B1C1063D3C9E9C /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB65AC9499CC23C86D8E18 /* OptionalType.swift */; };
-		B3388EF8542E0A8FECC0D591 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C9BCDEC1F8D06AEDC60FDF /* Pods_Interface_HyperdriveInterface_macOS.framework */; };
+		B32CBE6DBC88CA968201328C /* UIColor+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15E3CBD0C63223E2F208DC /* UIColor+InitTest.swift */; };
+		B3B361B648E31D677A788532 /* UIColor+Modificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8332B68792380C54FCD1991 /* UIColor+Modificators.swift */; };
 		B3FA7EC7275C18C9DCCCC36A /* Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE051BF60581E3C723B4ABC /* Visibility.swift */; };
+		B4F4FE07064955EFA843CB79 /* Styleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EF4EA408F2EC3F798E4928 /* Styleable.swift */; };
+		B52B3DA1D9AE6F1128E71831 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A0E071AF1D5650A2360E34 /* Pods_Interface_HyperdriveInterface_macOS.framework */; };
+		B5588833A1594C8C48498AB8 /* Styleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EF4EA408F2EC3F798E4928 /* Styleable.swift */; };
 		B55CF330175172788C0A5416 /* NSTextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2EED46C3462AC59006FCC /* NSTextFieldObserver.swift */; };
 		B60103B7443650D698D8739B /* AnyCollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7753FDF93AC30BFFF8D2230 /* AnyCollectionViewCellIdentifier.swift */; };
+		B62CD0132DCBF0144B5FA6C0 /* UITableView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31C4CFCF91D4E99081AB6B /* UITableView+Init.swift */; };
+		B66778E2ABF2323796EE9788 /* UIFont+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D437F1CE1054E4FB18474 /* UIFont+System.swift */; };
 		B7246FF18A6868A19F08FC53 /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54018F503238AFDE5B5A8ED /* TableViewState.swift */; };
 		B8637E7261F769C425875295 /* AnyTableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033D419609B1AE113CEB2C4 /* AnyTableViewCellIdentifier.swift */; };
 		B8EEC3671F5797FFD3F1123E /* CollectionViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5290AB2041E879CCEA76230 /* CollectionViewCellWrapper.swift */; };
 		B99EC9653419EAD3CE11F74B /* HyperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C88A2EF956F35292D87D7 /* HyperView.swift */; };
 		BA5796E870513791D0093AD3 /* ControlEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C169CA090838E1C3D29590 /* ControlEventObserver.swift */; };
+		BB0E478FCF16BC425D375285 /* CGAffineTransform+ShortcutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB47E6F58200F46D3F3FB33 /* CGAffineTransform+ShortcutTest.swift */; };
 		BBC2DF4E236BC8411E1F6643 /* ConstraintAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */; };
 		BD92BC51E2C4A83ABC9B4C2B /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7047ACC149E30C884C3B1AE /* FooterTableView.swift */; };
 		BDCBBA02529500175980CFE4 /* ReactantTableView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254532730B86D29C1D37A80F /* ReactantTableView+Delegates.swift */; };
 		BEEAD94A619C51228AEA8276 /* CLLocationCoordinate2D+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050370B5A9767825A10B3C2 /* CLLocationCoordinate2D+utils.swift */; };
 		BF5D05E171970977ED6B891B /* ReactantTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A187B3B25F3EB053089FC9 /* ReactantTableView.swift */; };
+		BFD503135C23F953D4F0D7D0 /* UITabBarController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4950975C24B43776D71B1521 /* UITabBarController+Styles.swift */; };
 		C037A1C44CE77C4A4D84A707 /* UIView+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */; };
 		C237DE26CCE4D1EA3FC53E83 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9613FCFA6B8CC496D6356A6E /* CollectionViewCellIdentifier.swift */; };
 		C44A718DFCFE418D3FA47468 /* Configuration+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */; };
 		C459124FEC544404FFBC0A75 /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */; };
+		C4D913D0C0AAB27897EEBC53 /* NSAttributedString+AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CDF05AA9B47383321BFA2 /* NSAttributedString+AttributeTest.swift */; };
+		C57D3FF8187382C5CD9E1541 /* StyleableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B5B07329F1E71F06FCAF9 /* StyleableTest.swift */; };
 		C5D6F97585A9953E644457DE /* Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EE07EFB31710BB4D9EDA04 /* Scrollable.swift */; };
 		C660702688F970B1B8D31A40 /* SubConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7619198AFED0965ECFE17B /* SubConfiguration.swift */; };
 		C71CD8C55EA039A3EA3D03C9 /* Properties+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */; };
+		C8CAD691F30D9727B7D1ABF0 /* UIFont+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D437F1CE1054E4FB18474 /* UIFont+System.swift */; };
+		C9A26AB336B0D64FA83EAD4B /* AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A401808BE98FA2F248FF87 /* AttributeTest.swift */; };
 		CAEA3F6E852A0A327EC077E8 /* Properties+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269DE578FB8FBC7A951B4CDD /* Properties+Style.swift */; };
 		CB872115875C3E9BA95652DC /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B81F3DC75FF88A34F4BD8F /* Configurable.swift */; };
-		CB87E08CE7FBF02353460218 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */; };
+		CB890CFF6E0F973993B50E8F /* CGRect+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644239E2A19A9DBE02018BD /* CGRect+Init.swift */; };
 		CC53D7993A921A1198253540 /* SimpleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D8EE2C0A62FF44793FB28 /* SimpleTableView.swift */; };
+		CC8E61CD1717F69F7E7E6405 /* UIEdgeInsets+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03E394C66614C49B86CEBC /* UIEdgeInsets+Init.swift */; };
+		CD745CA4FCF5651D78D4BECC /* UICollectionView+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D757419779CF29C266928 /* UICollectionView+InitTest.swift */; };
 		CE52BABE1AB50F435EC011AF /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4B43727BDFD5820B87F0B /* HeaderTableView.swift */; };
 		CE70B7D26E08703D8A0EE1F8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827F30EDF723E5D1B0A8322 /* TextField.swift */; };
+		CF691BF3F7C479B9E669B63A /* UIFont+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982BB7DFA55B8C981405162 /* UIFont+Init.swift */; };
+		D0C2C1BC4FBD89A98B8FF98F /* AttributeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A401808BE98FA2F248FF87 /* AttributeTest.swift */; };
 		D0E36CB37F70B24CBC0FB2AC /* FlowCollectionViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9258C8EAABCC2918E9169D5 /* FlowCollectionViewBase.swift */; };
+		D1C2C34DEEC0C2C92952BD8C /* UIColor+Modificators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8332B68792380C54FCD1991 /* UIColor+Modificators.swift */; };
+		D3495C76D8FAFA1C8DCD1F35 /* NSAttributedString+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6663F1D4E303D37D3BB0451 /* NSAttributedString+Attribute.swift */; };
 		D40686615FD80451D8AB9ED6 /* NSShadow+convenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE97385C885BDD52B14C851A /* NSShadow+convenienceInit.swift */; };
 		D5746CBF6A05162FBBCCE172 /* UITraitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B6AEB434B5A20E7693B413 /* UITraitHelper.swift */; };
+		D5943A27519FA680B744B340 /* UICollectionView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3F9FA05224C75156003E7 /* UICollectionView+Init.swift */; };
 		D5B0C561248A7292986ED642 /* ReactantTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A187B3B25F3EB053089FC9 /* ReactantTableView.swift */; };
 		D673E6068C912D922358D843 /* TextFieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */; };
 		D6D0E9A4C76C6B2F355F5CFD /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14432CE1C949078C5042C2 /* Project.swift */; };
+		D7152AAFE3FC55FBF5AC8635 /* InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF953FEC6C46CF62C499172 /* InterfaceTests.swift */; };
 		DA2C780B8AEDB8770B035F57 /* MKCoordinateSpan+inset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */; };
 		DA4FABA19F34D674AB27120E /* CollectionViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5290AB2041E879CCEA76230 /* CollectionViewCellWrapper.swift */; };
 		DB7378D4F29FBEDE24D149AF /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB65AC9499CC23C86D8E18 /* OptionalType.swift */; };
 		DBA9740ED426B6662C817ADC /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB59104AF60AFC4ECB0455E /* CollectionViewState.swift */; };
-		DBDD18E2B75FC8AED3BF58EE /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845E9F408A53818730DD372F /* Pods_Interface_HyperdriveInterface_iOS.framework */; };
+		DBD477CFBECD1C3027F95772 /* UIEdgeInsets+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783870BA5BBC47C52F294A5A /* UIEdgeInsets+InitTest.swift */; };
 		DC6F2CB53FBF80CED64694B3 /* CLLocationCoordinate2D+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050370B5A9767825A10B3C2 /* CLLocationCoordinate2D+utils.swift */; };
 		DCC0CD48009DD439E63974EA /* Properties+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543946D3A45EEABAC94ABD88 /* Properties+CollectionView.swift */; };
 		DCE46D81BA280BAFCB20746F /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB65AC9499CC23C86D8E18 /* OptionalType.swift */; };
+		DE6A840437EA4F51568C3583 /* CGRect+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C363A0A9FF2DAF0D4E25550 /* CGRect+InitTest.swift */; };
 		DEF7CDBFE04EA816A45896E1 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9ABB9E16EB3A664E9ECBF /* AssociatedObject.swift */; };
+		DFF26D556E071110F95CEDCF /* UIButton+UtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572BD88467F25FB634B3160D /* UIButton+UtilsTest.swift */; };
+		E056D50B111F58F4CAF944A6 /* CGPoint+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B621B26D55FA1F9B04D40 /* CGPoint+Init.swift */; };
+		E099A2133DE5072A59CD07E9 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13DBD6B8CBC4432412EC7B3 /* Attribute.swift */; };
 		E1580FBE78A0105BC6EAB1A3 /* Properties+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050B5FA8035B176958E4AE80 /* Properties+Core.swift */; };
 		E15E5399D99746A7AFE4FF46 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051AF3EB684A3D3AFB52F4F /* Configuration.swift */; };
+		E19EDC02B26FA1C373CB6AEF /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF96B46E578092599B30243 /* UILabel+Init.swift */; };
 		E1BC65957D1A872A80881389 /* StaticMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069D3C53D5CA323699FA586 /* StaticMap.swift */; };
+		E28E6D0101FC608069446F01 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE64A539699938DE84AEDA /* UIButton+Utils.swift */; };
 		E2F3CB7070080209ADFEB546 /* ReactantThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */; };
 		E36FB790FE5F00EC2DF7DDA4 /* DialogDismissalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F56ED679D4A5FE33512AD7 /* DialogDismissalListener.swift */; };
+		E434D35C8520FDB4E8F785AA /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8170809972A5262BBDA9123D /* CGPoint+InitTest.swift */; };
 		E43DD347AC4F5355A1D420BC /* ViewOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */; };
 		E4B7D85BBE38B1EA1C08FD88 /* MKCoordinateRegion+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF9D370D71B51B7D0E0B2F /* MKCoordinateRegion+utils.swift */; };
 		E4BE63F098B8F01C941E685B /* UIScrollView+Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */; };
+		E509853CE4F5AAF183735C68 /* Styleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EF4EA408F2EC3F798E4928 /* Styleable.swift */; };
 		E59AA663285A395B0792D9BD /* Properties+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */; };
 		E5AA3C73784BCF520FF1586C /* HyperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7C88A2EF956F35292D87D7 /* HyperView.swift */; };
+		E70DC1FCC404A10D4A4C9EB4 /* UIButton+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE64A539699938DE84AEDA /* UIButton+Utils.swift */; };
 		E866C02C32639DBBB97B7134 /* TableViewCellWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252FDEB7B5591B56EBED370E /* TableViewCellWrapper.swift */; };
+		E90EBAF7C902247734D825CC /* UIColor+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B15E3CBD0C63223E2F208DC /* UIColor+InitTest.swift */; };
 		E9EFFB5558564E9E8CDC2949 /* AnyCollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E0450C9F6B681C1D4AE03 /* AnyCollectionSupplementaryViewIdentifier.swift */; };
 		EA851DCF264D980CA962B8CC /* UIView+traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7695A9733A0350AFAE987A /* UIView+traits.swift */; };
+		EAD6CE6F7CAA8F25AEF9CE62 /* CGSize+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F184AF7B3F50FA63C74142D /* CGSize+Init.swift */; };
 		EBD54ADAEB74FFC3B0EF7E36 /* UIView+traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7695A9733A0350AFAE987A /* UIView+traits.swift */; };
 		ECB07931BC342FD96F4ECD6B /* CollapseAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAB911322FA776BC4B1D90 /* CollapseAxis.swift */; };
 		EDCDECCC73DCB1381E69465B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E4E0BC346D1302A44AB0E /* Platform.swift */; };
 		EE4AA4AA62D2686BCD110701 /* UIScrollView+Scrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */; };
+		EE6C90BD2434FEAA4DF70945 /* UIEdgeInsets+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783870BA5BBC47C52F294A5A /* UIEdgeInsets+InitTest.swift */; };
 		F03B420180E6B96E381F2113 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9ABB9E16EB3A664E9ECBF /* AssociatedObject.swift */; };
+		F05424B98B4E1833D216AC6D /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8170809972A5262BBDA9123D /* CGPoint+InitTest.swift */; };
 		F065177CD1F6990DAF639ABA /* Configuration+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4612602B3EBF4FCCC95E228 /* Configuration+Style.swift */; };
 		F0F4D4E9D2650C8ACFA3B647 /* FlowCollectionViewBase+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031DD9073B9E48F6013DD81 /* FlowCollectionViewBase+Delegates.swift */; };
+		F13987B19C46E3D5ABB8661F /* CGPoint+InitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8170809972A5262BBDA9123D /* CGPoint+InitTest.swift */; };
+		F19CC119BD1B44BCAA913D57 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13DBD6B8CBC4432412EC7B3 /* Attribute.swift */; };
 		F22C981AEC6222E7D08D74D2 /* AnyCollectionSupplementaryViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E0450C9F6B681C1D4AE03 /* AnyCollectionSupplementaryViewIdentifier.swift */; };
 		F45A5242ABD8C46B97C21DCF /* TableViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54018F503238AFDE5B5A8ED /* TableViewState.swift */; };
 		F631E51260A6F07E65184B65 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076E5EBA0F6CE148FB8B645 /* DialogView.swift */; };
 		F67441A39D1FD35766D742D0 /* ReactantCollectionView+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCAB3D5D5488FC67943F54 /* ReactantCollectionView+Delegates.swift */; };
+		F6ABA54371E0E401FEDC8522 /* UIFont+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982BB7DFA55B8C981405162 /* UIFont+Init.swift */; };
 		F7ED1F83B59CBBEA9AEB0EAB /* ActionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F21B15DFEE4A4B6157854 /* ActionPublisher.swift */; };
 		F7EDF43F2D54BDC857142754 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076E5EBA0F6CE148FB8B645 /* DialogView.swift */; };
 		FA7AA31ADE2F7B3183C114C6 /* ActionPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8F21B15DFEE4A4B6157854 /* ActionPublisher.swift */; };
@@ -281,6 +393,24 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		016D5BC2C98FBF51575A2913 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247CEB92A03E0C12770A0CB0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710989A5949FDCC678BE24B2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstSubfolderSpec = 10;
@@ -316,21 +446,36 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBE1C626B7DDB34E679A2F21 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E506FA5647D6D0EBF6CA52 /* ConstraintAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAction.swift; sourceTree = "<group>"; };
 		0128D7715DC1EE8654549B07 /* SimpleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionView.swift; sourceTree = "<group>"; };
+		027CB288FDEE18DBCC58D4B6 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		02C7451C12967573985BF7C6 /* UIOffset+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOffset+InitTest.swift"; sourceTree = "<group>"; };
+		040B621B26D55FA1F9B04D40 /* CGPoint+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Init.swift"; sourceTree = "<group>"; };
+		042BDFC612F93FD0E4F5CBB6 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		04AF406A3B53177EA383BDC7 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		050B5FA8035B176958E4AE80 /* Properties+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Properties+Core.swift"; sourceTree = "<group>"; };
+		0E1A53673A55DD8F63B89C58 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-Tests.plist"; sourceTree = "<group>"; };
 		0EABAAEF1542318A8E8869F3 /* TableViewHeaderFooterIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterIdentifier.swift; sourceTree = "<group>"; };
+		1534EC6E9A233BDD88ED5142 /* Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		180C8C75CBD691962CA3CC71 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1827F30EDF723E5D1B0A8322 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1848E7AE198FAE8DBF39935C /* AnyTableViewHeaderFooterIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTableViewHeaderFooterIdentifier.swift; sourceTree = "<group>"; };
-		1C8A6F08D6209A36DF36C331 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		1A41C0C6FF0D27D5BAFB37AD /* CGSize+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+InitTest.swift"; sourceTree = "<group>"; };
+		1C03C51109E9394BF2E9E83B /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1D14432CE1C949078C5042C2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		1DFFD67395BE49CA2A4C7E31 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F1F109B8BD8CCCCCC631657 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-macOS/Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		23CE51858CC85848274CAD76 /* HyperViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperViewState.swift; sourceTree = "<group>"; };
 		252FDEB7B5591B56EBED370E /* TableViewCellWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellWrapper.swift; sourceTree = "<group>"; };
 		254532730B86D29C1D37A80F /* ReactantTableView+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactantTableView+Delegates.swift"; sourceTree = "<group>"; };
@@ -341,52 +486,90 @@
 		28D34C1914BCF63A4AC5718B /* Configuration+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+CollectionView.swift"; sourceTree = "<group>"; };
 		2AEAB911322FA776BC4B1D90 /* CollapseAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapseAxis.swift; sourceTree = "<group>"; };
 		2D01833FBF67471B09370F20 /* UINavigationController+DialogDismissalListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+DialogDismissalListener.swift"; sourceTree = "<group>"; };
+		3001D5877B4BDC48484395FB /* Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AFB03498C39AB6CC55EE59 /* DialogControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogControllerBase.swift; sourceTree = "<group>"; };
 		32712811512083C9F95489A7 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		35F6B69B4232439937DB115B /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		364EA0CD06FA16562EAB88AA /* UIFont+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+InitTest.swift"; sourceTree = "<group>"; };
 		392A069963D28FFC12CD6EBB /* PagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionView.swift; sourceTree = "<group>"; };
 		39D48E4A670A2E9FF852DA85 /* ButtonActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonActionDelegate.swift; sourceTree = "<group>"; };
+		3AAE64A539699938DE84AEDA /* UIButton+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Utils.swift"; sourceTree = "<group>"; };
+		3B68328451265C738F2F0BE7 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3B7619198AFED0965ECFE17B /* SubConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubConfiguration.swift; sourceTree = "<group>"; };
+		3C363A0A9FF2DAF0D4E25550 /* CGRect+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+InitTest.swift"; sourceTree = "<group>"; };
+		3D607DD097B7CF2AB91A3A74 /* HyperdriveInterfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveInterfaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
 		4033D419609B1AE113CEB2C4 /* AnyTableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTableViewCellIdentifier.swift; sourceTree = "<group>"; };
 		4069D3C53D5CA323699FA586 /* StaticMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticMap.swift; sourceTree = "<group>"; };
 		41A187B3B25F3EB053089FC9 /* ReactantTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantTableView.swift; sourceTree = "<group>"; };
+		42484750DEF70A33C199967C /* Pods-Interface-HyperdriveInterface-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-tvOS/Pods-Interface-HyperdriveInterface-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		454F051327417C77032997C9 /* UITableView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+InitTest.swift"; sourceTree = "<group>"; };
+		456CDF05AA9B47383321BFA2 /* NSAttributedString+AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+AttributeTest.swift"; sourceTree = "<group>"; };
+		46A401808BE98FA2F248FF87 /* AttributeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTest.swift; sourceTree = "<group>"; };
+		488D757419779CF29C266928 /* UICollectionView+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+InitTest.swift"; sourceTree = "<group>"; };
+		4950975C24B43776D71B1521 /* UITabBarController+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Styles.swift"; sourceTree = "<group>"; };
 		4A7792FC8B1DD8CE3C4917A4 /* BaseSubConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSubConfiguration.swift; sourceTree = "<group>"; };
+		4E3296CE4A0D63FC5968CD40 /* UIColor+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
+		4F184AF7B3F50FA63C74142D /* CGSize+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Init.swift"; sourceTree = "<group>"; };
 		4F8EF7AF33AA1486D96DA19A /* TextFieldActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldActionDelegate.swift; sourceTree = "<group>"; };
 		5031DD9073B9E48F6013DD81 /* FlowCollectionViewBase+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowCollectionViewBase+Delegates.swift"; sourceTree = "<group>"; };
 		51CB65AC9499CC23C86D8E18 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		53B6AEB434B5A20E7693B413 /* UITraitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitHelper.swift; sourceTree = "<group>"; };
 		543946D3A45EEABAC94ABD88 /* Properties+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Properties+CollectionView.swift"; sourceTree = "<group>"; };
-		54DDEC5E205B10E2593D0583 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		55A0E071AF1D5650A2360E34 /* Pods_Interface_HyperdriveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FC78EF20B01C49A53C7F0F /* HyperViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperViewManager.swift; sourceTree = "<group>"; };
+		572BD88467F25FB634B3160D /* UIButton+UtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UtilsTest.swift"; sourceTree = "<group>"; };
+		579B5B07329F1E71F06FCAF9 /* StyleableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleableTest.swift; sourceTree = "<group>"; };
 		5B03DE155C156A7946506266 /* UIScrollView+Scrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Scrollable.swift"; sourceTree = "<group>"; };
 		5B7C88A2EF956F35292D87D7 /* HyperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperView.swift; sourceTree = "<group>"; };
 		5D1D8EE2C0A62FF44793FB28 /* SimpleTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableView.swift; sourceTree = "<group>"; };
 		6076E5EBA0F6CE148FB8B645 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		60F56ED679D4A5FE33512AD7 /* DialogDismissalListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogDismissalListener.swift; sourceTree = "<group>"; };
+		61809B194EE6C687405F7461 /* UIColor+ModificatorsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ModificatorsTest.swift"; sourceTree = "<group>"; };
+		6A71748F7175A806AAEB1285 /* Pods_Interface_HyperdriveInterface_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7695A9733A0350AFAE987A /* UIView+traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+traits.swift"; sourceTree = "<group>"; };
 		6DA21C0004FC3C991B794BAA /* Configuration+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+Core.swift"; sourceTree = "<group>"; };
+		6DC3C1D40A87EF217515BDCA /* Pods_Interface_HyperdriveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF953FEC6C46CF62C499172 /* InterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceTests.swift; sourceTree = "<group>"; };
+		719CB591E764AFB6FF8244E5 /* CGAffineTransform+Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Shortcut.swift"; sourceTree = "<group>"; };
 		72B81F3DC75FF88A34F4BD8F /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		73BA715DA551A51DC1FA41E9 /* HyperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperViewController.swift; sourceTree = "<group>"; };
+		73D20A883165D36C2725C6F5 /* Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75EF4EA408F2EC3F798E4928 /* Styleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleable.swift; sourceTree = "<group>"; };
+		783870BA5BBC47C52F294A5A /* UIEdgeInsets+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+InitTest.swift"; sourceTree = "<group>"; };
+		78BFABC9C78899DF208A4E91 /* UIOffset+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOffset+Init.swift"; sourceTree = "<group>"; };
 		7BB59104AF60AFC4ECB0455E /* CollectionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewState.swift; sourceTree = "<group>"; };
+		7CD8C085665E5E0CDC594B39 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		7F18996653833B4DA42F783D /* ReactantCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantCollectionView.swift; sourceTree = "<group>"; };
 		8006FB9CC472075641DB44A8 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		845E9F408A53818730DD372F /* Pods_Interface_HyperdriveInterface_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8170809972A5262BBDA9123D /* CGPoint+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+InitTest.swift"; sourceTree = "<group>"; };
 		89ED9A690CEC40ABFDBA4712 /* UIBarButtonItemObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemObserver.swift; sourceTree = "<group>"; };
+		8B15E3CBD0C63223E2F208DC /* UIColor+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+InitTest.swift"; sourceTree = "<group>"; };
 		8BB2EED46C3462AC59006FCC /* NSTextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextFieldObserver.swift; sourceTree = "<group>"; };
 		8CB732EF8240AB9985D2015E /* Collection+CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+CLLocationCoordinate2D.swift"; sourceTree = "<group>"; };
+		8D4BA795C2B2279180337B57 /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		908109F7ACBD3A402EF2FDFA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		9274C75837B7DCFB9C427A3B /* UILabel+InitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+InitTest.swift"; sourceTree = "<group>"; };
+		931E19557FFEA85CFA4FE41C /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		9613FCFA6B8CC496D6356A6E /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		96F9ABB9E16EB3A664E9ECBF /* AssociatedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		9859F7872DD014037C1E1132 /* PlainTableViewObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableViewObserver.swift; sourceTree = "<group>"; };
+		9AF96B46E578092599B30243 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
+		9C57EF322FDB7F33456E98BE /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9E8ED25ABB88EDCB55EC85F8 /* Mutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutating.swift; sourceTree = "<group>"; };
 		A051AF3EB684A3D3AFB52F4F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		A0EA37AA3C36681B768AD4F4 /* GestureRecognizerObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerObserver.swift; sourceTree = "<group>"; };
+		A13DBD6B8CBC4432412EC7B3 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		A4612602B3EBF4FCCC95E228 /* Configuration+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+Style.swift"; sourceTree = "<group>"; };
 		A5D4B43727BDFD5820B87F0B /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
+		A644239E2A19A9DBE02018BD /* CGRect+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Init.swift"; sourceTree = "<group>"; };
 		A75B9ED0AB5BC2750C0D2176 /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
+		A8332B68792380C54FCD1991 /* UIColor+Modificators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Modificators.swift"; sourceTree = "<group>"; };
+		ACE29AC65820C843534A8F28 /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AE2A5BDF7BFA5366A69D8295 /* Array+subarrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+subarrays.swift"; sourceTree = "<group>"; };
 		AE97385C885BDD52B14C851A /* NSShadow+convenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSShadow+convenienceInit.swift"; sourceTree = "<group>"; };
-		B151901F055581E3B7503950 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-iOS/Pods-Interface-HyperdriveInterface-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		AEB47E6F58200F46D3F3FB33 /* CGAffineTransform+ShortcutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+ShortcutTest.swift"; sourceTree = "<group>"; };
+		B45D342E20F91EC34695F060 /* HyperdriveInterfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveInterfaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5317D96C9E0DD1BFC18225D /* MKCoordinateSpan+inset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+inset.swift"; sourceTree = "<group>"; };
 		B57FAFCBB0B54342F00053BC /* TableViewHeaderFooterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterWrapper.swift; sourceTree = "<group>"; };
 		B5C169CA090838E1C3D29590 /* ControlEventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEventObserver.swift; sourceTree = "<group>"; };
@@ -394,23 +577,30 @@
 		B8E80D7D2D7F0B729A51C573 /* SimulatedSeparatorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatedSeparatorTableView.swift; sourceTree = "<group>"; };
 		BA8F21B15DFEE4A4B6157854 /* ActionPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPublisher.swift; sourceTree = "<group>"; };
 		C07BFBD6B272B175DDDBA572 /* CollectionViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBase.swift; sourceTree = "<group>"; };
+		C11C1D4ED546C3BE99F4CB1B /* PercentUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentUtils.swift; sourceTree = "<group>"; };
 		C1AFAF74F6250A44E4D57ACA /* PlainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableView.swift; sourceTree = "<group>"; };
 		C1EB2FA1BC3D46B00AFC233A /* ViewOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrientation.swift; sourceTree = "<group>"; };
-		C4F45133587F62BFED05E09F /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		C4B5BD93FAC9DBBF60E45248 /* HyperdriveInterfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperdriveInterfaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B3FAD80F4DC4D43116B85A /* HyperdriveInterface.podspec */ = {isa = PBXFileReference; name = HyperdriveInterface.podspec; path = ../HyperdriveInterface.podspec; sourceTree = "<group>"; };
 		C9258C8EAABCC2918E9169D5 /* FlowCollectionViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCollectionViewBase.swift; sourceTree = "<group>"; };
-		C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attribute.swift"; sourceTree = "<group>"; };
+		CC03E394C66614C49B86CEBC /* UIEdgeInsets+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Init.swift"; sourceTree = "<group>"; };
 		CDE55A9B53DF051EAF031649 /* Interface_Manifest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Interface_Manifest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D050370B5A9767825A10B3C2 /* CLLocationCoordinate2D+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+utils.swift"; sourceTree = "<group>"; };
+		D28B20E946019F5A030780DB /* UINavigationController+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Styles.swift"; sourceTree = "<group>"; };
+		D3B3F9FA05224C75156003E7 /* UICollectionView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Init.swift"; sourceTree = "<group>"; };
+		D50D437F1CE1054E4FB18474 /* UIFont+System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+System.swift"; sourceTree = "<group>"; };
 		D7047ACC149E30C884C3B1AE /* FooterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableView.swift; sourceTree = "<group>"; };
 		D7753FDF93AC30BFFF8D2230 /* AnyCollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
-		D8C9BCDEC1F8D06AEDC60FDF /* Pods_Interface_HyperdriveInterface_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interface_HyperdriveInterface_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D982BB7DFA55B8C981405162 /* UIFont+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Init.swift"; sourceTree = "<group>"; };
 		D9D42CEE2F1D255829825B79 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		D9EE07EFB31710BB4D9EDA04 /* Scrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrollable.swift; sourceTree = "<group>"; };
 		E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactantThemeSelector.swift; sourceTree = "<group>"; };
 		E53D5CA9D01864A5B038BE6A /* Properties+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Properties+TableView.swift"; sourceTree = "<group>"; };
 		E54018F503238AFDE5B5A8ED /* TableViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewState.swift; sourceTree = "<group>"; };
+		E6663F1D4E303D37D3BB0451 /* NSAttributedString+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Attribute.swift"; sourceTree = "<group>"; };
 		EA91C8B212EB35F063C9BBBA /* UIView+Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Visibility.swift"; sourceTree = "<group>"; };
+		F2FCDDBED7DC730018C5D150 /* Pods-Interface-HyperdriveInterface-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interface-HyperdriveInterface-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Interface-HyperdriveInterface-tvOS/Pods-Interface-HyperdriveInterface-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		F4C5109B66733AD1AED5C5E8 /* PercentUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentUtilsTest.swift; sourceTree = "<group>"; };
 		F5290AB2041E879CCEA76230 /* CollectionViewCellWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellWrapper.swift; sourceTree = "<group>"; };
 		F64061B66C4AD9354B6FA67B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F6CADACB5E5FBF95F460EB98 /* Configuration+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+TableView.swift"; sourceTree = "<group>"; };
@@ -420,6 +610,7 @@
 		FBE051BF60581E3C723B4ABC /* Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visibility.swift; sourceTree = "<group>"; };
 		FC0F93808808835157108576 /* HyperdriveInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HyperdriveInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFCAB3D5D5488FC67943F54 /* ReactantCollectionView+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactantCollectionView+Delegates.swift"; sourceTree = "<group>"; };
+		FD31C4CFCF91D4E99081AB6B /* UITableView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Init.swift"; sourceTree = "<group>"; };
 		FEE797812A350EA1A2759B9F /* TableViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -428,7 +619,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBDD18E2B75FC8AED3BF58EE /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */,
+				7C705E41CD7FAAF93AE89969 /* Pods_Interface_HyperdriveInterface_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +627,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13617EB24E1B1020CC6170E6 /* Pods_Interface_HyperdriveInterface_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		482CE3A68D232648E78FC1C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A11C39FA9683C327AD6DBCA7 /* Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +643,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3388EF8542E0A8FECC0D591 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */,
+				B52B3DA1D9AE6F1128E71831 /* Pods_Interface_HyperdriveInterface_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DA28AF9B8D980A9C97A408 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD15BC28FA9305DF6D02C049 /* Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4F09CA7BDD025B64B6E7366 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327542EA010F7D29268947BC /* Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +717,34 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		1A38826B145A11059297AD7D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B68328451265C738F2F0BE7 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */,
+				9C57EF322FDB7F33456E98BE /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */,
+				1C03C51109E9394BF2E9E83B /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */,
+				027CB288FDEE18DBCC58D4B6 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */,
+				42484750DEF70A33C199967C /* Pods-Interface-HyperdriveInterface-tvOS.debug.xcconfig */,
+				F2FCDDBED7DC730018C5D150 /* Pods-Interface-HyperdriveInterface-tvOS.release.xcconfig */,
+				042BDFC612F93FD0E4F5CBB6 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.debug.xcconfig */,
+				7CD8C085665E5E0CDC594B39 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.release.xcconfig */,
+				ACE29AC65820C843534A8F28 /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.debug.xcconfig */,
+				35F6B69B4232439937DB115B /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.release.xcconfig */,
+				8D4BA795C2B2279180337B57 /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.debug.xcconfig */,
+				931E19557FFEA85CFA4FE41C /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		1AB3A2324EFED94C63019E76 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E6BD94484FEE889F4A7E5597 /* Styling */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		23EFABF10CA8F84B65F0DF6C /* Dialog */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,7 +773,7 @@
 				06171B8F4A2825E3EA09B5B2 /* Manifest */,
 				8669DD744E583841B9FB42EE /* Frameworks */,
 				D915546D32FDCFF0B7A27868 /* Products */,
-				6C205C0D4D0C1A0B2D05B6C5 /* Pods */,
+				1A38826B145A11059297AD7D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -577,18 +821,6 @@
 			path = Observers;
 			sourceTree = "<group>";
 		};
-		6C205C0D4D0C1A0B2D05B6C5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				54DDEC5E205B10E2593D0583 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */,
-				B151901F055581E3B7503950 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */,
-				1F1F109B8BD8CCCCCC631657 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */,
-				1C8A6F08D6209A36DF36C331 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		7063E85A20DAD2FC346AE641 /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,10 +856,25 @@
 		8669DD744E583841B9FB42EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				845E9F408A53818730DD372F /* Pods_Interface_HyperdriveInterface_iOS.framework */,
-				D8C9BCDEC1F8D06AEDC60FDF /* Pods_Interface_HyperdriveInterface_macOS.framework */,
+				6DC3C1D40A87EF217515BDCA /* Pods_Interface_HyperdriveInterface_iOS.framework */,
+				55A0E071AF1D5650A2360E34 /* Pods_Interface_HyperdriveInterface_macOS.framework */,
+				6A71748F7175A806AAEB1285 /* Pods_Interface_HyperdriveInterface_tvOS.framework */,
+				3001D5877B4BDC48484395FB /* Pods_Interface_Tests_HyperdriveInterfaceTests_iOS.framework */,
+				73D20A883165D36C2725C6F5 /* Pods_Interface_Tests_HyperdriveInterfaceTests_macOS.framework */,
+				1534EC6E9A233BDD88ED5142 /* Pods_Interface_Tests_HyperdriveInterfaceTests_tvOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8763E2263565847DDC0AEC81 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				C11C1D4ED546C3BE99F4CB1B /* PercentUtils.swift */,
+				75EF4EA408F2EC3F798E4928 /* Styleable.swift */,
+				BB72621321A839D0B08A1DC8 /* AttributedString */,
+				B6434FACB342A34CB23C4D5C /* Extensions */,
+			);
+			path = Styling;
 			sourceTree = "<group>";
 		};
 		894AAA86B3C18A40DE3A405E /* Visibility */ = {
@@ -656,10 +903,10 @@
 				E0BCD65BE8873D880B1E5B98 /* ReactantThemeSelector.swift */,
 				3D98B63D5AB6AE254D07A439 /* UIButton+BackgroundColor.swift */,
 				6B7695A9733A0350AFAE987A /* UIView+traits.swift */,
-				E237E68861A356EABA9AEE3D /* AttributedString */,
 				2F67E67B2BAD502D1DEA2660 /* Configuration */,
 				AEC83BA6243D95DC88470BCF /* Delegates */,
 				6B1E27DE78FE0AE880B084E4 /* Observers */,
+				8763E2263565847DDC0AEC81 /* Styling */,
 				4D8B706599C63F75E6B5A7AB /* Utils */,
 				04846306B3650838153A0FC3 /* View */,
 			);
@@ -706,6 +953,38 @@
 			path = Identifier;
 			sourceTree = "<group>";
 		};
+		B3248B5304E9D12A0B013B4B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6DF953FEC6C46CF62C499172 /* InterfaceTests.swift */,
+				1AB3A2324EFED94C63019E76 /* Core */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B6434FACB342A34CB23C4D5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				719CB591E764AFB6FF8244E5 /* CGAffineTransform+Shortcut.swift */,
+				040B621B26D55FA1F9B04D40 /* CGPoint+Init.swift */,
+				A644239E2A19A9DBE02018BD /* CGRect+Init.swift */,
+				4F184AF7B3F50FA63C74142D /* CGSize+Init.swift */,
+				3AAE64A539699938DE84AEDA /* UIButton+Utils.swift */,
+				D3B3F9FA05224C75156003E7 /* UICollectionView+Init.swift */,
+				4E3296CE4A0D63FC5968CD40 /* UIColor+Init.swift */,
+				A8332B68792380C54FCD1991 /* UIColor+Modificators.swift */,
+				CC03E394C66614C49B86CEBC /* UIEdgeInsets+Init.swift */,
+				D982BB7DFA55B8C981405162 /* UIFont+Init.swift */,
+				D50D437F1CE1054E4FB18474 /* UIFont+System.swift */,
+				9AF96B46E578092599B30243 /* UILabel+Init.swift */,
+				D28B20E946019F5A030780DB /* UINavigationController+Styles.swift */,
+				78BFABC9C78899DF208A4E91 /* UIOffset+Init.swift */,
+				4950975C24B43776D71B1521 /* UITabBarController+Styles.swift */,
+				FD31C4CFCF91D4E99081AB6B /* UITableView+Init.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BA12E7D7940AB6E861C9BFEC /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +1000,15 @@
 				43D6F5977FA463AB6BC4004E /* Internal */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		BB72621321A839D0B08A1DC8 /* AttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				A13DBD6B8CBC4432412EC7B3 /* Attribute.swift */,
+				E6663F1D4E303D37D3BB0451 /* NSAttributedString+Attribute.swift */,
+			);
+			path = AttributedString;
 			sourceTree = "<group>";
 		};
 		C0B8A432AEAD3356E13C7304 /* Scrollable */ = {
@@ -744,6 +1032,7 @@
 		D749ADB859486AB4D36363A6 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				0E1A53673A55DD8F63B89C58 /* Info-Tests.plist */,
 				F64061B66C4AD9354B6FA67B /* Info.plist */,
 			);
 			path = Metadata;
@@ -755,6 +1044,7 @@
 				C6B3FAD80F4DC4D43116B85A /* HyperdriveInterface.podspec */,
 				D749ADB859486AB4D36363A6 /* Metadata */,
 				09CD188AA82AD84402DB663F /* Sources */,
+				B3248B5304E9D12A0B013B4B /* Tests */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -765,18 +1055,36 @@
 				180C8C75CBD691962CA3CC71 /* HyperdriveInterface.framework */,
 				FC0F93808808835157108576 /* HyperdriveInterface.framework */,
 				1DFFD67395BE49CA2A4C7E31 /* HyperdriveInterface.framework */,
+				B45D342E20F91EC34695F060 /* HyperdriveInterfaceTests.xctest */,
+				3D607DD097B7CF2AB91A3A74 /* HyperdriveInterfaceTests.xctest */,
+				C4B5BD93FAC9DBBF60E45248 /* HyperdriveInterfaceTests.xctest */,
 				CDE55A9B53DF051EAF031649 /* Interface_Manifest.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E237E68861A356EABA9AEE3D /* AttributedString */ = {
+		E6BD94484FEE889F4A7E5597 /* Styling */ = {
 			isa = PBXGroup;
 			children = (
-				C4F45133587F62BFED05E09F /* Attribute.swift */,
-				C98E1EA712EA15D1AF6A1B7D /* NSAttributedString+Attribute.swift */,
+				46A401808BE98FA2F248FF87 /* AttributeTest.swift */,
+				AEB47E6F58200F46D3F3FB33 /* CGAffineTransform+ShortcutTest.swift */,
+				8170809972A5262BBDA9123D /* CGPoint+InitTest.swift */,
+				3C363A0A9FF2DAF0D4E25550 /* CGRect+InitTest.swift */,
+				1A41C0C6FF0D27D5BAFB37AD /* CGSize+InitTest.swift */,
+				456CDF05AA9B47383321BFA2 /* NSAttributedString+AttributeTest.swift */,
+				F4C5109B66733AD1AED5C5E8 /* PercentUtilsTest.swift */,
+				579B5B07329F1E71F06FCAF9 /* StyleableTest.swift */,
+				572BD88467F25FB634B3160D /* UIButton+UtilsTest.swift */,
+				488D757419779CF29C266928 /* UICollectionView+InitTest.swift */,
+				8B15E3CBD0C63223E2F208DC /* UIColor+InitTest.swift */,
+				61809B194EE6C687405F7461 /* UIColor+ModificatorsTest.swift */,
+				783870BA5BBC47C52F294A5A /* UIEdgeInsets+InitTest.swift */,
+				364EA0CD06FA16562EAB88AA /* UIFont+InitTest.swift */,
+				9274C75837B7DCFB9C427A3B /* UILabel+InitTest.swift */,
+				02C7451C12967573985BF7C6 /* UIOffset+InitTest.swift */,
+				454F051327417C77032997C9 /* UITableView+InitTest.swift */,
 			);
-			path = AttributedString;
+			path = Styling;
 			sourceTree = "<group>";
 		};
 		E81C5A906A1941E6A23B54D0 /* Configuration */ = {
@@ -813,7 +1121,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F78F9A7258F60A69311547F8 /* Build configuration list for PBXNativeTarget "HyperdriveInterface-iOS" */;
 			buildPhases = (
-				9BA242E46715C88CF407CDC1 /* [CP] Check Pods Manifest.lock */,
+				1A27D3E632B283AC9D988057 /* [CP] Check Pods Manifest.lock */,
 				9AEF4A13E0B7AEB789FAEA2B /* Sources */,
 				007BB5E4F878677439F3F95E /* Resources */,
 				23066DE90558328CD853FEBC /* Embed Precompiled Frameworks */,
@@ -833,6 +1141,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 488268EF607D8DAF87042531 /* Build configuration list for PBXNativeTarget "HyperdriveInterface-tvOS" */;
 			buildPhases = (
+				F0B2E2CC2A074BC77D0706F2 /* [CP] Check Pods Manifest.lock */,
 				6A756904C94F6C517BF5E6EA /* Sources */,
 				2DCF043D1DC6E1C52B4A6F9A /* Resources */,
 				6FB023613DF5020929094192 /* Embed Precompiled Frameworks */,
@@ -848,11 +1157,74 @@
 			productReference = 1DFFD67395BE49CA2A4C7E31 /* HyperdriveInterface.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		7FEFD362FA12E01DFC11E3D7 /* HyperdriveInterfaceTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 214F5433E0D670E1DFBFDC8B /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-iOS" */;
+			buildPhases = (
+				952CD62BFEA3AC0950364B66 /* [CP] Check Pods Manifest.lock */,
+				70C54950499EB15BB7D1149E /* Sources */,
+				D17F29F6FDBC47026F07AC56 /* Resources */,
+				049F49E6295B8D6C564CDF7D /* Embed Precompiled Frameworks */,
+				710989A5949FDCC678BE24B2 /* Embed Frameworks */,
+				482CE3A68D232648E78FC1C0 /* Frameworks */,
+				3C275871A72A51F1AFC7906F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HyperdriveInterfaceTests-iOS";
+			productName = HyperdriveInterfaceTests;
+			productReference = B45D342E20F91EC34695F060 /* HyperdriveInterfaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84B44F93CE3BE7D793F26ECE /* HyperdriveInterfaceTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 422FE41AE1F92CBD84DB54C9 /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-tvOS" */;
+			buildPhases = (
+				7CE23D8F0152D429E241A19D /* [CP] Check Pods Manifest.lock */,
+				060579C95947B647C3B70F7C /* Sources */,
+				F5572A5FF5123C54C761A153 /* Resources */,
+				762C00CF3130EC0736E2E117 /* Embed Precompiled Frameworks */,
+				FBE1C626B7DDB34E679A2F21 /* Embed Frameworks */,
+				B4F09CA7BDD025B64B6E7366 /* Frameworks */,
+				576ACF6940EE326AE2B85572 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HyperdriveInterfaceTests-tvOS";
+			productName = HyperdriveInterfaceTests;
+			productReference = C4B5BD93FAC9DBBF60E45248 /* HyperdriveInterfaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8C7A0E96289AC804764A980D /* HyperdriveInterfaceTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845C46D6B1CF8CECFDED0AC8 /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-macOS" */;
+			buildPhases = (
+				BDFC7EA4E1ABE6AD7BB39F90 /* [CP] Check Pods Manifest.lock */,
+				A8FEF612E991DAD65142A85C /* Sources */,
+				C9F206B57EB226813D76A794 /* Resources */,
+				66825A2F6E164A419C1BD4F6 /* Embed Precompiled Frameworks */,
+				247CEB92A03E0C12770A0CB0 /* Embed Frameworks */,
+				A1DA28AF9B8D980A9C97A408 /* Frameworks */,
+				81A367C5D5D83BCD1CE8EBDD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HyperdriveInterfaceTests-macOS";
+			productName = HyperdriveInterfaceTests;
+			productReference = 3D607DD097B7CF2AB91A3A74 /* HyperdriveInterfaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B5A127BE65714687FB893747 /* HyperdriveInterface-macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5030554D85077DFD83644CAF /* Build configuration list for PBXNativeTarget "HyperdriveInterface-macOS" */;
 			buildPhases = (
-				F7BD1C9317C36A3650BCD501 /* [CP] Check Pods Manifest.lock */,
+				B305A7D0942F0EC863E0B1D1 /* [CP] Check Pods Manifest.lock */,
 				AA47EC325FC8991C89BF88FA /* Sources */,
 				A7400C0AAF6E795D39756387 /* Resources */,
 				CAEB2429AF9DCB304D6D0DF8 /* Embed Precompiled Frameworks */,
@@ -909,6 +1281,9 @@
 				0247A58D4DFABA9C47B27119 /* HyperdriveInterface-iOS */,
 				B5A127BE65714687FB893747 /* HyperdriveInterface-macOS */,
 				33A3A86194856D1A1D5EDA5F /* HyperdriveInterface-tvOS */,
+				7FEFD362FA12E01DFC11E3D7 /* HyperdriveInterfaceTests-iOS */,
+				8C7A0E96289AC804764A980D /* HyperdriveInterfaceTests-macOS */,
+				84B44F93CE3BE7D793F26ECE /* HyperdriveInterfaceTests-tvOS */,
 				EEE0E703FC392AA34DC17AF3 /* Interface_Manifest */,
 			);
 		};
@@ -943,10 +1318,115 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9F206B57EB226813D76A794 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D17F29F6FDBC47026F07AC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5572A5FF5123C54C761A153 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		049F49E6295B8D6C564CDF7D /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		1A27D3E632B283AC9D988057 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		23066DE90558328CD853FEBC /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		3C275871A72A51F1AFC7906F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		576ACF6940EE326AE2B85572 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66825A2F6E164A419C1BD4F6 /* Embed Precompiled Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -974,7 +1454,21 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
-		9BA242E46715C88CF407CDC1 /* [CP] Check Pods Manifest.lock */ = {
+		762C00CF3130EC0736E2E117 /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		7CE23D8F0152D429E241A19D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -989,7 +1483,90 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81A367C5D5D83BCD1CE8EBDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		952CD62BFEA3AC0950364B66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interface-Tests-HyperdriveInterfaceTests-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B305A7D0942F0EC863E0B1D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDFC7EA4E1ABE6AD7BB39F90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Interface-Tests-HyperdriveInterfaceTests-macOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1010,7 +1587,7 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Skipping, nothing to be embedded.\"";
 		};
-		F7BD1C9317C36A3650BCD501 /* [CP] Check Pods Manifest.lock */ = {
+		F0B2E2CC2A074BC77D0706F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1025,7 +1602,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-macOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Interface-HyperdriveInterface-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1049,6 +1626,31 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		060579C95947B647C3B70F7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12CE8F0E0A81EC07051D2716 /* AttributeTest.swift in Sources */,
+				5D9575341325811BA16E9693 /* CGAffineTransform+ShortcutTest.swift in Sources */,
+				F13987B19C46E3D5ABB8661F /* CGPoint+InitTest.swift in Sources */,
+				11E90961D57A61E5445E5FB4 /* CGRect+InitTest.swift in Sources */,
+				215AAD6BBB35BA0C0C8F6695 /* CGSize+InitTest.swift in Sources */,
+				12E4E7ADF7D0525040F83783 /* NSAttributedString+AttributeTest.swift in Sources */,
+				054BC5B78F1B1FCB79C53D7F /* PercentUtilsTest.swift in Sources */,
+				C57D3FF8187382C5CD9E1541 /* StyleableTest.swift in Sources */,
+				4F4797F78C5684D3441EF134 /* UIButton+UtilsTest.swift in Sources */,
+				962E593E7AC9D12E6DA0682B /* UICollectionView+InitTest.swift in Sources */,
+				E90EBAF7C902247734D825CC /* UIColor+InitTest.swift in Sources */,
+				2727B561B85C0AB68C377030 /* UIColor+ModificatorsTest.swift in Sources */,
+				DBD477CFBECD1C3027F95772 /* UIEdgeInsets+InitTest.swift in Sources */,
+				07B9FCC155259FC7B5ED9694 /* UIFont+InitTest.swift in Sources */,
+				8B3A8E9F1B88A573B3F95AEB /* UILabel+InitTest.swift in Sources */,
+				98041EEBC856A9D7B752F38C /* UIOffset+InitTest.swift in Sources */,
+				121975FB2BD66D644DB61FFC /* UITableView+InitTest.swift in Sources */,
+				69AAF344B5BC79303A8921FF /* InterfaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A756904C94F6C517BF5E6EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1082,8 +1684,6 @@
 				0F2C63D8DD44DFFD53098BB0 /* SubConfiguration.swift in Sources */,
 				F7ED1F83B59CBBEA9AEB0EAB /* ActionPublisher.swift in Sources */,
 				168067765D2DD2FCDDDDA665 /* Array+subarrays.swift in Sources */,
-				85CB4B2DAE6A93C7491709D8 /* Attribute.swift in Sources */,
-				CB87E08CE7FBF02353460218 /* NSAttributedString+Attribute.swift in Sources */,
 				282213BB82BA6FEC21FEDCD6 /* Configuration+Core.swift in Sources */,
 				E1580FBE78A0105BC6EAB1A3 /* Properties+Core.swift in Sources */,
 				0946A0E5598C7F15E1279ED9 /* Properties+Style.swift in Sources */,
@@ -1102,6 +1702,26 @@
 				85D94BBFF37FA4F2BAD296BA /* PlainTableViewObserver.swift in Sources */,
 				2CF8727A94140E7F2F824F28 /* UIBarButtonItemObserver.swift in Sources */,
 				E2F3CB7070080209ADFEB546 /* ReactantThemeSelector.swift in Sources */,
+				E099A2133DE5072A59CD07E9 /* Attribute.swift in Sources */,
+				D3495C76D8FAFA1C8DCD1F35 /* NSAttributedString+Attribute.swift in Sources */,
+				A8B4FAE97652DBBDD41E278F /* CGAffineTransform+Shortcut.swift in Sources */,
+				E056D50B111F58F4CAF944A6 /* CGPoint+Init.swift in Sources */,
+				92C494DBDC369F6190099618 /* CGRect+Init.swift in Sources */,
+				5515F812F0275356D1A982FA /* CGSize+Init.swift in Sources */,
+				E70DC1FCC404A10D4A4C9EB4 /* UIButton+Utils.swift in Sources */,
+				4E9625DAE9E3F26E819DBA85 /* UICollectionView+Init.swift in Sources */,
+				2F58B9A0E206436DC3EABA5B /* UIColor+Init.swift in Sources */,
+				B3B361B648E31D677A788532 /* UIColor+Modificators.swift in Sources */,
+				CC8E61CD1717F69F7E7E6405 /* UIEdgeInsets+Init.swift in Sources */,
+				CF691BF3F7C479B9E669B63A /* UIFont+Init.swift in Sources */,
+				C8CAD691F30D9727B7D1ABF0 /* UIFont+System.swift in Sources */,
+				E19EDC02B26FA1C373CB6AEF /* UILabel+Init.swift in Sources */,
+				7475099ADCB484F0659B3BA1 /* UINavigationController+Styles.swift in Sources */,
+				AB1466EA78765C8CABA8E416 /* UIOffset+Init.swift in Sources */,
+				2294FF0ED57D277EED8A4C30 /* UITabBarController+Styles.swift in Sources */,
+				14756782E39F862F33AC340D /* UITableView+Init.swift in Sources */,
+				10297DB7FAB11478B2BC42C9 /* PercentUtils.swift in Sources */,
+				B4F4FE07064955EFA843CB79 /* Styleable.swift in Sources */,
 				3284D6AB090D1F0C08AF3E6D /* UIButton+BackgroundColor.swift in Sources */,
 				EBD54ADAEB74FFC3B0EF7E36 /* UIView+traits.swift in Sources */,
 				99FAD22CDC2350575E4561DC /* AssociatedObject.swift in Sources */,
@@ -1142,6 +1762,31 @@
 				68175BE76076F69E0A20066B /* TableViewBase.swift in Sources */,
 				207DADAE641534748F6ED0B1 /* TableViewCell.swift in Sources */,
 				B7246FF18A6868A19F08FC53 /* TableViewState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70C54950499EB15BB7D1149E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9A26AB336B0D64FA83EAD4B /* AttributeTest.swift in Sources */,
+				80000015F13A658B724BD419 /* CGAffineTransform+ShortcutTest.swift in Sources */,
+				F05424B98B4E1833D216AC6D /* CGPoint+InitTest.swift in Sources */,
+				3B2E5CB8A3B16573AF1D9BFE /* CGRect+InitTest.swift in Sources */,
+				B24FD2CE79630DEBCEB3090B /* CGSize+InitTest.swift in Sources */,
+				C4D913D0C0AAB27897EEBC53 /* NSAttributedString+AttributeTest.swift in Sources */,
+				233114B60B5771886766C988 /* PercentUtilsTest.swift in Sources */,
+				0ECA0D33949BF519E2D57581 /* StyleableTest.swift in Sources */,
+				DFF26D556E071110F95CEDCF /* UIButton+UtilsTest.swift in Sources */,
+				CD745CA4FCF5651D78D4BECC /* UICollectionView+InitTest.swift in Sources */,
+				A76226CFF91BB6ECCAF811B3 /* UIColor+InitTest.swift in Sources */,
+				699ECE1440C8F03A4A7C739F /* UIColor+ModificatorsTest.swift in Sources */,
+				EE6C90BD2434FEAA4DF70945 /* UIEdgeInsets+InitTest.swift in Sources */,
+				3B1713EF7A7352FF745BA827 /* UIFont+InitTest.swift in Sources */,
+				899336F4DB16D88E3194ADBC /* UILabel+InitTest.swift in Sources */,
+				3D687225AB25CB25CDE573A4 /* UIOffset+InitTest.swift in Sources */,
+				54353C078A6EF13E14B2549A /* UITableView+InitTest.swift in Sources */,
+				D7152AAFE3FC55FBF5AC8635 /* InterfaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1186,8 +1831,6 @@
 				837D267F65E6D55AC4CC5DF5 /* SubConfiguration.swift in Sources */,
 				FA7AA31ADE2F7B3183C114C6 /* ActionPublisher.swift in Sources */,
 				A0C1C1C61C687172B7153F18 /* Array+subarrays.swift in Sources */,
-				67F0035FC0A092B9982B9BEE /* Attribute.swift in Sources */,
-				2F8D6B3CCED9C8B2D3ABE308 /* NSAttributedString+Attribute.swift in Sources */,
 				5590780A00132CEB3EFC06A5 /* Configuration+Core.swift in Sources */,
 				91FA5BE514E53BF9F3023574 /* Properties+Core.swift in Sources */,
 				3C11DA689CC5AECB8576F0BB /* Properties+Style.swift in Sources */,
@@ -1206,6 +1849,26 @@
 				3005FAB285C784E627F6744A /* PlainTableViewObserver.swift in Sources */,
 				11B1EA886D22EF65ABE60B20 /* UIBarButtonItemObserver.swift in Sources */,
 				58A6622483B4287D2A22459B /* ReactantThemeSelector.swift in Sources */,
+				F19CC119BD1B44BCAA913D57 /* Attribute.swift in Sources */,
+				2058E4A2C5C3B6108D9EC500 /* NSAttributedString+Attribute.swift in Sources */,
+				01C8EE478C86D700A5DCF452 /* CGAffineTransform+Shortcut.swift in Sources */,
+				219AB651B06FE3B4ECDAAF73 /* CGPoint+Init.swift in Sources */,
+				3BD8B7CB738A6C3EFAFBFABF /* CGRect+Init.swift in Sources */,
+				9C9D13F2B6CB0E8BC814DB3D /* CGSize+Init.swift in Sources */,
+				E28E6D0101FC608069446F01 /* UIButton+Utils.swift in Sources */,
+				99C32356A2205C74DEC56FBB /* UICollectionView+Init.swift in Sources */,
+				87F5778E31049F7BE684D054 /* UIColor+Init.swift in Sources */,
+				D1C2C34DEEC0C2C92952BD8C /* UIColor+Modificators.swift in Sources */,
+				75718673F99D2F04BFA8AEF3 /* UIEdgeInsets+Init.swift in Sources */,
+				0F746F86D83ADD1B4CB43DD0 /* UIFont+Init.swift in Sources */,
+				B66778E2ABF2323796EE9788 /* UIFont+System.swift in Sources */,
+				361E5E7E6ADF572F1298F8CD /* UILabel+Init.swift in Sources */,
+				2F7F3BA0BAC03FD39FC19FF2 /* UINavigationController+Styles.swift in Sources */,
+				9B349AF635563E74B2F1B62F /* UIOffset+Init.swift in Sources */,
+				BFD503135C23F953D4F0D7D0 /* UITabBarController+Styles.swift in Sources */,
+				B62CD0132DCBF0144B5FA6C0 /* UITableView+Init.swift in Sources */,
+				21AA0198D0C7FCDA954B0752 /* PercentUtils.swift in Sources */,
+				B5588833A1594C8C48498AB8 /* Styleable.swift in Sources */,
 				C459124FEC544404FFBC0A75 /* UIButton+BackgroundColor.swift in Sources */,
 				EA851DCF264D980CA962B8CC /* UIView+traits.swift in Sources */,
 				DEF7CDBFE04EA816A45896E1 /* AssociatedObject.swift in Sources */,
@@ -1249,6 +1912,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A8FEF612E991DAD65142A85C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C2C1BC4FBD89A98B8FF98F /* AttributeTest.swift in Sources */,
+				BB0E478FCF16BC425D375285 /* CGAffineTransform+ShortcutTest.swift in Sources */,
+				E434D35C8520FDB4E8F785AA /* CGPoint+InitTest.swift in Sources */,
+				DE6A840437EA4F51568C3583 /* CGRect+InitTest.swift in Sources */,
+				A358FB805D55D49117D89C87 /* CGSize+InitTest.swift in Sources */,
+				3E5C362CDF69AFE914507B17 /* NSAttributedString+AttributeTest.swift in Sources */,
+				958D37A1624023861E938081 /* PercentUtilsTest.swift in Sources */,
+				B288740A365DD21D4EB7A945 /* StyleableTest.swift in Sources */,
+				5318659DC9FBA976E471FE81 /* UIButton+UtilsTest.swift in Sources */,
+				798222523E0187692753B729 /* UICollectionView+InitTest.swift in Sources */,
+				B32CBE6DBC88CA968201328C /* UIColor+InitTest.swift in Sources */,
+				46FEE037B01F4EF5D027CDFF /* UIColor+ModificatorsTest.swift in Sources */,
+				9CBD0618EE2F811F08819A38 /* UIEdgeInsets+InitTest.swift in Sources */,
+				452A66F6A268F5B47282C867 /* UIFont+InitTest.swift in Sources */,
+				23E862C3D6F0A50EB5562F79 /* UILabel+InitTest.swift in Sources */,
+				54457A7015B0E2EDC8B01FAE /* UIOffset+InitTest.swift in Sources */,
+				8AD462085365EAEEB6087697 /* UITableView+InitTest.swift in Sources */,
+				7488C69154CBEDE46694A3AB /* InterfaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA47EC325FC8991C89BF88FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1282,8 +1970,6 @@
 				C660702688F970B1B8D31A40 /* SubConfiguration.swift in Sources */,
 				1A4A0849ACF4C224D767DA17 /* ActionPublisher.swift in Sources */,
 				8809BF6F52F89F8F81E505E7 /* Array+subarrays.swift in Sources */,
-				B2FA9250C461A39E8ADCA5AF /* Attribute.swift in Sources */,
-				AF3AFF5B66AE619E76A6A9B4 /* NSAttributedString+Attribute.swift in Sources */,
 				6152A4723DBB6DA851DF9191 /* Configuration+Core.swift in Sources */,
 				A0866DDDC00278F5BD916813 /* Properties+Core.swift in Sources */,
 				CAEA3F6E852A0A327EC077E8 /* Properties+Style.swift in Sources */,
@@ -1302,6 +1988,26 @@
 				08F84A5A4A96D0584CE325E6 /* PlainTableViewObserver.swift in Sources */,
 				8F832760FA61C2C2338FD757 /* UIBarButtonItemObserver.swift in Sources */,
 				38BCBE23CA02451F769E8ACD /* ReactantThemeSelector.swift in Sources */,
+				9E4ABBF959636C4CB6946255 /* Attribute.swift in Sources */,
+				7E7FB7E52F09E6AC13F89F45 /* NSAttributedString+Attribute.swift in Sources */,
+				7C24F0D38A465D8143390AF0 /* CGAffineTransform+Shortcut.swift in Sources */,
+				22C2C1063937D3C170A4D864 /* CGPoint+Init.swift in Sources */,
+				CB890CFF6E0F973993B50E8F /* CGRect+Init.swift in Sources */,
+				EAD6CE6F7CAA8F25AEF9CE62 /* CGSize+Init.swift in Sources */,
+				318A886AD7E5818CA1C8821A /* UIButton+Utils.swift in Sources */,
+				D5943A27519FA680B744B340 /* UICollectionView+Init.swift in Sources */,
+				5202015EE51D74314F194C81 /* UIColor+Init.swift in Sources */,
+				62A9C5FBFCBEE36B99E9E187 /* UIColor+Modificators.swift in Sources */,
+				3AF94B5AE2337CE32D958895 /* UIEdgeInsets+Init.swift in Sources */,
+				F6ABA54371E0E401FEDC8522 /* UIFont+Init.swift in Sources */,
+				513DE78732FC7C493615B7F1 /* UIFont+System.swift in Sources */,
+				2022819EE7272DB9CA6AA02A /* UILabel+Init.swift in Sources */,
+				3D74A2FCC738762B8A8E8A91 /* UINavigationController+Styles.swift in Sources */,
+				8342D21400173AFD8F0F6621 /* UIOffset+Init.swift in Sources */,
+				1CC944D9FD694BA37339E06A /* UITabBarController+Styles.swift in Sources */,
+				19ECF896B3EED531BFE0100D /* UITableView+Init.swift in Sources */,
+				AEEC41B04C5639AB5B7C71D1 /* PercentUtils.swift in Sources */,
+				E509853CE4F5AAF183735C68 /* Styleable.swift in Sources */,
 				83FB392B88DF0DEA80D430BA /* UIButton+BackgroundColor.swift in Sources */,
 				7C895EF84FDBC948A19A20EB /* UIView+traits.swift in Sources */,
 				F03B420180E6B96E381F2113 /* AssociatedObject.swift in Sources */,
@@ -1350,6 +2056,7 @@
 /* Begin XCBuildConfiguration section */
 		144B43B65114487B0B026099 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42484750DEF70A33C199967C /* Pods-Interface-HyperdriveInterface-tvOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1364,6 +2071,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = appletvos;
@@ -1414,9 +2122,53 @@
 			};
 			name = Debug;
 		};
+		64A467ED8B13994D555CFE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 931E19557FFEA85CFA4FE41C /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		715DB3DBBEE71C945DD90ED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACE29AC65820C843534A8F28 /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
 		8322066FEB98361D5CB08818 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F1F109B8BD8CCCCCC631657 /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */;
+			baseConfigurationReference = 1C03C51109E9394BF2E9E83B /* Pods-Interface-HyperdriveInterface-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1434,6 +2186,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = macosx;
@@ -1450,7 +2203,7 @@
 		};
 		8F00CD1DBBFB0CEFC954D647 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B151901F055581E3B7503950 /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */;
+			baseConfigurationReference = 9C57EF322FDB7F33456E98BE /* Pods-Interface-HyperdriveInterface-iOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1467,6 +2220,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = iphoneos;
@@ -1482,9 +2236,57 @@
 			};
 			name = Release;
 		};
+		91911C41E17FBDAB025A0917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D4BA795C2B2279180337B57 /* Pods-Interface-Tests-HyperdriveInterfaceTests-tvOS.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		97DD4DB03161BB976DDE7294 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 042BDFC612F93FD0E4F5CBB6 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		9F1173DA87E050B63D8043FF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54DDEC5E205B10E2593D0583 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */;
+			baseConfigurationReference = 3B68328451265C738F2F0BE7 /* Pods-Interface-HyperdriveInterface-iOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1501,6 +2303,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = iphoneos;
@@ -1609,7 +2412,7 @@
 		};
 		C104C4D296A83263EDD8EFED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C8A6F08D6209A36DF36C331 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */;
+			baseConfigurationReference = 027CB288FDEE18DBCC58D4B6 /* Pods-Interface-HyperdriveInterface-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1627,6 +2430,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = macosx;
@@ -1690,8 +2494,34 @@
 			};
 			name = Release;
 		};
+		DE386AD57394CD1C6F0092AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CD8C085665E5E0CDC594B39 /* Pods-Interface-Tests-HyperdriveInterfaceTests-iOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EEC4554851836CC27E7435E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2FCDDBED7DC730018C5D150 /* Pods-Interface-HyperdriveInterface-tvOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1706,6 +2536,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DEnableHelperExtensions";
 				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.Interface;
 				PRODUCT_NAME = HyperdriveInterface;
 				SDKROOT = appletvos;
@@ -1720,9 +2551,47 @@
 			};
 			name = Release;
 		};
+		FD5779409E0858854F19F998 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35F6B69B4232439937DB115B /* Pods-Interface-Tests-HyperdriveInterfaceTests-macOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				INFOPLIST_FILE = "Metadata/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.brightify.hyperdrive.InterfaceTests;
+				PRODUCT_NAME = HyperdriveInterfaceTests;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		214F5433E0D670E1DFBFDC8B /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97DD4DB03161BB976DDE7294 /* Debug */,
+				DE386AD57394CD1C6F0092AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		422FE41AE1F92CBD84DB54C9 /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91911C41E17FBDAB025A0917 /* Debug */,
+				64A467ED8B13994D555CFE42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		488268EF607D8DAF87042531 /* Build configuration list for PBXNativeTarget "HyperdriveInterface-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1736,6 +2605,14 @@
 			buildConfigurations = (
 				8322066FEB98361D5CB08818 /* Debug */,
 				C104C4D296A83263EDD8EFED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		845C46D6B1CF8CECFDED0AC8 /* Build configuration list for PBXNativeTarget "HyperdriveInterfaceTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				715DB3DBBEE71C945DD90ED0 /* Debug */,
+				FD5779409E0858854F19F998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

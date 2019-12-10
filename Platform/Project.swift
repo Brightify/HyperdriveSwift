@@ -1,4 +1,5 @@
 import ProjectDescription
+import Foundation
 
 enum HyperdrivePlatform: CaseIterable {
     case iOS
@@ -49,15 +50,16 @@ let targets = HyperdrivePlatform.allCases.map {
         deploymentTarget: $0.deploymentTarget,
         infoPlist: "Metadata/Info.plist",
         sources: [
-            "Sources/Core/**",
-            "Sources/Utils/**",
-            "Sources/Validation/**",
+            "Sources/**",
         ],
         resources: [
         ],
         dependencies: [
             TargetDependency.cocoapods(path: ".."),
-        ])
+        ],
+        settings: Settings(base: [
+            "OTHER_SWIFT_FLAGS": "$(inherited) -DEnableExperimentalFeatures",
+        ], defaultSettings: .recommended))
 }
 
 let rxTargets = HyperdrivePlatform.allCases.map {
@@ -70,12 +72,7 @@ let rxTargets = HyperdrivePlatform.allCases.map {
         deploymentTarget: $0.deploymentTarget,
         infoPlist: "Metadata/Info.plist",
         sources: [
-            "Sources/ActivityIndicator/**",
-            "Sources/Core/**",
-            "Sources/Core+RxSwift/**",
-            "Sources/Utils/**",
-            "Sources/Utils+RxSwift/**",
-            "Sources/Validation/**",
+            "RxSources/**",
         ],
         resources: [
         ],
@@ -128,14 +125,14 @@ let rxTestTargets = HyperdrivePlatform.allCases.map {
         ])
 }
 
-let schemes = [
+let schemes = HyperdrivePlatform.allCases.map {
     Scheme(
-        name: "Hyperdrive-iOS",
-        shared: false,
-        buildAction: BuildAction(targets: ["Hyperdrive-iOS"]),
-        testAction: TestAction(targets: ["HyperdriveTests-iOS"]),
+        name: "Hyperdrive-\($0.name)",
+        shared: true,
+        buildAction: BuildAction(targets: ["Hyperdrive-\($0.name)"]),
+        testAction: TestAction(targets: ["HyperdriveTests-\($0.name)"]),
         runAction: nil)
-]
+}
 
 let project = Project(
     name: "Platform",
@@ -144,5 +141,3 @@ let project = Project(
     additionalFiles: [
         "../HyperdrivePlatform.podspec"
     ])
-
-//Project(name: , packages: [Package], settings: , targets:, schemes: , additionalFiles: )

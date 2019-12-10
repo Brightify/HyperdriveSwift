@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import RxSwift
-import Reactant
+import Hyperdrive
 
 final class TestWireframe: Wireframe {
 }

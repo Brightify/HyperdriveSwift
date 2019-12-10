@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Interface
+@testable import HyperdriveInterface
 
 class InterfaceTests: XCTestCase {
 

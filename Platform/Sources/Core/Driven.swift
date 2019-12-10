@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brightify. All rights reserved.
 //
 
+#if EnableExperimentalFeatures
 public class ActionSource<Action> {
     private var observers: [(Action) -> Void] = []
 
@@ -66,3 +67,4 @@ public class DrivenNavigatingController<C: DrivenController & PerformsNavigation
         self.controller = controller
     }
 }
+#endif
