@@ -51,14 +51,14 @@ Pod::Spec.new do |spec|
         subspec.osx.frameworks = 'AppKit'
 
         subspec.source_files = [
-            'Platform/Sources/Core/**/*.swift',
+            'Platform/Sources/**/*.swift',
         ]
     end
 
     spec.subspec 'Interface' do |subspec|
         subspec.dependency 'HyperdriveInterface'
         subspec.source_files = [
-            'Platform/InterfaceBridge/ExportHyperdriveInterface.swift'
+            'Platform/InterfaceBridge/ExportHyperdriveInterface.swift',
         ]
     end
 
@@ -68,8 +68,7 @@ Pod::Spec.new do |spec|
             'OTHER_SWIFT_FLAGS' => '-DENABLE_RXSWIFT'
         }
         rxcore.source_files = [
-            'Platform/RxSources/Core+RxSwift/**/*.swift',
-            'Platform/RxSources/Utils+RxSwift/**/*.swift'
+            'Platform/RxSources/**/*.swift',
         ]
 
         rxSwift(rxcore)
