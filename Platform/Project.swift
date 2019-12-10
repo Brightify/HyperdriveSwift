@@ -72,6 +72,7 @@ let rxTargets = HyperdrivePlatform.allCases.map {
         deploymentTarget: $0.deploymentTarget,
         infoPlist: "Metadata/Info.plist",
         sources: [
+            "Sources/**",
             "RxSources/**",
         ],
         resources: [

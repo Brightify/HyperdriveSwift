@@ -57,6 +57,8 @@ import SnapKit
                         make.bottom.equalToSuperview().priority(lowerPriorityOfLastConstraint ? .high : .required)
                     }
                 }
+            @unknown default:
+                break
             }
 
             previousView = view
