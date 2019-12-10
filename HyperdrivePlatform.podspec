@@ -73,7 +73,7 @@ Pod::Spec.new do |spec|
         ]
 
         rxSwift(rxcore)
-        rxRelay(rxcode)
+        rxRelay(rxcore)
         rxCocoa(rxcore)
     end
 
