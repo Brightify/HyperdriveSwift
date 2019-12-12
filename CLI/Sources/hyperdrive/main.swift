@@ -5,6 +5,7 @@ import SwiftCLI
 
 let generateCommand = GenerateCommand()
 let xsdCommand = XSDCommand()
+let filelistCommand = FilelistCommand()
 
 let cli = CLI(
     name: "hyperdrive",
@@ -12,6 +13,6 @@ let cli = CLI(
     description: """
         Command line tool for the Hyperdrive platform, used to generate UI from XML files and initialize new projects.
     """,
-    commands: [generateCommand, xsdCommand])
+    commands: [generateCommand, xsdCommand, filelistCommand])
 
 cli.goAndExit()
