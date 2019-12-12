@@ -246,7 +246,7 @@ public class UIGenerator: Generator {
                 block: Block(statements: stateNotifyFunctions.map {
                     Statement.expression(.invoke(target: .constant($0.name), arguments: []))
                 })),
-        ]
+            ]
 
         let resolvedActions = try componentContext.resolve(actions: root.providedActions)
 

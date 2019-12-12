@@ -21,3 +21,10 @@ public final class EmptyState: HyperViewState {
 
     public func resynchronize() { }
 }
+
+public extension HyperViewState {
+    func apply(mutation: (Self) throws -> Void) rethrows -> Self {
+        mutation(self)
+        return self
+    }
+}
