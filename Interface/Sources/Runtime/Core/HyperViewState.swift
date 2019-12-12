@@ -24,7 +24,7 @@ public final class EmptyState: HyperViewState {
 
 public extension HyperViewState {
     func apply(mutation: (Self) throws -> Void) rethrows -> Self {
-        mutation(self)
+        try mutation(self)
         return self
     }
 }
