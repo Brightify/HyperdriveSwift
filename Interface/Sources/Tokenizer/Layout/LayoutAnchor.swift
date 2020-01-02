@@ -59,10 +59,10 @@ public enum LayoutAnchor: CustomStringConvertible, Hashable {
         }
     }
 
-    init(_ string: String) throws {
+    init(_ string: String, attribute: LayoutAttribute) throws {
         let marginSuffix = ".margin"
         if string.hasSuffix(marginSuffix) {
-            self = try Self(String(string.dropLast(marginSuffix.count)))
+            self = try Self(String(string.dropLast(marginSuffix.count)), attribute: attribute)
         }
 
         switch string {
@@ -92,6 +92,8 @@ public enum LayoutAnchor: CustomStringConvertible, Hashable {
             self = .lastBaseline
         case "size":
             self = .size
+        case "margin":
+            self = attribute.targetAnchor
         default:
             throw TokenizationError(message: "Unknown layout anchor \(string)")
         }

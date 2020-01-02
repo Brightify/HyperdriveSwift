@@ -121,7 +121,7 @@ class ConstraintParser: BaseParser<Constraint> {
     private func parseTargetAnchor() throws -> LayoutAnchor? {
         guard peekToken() == .period, case .identifier(let identifier)? = peekNextToken() else { return nil }
         try popTokens(2)
-        return try LayoutAnchor(identifier)
+        return try LayoutAnchor(identifier, attribute: layoutAttribute)
     }
     
     private func parseModifier() throws -> ConstraintModifier? {
