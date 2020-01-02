@@ -55,4 +55,8 @@ open class HyperViewController<View: Platform.View & HyperView>: ComposableHyper
     public init(initialState: View.StateType = View.StateType()) {
         super.init(initialState: initialState, viewFactory: { View(initialState: initialState, actionPublisher: $0) })
     }
+
+    open override func handle(action: View.ActionType) {
+        super.handle(action: action)
+    }
 }
