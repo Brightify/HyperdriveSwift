@@ -93,9 +93,17 @@ public enum LayoutAnchor: CustomStringConvertible, Hashable {
         case "size":
             self = .size
         case "margin":
-            self = attribute.targetAnchor
+            self = Self.margin(attribute.targetAnchor).flattenMargins()
         default:
             throw TokenizationError(message: "Unknown layout anchor \(string)")
+        }
+    }
+
+    private func flattenMargins() -> Self {
+        if case .margin(let inner) = self {
+            return inner.flattenMargins()
+        } else {
+            return .margin(self)
         }
     }
 }
