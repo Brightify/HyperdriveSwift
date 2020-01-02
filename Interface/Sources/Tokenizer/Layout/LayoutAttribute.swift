@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum LayoutAttribute {
+public enum LayoutAttribute: Hashable {
     case leading
     case trailing
     case left
@@ -24,6 +24,7 @@ public enum LayoutAttribute {
     case firstBaseline
     case lastBaseline
     case size
+    indirect case margin(LayoutAttribute)
 
     public var insetDirection: Double {
         switch self {
@@ -31,10 +32,17 @@ public enum LayoutAttribute {
             return 1
         case .trailing, .right, .bottom, .width, .height, .after, .below, .centerY, .centerX, .firstBaseline, .lastBaseline, .size:
             return -1
+        case .margin(let inner):
+            return inner.insetDirection
         }
     }
 
     static func deserialize(_ string: String) throws -> [LayoutAttribute] {
+        let marginSuffix = ".margin"
+        if string.hasSuffix(marginSuffix) {
+            return try Self.deserialize(String(string.dropLast(marginSuffix.count))).map(Self.margin)
+        }
+
         switch string {
         case "leading":
             return [.leading]
@@ -62,10 +70,14 @@ public enum LayoutAttribute {
             return [.below]
         case "edges":
             return [.left, .right, .top, .bottom]
-        case "fillHorizontally":
+        case "fillHorizontally", "horizontalEdges":
             return [.left, .right]
-        case "fillVertically":
+        case "fillVertically", "verticalEdges", "directionalVerticalEdges":
             return [.top, .bottom]
+        case "directionalEdges":
+            return [.leading, .trailing, .top, .bottom]
+        case "directionalHorizontalEdges":
+            return [.leading, .trailing]
         case "centerX":
             return [.centerX]
         case "centerY":
@@ -78,6 +90,10 @@ public enum LayoutAttribute {
             return [.lastBaseline]
         case "size":
             return [.size]
+        case "margins":
+            return [.left, .right, .top, .bottom].map(Self.margin)
+        case "directionalMargins":
+            return [.leading, .trailing, .top, .bottom].map(Self.margin)
         default:
             throw TokenizationError(message: "Unknown layout attribute \(string)")
         }
@@ -111,6 +127,8 @@ public enum LayoutAttribute {
             return .lastBaseline
         case .size:
             return .size
+        case .margin(let inner):
+            return .margin(inner.anchor)
         }
     }
 
@@ -142,6 +160,8 @@ public enum LayoutAttribute {
             return .lastBaseline
         case .size:
             return .size
+        case .margin(let inner):
+            return .margin(inner.targetAnchor)
         }
     }
 }

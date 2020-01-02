@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum LayoutAnchor: CustomStringConvertible {
+public enum LayoutAnchor: CustomStringConvertible, Hashable {
     case top
     case bottom
     case leading
@@ -20,6 +20,7 @@ public enum LayoutAnchor: CustomStringConvertible {
     case firstBaseline
     case lastBaseline
     case size
+    indirect case margin(LayoutAnchor)
 
     public var description: String {
         switch self {
@@ -49,10 +50,21 @@ public enum LayoutAnchor: CustomStringConvertible {
             return "lastBaseline"
         case .size:
             return "size"
+        case .margin(let inner) where [.leading, .left, .top, .bottom, .right, .trailing].contains(inner):
+            return "\(inner.description)Margin"
+        case .margin(let inner) where [.centerX, .centerY].contains(inner):
+            return "\(inner.description)WithinMargins"
+        case .margin(let inner):
+            return inner.description
         }
     }
 
     init(_ string: String) throws {
+        let marginSuffix = ".margin"
+        if string.hasSuffix(marginSuffix) {
+            self = try Self(String(string.dropLast(marginSuffix.count)))
+        }
+
         switch string {
         case "leading":
             self = .leading

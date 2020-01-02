@@ -94,6 +94,8 @@ open class TableViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, ComposableHy
         setupConstraints()
 
         afterInit()
+
+        state.owner = self
     }
 
     private func afterInit() {

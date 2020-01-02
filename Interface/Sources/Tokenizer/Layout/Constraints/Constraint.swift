@@ -103,7 +103,7 @@ public struct Constraint {
             case .readableContentGuide:
                 targetString = "readableContentGuide"
             }
-            if targetAnchor != anchor && attribute != .before && attribute != .after {
+            if targetAnchor != anchor && ![.before, .after, .margin(.before), .margin(.after)].contains(attribute) {
                 targetString += ".\(targetAnchor.description)"
             }
             value += targetString

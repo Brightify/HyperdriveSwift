@@ -3,6 +3,7 @@
 ## 2.0.0
 * Rename to Hyperdrive
 * Remove RxSwift dependency
+* Add support for layout margins
 
 ## 1.2.0
 * Add takeUntil to Wireframe
