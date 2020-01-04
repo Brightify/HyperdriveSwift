@@ -73,6 +73,8 @@ public class PickerView<Item>: ConfigurableHyperViewBase, HyperView, UIPickerVie
     }
 
     private func setupConstraints() {
+        translatesAutoresizingMaskIntoConstraints = false
+
         pickerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
