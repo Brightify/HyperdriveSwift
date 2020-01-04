@@ -86,10 +86,10 @@ extension Module.UIKit {
         public static let primaryActionTriggered = ControlEventAction(name: "primaryActionTriggered", aliases: ["primary"], event: .primaryActionTriggered)
 
         public static let allEditingEvents: [ControlEventAction] = [
-            ControlEventAction(name: "editingDidBegin", event: .editingDidBegin),
-            ControlEventAction(name: "editingChanged", aliases: ["textChanged"], parameters: [(label: "text", type: .propertyType(String.typeFactory))], event: .editingChanged),
-            ControlEventAction(name: "editingDidEnd", event: .editingDidEnd),
-            ControlEventAction(name: "editingDidEndOnExit", event: .editingDidEndOnExit),
+            ControlEventAction(name: "editingDidBegin", parameters: [(label: "text", type: .propertyType(String?.typeFactory))], event: .editingDidBegin),
+            ControlEventAction(name: "editingChanged", aliases: ["textChanged"], parameters: [(label: "text", type: .propertyType(String?.typeFactory))], event: .editingChanged),
+            ControlEventAction(name: "editingDidEnd", parameters: [(label: "text", type: .propertyType(String?.typeFactory))], event: .editingDidEnd),
+            ControlEventAction(name: "editingDidEndOnExit", parameters: [(label: "text", type: .propertyType(String?.typeFactory))], event: .editingDidEndOnExit),
         ]
     }
 }
