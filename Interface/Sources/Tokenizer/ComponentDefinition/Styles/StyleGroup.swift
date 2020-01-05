@@ -12,7 +12,7 @@
  */
 public struct StyleGroup {
     public var swiftName: String {
-        return name.capitalizingFirstLetter() + "Styles"
+        return name.capitalizingFirstLetter() + (name.hasSuffix("Styles") ? "" : "Styles")
     }
     public var name: String
     public var accessModifier: AccessModifier
