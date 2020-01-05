@@ -447,7 +447,6 @@ public class UIGenerator: Generator {
 
         let name = element.id.description
 
-        let applyStyle = Expression.member(target: .constant(name), name: "apply")
         for style in element.styles {
             let styleExpression: Expression
             switch style {
@@ -459,8 +458,8 @@ public class UIGenerator: Generator {
             }
 
             block += .expression(
-                .invoke(target: applyStyle, arguments: [
-                    MethodArgument(name: "style", value: styleExpression)
+                .invoke(target: styleExpression, arguments: [
+                    MethodArgument(value: .constant(name))
                 ]))
         }
 
