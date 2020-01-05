@@ -116,35 +116,57 @@ public class ReactantLiveUIViewApplier {
                 // FIXME: that `try!` is not looking good
                 if let condition = constraint.condition, try! !condition.evaluate(from: traits, in: view) { continue }
 
-                let maker: ConstraintMakerExtendable
-                switch constraint.anchor {
-                case .top:
-                    maker = make.top
-                case .bottom:
-                    maker = make.bottom
-                case .leading:
-                    maker = make.leading
-                case .trailing:
-                    maker = make.trailing
-                case .left:
-                    maker = make.left
-                case .right:
-                    maker = make.right
-                case .width:
-                    maker = make.width
-                case .height:
-                    maker = make.height
-                case .centerX:
-                    maker = make.centerX
-                case .centerY:
-                    maker = make.centerY
-                case .firstBaseline:
-                    maker = make.firstBaseline
-                case .lastBaseline:
-                    maker = make.lastBaseline
-                case .size:
-                    maker = make.size
+                func constraintMakerExtendable(from anchor: LayoutAnchor) -> ConstraintMakerExtendable {
+                    switch anchor {
+                    case .top:
+                        return make.top
+                    case .bottom:
+                        return make.bottom
+                    case .leading:
+                        return make.leading
+                    case .trailing:
+                        return make.trailing
+                    case .left:
+                        return make.left
+                    case .right:
+                        return make.right
+                    case .width:
+                        return make.width
+                    case .height:
+                        return make.height
+                    case .centerX:
+                        return make.centerX
+                    case .centerY:
+                        return make.centerY
+                    case .firstBaseline:
+                        return make.firstBaseline
+                    case .lastBaseline:
+                        return make.lastBaseline
+                    case .size:
+                        return make.size
+                    case .margin(.top):
+                        return make.topMargin
+                    case .margin(.bottom):
+                        return make.bottomMargin
+                    case .margin(.leading):
+                        return make.leadingMargin
+                    case .margin(.trailing):
+                        return make.trailingMargin
+                    case .margin(.left):
+                        return make.leftMargin
+                    case .margin(.right):
+                        return make.rightMargin
+                    case .margin(.centerX):
+                        return make.centerXWithinMargins
+                    case .margin(.centerY):
+                        return make.centerYWithinMargins
+                    case .margin(let innerAnchor):
+                        return constraintMakerExtendable(from: innerAnchor)
+                    }
                 }
+
+                let maker = constraintMakerExtendable(from: constraint.anchor)
+
 
                 let target: ConstraintRelatableTarget
 
@@ -169,34 +191,57 @@ public class ReactantLiveUIViewApplier {
                     }
 
                     if targetDefinition.targetAnchor != constraint.anchor {
-                        switch targetDefinition.targetAnchor {
-                        case .top:
-                            target = targetView.top
-                        case .bottom:
-                            target = targetView.bottom
-                        case .leading:
-                            target = targetView.leading
-                        case .trailing:
-                            target = targetView.trailing
-                        case .left:
-                            target = targetView.left
-                        case .right:
-                            target = targetView.right
-                        case .width:
-                            target = targetView.width
-                        case .height:
-                            target = targetView.height
-                        case .centerX:
-                            target = targetView.centerX
-                        case .centerY:
-                            target = targetView.centerY
-                        case .firstBaseline:
-                            target = targetView.firstBaseline
-                        case .lastBaseline:
-                            target = targetView.lastBaseline
-                        case .size:
-                            target = targetView.size
+                        func constraintRelatableTarget(from targetAnchor: LayoutAnchor) -> ConstraintRelatableTarget {
+                            switch targetAnchor {
+                            case .top:
+                                return targetView.top
+                            case .bottom:
+                                return targetView.bottom
+                            case .leading:
+                                return targetView.leading
+                            case .trailing:
+                                return targetView.trailing
+                            case .left:
+                                return targetView.left
+                            case .right:
+                                return targetView.right
+                            case .width:
+                                return targetView.width
+                            case .height:
+                                return targetView.height
+                            case .centerX:
+                                return targetView.centerX
+                            case .centerY:
+                                return targetView.centerY
+                            case .firstBaseline:
+                                return targetView.firstBaseline
+                            case .lastBaseline:
+                                return targetView.lastBaseline
+                            case .size:
+                                return targetView.size
+                            case .margin(.top):
+                                return targetView.topMargin
+                            case .margin(.bottom):
+                                return targetView.bottomMargin
+                            case .margin(.leading):
+                                return targetView.leadingMargin
+                            case .margin(.trailing):
+                                return targetView.trailingMargin
+                            case .margin(.left):
+                                return targetView.leftMargin
+                            case .margin(.right):
+                                return targetView.rightMargin
+                            case .margin(.centerX):
+                                return targetView.centerXWithinMargins
+                            case .margin(.centerY):
+                                return targetView.centerYWithinMargins
+                            case .margin(let innerAnchor):
+                                return constraintRelatableTarget(from: innerAnchor)
+                            }
                         }
+
+                        target = constraintRelatableTarget(from: targetDefinition.targetAnchor)
+
                     } else {
                         guard let constraintTarget = targetView.target as? ConstraintRelatableTarget else {
                             fatalError("Target view was not what was expected, please report this crash to Issues on GitHub.")
