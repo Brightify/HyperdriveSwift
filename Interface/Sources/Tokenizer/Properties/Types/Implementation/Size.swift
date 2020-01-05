@@ -26,7 +26,7 @@ public struct Size: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
-        return .constant("CGSize(width: \(CGFloat(width)), height: \(CGFloat(height))")
+        return .constant("CGSize(width: \(CGFloat(width)), height: \(CGFloat(height)))")
     }
     #endif
     
