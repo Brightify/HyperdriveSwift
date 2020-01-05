@@ -26,7 +26,14 @@ public class UIGenerator: Generator {
     }
 
     public override func generate(imports: Bool) throws -> Describable {
-        let viewAccessibility: Accessibility = componentContext.component.modifier == .public || configuration.defaultModifier == .public ? .public : .internal
+        let viewAccessibility: Accessibility
+        if componentContext.component.modifier == .open || configuration.defaultModifier == .open {
+            viewAccessibility = .open
+        } else if componentContext.component.modifier == .public || configuration.defaultModifier == .public {
+            viewAccessibility = .public
+        } else {
+            viewAccessibility = .internal
+        }
 
         let triggerReloadPaths = Expression.arrayLiteral(items:
             [configuration.localXmlPath].map { Expression.constant(#""\#($0)""#) }
@@ -350,7 +357,7 @@ public class UIGenerator: Generator {
 
         let viewClass = try Structure.class(
             accessibility: viewAccessibility,
-            isFinal: true,
+            isFinal: root.isFinal && viewAccessibility != .open,
             name: root.type,
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,

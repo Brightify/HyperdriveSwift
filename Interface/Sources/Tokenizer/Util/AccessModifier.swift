@@ -6,6 +6,7 @@
 //
 
 public enum AccessModifier: String {
+    case `open`
     case `public`
     case `internal`
 }

@@ -24,6 +24,7 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
     public var edgesForExtendedLayout: [RectEdge]
     public var isAnonymous: Bool
     public var modifier: AccessModifier
+    public var isFinal: Bool
     public var handledActions: [HyperViewAction]
     public var properties: [Property]
     public var toolingProperties: [String: Property]
@@ -85,6 +86,7 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
         } else {
             self.modifier = .internal
         }
+        isFinal = try node.value(ofAttribute: "final", defaultValue: true)
         handledActions = try node.allAttributes.compactMap { _, value in
             try HyperViewAction(attribute: value)
         }
