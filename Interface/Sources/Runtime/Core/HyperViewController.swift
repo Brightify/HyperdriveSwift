@@ -11,7 +11,7 @@ import Foundation
 open class ComposableHyperViewController<View: Platform.View & ComposableHyperView>: Platform.ViewController {
     public let viewManager: HyperViewManager<View>
 
-    public var hyperView: View {
+    open var hyperView: View {
         guard let hyperView = view as? View else {
             fatalError("View was changed and it not an instance of \(View.self) anymore! If you do that, make sure to override this property to return the correct HyperView instance!")
         }
@@ -35,7 +35,9 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
     }
 
     open override func loadView() {
-        view = viewManager.load(actionHandler: handle(action:))
+        view = viewManager.load(actionHandler: { [weak self] action in
+            self?.handle(action: action)
+        })
 
         if let hasNavigationItem = view as? HasNavigationItem {
             if navigationItem.leftBarButtonItems == nil && hasNavigationItem.leftBarButtonItems != nil {
