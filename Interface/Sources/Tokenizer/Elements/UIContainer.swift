@@ -49,6 +49,10 @@ public extension UIContainer {
         return allChildren.filter { $0.isInjected }
     }
 
+    var hasInjectedChildren: Bool {
+        return allChildren.contains { $0.isInjected }
+    }
+
     func findChild(byId id: String) -> UIElement? {
         for child in children {
             if child.id.description == id {

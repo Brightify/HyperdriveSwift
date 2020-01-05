@@ -236,8 +236,9 @@ class GenerateCommand: Command {
                     .constant(
                         name: "componentTypes",
                         type: "[String: (HyperViewBase.Type, () -> HyperViewBase)]",
-                        value: .dictionaryLiteral(items: Set(componentTypes).map {
-                            (key: .constant($0.enquoted), value: .constant("(\($0).self, { \($0)() })"))
+                        value: .dictionaryLiteral(items: Set(componentTypes).compactMap { componentType in
+                            guard let definition = try? globalContext.definition(for: componentType), !definition.hasInjectedChildren else { return nil }
+                            return (key: .constant(componentType.enquoted), value: .constant("(\(componentType).self, { \(componentType)() })"))
                         }))
                 ])
 
