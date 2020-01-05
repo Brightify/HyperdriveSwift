@@ -34,6 +34,7 @@ public class UIGenerator: Generator {
         } else {
             viewAccessibility = .internal
         }
+        let isViewClassFinal = root.isFinal && viewAccessibility != .open
 
         let triggerReloadPaths = Expression.arrayLiteral(items:
             [configuration.localXmlPath].map { Expression.constant(#""\#($0)""#) }
@@ -162,6 +163,7 @@ public class UIGenerator: Generator {
 
         let viewInit = try Function.initializer(
             accessibility: viewAccessibility,
+            modifiers: isViewClassFinal ? [] : [.required],
             parameters: [
                 .init(name: "initialState", type: "State", defaultValue: "State()"),
                 .init(name: "actionPublisher", type: "ActionPublisher<Action>", defaultValue: "ActionPublisher()"),
@@ -357,7 +359,7 @@ public class UIGenerator: Generator {
 
         let viewClass = try Structure.class(
             accessibility: viewAccessibility,
-            isFinal: root.isFinal && viewAccessibility != .open,
+            isFinal: isViewClassFinal,
             name: root.type,
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
