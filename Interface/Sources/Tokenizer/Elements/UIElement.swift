@@ -288,6 +288,49 @@ extension UIElementID: XMLAttributeDeserializable {
     }
 }
 
+public struct UIElementInjectionOptions: OptionSet, XMLAttributeDeserializable {
+    public static let injected = UIElementInjectionOptions(rawValue: 1 << 0)
+    public static let generic: UIElementInjectionOptions = [UIElementInjectionOptions(rawValue: 1 << 1), injected]
+    #warning("TODO Add support for state injected views.")
+//    public static let state = UIElementInjectionOptions(rawValue: 1 << 2)
+    public static let initializer = UIElementInjectionOptions(rawValue: 1 << 3)
+    public static let none: UIElementInjectionOptions = []
+
+    private static let mapping: [String: UIElementInjectionOptions] = [
+        "true": injected,
+        "injected": injected,
+        "generic": generic,
+//        "state": state,
+        "init": initializer,
+    ]
+
+    public let rawValue: Int
+
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    public static func deserialize(_ attribute: XMLAttribute) throws -> UIElementInjectionOptions {
+        let splitValue = attribute.text.components(separatedBy: "|")
+
+        let reducedValue: UIElementInjectionOptions = try splitValue.reduce([]) { accumulator, value in
+            guard let mappedValue = mapping[value] else {
+                throw TokenizationError(
+                    message: "Unsupported value <\(value)> for UIElementInjectionOptions. Supported values: \(mapping.keys.joined(separator: ", "))")
+            }
+
+            return accumulator.union(mappedValue)
+        }
+
+        #warning("TODO Uncomment when state injection is added.")
+        if /*!reducedValue.contains(.state) &&*/ !reducedValue.contains(.initializer) {
+            return reducedValue.union(.initializer)
+        } else {
+            return reducedValue
+        }
+    }
+}
+
 /**
  * Contains the interface to a real UI element (layout, styling).
  * Conforming to this protocol is sufficient on its own when creating a UI element.
@@ -297,7 +340,7 @@ public protocol UIElement: AnyObject, UIElementBase, XMLElementSerializable {
 
     var id: UIElementID { get }
     var isExported: Bool { get }
-    var isInjected: Bool { get }
+    var injectionOptions: UIElementInjectionOptions { get }
     var layout: Layout { get set }
     var styles: [StyleName] { get set }
 

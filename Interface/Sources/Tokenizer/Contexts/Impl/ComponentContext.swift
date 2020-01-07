@@ -46,35 +46,8 @@ public class ComponentContext: DataContext {
 
         public struct Description {
             public let item: ComponentDefinition.StateDescription.Item
-
-            public var factory: SupportedTypeFactory {
-                #if canImport(SwiftCodeGen)
-                return AnySupportedTypeFactory(
-                    isNullable: item.isOptional,
-                    xsdType: .builtin(.string),
-                    resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) },
-                    generateStateAccess: { .constant($0) })
-                #else
-                return AnySupportedTypeFactory(
-                    isNullable: item.isOptional,
-                    xsdType: .builtin(.string),
-                    resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) })
-                #endif
-            }
-
-            public var defaultValue: AnySupportedType {
-                #if canImport(SwiftCodeGen)
-                return AnySupportedType(
-                    factory: factory,
-                    generateValue: { [item] context -> Expression in
-                        .constant(item.defaultValue ?? #"#error("Default value not specified!")"#)
-                    })
-                #elseif canImport(UIKit)
-                return AnySupportedType(
-                    factory: factory,
-                    resolveValue: { context in nil })
-                #endif
-            }
+            public let factory: SupportedTypeFactory
+            public let defaultValue: SupportedPropertyType
         }
     }
 
@@ -90,8 +63,8 @@ public class ComponentContext: DataContext {
             properties.map { (element: element, property: $0) }
         }
 
-        let explicitStateItems = Dictionary(state.stateDescription.items.map { ($0.name, $0) }, uniquingKeysWith: { $1 })
-            .mapValues(ResolvedStateItem.Description.init)
+        let explicitStateItems = try Dictionary(state.stateDescription.items.map { ($0.name, $0) }, uniquingKeysWith: { $1 })
+            .mapValues(resolveDescription(item:))
 
         var applicationsToVerify: [String: [ResolvedStateItem.Application]] = Dictionary(grouping: stateProperties.map { element, property in
             ResolvedStateItem.Application(element: element, property: property)
@@ -308,7 +281,7 @@ public class ComponentContext: DataContext {
                 } else if let attributeTypeFactory = stateProperty.typeFactory as? AttributeSupportedTypeFactory {
                     propertyValue = try .value(attributeTypeFactory.materialize(from: value))
                 } else {
-                    throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
+                    propertyValue = .raw(.constant(value), requiresTheme: false)
                 }
 
                 return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)], name: name, anyDescription:
@@ -322,6 +295,152 @@ public class ComponentContext: DataContext {
     public func child(for definition: ComponentDefinition) -> ComponentContext {
         return ComponentContext(globalContext: globalContext, component: definition)
     }
+
+    private func resolveDescription(item: ComponentDefinition.StateDescription.Item) throws -> ResolvedStateItem.Description {
+        let detectedTypeFactory = detectAttributeTypeFactory(from: item.type)
+        let detectedDefaultValue = try item.defaultValue.flatMap { try detectedTypeFactory?.materialize(from: $0) }
+
+        var fallbackFactory: SupportedTypeFactory {
+            #if canImport(SwiftCodeGen)
+            return AnySupportedTypeFactory(
+                isNullable: item.isOptional,
+                xsdType: .builtin(.string),
+                resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) },
+                generateStateAccess: { .constant($0) })
+            #else
+            return AnySupportedTypeFactory(
+                isNullable: item.isOptional,
+                xsdType: .builtin(.string),
+                resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) })
+            #endif
+        }
+
+        var fallbackDefaultValue: AnySupportedType {
+            #if canImport(SwiftCodeGen)
+            return AnySupportedType(
+                factory: fallbackFactory,
+                generateValue: { [item] context -> Expression in
+                    .constant(item.defaultValue ?? #"#error("Default value not specified!")"#)
+                })
+            #elseif canImport(UIKit)
+            return AnySupportedType(
+                factory: factory,
+                resolveValue: { context in nil })
+            #endif
+        }
+
+        return ResolvedStateItem.Description(
+            item: item,
+            factory: detectedTypeFactory ?? fallbackFactory,
+            defaultValue: detectedDefaultValue ?? fallbackDefaultValue)
+    }
+
+    private func detectAttributeTypeFactory(from name: String) -> AttributeSupportedTypeFactory? {
+        if name.hasSuffix("?") {
+            return detectAttributeTypeFactory(from: String(name.dropLast()))
+                .map {
+                    WrappingAttributeSupportedType.WrappingAttributeFactory(wrapping: $0, wrapKind: .optional)
+                }
+        } else if name.hasPrefix("[") && name.hasSuffix("]") {
+            return detectAttributeTypeFactory(from: String(name.dropFirst().dropLast()))
+                .map {
+                    WrappingAttributeSupportedType.WrappingAttributeFactory(wrapping: $0, wrapKind: .array)
+                }
+        } else {
+            return globalContext.platform.supportedTypes.first(where: { factory in
+                factory.runtimeType(for: globalContext.platform).name == name && factory is AttributeSupportedTypeFactory
+            }) as? AttributeSupportedTypeFactory
+        }
+    }
+
+    private final class WrappingAttributeSupportedType: AttributeSupportedPropertyType {
+        enum ValueKind {
+            case optional(Optional<AttributeSupportedPropertyType>)
+            case array([AttributeSupportedPropertyType])
+        }
+
+
+        final class WrappingAttributeFactory: AttributeSupportedTypeFactory {
+            enum Kind {
+                case optional
+                case array
+            }
+
+            public var xsdType: XSDType {
+                return wrapping.xsdType
+            }
+
+            public var isNullable: Bool {
+                switch wrapKind {
+                case .optional:
+                    return true
+                case .array:
+                    return false
+                }
+            }
+
+            private let wrapping: AttributeSupportedTypeFactory
+            private let wrapKind: Kind
+
+            public init(wrapping: AttributeSupportedTypeFactory, wrapKind: Kind) {
+                self.wrapping = wrapping
+                self.wrapKind = wrapKind
+            }
+
+            func materialize(from value: String) throws -> AttributeSupportedPropertyType {
+                switch wrapKind {
+                case .array:
+                    // See Array.swift for documentation
+                    let values = try value.replacingOccurrences(of: " ", with: "").components(separatedBy: ";")
+                        .map { try wrapping.materialize(from: $0) }
+                    return WrappingAttributeSupportedType(factory: self, value: .array(values))
+
+                case .optional:
+                    return WrappingAttributeSupportedType(factory: self, value: .optional(value == "" ? nil : try wrapping.materialize(from: value)))
+
+                }
+            }
+
+            public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
+                let wrappedRuntimeType = wrapping.runtimeType(for: platform)
+
+                let name: String
+                switch wrapKind {
+                case .optional:
+                    name = "\(wrappedRuntimeType.name)?"
+                case .array:
+                    name = "[\(wrappedRuntimeType.name)]"
+                }
+
+                return RuntimeType(name: name, modules: wrappedRuntimeType.modules)
+            }
+        }
+
+        static func materialize(from value: String) throws -> Self {
+            fatalError("Not supported!")
+        }
+
+        var factory: SupportedTypeFactory
+        var value: ValueKind
+
+        init(factory: WrappingAttributeFactory, value: ValueKind) {
+            self.factory = factory
+            self.value = value
+        }
+
+        #if canImport(SwiftCodeGen)
+        func generate(context: SupportedPropertyTypeContext) -> Expression {
+            switch value {
+            case .array(let values):
+                return Expression.arrayLiteral(items: values.map { $0.generate(context: context) })
+
+            case .optional(let value):
+                return value?.generate(context: context) ?? Expression.constant("nil")
+            }
+        }
+        #endif
+    }
+
 }
 
 extension ComponentContext: HasGlobalContext { }

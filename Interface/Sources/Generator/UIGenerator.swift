@@ -51,14 +51,21 @@ public class UIGenerator: Generator {
             SwiftCodeGen.Property.constant(
                 accessibility: child.isExported ? viewAccessibility : .private,
                 name: child.id.description,
-                type: try child.runtimeType(for: componentContext.platform).name)
+                type: child.injectionOptions.contains(.generic) ? child.id.description.uppercased() : try child.runtimeType(for: componentContext.platform).name)
         }
 
         let injectedChildren = root.allInjectedChildren
 
+        let genericParameters = try injectedChildren.compactMap { child -> GenericParameter? in
+            guard child.injectionOptions.contains(.generic) else { return nil }
+            return GenericParameter(
+                name: child.id.description.uppercased(),
+                inheritance: try child.runtimeType(for: componentContext.platform).name)
+        }
+
         tempCounter = 1
         let viewInitializations = try root.allChildren.map { child -> Statement in
-            guard !child.isInjected else {
+            guard !child.injectionOptions.contains(.initializer) else {
                 return .assignment(target: .member(target: .constant("self"), name: child.id.description), expression: .constant(child.id.description))
             }
 
@@ -168,7 +175,9 @@ public class UIGenerator: Generator {
                 .init(name: "initialState", type: "State", defaultValue: "State()"),
                 .init(name: "actionPublisher", type: "ActionPublisher<Action>", defaultValue: "ActionPublisher()"),
             ] + injectedChildren.map { child in
-                try MethodParameter(name: child.id.description, type: child.runtimeType(for: componentContext.platform).name)
+                try MethodParameter(
+                    name: child.id.description,
+                    type: child.injectionOptions.contains(.generic) ? child.id.description.uppercased() : child.runtimeType(for: componentContext.platform).name)
             },
             block:
                 Block(statements: viewInitializations) +
@@ -361,6 +370,7 @@ public class UIGenerator: Generator {
             accessibility: viewAccessibility,
             isFinal: isViewClassFinal,
             name: root.type,
+            genericParameters: genericParameters,
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
             properties: viewProperties + viewDeclarations + navigationItemProperties,

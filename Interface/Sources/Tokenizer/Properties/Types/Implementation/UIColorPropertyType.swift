@@ -203,9 +203,9 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             switch platform {
             case .iOS, .tvOS:
-                return RuntimeType(name: "UIColor?", module: "UIKit")
+                return RuntimeType(name: "UIColor", module: "UIKit")
             case .macOS:
-                return RuntimeType(name: "NSColor?", module: "AppKit")
+                return RuntimeType(name: "NSColor", module: "AppKit")
             }
         }
     }

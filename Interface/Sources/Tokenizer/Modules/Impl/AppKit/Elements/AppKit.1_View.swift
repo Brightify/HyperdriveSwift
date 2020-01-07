@@ -49,7 +49,7 @@ extension Module.AppKit {
 
         public var id: UIElementID
         public var isExported: Bool
-        public var isInjected: Bool
+        public var injectionOptions: UIElementInjectionOptions
         public var styles: [StyleName]
         public var layout: Layout
         public var properties: [Property]
@@ -83,7 +83,7 @@ extension Module.AppKit {
             let node = context.element
             id = try node.value(ofAttribute: "id", defaultValue: context.elementIdProvider.next(for: node.name))
             isExported = try node.value(ofAttribute: "export", defaultValue: false)
-            isInjected = try node.value(ofAttribute: "injected", defaultValue: false)
+            injectionOptions = try node.value(ofAttribute: "injected", defaultValue: .none)
             layout = try node.value()
             styles = try node.value(ofAttribute: "style", defaultValue: []) as [StyleName]
 
@@ -103,7 +103,7 @@ extension Module.AppKit {
             preconditionFailure("Not implemented!")
             //        id = nil
             isExported = false
-            isInjected = false
+            injectionOptions = .none
             styles = []
             layout = Layout(contentCompressionPriorityHorizontal: View.defaultContentCompression.horizontal,
                             contentCompressionPriorityVertical: View.defaultContentCompression.vertical,

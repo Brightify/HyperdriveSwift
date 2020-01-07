@@ -46,11 +46,11 @@ public extension UIContainer {
     }
 
     var allInjectedChildren: [UIElement] {
-        return allChildren.filter { $0.isInjected }
+        return allChildren.filter { $0.injectionOptions != .none }
     }
 
     var hasInjectedChildren: Bool {
-        return allChildren.contains { $0.isInjected }
+        return allChildren.contains { $0.injectionOptions != .none }
     }
 
     func findChild(byId id: String) -> UIElement? {

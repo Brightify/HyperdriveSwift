@@ -17,7 +17,6 @@ public struct AnySupportedType: SupportedPropertyType {
     public let generateValue: (SupportedPropertyTypeContext) -> Expression
 
     public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, generateValue: @escaping (SupportedPropertyTypeContext) -> Expression) {
-
         self.factory = factory
         self.requiresTheme = requiresTheme
         self.generateValue = generateValue

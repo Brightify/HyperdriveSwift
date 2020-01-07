@@ -40,6 +40,7 @@ public enum RuntimePlatform: CustomStringConvertible, CaseIterable {
             Int.typeFactory,
             Float.typeFactory,
             Bool.typeFactory,
+            Point.typeFactory,
         ]
 
         let platformTypes: [SupportedTypeFactory]

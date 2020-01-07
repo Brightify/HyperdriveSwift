@@ -45,8 +45,8 @@ public class ComponentReferencePassthroughAction: UIElementAction {
             return backingView.isExported
         }
 
-        public var isInjected: Bool {
-            return backingView.isInjected
+        public var injectionOptions: UIElementInjectionOptions {
+            return backingView.injectionOptions
         }
 
         public var layout: Layout {

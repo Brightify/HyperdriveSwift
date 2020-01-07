@@ -116,6 +116,9 @@ public enum PropertyValue<T: TypedSupportedTypeFactory> {
 public enum AnyPropertyValue {
     case value(SupportedPropertyType)
     case state(String, factory: SupportedTypeFactory)
+    #if canImport(SwiftCodeGen)
+    case raw(Expression, requiresTheme: Bool)
+    #endif
 
     public var requiresTheme: Bool {
         switch self {
@@ -123,6 +126,10 @@ public enum AnyPropertyValue {
             return value.requiresTheme
         case .state:
             return false
+        #if canImport(SwiftCodeGen)
+        case .raw(_, let requiresTheme):
+            return requiresTheme
+        #endif
         }
     }
 
@@ -133,6 +140,8 @@ public enum AnyPropertyValue {
             return value.generate(context: context)
         case .state(let name, let factory):
             return factory.generate(stateName: name)
+        case .raw(let expression, _):
+            return expression
         }
     }
     #endif
