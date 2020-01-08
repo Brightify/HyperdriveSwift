@@ -35,6 +35,7 @@ public class LayerProperties: PropertyContainer {
     public let bounds: StaticAssignablePropertyDescription<Rect>
     public let position: StaticAssignablePropertyDescription<Point>
     public let anchorPoint: StaticAssignablePropertyDescription<Point>
+    public let maskedCorners: StaticAssignablePropertyDescription<CornerMask>
     // TODO: transform: CATransform3D
     
     public required init(configuration: Configuration) {
@@ -66,6 +67,7 @@ public class LayerProperties: PropertyContainer {
         backgroundColor = configuration.property(name: "backgroundColor")
         isDoubleSided = configuration.property(name: "isDoubleSided", key: "doubleSided", defaultValue: true)
         isGeometryFlipped = configuration.property(name: "isGeometryFlipped", key: "geometryFlipped")
+        maskedCorners = configuration.property(name: "maskedCorners", defaultValue: [])
         
         super.init(configuration: configuration)
     }
