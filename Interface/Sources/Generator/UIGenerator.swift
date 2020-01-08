@@ -209,7 +209,7 @@ public class UIGenerator: Generator {
             ]),
         ]
 
-        let stateItems = try componentContext.resolve(state: root)
+        let stateItems = try componentContext.globalContext.resolve(state: root)
 
         let stateVariables = stateItems.map { _, item -> SwiftCodeGen.Property in
 //            let propertyContext = PropertyContext(parentContext: componentContext, property: property)
@@ -399,44 +399,41 @@ public class UIGenerator: Generator {
 
     private func loadView() throws -> Function {
         var block = Block()
-        var themedProperties = [:] as [String: [Tokenizer.Property]]
 
         for override in root.overrides.filter({ $0.message == .willLoadView }) {
             block += Statement.expression(.invoke(target: .constant(override.receiver), arguments: []))
         }
 
+        var themeApplicationBlock = Block()
         for property in root.properties {
-            guard !property.anyValue.requiresTheme else {
-                themedProperties["self", default: []].append(property)
-                continue
-            }
             if case .state = property.anyValue { continue }
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
+
+            guard !property.anyValue.requiresTheme else {
+                themeApplicationBlock += property.application(on: "self", context: propertyContext)
+                continue
+            }
 
             block += property.application(on: "self", context: propertyContext)
         }
 
         for child in root.children {
-            block += try propertyApplications(element: child, superName: "self", containedIn: root, themedProperties: &themedProperties)
+            block += try propertyApplications(
+                element: child,
+                superName: "self",
+                containedIn: root,
+                themeApplicationBlock: &themeApplicationBlock)
         }
 
-        if !themedProperties.isEmpty {
-            var themeApplicationBlock = Block()
-
-            themeApplicationBlock += .guard(conditions: [.conditionalUnwrap(isConstant: true, name: "self", expression: .constant("self"))], else: [.return(expression: nil)])
-
-            for (name, properties) in themedProperties {
-                for property in properties {
-                    let propertyContext = PropertyContext(parentContext: componentContext, property: property)
-                    themeApplicationBlock += property.application(on: "self." + name, context: propertyContext)
-                }
-            }
+        if !themeApplicationBlock.statements.isEmpty {
+            let selfGuard = Statement.guard(conditions: [.conditionalUnwrap(isConstant: true, name: "self", expression: .constant("self"))], else: [.return(expression: nil)])
 
             block += Statement.expression(
                 .invoke(target: .constant("ApplicationTheme.selector.register"), arguments: [
                     MethodArgument(name: "target", value: .constant("self")),
                     MethodArgument(name: "listener", value: .closure(
-                        Closure(captures: [.weak(.constant("self"))], parameters: [(name: "theme", type: nil)], block: themeApplicationBlock))),
+                        Closure(captures: [.weak(.constant("self"))], parameters: [(name: "theme", type: nil)],
+                                block: [selfGuard] + themeApplicationBlock))),
                     ])
             )
         }
@@ -451,36 +448,52 @@ public class UIGenerator: Generator {
             block: configuration.isLiveEnabled ? [] : block)
     }
 
-    private func propertyApplications(element: UIElement, superName: String, containedIn: UIContainer, themedProperties: inout [String: [Tokenizer.Property]]) throws -> Block {
+    private func propertyApplications(element: UIElement, superName: String, containedIn: UIContainer, themeApplicationBlock: inout Block) throws -> Block {
 
         var block = Block()
 
         let name = element.id.description
 
-        for style in element.styles {
+        for styleName in element.styles {
             let styleExpression: Expression
-            switch style {
-            case .local(let styleName):
-                styleExpression = .constant("\(root.stylesName).\(styleName)")
-            case .global(let group, let styleName):
+            switch styleName {
+            case .local(let codeStyleName):
+                styleExpression = .constant("\(root.stylesName).\(codeStyleName)")
+            case .global(let group, let codeStyleName):
                 let stylesGroupName = group.capitalizingFirstLetter() + "Styles"
-                styleExpression = .constant("\(stylesGroupName).\(styleName)")
+                styleExpression = .constant("\(stylesGroupName).\(codeStyleName)")
             }
 
-            block += .expression(
-                .invoke(target: styleExpression, arguments: [
-                    MethodArgument(value: .constant(name))
-                ]))
+            guard let style = componentContext.style(named: styleName) else {
+                throw TokenizationError.invalidStyleName(text: styleName.name)
+            }
+
+            if try style.requiresTheme(context: componentContext) ||
+                componentContext.globalContext.stateProperties(for: style, factory: element.factory).contains(where: { $0.anyValue.requiresTheme }) {
+
+                themeApplicationBlock += .expression(.invoke(target:
+                        .invoke(target: styleExpression, arguments: [
+                            MethodArgument(name: "theme", value: .constant("theme")),
+                        ]), arguments: [
+                            MethodArgument(value: .constant("self.\(name)")),
+                        ]))
+            } else {
+                block += .expression(
+                    .invoke(target: styleExpression, arguments: [
+                        MethodArgument(value: .constant(name))
+                    ]))
+            }
         }
 
-        for property in try element.properties + componentContext.stateProperties(of: element) {
-            guard !property.anyValue.requiresTheme else {
-                themedProperties[name, default: []].append(property)
-                continue
-            }
+        for property in try element.properties + componentContext.globalContext.stateProperties(of: element) {
             if case .state = property.anyValue { continue }
 
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
+            guard !property.anyValue.requiresTheme else {
+                themeApplicationBlock += property.application(on: "self.\(name)", context: propertyContext)
+                continue
+            }
+
             block += property.application(on: name, context: propertyContext)
         }
 
@@ -492,7 +505,7 @@ public class UIGenerator: Generator {
 
         if let container = element as? UIContainer {
             for child in container.children {
-                block += try propertyApplications(element: child, superName: name, containedIn: container, themedProperties: &themedProperties)
+                block += try propertyApplications(element: child, superName: name, containedIn: container, themeApplicationBlock: &themeApplicationBlock)
             }
         }
 

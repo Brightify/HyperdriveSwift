@@ -26,8 +26,8 @@ extension StyleGroupDeserializationContext: HasUIElementFactoryRegistry {
 }
 
 extension StyleGroupDeserializationContext: CanDeserializeStyleElement {
-    public func deserialize(element: XMLElement, groupName: String?) throws -> Style {
-        return try Style(context: child(element: element, groupName: groupName))
+    public func deserialize(element: XMLElement, groupName: String?) throws -> LazyStyle {
+        return try LazyStyle(context: child(element: element, groupName: groupName))
     }
 
     private func child(element: XMLElement, groupName: String?) -> StyleDeserializationContext {

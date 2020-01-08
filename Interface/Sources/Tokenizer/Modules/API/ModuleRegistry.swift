@@ -6,27 +6,33 @@
 //
 
 public struct ModuleRegistry {
+    public typealias ReferenceFactoryProvider = (_ element: String) -> ComponentReferenceFactory
+
     public enum ModuleError: Error {
-        case duplicateReferenceFactory
-        case missingReferenceFactory
+        case duplicateReferenceFactoryProvider
+        case missingReferenceFactoryProvider
     }
 
     public let factories: [UIElementFactory]
-    public let referenceFactory: ComponentReferenceFactory
+    private let referenceFactoryProvider: ReferenceFactoryProvider
 
     public init(modules: [RuntimeModule], platform: RuntimePlatform) throws {
         let filteredModules = modules.filter { $0.supportedPlatforms.contains(platform) }
-        let referenceFactories = filteredModules.compactMap { $0.referenceFactory }
+        let referenceFactoryProviders = filteredModules.compactMap { $0.referenceFactoryProvider }
 
-        guard let referenceFactory = referenceFactories.first else {
-            throw ModuleError.missingReferenceFactory
+        guard let referenceFactoryProvider = referenceFactoryProviders.first else {
+            throw ModuleError.missingReferenceFactoryProvider
         }
 
-        if referenceFactories.count > 1 {
-            throw ModuleError.duplicateReferenceFactory
+        if referenceFactoryProviders.count > 1 {
+            throw ModuleError.duplicateReferenceFactoryProvider
         } else {
             factories = filteredModules.flatMap { $0.elements(for: platform) }
-            self.referenceFactory = referenceFactory
+            self.referenceFactoryProvider = referenceFactoryProvider
         }
+    }
+
+    public func referenceFactory(for element: String) -> ComponentReferenceFactory {
+        return referenceFactoryProvider(element)
     }
 }

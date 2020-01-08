@@ -10,10 +10,10 @@ import Tokenizer
 import SwiftCodeGen
 
 public class StyleGroupGenerator {
-    private let context: DataContext
+    private let context: DataContext & HasGlobalContext
     private let styleGroup: StyleGroup
 
-    public init(context: DataContext, styleGroup: StyleGroup) {
+    public init(context: DataContext & HasGlobalContext, styleGroup: StyleGroup) {
         self.context = context
         self.styleGroup = styleGroup
     }
@@ -22,18 +22,17 @@ public class StyleGroupGenerator {
         let containers = try styleGroup.styles.compactMap { style -> ContainerType? in
             switch style.type {
             case .attributedText(let styles):
-                return try generate(accessibility: accessibility, attributeTextStyle: style, styles: styles)
+                return try generate(accessibility: accessibility, attributeTextStyle: try Style(from: style, context: context), styles: styles)
             case .view:
                 return nil
             }
         }
-
         let functions = try styleGroup.styles.compactMap { style -> Function? in
             switch style.type {
             case .attributedText:
                 return nil
             case .view(let factory):
-                return try generate(accessibility: accessibility, viewStyle: style, elementFactory: factory)
+                return try generate(accessibility: accessibility, viewStyle: try Style(from: style, context: context), elementFactory: factory)
             }
         }
 
@@ -117,7 +116,9 @@ public class StyleGroupGenerator {
             return .expression(.invoke(target: function, arguments: [MethodArgument(value: .constant("view"))]))
         }
 
-        let applications = style.properties.map { property -> Statement in
+        let stateProperties: [Tokenizer.Property] = try context.globalContext.stateProperties(for: style, factory: elementFactory)
+        
+        let applications = (style.properties + stateProperties).map { property -> Statement in
             let propertyContext = PropertyContext(parentContext: context, property: property)
             return property.application(on: "view", context: propertyContext)
         }
@@ -126,7 +127,7 @@ public class StyleGroupGenerator {
         let returnType: String?
         let block: Block
 
-        if style.requiresTheme(context: context) {
+        if style.requiresTheme(context: context) || stateProperties.contains { $0.anyValue.requiresTheme } {
             parameters = [
                 MethodParameter(name: "theme", type: "ApplicationTheme"),
             ]

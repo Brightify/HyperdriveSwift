@@ -22,7 +22,7 @@ public protocol CanDeserializeStyleGroup {
 }
 
 public protocol CanDeserializeStyleElement {
-    func deserialize(element: XMLElement, groupName: String?) throws -> Style
+    func deserialize(element: XMLElement, groupName: String?) throws -> LazyStyle
 }
 
 public protocol CanDeserializeDefinition {
@@ -67,17 +67,17 @@ public extension DeserializationContext where Self: HasUIElementFactoryRegistry 
 public class ComponentReferenceFactory: UIElementFactory {
     private let baseFactory: UIElementFactory
 
-    public let elementName: String = ""
-    public var availableProperties: [PropertyDescription] {
-        return baseFactory.availableProperties
-    }
+    public let elementName: String
+    public private(set) var availableProperties: [PropertyDescription]
     public var parentModuleImport: String {
         return baseFactory.parentModuleImport
     }
     public var isContainer: Bool = false
 
-    public init(baseFactory: UIElementFactory) {
+    public init(elementName: String, baseFactory: UIElementFactory) {
+        self.elementName = elementName
         self.baseFactory = baseFactory
+        self.availableProperties = baseFactory.availableProperties
     }
 
     public func create(context: UIElementDeserializationContext) throws -> UIElement {
@@ -85,6 +85,6 @@ public class ComponentReferenceFactory: UIElementFactory {
     }
 
     public func runtimeType() throws -> RuntimeType {
-        return RuntimeType(name: try ComponentReference.runtimeType())
+        return RuntimeType(name: elementName)
     }
 }

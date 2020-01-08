@@ -347,8 +347,6 @@ public protocol UIElement: AnyObject, UIElementBase, XMLElementSerializable {
     static var defaultContentCompression: (horizontal: ConstraintPriority, vertical: ConstraintPriority) { get }
     static var defaultContentHugging: (horizontal: ConstraintPriority, vertical: ConstraintPriority) { get }
 
-    static func runtimeType() throws -> String
-
     func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType
 }
 

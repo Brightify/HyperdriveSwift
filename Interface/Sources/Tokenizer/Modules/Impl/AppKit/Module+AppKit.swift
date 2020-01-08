@@ -13,8 +13,11 @@ extension Module {
             .macOS
         ]
 
-        public var referenceFactory: ComponentReferenceFactory? {
-            return ComponentReferenceFactory(baseFactory: factory(named: "View", for: View.init))
+        public var referenceFactoryProvider: ModuleRegistry.ReferenceFactoryProvider? {
+            let viewFactory = factory(named: "View", for: View.init)
+            return { element in
+                ComponentReferenceFactory(elementName: element, baseFactory: viewFactory)
+            }
         }
 
         public func elements(for platform: RuntimePlatform) -> [UIElementFactory] {

@@ -34,6 +34,19 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
         }
     }
 
+    public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        switch self {
+        case .color(.absolute):
+            return false
+        case .color(.named(let name)) where Color.systemColorNames.contains(name):
+            return false
+        case .color(.named):
+            return true
+        case .themed(let themeName):
+            return context.themed(color: themeName)?.isOptional(context: context) ?? true
+        }
+    }
+
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
         let colorTypePrefix: String

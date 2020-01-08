@@ -7,5 +7,5 @@
 //
 
 public protocol StyleContainer {
-    var styles: [Style] { get set }
+    var styles: [LazyStyle] { get set }
 }

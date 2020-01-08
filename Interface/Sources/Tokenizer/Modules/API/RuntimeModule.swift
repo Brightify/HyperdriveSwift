@@ -8,13 +8,13 @@
 public protocol RuntimeModule {
     var supportedPlatforms: Set<RuntimePlatform> { get }
 
-    var referenceFactory: ComponentReferenceFactory? { get }
+    var referenceFactoryProvider: ModuleRegistry.ReferenceFactoryProvider? { get }
 
     func elements(for platform: RuntimePlatform) -> [UIElementFactory]
 }
 
 extension RuntimeModule {
-    public var referenceFactory: ComponentReferenceFactory? {
+    public var referenceFactoryProvider: ModuleRegistry.ReferenceFactoryProvider? {
         return nil
     }
 }

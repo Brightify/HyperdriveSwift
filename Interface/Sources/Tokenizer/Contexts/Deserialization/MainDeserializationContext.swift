@@ -6,13 +6,13 @@
 //
 
 public class MainDeserializationContext: DeserializationContext {
-    public let elementFactories: [String: UIElementFactory]
-    public let referenceFactory: ComponentReferenceFactory
+    public private(set) var elementFactories: [String: UIElementFactory]
+    public let referenceFactoryProvider: ModuleRegistry.ReferenceFactoryProvider
     public let platform: RuntimePlatform
 
-    public init(elementFactories: [UIElementFactory], referenceFactory: ComponentReferenceFactory, platform: RuntimePlatform) {
+    public init(elementFactories: [UIElementFactory], referenceFactoryProvider: @escaping ModuleRegistry.ReferenceFactoryProvider, platform: RuntimePlatform) {
         self.elementFactories = Dictionary(uniqueKeysWithValues: elementFactories.map { ($0.elementName, $0) })
-        self.referenceFactory = referenceFactory
+        self.referenceFactoryProvider = referenceFactoryProvider
         self.platform = platform
     }
 }
@@ -27,6 +27,8 @@ extension MainDeserializationContext: HasUIElementFactoryRegistry {
         } else if let elementFactory = elementFactories[elementName] {
             return elementFactory
         } else {
+            let referenceFactory = referenceFactoryProvider(elementName)
+            elementFactories[elementName] = referenceFactory
             return referenceFactory
         }
     }

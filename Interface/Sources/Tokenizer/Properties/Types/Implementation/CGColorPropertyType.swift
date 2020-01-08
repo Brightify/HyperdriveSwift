@@ -25,7 +25,9 @@ public struct CGColorPropertyType: TypedAttributeSupportedPropertyType, HasStati
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
-        return .member(target: color.generate(context: context.child(for: color)), name: "cgColor")
+        let isOptional = color.isOptional(context: context)
+        let colorExpression = color.generate(context: context.child(for: color))
+        return .member(target: isOptional ? .optionalChain(colorExpression) : colorExpression, name: "cgColor")
     }
     #endif
 

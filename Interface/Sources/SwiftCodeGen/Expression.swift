@@ -8,6 +8,7 @@
 public enum Expression: Describable {
     case constant(String)
     case closure(Closure)
+    indirect case optionalChain(Expression)
     indirect case member(target: Expression, name: String)
     indirect case invoke(target: Expression, arguments: [MethodArgument])
     indirect case `operator`(lhs: Expression, operator: String, rhs: Expression)
@@ -20,6 +21,8 @@ public enum Expression: Describable {
             pipe.string(constant)
         case .closure(let closure):
             pipe.append(closure)
+        case .optionalChain(let expression):
+            pipe.append(expression).string("?")
         case .member(let target, let name):
             pipe.append(target).string(".").string(name)
         case .invoke(let target, let arguments):

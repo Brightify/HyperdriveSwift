@@ -33,9 +33,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
 // This class is identical to AppKit's ComponentReference. If you make any changes here, you might want to make them there, too.
 //extension Module.UIKit {
     public class ComponentReference: UIElement, ComponentDefinitionContainer {
-        public var factory: UIElementFactory {
-            return backingView.factory
-        }
+        public var factory: UIElementFactory
 
         public var id: UIElementID {
             return backingView.id
@@ -135,15 +133,12 @@ public class ComponentReferencePassthroughAction: UIElementAction {
             return definition?.componentDefinitions ?? []
         }
 
-        public class func runtimeType() throws -> String {
-            return "UIView"
-        }
-
         public func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
             return RuntimeType(name: type, modules: module.map { [$0] } ?? [])
         }
 
         public required init(context: UIElementDeserializationContext, backingView: UIElement, factory: UIElementFactory) throws {
+            self.factory = factory
             let node = context.element
             type = try node.value(ofAttribute: "type", defaultValue: node.name)
             guard type != "Component" else { throw TokenizationError(message: "Name `Component` is not allowed for component reference!") }

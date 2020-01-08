@@ -119,7 +119,7 @@ class GenerateCommand: Command {
 
         let mainContext = MainDeserializationContext(
             elementFactories: moduleRegistry.factories,
-            referenceFactory: moduleRegistry.referenceFactory,
+            referenceFactoryProvider: moduleRegistry.referenceFactory(for:),
             platform: runtimePlatform)
 
         // path with the stylegroup associated with it
@@ -283,14 +283,17 @@ class GenerateCommand: Command {
 
     private func theme(context: GlobalContext, swiftVersion: SwiftVersion, platform: RuntimePlatform) throws -> Structure {
         let description = context.applicationDescription
-        func allCases<T>(item: String, from container: ThemeContainer<T>) throws -> [(Expression, Block)] {
-            return try description.themes.map { theme in
+        func allCases<T>(item: String, from container: ThemeContainer<T>) throws -> (isOptional: Bool, cases: [(Expression, Block)]) {
+            let cases = try description.themes.map { theme -> (isOptional: Bool, expression: Expression, block: Block) in
                 guard let themedItem = container[theme: theme, item: item] else {
                     throw GenerateCommandError.themedItemNotFound(theme: theme, item: item)
                 }
                 let typeContext = SupportedPropertyTypeContext(parentContext: context, value: .value(themedItem))
-                return (Expression.constant(".\(theme)"), [.return(expression: themedItem.generate(context: typeContext))])
+                let isOptional = themedItem.isOptional(context: typeContext)
+                return (isOptional, Expression.constant(".\(theme)"), [.return(expression: themedItem.generate(context: typeContext))])
             }
+
+            return (cases.contains { $0.isOptional }, cases.map { ($0.expression, $0.block) })
         }
 
         let themeProperty = SwiftCodeGen.Property.constant(accessibility: .fileprivate, name: "theme", type: "ApplicationTheme")
@@ -299,15 +302,16 @@ class GenerateCommand: Command {
             let themeProperty = SwiftCodeGen.Property.constant(accessibility: .fileprivate, name: "theme", type: "ApplicationTheme")
 
             let properties = try container.allItemNames.sorted().map { item -> SwiftCodeGen.Property in
-                let switchStatement = try Statement.switch(
+                let (isOptional, cases) = try allCases(item: item, from: container)
+                let switchStatement = Statement.switch(
                     expression: .constant("theme"),
-                    cases: allCases(item: item, from: container),
+                    cases: cases,
                     default: nil)
 
                 return SwiftCodeGen.Property.variable(
                     accessibility: .public,
                     name: item,
-                    type: T.typeFactory.runtimeType(for: platform).name,
+                    type: T.typeFactory.runtimeType(for: platform).name + (isOptional ? "?" : ""),
                     block: [switchStatement])
             }
 

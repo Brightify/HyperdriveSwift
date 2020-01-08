@@ -69,6 +69,8 @@ public protocol SupportedPropertyType {
 
     var requiresTheme: Bool { get }
 
+    func isOptional(context: SupportedPropertyTypeContext) -> Bool
+
     #if canImport(SwiftCodeGen)
     func generate(context: SupportedPropertyTypeContext) -> Expression
     #endif
@@ -87,6 +89,12 @@ public protocol SupportedPropertyType {
 //    static var xsdType: XSDType { get }
 //
 //    static var isNullable: Bool { get }
+}
+
+public extension SupportedPropertyType {
+    func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        return false
+    }
 }
 
 public protocol TypedSupportedType: SupportedPropertyType where FactoryType.BuildType == Self {
@@ -169,6 +177,10 @@ extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFa
 
     public var requiresTheme: Bool {
         return self?.requiresTheme ?? false
+    }
+
+    public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        return true
     }
 
     #if !GeneratingInterface

@@ -26,8 +26,8 @@ public class StyleGroupContext: DataContext {
             return globalContext.style(named: styleName)
         }
 
-        return group.styles.first { $0.name.name == name }
+        return group.styles.first { $0.name.name == name }.flatMap { try? Style(from: $0, context: self) }
     }
 }
 
-extension StyleGroupContext: HasGlobalContext { }
+extension StyleGroupContext: HasGlobalContext, HasParentContext { }

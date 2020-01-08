@@ -16,9 +16,9 @@ public struct StyleGroup {
     }
     public var name: String
     public var accessModifier: AccessModifier
-    public var styles: [Style]
+    public var styles: [LazyStyle]
 
-    public init(name: String, accessModifier: AccessModifier, styles: [Style]) {
+    public init(name: String, accessModifier: AccessModifier, styles: [LazyStyle]) {
         self.name = name
         self.accessModifier = accessModifier
         self.styles = styles

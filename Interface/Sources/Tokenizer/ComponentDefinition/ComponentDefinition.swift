@@ -16,7 +16,7 @@ import UIKit
 public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, ComponentDefinitionContainer {
     public var type: String
     public var isRootView: Bool
-    public var styles: [Style]
+    public var styles: [LazyStyle]
     public var stylesName: String
     public var templates: [Template]
     public var templatesName: String
