@@ -31,13 +31,19 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
     public var overrides: [Override]
     public var stateDescription: StateDescription
     public var navigationItem: NavigationItem?
+    public var rxDisposeBags: DisposeBagDescription
 
     public static var parentModuleImport: String {
         return "Hyperdrive"
     }
 
     public var requiredImports: Set<String> {
-        return Set(arrayLiteral: "Hyperdrive").union(children.flatMap { $0.requiredImports })
+        let imports = Set(arrayLiteral: "Hyperdrive").union(children.flatMap { $0.requiredImports })
+        if rxDisposeBags.items.isEmpty {
+            return imports
+        } else {
+            return imports.union(["RxSwift"])
+        }
     }
 
     public var componentTypes: [String] {
@@ -106,6 +112,7 @@ public struct ComponentDefinition: UIContainer, UIElementBase, StyleContainer, C
         overrides = try node.singleOrNoElement(named: "overrides")?.allAttributes.values.map(Override.init) ?? []
         stateDescription = try StateDescription(element: node.singleOrNoElement(named: "state"))
         navigationItem = try node.singleOrNoElement(named: "navigationItem").map(NavigationItem.init(element:))
+        rxDisposeBags = try DisposeBagDescription(element: node.singleOrNoElement(named: "rx:disposeBags"))
 
         handledActions.append(contentsOf: navigationItem?.allItems.map { item in
             HyperViewAction(name: item.id, eventName: BarButtonItemTapAction.primaryName(for: item), parameters: [])

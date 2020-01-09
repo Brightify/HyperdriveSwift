@@ -290,7 +290,11 @@ extension GlobalContext {
             } else if let attributeTypeFactory = stateProperty.typeFactory as? AttributeSupportedTypeFactory {
                 propertyValue = try .value(attributeTypeFactory.materialize(from: value))
             } else {
+                #if canImport(SwiftCodeGen)
                 propertyValue = .raw(.constant(value), requiresTheme: false)
+                #else
+                throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
+                #endif
             }
 
             return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)], name: name, anyDescription:
@@ -389,7 +393,7 @@ extension GlobalContext {
                 })
             #elseif canImport(UIKit)
             return AnySupportedType(
-                factory: factory,
+                factory: fallbackFactory,
                 resolveValue: { context in nil })
             #endif
         }
@@ -637,6 +641,17 @@ private final class WrappingAttributeSupportedType: AttributeSupportedPropertyTy
 
         case .optional(let value):
             return value?.generate(context: context) ?? Expression.constant("nil")
+        }
+    }
+    #endif
+
+    #if HyperdriveRuntime
+    func runtimeValue(context: SupportedPropertyTypeContext) throws -> Any? {
+        switch value {
+        case .array(let values):
+            return try values.map { try $0.runtimeValue(context: context.child(for: $0)) }
+        case .optional(let value):
+            return try value.flatMap { try $0.runtimeValue(context: context.child(for: $0)) }
         }
     }
     #endif

@@ -95,7 +95,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
         public static var parentModuleImport: String = ""
 
         public var requiredImports: Set<String> {
-            return backingView.requiredImports
+            return definition?.requiredImports ?? backingView.requiredImports
         }
 
         public enum StatePassthrough {

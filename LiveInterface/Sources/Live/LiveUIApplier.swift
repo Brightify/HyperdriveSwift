@@ -335,7 +335,10 @@ public class ReactantLiveUIApplier {
         }
 
         func resolveStyle(element: UIElement) throws -> [Property] {
-            return try context.resolveStyle(for: element, stateProperties: context.stateProperties(of: element), from: commonStyles + context.component.styles)
+            return try context.resolveStyle(
+                for: element,
+                stateProperties: context.globalContext.stateProperties(of: element),
+                from: try commonStyles + context.component.styles.map { try Style(from: $0, context: context) })
         }
 
         class ComponentInstanceContext: DataContext, HasParentContext {

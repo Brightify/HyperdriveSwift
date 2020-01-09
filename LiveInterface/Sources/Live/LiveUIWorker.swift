@@ -59,7 +59,7 @@ public class ReactantLiveUIWorker {
         }
     }
 
-    var commonStyles: [Style] {
+    var commonStyles: [LazyStyle] {
         return styles.flatMap { $0.value.styles }
     }
 
@@ -177,7 +177,11 @@ public class ReactantLiveUIWorker {
     private func apply(definition: ComponentDefinition, view: LiveHyperViewBase, setConstraint: @escaping (String, SnapKit.Constraint) -> Bool) throws {
         let componentContext = ComponentContext(globalContext: context.globalContext, component: definition)
         let uiApplier = appliers[view, default: ReactantLiveUIApplier(workerContext: context)]
-        try uiApplier.apply(context: componentContext, commonStyles: commonStyles, view: view, setConstraint: setConstraint)
+        try uiApplier.apply(
+            context: componentContext,
+            commonStyles: try commonStyles.map { try Style(from: $0, context: context) },
+            view: view,
+            setConstraint: setConstraint)
 
         #warning("TODO Call `state.resynchronize()`")
 //        if let invalidable = view as? Invalidable {
@@ -211,7 +215,7 @@ public class ReactantLiveUIWorker {
                             var oldStyles = self.styles
                             let mainContext = MainDeserializationContext(
                                 elementFactories: Module.uiKit.elements(for: .iOS),
-                                referenceFactory: Module.uiKit.referenceFactory!,
+                                referenceFactoryProvider: Module.uiKit.referenceFactoryProvider!,
                                 platform: .iOS)
                             let context = StyleGroupDeserializationContext(parentContext: mainContext, element: xml.children.first!.element!)
                             let group = try StyleGroup(context: context)
@@ -301,7 +305,10 @@ public class ReactantLiveUIWorker {
 //            rootDefinition = try ComponentDefinition(node: node, type: componentType(from: file))
 //        }
 
-        let mainContext = MainDeserializationContext(elementFactories: Module.uiKit.elements(for: .iOS), referenceFactory: Module.uiKit.referenceFactory!, platform: .iOS)
+        let mainContext = MainDeserializationContext(
+            elementFactories: Module.uiKit.elements(for: .iOS),
+            referenceFactoryProvider: Module.uiKit.referenceFactoryProvider!,
+            platform: .iOS)
         rootDefinition = try mainContext.deserialize(element: node, type: node.name)
 
         if rootDefinition.isRootView {

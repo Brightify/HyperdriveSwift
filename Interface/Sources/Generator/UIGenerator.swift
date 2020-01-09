@@ -47,6 +47,7 @@ public class UIGenerator: Generator {
             .constant(accessibility: root.providedActions.isEmpty ? .private : viewAccessibility, name: "actionPublisher", type: "ActionPublisher<Action>"),
         ]
 
+
         let viewDeclarations = try root.allChildren.map { child in
             SwiftCodeGen.Property.constant(
                 accessibility: child.isExported ? viewAccessibility : .private,
@@ -149,6 +150,14 @@ public class UIGenerator: Generator {
                         }))
                     ])
                 )
+            }
+        }
+
+        let rxDisposeBagProperties: [SwiftCodeGen.Property] = root.rxDisposeBags.items.map { bag in
+            if bag.resetable {
+                return .variable(attributes: ["private(set)"], accessibility: viewAccessibility, name: bag.name, value: .constant("DisposeBag()"))
+            } else {
+                return .constant(accessibility: viewAccessibility, name: bag.name, value: .constant("DisposeBag()"))
             }
         }
 
@@ -373,7 +382,7 @@ public class UIGenerator: Generator {
             genericParameters: genericParameters,
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
-            properties: viewProperties + viewDeclarations + navigationItemProperties,
+            properties: viewProperties + viewDeclarations + navigationItemProperties + rxDisposeBagProperties,
             functions: [viewInit, observeActions(resolvedActions: resolvedActions), loadView(), setupConstraints()] + liveAccessors + overrides)
 
         let styleExtension = Structure.extension(
