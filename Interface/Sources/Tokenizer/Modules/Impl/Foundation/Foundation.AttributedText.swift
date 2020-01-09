@@ -73,7 +73,7 @@ extension Module.Foundation.AttributedText {
         public init() { }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
-            return RuntimeType(name: "NSMutableAttributedString", module: "Foundation")
+            return RuntimeType(name: "NSAttributedString", module: "Foundation")
         }
     }
 }

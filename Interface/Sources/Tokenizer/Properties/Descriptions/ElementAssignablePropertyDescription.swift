@@ -68,10 +68,17 @@ public struct ElementAssignablePropertyDescription<T: TypedElementSupportedTypeF
     }
 }
 
+import Foundation
+
 extension ElementAssignablePropertyDescription: ElementPropertyDescription where T: TypedElementSupportedTypeFactory {
     public func materialize(element: XMLElement) throws -> Property {
-        let materializedValue = PropertyValue<T>.value(try typeFactory.materialize(from: element))
-        
+        let materializedValue: PropertyValue<T>
+        if let elementText = element.text, elementText.starts(with: "$"), !elementText.contains(" ") {
+            materializedValue = .state(String(elementText.dropFirst()), factory: typeFactory)
+        } else {
+            materializedValue = .value(try typeFactory.materialize(from: element))
+        }
+
         return ElementAssignableProperty(namespace: namespace, name: name, description: self, value: materializedValue)
     }
 }
