@@ -54,13 +54,25 @@ public class StyleGroupGenerator {
         }
         var properties: [SwiftCodeGen.Property] = []
         if !style.properties.isEmpty {
-            properties.append(
-                .constant(
-                    accessibility: .private,
-                    modifiers: .static,
-                    name: "___sharedProperties___",
-                    type: "[HyperdriveInterface.Attribute]",
-                    value: .arrayLiteral(items: generate(properties: style.properties))))
+            if style.requiresTheme(context: context) {
+                properties.append(
+                    .constant(
+                        accessibility: .private,
+                        modifiers: .static,
+                        name: "___sharedProperties___",
+                        type: "(ApplicationTheme) -> [HyperdriveInterface.Attribute]",
+                        value: .closure(Closure(parameters: ["theme"], block: [
+                            .expression(.arrayLiteral(items: generate(properties: style.properties)))
+                        ]))))
+            } else {
+                properties.append(
+                    .constant(
+                        accessibility: .private,
+                        modifiers: .static,
+                        name: "___sharedProperties___",
+                        type: "[HyperdriveInterface.Attribute]",
+                        value: .arrayLiteral(items: generate(properties: style.properties))))
+            }
         }
 
         for childStyle in styles {
@@ -79,7 +91,11 @@ public class StyleGroupGenerator {
 
             var argumentExpressions: [Expression] = generateExtensions(from: style.extend)
             if !style.properties.isEmpty {
-                argumentExpressions.append(.constant("___sharedProperties___"))
+                if style.requiresTheme(context: context) {
+                    argumentExpressions.append(.constant("___sharedProperties___(theme)"))
+                } else {
+                    argumentExpressions.append(.constant("___sharedProperties___"))
+                }
             }
             argumentExpressions.append(.arrayLiteral(items: generate(properties: childStyle.properties)))
             let arguments = argumentExpressions.enumerated().map { index, expression in
@@ -88,14 +104,25 @@ public class StyleGroupGenerator {
 
             let attributeExpression = Expression.invoke(target: .constant("Array<HyperdriveInterface.Attribute>"), arguments: arguments)
 
-            properties.append(
-                .constant(
-                    accessibility: accessibility,
-                    modifiers: .static,
-                    name: childStyle.name,
-                    type: "[HyperdriveInterface.Attribute]",
-                    value: attributeExpression)
-            )
+            if childStyle.requiresTheme(context: context) || style.requiresTheme(context: context) {
+                properties.append(
+                    .constant(
+                        accessibility: accessibility,
+                        modifiers: .static,
+                        name: childStyle.name,
+                        type: "(ApplicationTheme) -> [HyperdriveInterface.Attribute]",
+                        value: .closure(Closure(parameters: ["theme"], block: [.expression(attributeExpression)]))
+                ))
+            } else {
+                properties.append(
+                    .constant(
+                        accessibility: accessibility,
+                        modifiers: .static,
+                        name: childStyle.name,
+                        type: "[HyperdriveInterface.Attribute]",
+                        value: attributeExpression)
+                )
+            }
         }
 
         return Structure.struct(

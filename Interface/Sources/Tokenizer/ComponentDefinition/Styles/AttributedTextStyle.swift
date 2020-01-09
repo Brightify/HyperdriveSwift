@@ -23,6 +23,15 @@ public struct AttributedTextStyle: XMLElementDeserializable {
         properties = try PropertyHelper.deserializeSupportedProperties(properties: Module.Foundation.Properties.attributedText.allProperties, in: node) as [Property]
     }
 
+    /**
+     * Checks if any of Style's properties require theming.
+     * - parameter context: context to use
+     * - returns: `Bool` whether or not any of its properties require theming
+     */
+    public func requiresTheme(context: DataContext) -> Bool {
+        return properties.contains(where: { $0.anyValue.requiresTheme })
+    }
+
     public static func deserialize(_ element: XMLElement) throws -> AttributedTextStyle {
         return try AttributedTextStyle(node: element)
     }
