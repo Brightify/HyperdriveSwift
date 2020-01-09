@@ -23,6 +23,7 @@ public final class EmptyState: HyperViewState {
 }
 
 public extension HyperViewState {
+    @discardableResult
     func apply(mutation: (Self) throws -> Void) rethrows -> Self {
         try mutation(self)
         return self
