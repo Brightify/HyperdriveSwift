@@ -161,6 +161,13 @@ public class UIGenerator: Generator {
             }
         }
 
+        let rxDisposeBagResetMethods: [SwiftCodeGen.Function] = root.rxDisposeBags.items.compactMap { bag in
+            guard bag.resetable else { return nil }
+            return .init(accessibility: viewAccessibility, name: "reset\(bag.name.capitalizingFirstLetter())", block: [
+                .assignment(target: .constant(bag.name), expression: .constant("DisposeBag()"))
+            ])
+        }
+
         let viewSuperCall: Block
         if configuration.isLiveEnabled {
             viewSuperCall = [
@@ -383,7 +390,7 @@ public class UIGenerator: Generator {
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
             properties: viewProperties + viewDeclarations + navigationItemProperties + rxDisposeBagProperties,
-            functions: [viewInit, observeActions(resolvedActions: resolvedActions), loadView(), setupConstraints()] + liveAccessors + overrides)
+            functions: [viewInit, observeActions(resolvedActions: resolvedActions), loadView(), setupConstraints()] + liveAccessors + overrides + rxDisposeBagResetMethods)
 
         let styleExtension = Structure.extension(
             accessibility: viewAccessibility,
