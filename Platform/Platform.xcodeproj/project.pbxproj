@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,9 @@
 		160E7ED3CDEB987D417283BF /* FutureControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370C1CC3B66FFF08F311E1F /* FutureControllerProvider.swift */; };
 		16F5FA881EF84A7CC6A7732A /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94979919FE0CA6ED5411AD2D /* UIView+Utils.swift */; };
 		186588A40BC2FC543D5D24A6 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */; };
+		18B24FDD23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B24FDC23CB72EC00C9B69A /* UIViewController+Navigation.swift */; };
+		18B24FDE23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B24FDC23CB72EC00C9B69A /* UIViewController+Navigation.swift */; };
+		18B24FDF23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B24FDC23CB72EC00C9B69A /* UIViewController+Navigation.swift */; };
 		19012D7C61BAD0297A203B10 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633BA174979E6B0157C1A60 /* Rule.swift */; };
 		1B327A4CCE22A2F25DF10894 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4E2DBF13F3050C6BCDDD2 /* Rule.swift */; };
 		1D8EE46B38D289758164824B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F74D6EBDEAAE28F235F221A /* Note.swift */; };
@@ -456,6 +459,7 @@
 		0DFF4D3E7E027BA541A63491 /* Pods-Platform-Tests-HyperdriveTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-macOS/Pods-Platform-Tests-HyperdriveTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		10429B9617CBD395045D9E7E /* Pods-Platform-Tests-RxHyperdriveTests-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-macOS/Pods-Platform-Tests-RxHyperdriveTests-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		111D21F85C0C70EEDB6C67FF /* Pods-Platform-RxHyperdrive-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-RxHyperdrive-iOS/Pods-Platform-RxHyperdrive-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		18B24FDC23CB72EC00C9B69A /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		19ED8D80E6C36DF05696B2BF /* Pods_Platform_Tests_RxHyperdriveTests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platform_Tests_RxHyperdriveTests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B24BE6FBD41A1CE9A9624D5 /* Sequence+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Utils.swift"; sourceTree = "<group>"; };
 		1CDF2764590E48FD4B3B8239 /* UINavigationController+RxNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+RxNavigation.swift"; sourceTree = "<group>"; };
@@ -536,7 +540,7 @@
 		C428FFA246E0C27E8A500A4D /* Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-RxHyperdriveTests-macOS/Pods-Platform-Tests-RxHyperdriveTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		C5BD01B2145258471946E4F6 /* ConfigurableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableTest.swift; sourceTree = "<group>"; };
 		C6625B970821EB2048105D55 /* Swift+Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Compatibility.swift"; sourceTree = "<group>"; };
-		CA4B8071C3C563A9B9AB422D /* HyperdrivePlatform.podspec */ = {isa = PBXFileReference; name = HyperdrivePlatform.podspec; path = ../HyperdrivePlatform.podspec; sourceTree = "<group>"; };
+		CA4B8071C3C563A9B9AB422D /* HyperdrivePlatform.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = HyperdrivePlatform.podspec; path = ../HyperdrivePlatform.podspec; sourceTree = "<group>"; };
 		CD1F9B2AB74A0D4AAAF944C7 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		CD752F9DB3608D1C2A417769 /* Pods-Platform-Tests-HyperdriveTests-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platform-Tests-HyperdriveTests-macOS.release.xcconfig"; path = "Target Support Files/Pods-Platform-Tests-HyperdriveTests-macOS/Pods-Platform-Tests-HyperdriveTests-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		CDC3F3BF43F4784E1E35111E /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
@@ -861,6 +865,7 @@
 				A283895DABDC68A924C05C60 /* UINavigationController+Navigation.swift */,
 				7DB40813E9F843FA4EC7B197 /* Wireframe.swift */,
 				96BC50DE45649D0BCF633AAA /* Internal */,
+				18B24FDC23CB72EC00C9B69A /* UIViewController+Navigation.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -2099,6 +2104,7 @@
 				F4E6B67F0E28D2A776F9BA6A /* Collection+Utils.swift in Sources */,
 				2B04C91077D653A0B81B12B5 /* Dictionary+Utils.swift in Sources */,
 				BAB3302F329152C4775F5BAA /* Hash.swift in Sources */,
+				18B24FDE23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */,
 				15AC35389D7A328348112D8B /* AssociatedObject.swift in Sources */,
 				AB35CAA5101BD2876F5A8261 /* InternalUtils.swift in Sources */,
 				BBDFDED5080B3C6B29A4E7E6 /* Lock.swift in Sources */,
@@ -2297,6 +2303,7 @@
 				2CC57D7867CF02945B104727 /* Collection+Utils.swift in Sources */,
 				0EE3D37D0CDF1C4687A1F4D8 /* Dictionary+Utils.swift in Sources */,
 				5F4BC975EDFD07E6594CAF78 /* Hash.swift in Sources */,
+				18B24FDF23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */,
 				D8B88072C6EE858F37E7E8BB /* AssociatedObject.swift in Sources */,
 				6C7F4F1F0F117221F88970D1 /* InternalUtils.swift in Sources */,
 				E9499F3A366D45D10C822447 /* Lock.swift in Sources */,
@@ -2347,6 +2354,7 @@
 				0747E926CE9F58E2E7687FA9 /* Collection+Utils.swift in Sources */,
 				515B4FD066CEECFD3BEA6FB9 /* Dictionary+Utils.swift in Sources */,
 				7A561B64E81CA69E4942AD50 /* Hash.swift in Sources */,
+				18B24FDD23CB72EC00C9B69A /* UIViewController+Navigation.swift in Sources */,
 				424E548F18381B5BD663F339 /* AssociatedObject.swift in Sources */,
 				B24FEBE78254DEF0D25438F7 /* InternalUtils.swift in Sources */,
 				ADD0FB798AA937980CB0FA3E /* Lock.swift in Sources */,
@@ -3243,6 +3251,7 @@
 				515BEF2B08414730BB545CB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CD6782A8DD5F5E55FE7EAC8 /* Build configuration list for PBXNativeTarget "Hyperdrive-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3251,6 +3260,7 @@
 				64BCDBFB357D3C83A5DB5D40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29C5EC27AA4DDD26F7A1CDA2 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3259,6 +3269,7 @@
 				02EA79FA6F80F6A364F1B50B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34F654D4EB95AA9C5C35251D /* Build configuration list for PBXNativeTarget "HyperdriveTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3267,6 +3278,7 @@
 				E5238D0E724F1B7F0D604E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		365A568CDA1D8534B86FC66F /* Build configuration list for PBXNativeTarget "RxHyperdrive-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3275,6 +3287,7 @@
 				E5EE27C0FF7FC5E21F7A00EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C9E4E30271AFBB88A4F3EB5 /* Build configuration list for PBXProject "Platform" */ = {
 			isa = XCConfigurationList;
@@ -3283,6 +3296,7 @@
 				90BD0C9E4C60BA11CDB83C91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96C65E7B496207CB703CA450 /* Build configuration list for PBXNativeTarget "HyperdriveTests-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3291,6 +3305,7 @@
 				472C2578E23D64B3D6C9A642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B067139A648863740C656518 /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3299,6 +3314,7 @@
 				7327A49E68A222898737724D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE02044C765B4236E5B5C5FF /* Build configuration list for PBXNativeTarget "RxHyperdriveTests-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3307,6 +3323,7 @@
 				8B2EDE9FFE63EE0BE70007AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D54A26913F4079BBAE7EDD69 /* Build configuration list for PBXNativeTarget "HyperdriveTests-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3315,6 +3332,7 @@
 				FD37FBEC2E676EC401227AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9A9F8F1A6F63B9EC9655757 /* Build configuration list for PBXNativeTarget "Hyperdrive-iOS" */ = {
 			isa = XCConfigurationList;
@@ -3323,6 +3341,7 @@
 				A5A2D212D68F9B849F27FB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4105A98071924693D909828 /* Build configuration list for PBXNativeTarget "Platform_Manifest" */ = {
 			isa = XCConfigurationList;
@@ -3331,6 +3350,7 @@
 				1899DABE27EA7E0CEC0B6BFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E85B4CA35C44850D3C2F1BBA /* Build configuration list for PBXNativeTarget "RxHyperdrive-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -3339,6 +3359,7 @@
 				17B4032B4C5E4C64CD2FAF6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F3B1758EBB1713D542FF901F /* Build configuration list for PBXNativeTarget "Hyperdrive-macOS" */ = {
 			isa = XCConfigurationList;
@@ -3347,6 +3368,7 @@
 				2BAA7216BD746495FEF1E1F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

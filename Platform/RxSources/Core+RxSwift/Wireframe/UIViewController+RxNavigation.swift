@@ -16,7 +16,6 @@ extension Reactive where Base: Platform.ViewController {
      * - parameter controller: generic controller to present
      * - parameter animated: determines whether the view controller presentation should be animated, default is `true`
      */
-    @discardableResult
     public func present<C: Platform.ViewController>(controller: C, animated: Bool = true) -> Single<C> {
         return Single<C>.create { emitter in
             self.base.present(controller, animated: animated, completion: {
@@ -31,7 +30,6 @@ extension Reactive where Base: Platform.ViewController {
      * Dismisses topmost view controller and returns `Observable` that indicates when the view has been dismissed.
      * - parameter animated: determines whether the view controller dismissal should be animated, default is `true`
      */
-    @discardableResult
     public func dismiss(animated: Bool = true) -> Completable {
         return Completable.create { emitter in
             self.base.dismiss(animated: animated, completion: {
@@ -42,7 +40,6 @@ extension Reactive where Base: Platform.ViewController {
         }
     }
 
-    @discardableResult
     public func present<C: Platform.ViewController>(controller: Single<C>, animated: Bool = true) -> Single<C> {
         return controller
             .flatMap { controller in

@@ -42,7 +42,6 @@ extension Reactive where Base: UINavigationController {
     }
 
     public func replaceAll<C: UIViewController>(with controller: Single<C>, animated: Bool = true) -> Single<[UIViewController]> {
-
         return controller
             .map {
                 self.base.replaceAll(with: $0, animated: animated)
