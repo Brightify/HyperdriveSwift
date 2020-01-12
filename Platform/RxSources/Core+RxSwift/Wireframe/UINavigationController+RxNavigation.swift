@@ -6,14 +6,16 @@
 //  Copyright © 2018 Brightify. All rights reserved.
 //
 
+
+#if canImport(RxSwift)
 import RxSwift
 
-extension UINavigationController {
+extension Reactive where Base: UINavigationController {
 
     public func push<C: UIViewController>(controller: Single<C>, animated: Bool = true) -> Completable {
         return controller
             .flatMapCompletable {
-                self.push(controller: $0, animated: animated)
+                self.base.push(controller: $0, animated: animated)
                 return Completable.empty()
             }
     }
@@ -22,7 +24,7 @@ extension UINavigationController {
 
         return controller
             .flatMapMaybe {
-                self.replace(with: $0, animated: animated).map(Maybe.just) ?? Maybe.empty()
+                self.base.replace(with: $0, animated: animated).map(Maybe.just) ?? Maybe.empty()
             }
     }
 
@@ -33,7 +35,7 @@ extension UINavigationController {
             transition.type = .moveIn
             transition.subtype = .fromLeft
             transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            self.view.layer.add(transition, forKey: nil)
+            self.base.view.layer.add(transition, forKey: nil)
 
             return self.replaceAll(with: controller, animated: false)
         }
@@ -43,7 +45,8 @@ extension UINavigationController {
 
         return controller
             .map {
-                self.replaceAll(with: $0, animated: animated)
+                self.base.replaceAll(with: $0, animated: animated)
             }
     }
 }
+#endif

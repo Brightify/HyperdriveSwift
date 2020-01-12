@@ -6,12 +6,10 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
-import RxSwift
-
 #if canImport(RxSwift)
 import RxSwift
 
-extension Platform.ViewController {
+extension Reactive where Base: Platform.ViewController {
 
     /**
      * Presents a view controller and returns `Observable` that indicates when the view has been successfully presented.
@@ -21,7 +19,7 @@ extension Platform.ViewController {
     @discardableResult
     public func present<C: Platform.ViewController>(controller: C, animated: Bool = true) -> Single<C> {
         return Single<C>.create { emitter in
-            self.present(controller, animated: animated, completion: {
+            self.base.present(controller, animated: animated, completion: {
                 emitter(.success(controller))
             })
 
@@ -36,7 +34,7 @@ extension Platform.ViewController {
     @discardableResult
     public func dismiss(animated: Bool = true) -> Completable {
         return Completable.create { emitter in
-            self.dismiss(animated: animated, completion: {
+            self.base.dismiss(animated: animated, completion: {
                 emitter(.completed)
             })
 
