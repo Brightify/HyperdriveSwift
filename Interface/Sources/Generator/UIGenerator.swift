@@ -710,17 +710,33 @@ public class UIGenerator: Generator {
             let property = attributedTextTemplate.attributedText
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
 
-            return Function(
-                accessibility: accessibility,
-                modifiers: .static,
-                name: template.name.name,
-                parameters: attributedTextTemplate.arguments.map {
-                    MethodParameter(name: $0, type: "String")
-                },
-                returnType: "NSMutableAttributedString",
-                block: [
-                    .return(expression: property.application(context: propertyContext))
-                ])
+            if template.requiresTheme(context: propertyContext) || property.anyValue.requiresTheme {
+                return Function(
+                    accessibility: accessibility,
+                    modifiers: .static,
+                    name: template.name.name,
+                    parameters: attributedTextTemplate.arguments.map {
+                        MethodParameter(name: $0, type: "String")
+                    },
+                    returnType: "(ApplicationTheme) -> NSMutableAttributedString",
+                    block: [
+                        .return(expression: .closure(Closure(parameters: [(name: "theme", type: nil)], block: [
+                            .return(expression: property.application(context: propertyContext))
+                        ]))),
+                    ])
+            } else {
+                return Function(
+                    accessibility: accessibility,
+                    modifiers: .static,
+                    name: template.name.name,
+                    parameters: attributedTextTemplate.arguments.map {
+                        MethodParameter(name: $0, type: "String")
+                    },
+                    returnType: "NSMutableAttributedString",
+                    block: [
+                        .return(expression: property.application(context: propertyContext))
+                    ])
+            }
         }
     }
 }
