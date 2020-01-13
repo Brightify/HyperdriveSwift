@@ -343,6 +343,7 @@ public protocol UIElement: AnyObject, UIElementBase, XMLElementSerializable {
     var injectionOptions: UIElementInjectionOptions { get }
     var layout: Layout { get set }
     var styles: [StyleName] { get set }
+    var runtimeTypeOverride: RuntimeType? { get set }
 
     static var defaultContentCompression: (horizontal: ConstraintPriority, vertical: ConstraintPriority) { get }
     static var defaultContentHugging: (horizontal: ConstraintPriority, vertical: ConstraintPriority) { get }

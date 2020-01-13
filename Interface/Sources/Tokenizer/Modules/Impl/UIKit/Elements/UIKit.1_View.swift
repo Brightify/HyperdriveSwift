@@ -56,6 +56,9 @@ extension Module.UIKit {
         }
 
         public func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             switch platform {
             case .iOS, .tvOS:
                 return RuntimeType(name: "UI\(type(of: self))", module: "UIKit")
@@ -82,6 +85,7 @@ extension Module.UIKit {
         public var properties: [Property]
         public var toolingProperties: [String: Property]
         public var handledActions: [HyperViewAction]
+        public var runtimeTypeOverride: RuntimeType?
 
         public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
             return [
@@ -123,6 +127,14 @@ extension Module.UIKit {
 
             handledActions = try node.allAttributes.compactMap { _, value in
                 try HyperViewAction(attribute: value)
+            }
+
+            if let classOverride = node.value(ofAttribute: "override:class") as String? {
+                if let moduleOverride = node.value(ofAttribute: "override:module") as String? {
+                    runtimeTypeOverride = RuntimeType(name: classOverride, module: moduleOverride)
+                } else {
+                    runtimeTypeOverride = RuntimeType(name: classOverride)
+                }
             }
         }
 

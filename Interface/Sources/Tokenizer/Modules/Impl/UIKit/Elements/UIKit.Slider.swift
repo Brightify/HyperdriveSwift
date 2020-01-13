@@ -17,6 +17,9 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             switch platform {
             case .iOS:
                 return RuntimeType(name: "UISlider", module: "UIKit")
@@ -44,11 +47,11 @@ extension Module.UIKit {
         public let minimumValueImage: StaticAssignablePropertyDescription<Image?>
         public let maximumValueImage: StaticAssignablePropertyDescription<Image?>
         public let minimumTrackTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-        public let currentMinimumTrackImage: StaticAssignablePropertyDescription<Image?>
+        public let minimumTrackImage: StaticControlStatePropertyDescription<Image?>
         public let maximumTrackTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-        public let currentMaximumTrackImage: StaticAssignablePropertyDescription<Image?>
+        public let maximumTrackImage: StaticControlStatePropertyDescription<Image?>
         public let thumbTintColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
-        public let currentThumbImage: StaticAssignablePropertyDescription<Image?>
+        public let thumbImage: StaticControlStatePropertyDescription<Image?>
 
         public required init(configuration: Configuration) {
             value = configuration.property(name: "value")
@@ -58,11 +61,11 @@ extension Module.UIKit {
             minimumValueImage = configuration.property(name: "minimumValueImage")
             maximumValueImage = configuration.property(name: "maximumValueImage")
             minimumTrackTintColor = configuration.property(name: "minimumTrackTintColor")
-            currentMinimumTrackImage = configuration.property(name: "currentMinimumTrackImage")
+            minimumTrackImage = configuration.property(name: "minimumTrackImage")
             maximumTrackTintColor = configuration.property(name: "maximumTrackTintColor")
-            currentMaximumTrackImage = configuration.property(name: "currentMaximumTrackImage")
+            maximumTrackImage = configuration.property(name: "maximumTrackImage")
             thumbTintColor = configuration.property(name: "thumbTintColor")
-            currentThumbImage = configuration.property(name: "currentThumbImage")
+            thumbImage = configuration.property(name: "thumbImage")
 
             super.init(configuration: configuration)
         }

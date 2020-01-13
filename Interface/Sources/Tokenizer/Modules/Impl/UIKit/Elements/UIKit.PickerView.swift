@@ -18,6 +18,9 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             switch platform {
             case .iOS:
                 return RuntimeType(name: "UIPickerView", module: "UIKit")

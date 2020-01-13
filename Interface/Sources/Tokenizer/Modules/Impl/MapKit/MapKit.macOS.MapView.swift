@@ -29,6 +29,9 @@ extension Module.MapKit.macOS {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             switch platform {
             case .macOS:
                 return RuntimeType(name: "MKMapView", module: "MapKit")

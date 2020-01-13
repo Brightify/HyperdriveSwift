@@ -41,6 +41,9 @@ extension Module.WebKit.iOS {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             switch platform {
             case .iOS:
                 return RuntimeType(name: "WKWebView", module: "WebKit")

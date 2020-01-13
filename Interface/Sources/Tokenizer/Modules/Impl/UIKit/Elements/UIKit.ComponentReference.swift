@@ -110,6 +110,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
         public var passthroughActions: String?
         public var passthroughState: StatePassthrough?
         public var possibleStateProperties: [String: String]
+        public var runtimeTypeOverride: RuntimeType?
 
         public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
             let definition = try self.definition ?? context.definition(for: type)
@@ -134,6 +135,9 @@ public class ComponentReferencePassthroughAction: UIElementAction {
         }
 
         public func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             return RuntimeType(name: type, modules: module.map { [$0] } ?? [])
         }
 
@@ -173,6 +177,14 @@ public class ComponentReferencePassthroughAction: UIElementAction {
 
             if let passthrough = passthroughActions {
                 handledActions.append(HyperViewAction(name: passthrough, eventName: "#passthrough#", parameters: [(label: nil, parameter: .inheritedParameters)]))
+            }
+
+            if let classOverride = node.value(ofAttribute: "override:class") as String? {
+                if let moduleOverride = node.value(ofAttribute: "override:module") as String? {
+                    runtimeTypeOverride = RuntimeType(name: classOverride, module: moduleOverride)
+                } else {
+                    runtimeTypeOverride = RuntimeType(name: classOverride)
+                }
             }
         }
 

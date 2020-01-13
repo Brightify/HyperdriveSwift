@@ -20,6 +20,9 @@ extension Module.AppKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             return RuntimeType(name: "NSSplitView", module: "AppKit")
         }
 

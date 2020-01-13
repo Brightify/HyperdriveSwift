@@ -30,6 +30,9 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             return RuntimeType(name: "HyperTextField", module: "HyperdriveInterface")
         }
 
@@ -80,6 +83,9 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             return RuntimeType(name: "UITextField", module: "UIKit")
         }
 

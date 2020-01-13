@@ -52,6 +52,9 @@ extension Module.UIKit {
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
             guard let headerType = headerType, let cellType = cellType else {
                 throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
             }
