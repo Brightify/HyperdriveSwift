@@ -28,6 +28,15 @@ public enum Image: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
     }
 
+    public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        switch self {
+        case .named:
+            return true
+        case .themed(let themeName):
+            return context.themed(color: themeName)?.isOptional(context: context) ?? true
+        }
+    }
+
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
         let imageTypePrefix: String

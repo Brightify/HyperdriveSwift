@@ -26,6 +26,17 @@ public enum Font: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
     }
 
+    public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        switch self {
+        case .system:
+            return false
+        case .named:
+            return true
+        case .themed(let themeName):
+            return context.themed(color: themeName)?.isOptional(context: context) ?? true
+        }
+    }
+
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
         switch self {
