@@ -201,10 +201,27 @@ class GenerateCommand: Command {
         }
 
         let bundleTokenClass = Structure.class(accessibility: .private, name: "__HyperdriveUIBundleToken")
-        let resourceBundeProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: __HyperdriveUIBundleToken.self)"))
+        let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: __HyperdriveUIBundleToken.self)"))
+        let translateFunction = Function(
+            accessibility: .private,
+            name: "__translate",
+            parameters: [
+                MethodParameter(name: "key", type: "String"),
+            ],
+            returnType: "String",
+            block: [
+                .return(expression:
+                    .invoke(target: .constant("NSLocalizedString"), arguments: [
+                        MethodArgument(value: .constant("key")),
+                        MethodArgument(name: "tableName", value: .constant(applicationDescription.defaultLocalizationsTable?.enquoted ?? "nil")),
+                        MethodArgument(name: "bundle", value: .constant("__resourceBundle")),
+                        MethodArgument(name: "comment", value: .constant("".enquoted)),
+                    ]))
+            ])
 
         output.append(bundleTokenClass)
-        output.append(resourceBundeProperty)
+        output.append(resourceBundleProperty)
+        output.append(translateFunction)
 
         for (path, rootDefinition) in globalContext.componentDefinitions.definitionsByPath.sorted(by: { $0.key.compare($1.key) == .orderedAscending }) {
             output.append("// Generated from \(path)")

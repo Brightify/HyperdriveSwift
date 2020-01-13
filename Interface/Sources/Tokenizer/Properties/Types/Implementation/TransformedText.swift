@@ -37,10 +37,8 @@ extension TransformedText: TypedAttributeSupportedPropertyType {
                 return .invoke(target: .member(target: resolveTransformations(text: inner), name: "lowercased"), arguments: [])
 
             case .transform(.localized, let inner):
-                return .invoke(target: .constant("NSLocalizedString"), arguments: [
-                    MethodArgument(value: resolveTransformations(text: inner)),
-                    MethodArgument(name: "bundle", value: .constant("__resourceBundle")),
-                    MethodArgument(name: "comment", value: .constant("\"\"")),
+                return .invoke(target: .constant("__translate"), arguments: [
+                    MethodArgument(name: "key", value: resolveTransformations(text: inner)),
                 ])
 
             case .transform(.capitalized, let inner):

@@ -15,6 +15,7 @@ public struct ApplicationDescription: XMLElementDeserializable {
 
     public typealias ThemeName = String
 
+    public var defaultLocalizationsTable: String?
     public var themes = [ApplicationDescription.defaultThemeName]
     public var defaultTheme = ApplicationDescription.defaultThemeName
     public var colors =  ThemeContainer<UIColorPropertyType>()
@@ -22,6 +23,8 @@ public struct ApplicationDescription: XMLElementDeserializable {
     public var fonts = ThemeContainer<Font?>()
 
     public init(node: XMLElement) throws {
+        defaultLocalizationsTable = node.value(ofAttribute: "defaultLocalizationsTable")
+
         if let themesNode = try node.singleOrNoElement(named: "Themes") {
             themes = themesNode.xmlChildren.map { $0.name }
             guard let defaultThemeIfNotSelected = themes.first else {
