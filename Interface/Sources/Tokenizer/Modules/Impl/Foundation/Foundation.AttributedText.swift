@@ -206,7 +206,7 @@ extension Module.Foundation.AttributedText {
     }
 
     private func generateStringParts(context: SupportedPropertyTypeContext) -> [(text: Expression, attributes: [MethodArgument])] {
-        func resolveAttributes(part: Module.Foundation.AttributedText.Part, inheritedAttributes: [Property], parentElements: [String]) -> [(text: Expression, attributes: [MethodArgument])] {
+        func resolveAttributes(part: Module.Foundation.AttributedText.Part, inheritedAttributes: [Property], parents: [AttributedTextStyle]) -> [(text: Expression, attributes: [MethodArgument])] {
             switch part {
             case .transform(let transformedText):
                 let generatedAttributes = inheritedAttributes.map {
@@ -215,8 +215,8 @@ extension Module.Foundation.AttributedText {
                     ])
                 }
                 let generatedTransformedText = transformedText.generate(context: context.child(for: transformedText))
-                let generatedParentStyles = parentElements.compactMap { elementName in
-                    style.map { context.resolvedStyleName(named: $0) + ".\(elementName)" }
+                let generatedParentStyles = parents.compactMap { parent in
+                    style.map { context.resolvedStyleName(named: $0) + ".\(parent.name)" + (parent.requiresTheme(context: context) ? "(theme)" : "") }
                 }.distinctLast().map(Expression.constant)
 
                 let attributesString = Expression.join(expressions: generatedParentStyles + [Expression.arrayLiteral(items: generatedAttributes)], operator: "+") ?? .arrayLiteral(items: [])
@@ -233,16 +233,16 @@ extension Module.Foundation.AttributedText {
                 let lowerAttributes = attributedStyle.properties
                     .arrayByAppending(inheritedAttributes.filter { !resolvedAttributes.contains($0.name) })
                     .distinct(where: { $0.name == $1.name })
-                let newParentElements = parentElements + [attributedStyle.name]
+                let newParents = parents + [attributedStyle]
 
                 return attributedTexts.flatMap {
-                    resolveAttributes(part: $0, inheritedAttributes: lowerAttributes, parentElements: newParentElements)
+                    resolveAttributes(part: $0, inheritedAttributes: lowerAttributes, parents: newParents)
                 }
             }
         }
 
         return parts.flatMap {
-            resolveAttributes(part: $0, inheritedAttributes: localProperties, parentElements: [])
+            resolveAttributes(part: $0, inheritedAttributes: localProperties, parents: [])
         }
     }
     #endif

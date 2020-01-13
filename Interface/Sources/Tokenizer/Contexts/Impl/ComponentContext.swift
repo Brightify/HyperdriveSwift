@@ -22,7 +22,7 @@ public class ComponentContext: DataContext {
         guard case .local(let name) = styleName else {
             return globalContext.resolvedStyleName(named: styleName)
         }
-        return component.stylesName + "Styles." + name
+        return component.stylesName + "." + name
     }
 
     public func style(named styleName: StyleName) -> Style? {
