@@ -55,7 +55,10 @@ final class LiveUIErrorMessage: HyperViewBase, HyperView {
 
     static let triggerReloadPaths: Set<String> = []
 
-    let state: State
+    var state: State {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
 
     override var preferredFocusedView: UIView? {
         return button

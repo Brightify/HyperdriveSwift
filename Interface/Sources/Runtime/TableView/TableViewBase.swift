@@ -61,7 +61,10 @@ open class TableViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, ComposableHy
         }
     }
 
-    public let state: State = State()
+    public var state: State = State() {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     public let actionPublisher: ActionPublisher<ACTION> = ActionPublisher()
 
     public let tableView: UITableView

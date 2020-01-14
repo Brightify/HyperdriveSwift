@@ -41,7 +41,10 @@ public class PickerView<Item>: ConfigurableHyperViewBase, HyperView, UIPickerVie
 
     private let pickerView = UIPickerView()
 
-    public let state: State
+    public var state: State {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     public let actionPublisher: ActionPublisher<Action>
 
     public required init(initialState: State, actionPublisher: ActionPublisher<Action>) {

@@ -287,17 +287,16 @@ extension Module.Foundation.AttributedText {
                 }, uniquingKeysWith: { $1 })
                 return [NSAttributedString(string: transformedText, attributes: attributes)]
 
-            case .attributed(let attributedStyle, let attributedTexts):
-                let resolvedAttributes: [Property]
+            case .attributed(var attributedStyle, let attributedTexts):
+                let resolvedAttributes: Set<String>
                 if let styleName = style {
-                    resolvedAttributes = resolvedExtensions(of: attributedStyle, from: [styleName], in: context)
+                    resolvedAttributes = Set(extend(style: &attributedStyle, from: [styleName], in: context))
                 } else {
                     resolvedAttributes = []
                 }
 
                 // the order of appending is important because the `distinct(where:)` keeps the first element of the duplicates
-                let lowerAttributes = attributedStyle.properties
-                    .arrayByAppending(resolvedAttributes)
+                let lowerAttributes = attributedStyle.properties.filter { !resolvedAttributes.contains($0.name) }
                     .arrayByAppending(inheritedAttributes)
                     .distinct(where: { $0.name == $1.name })
 

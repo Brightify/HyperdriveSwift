@@ -33,7 +33,10 @@ final class PreviewListCell: HyperViewBase, HyperView {
 
     static let triggerReloadPaths: Set<String> = []
 
-    let state: State
+    public var state: State = State() {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     let actionPublisher: ActionPublisher<Action>
 
     private let name = UILabel()

@@ -43,10 +43,12 @@ public class UIGenerator: Generator {
         let viewProperties: [SwiftCodeGen.Property] = [
             .constant(accessibility: viewAccessibility, modifiers: .static, name: "triggerReloadPaths", type: "Set<String>", value: triggerReloadPaths),
             .constant(accessibility: viewAccessibility, name: "layout", value: .constant("Constraints()")),
-            .constant(accessibility: viewAccessibility, name: "state", type: "State"),
+            .variable(accessibility: viewAccessibility, name: "state", type: "State", block: [
+                .expression(.constant("willSet { state.owner = nil }")),
+                .expression(.constant("didSet { state.owner = self }")),
+            ]),
             .constant(accessibility: root.providedActions.isEmpty ? .private : viewAccessibility, name: "actionPublisher", type: "ActionPublisher<Action>"),
         ]
-
 
         let viewDeclarations = try root.allChildren.map { child in
             SwiftCodeGen.Property.constant(

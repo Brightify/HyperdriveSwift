@@ -12,7 +12,7 @@ public protocol ComposableHyperView: AnyObject {
 
     var actionPublisher: ActionPublisher<ActionType> { get }
 
-    var state: StateType { get }
+    var state: StateType { get set }
 
     static var triggerReloadPaths: Set<String> { get }
 }

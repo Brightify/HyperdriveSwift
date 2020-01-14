@@ -17,7 +17,7 @@ public final class CellWrapper: HyperViewBase, HyperView {
     private let wrapped: UIView
 
     public let actionPublisher: ActionPublisher<Action>
-    public let state: State
+    public var state: State
 
     public init(initialState: State = State(), actionPublisher: ActionPublisher<Action>) {
         state = initialState

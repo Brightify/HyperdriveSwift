@@ -231,9 +231,15 @@ extension ComponentReference: ProvidesCodeInitialization {
         } else {
             actionPublisher = MethodArgument(name: "actionPublisher", value: .constant("ActionPublisher()"))
         }
-
+        let initialStateValue: Expression
+        if case .property(let statePropertyName) = passthroughState {
+            initialStateValue = .member(target: .constant("initialState"), name: statePropertyName)
+        } else {
+            initialStateValue = .constant("\(type).State()")
+        }
+        
         return .invoke(target: .constant(type), arguments: [
-            MethodArgument(name: "initialState", value: .constant("\(type).State()")),
+            MethodArgument(name: "initialState", value: initialStateValue),
             actionPublisher,
         ])
     }

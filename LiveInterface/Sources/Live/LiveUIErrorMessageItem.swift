@@ -45,7 +45,10 @@ final class LiveUIErrorMessageItem: HyperViewBase, HyperView {
 
     static let triggerReloadPaths: Set<String> = []
 
-    let state: State
+    var state: State {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     let actionPublisher: ActionPublisher<Action>
 
     private let message = UILabel()

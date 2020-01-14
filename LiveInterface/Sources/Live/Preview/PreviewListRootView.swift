@@ -37,7 +37,10 @@ final class PreviewListRootView: HyperViewBase, HyperView /*Hyperdrive.PlainTabl
 
     static let triggerReloadPaths: Set<String> = []
 
-    let state: State
+    public var state: State {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     let actionPublisher: ActionPublisher<Action>
 
     private let tableView1 = PlainTableView<PreviewListCell>(cellFactory: PreviewListCell())

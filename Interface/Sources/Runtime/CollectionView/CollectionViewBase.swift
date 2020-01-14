@@ -47,7 +47,10 @@ open class CollectionViewBase<MODEL, ACTION>: ConfigurableHyperViewBase, Composa
         }
     }
 
-    public let state: State = State()
+    public var state: State = State() {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     public let actionPublisher: ActionPublisher<ACTION> = ActionPublisher()
 
     public var items: [MODEL] {

@@ -32,7 +32,7 @@ class ViewContainer: UIView {
 
 final class PreviewRootView: HyperViewBase, HyperView {
     final class State: HyperViewState {
-        private weak var owner: PreviewRootView? { didSet { resynchronize() } }
+        fileprivate weak var owner: PreviewRootView? { didSet { resynchronize() } }
         var previewing: UIView? { didSet { } }
 
         init() { }
@@ -57,7 +57,10 @@ final class PreviewRootView: HyperViewBase, HyperView {
         return []
     }
 
-    let state: State
+    var state: State {
+        willSet { state.owner = nil }
+        didSet { state.owner = self }
+    }
     let actionPublisher: ActionPublisher<Action>
 
     private let container1 = ViewContainer()
@@ -69,6 +72,8 @@ final class PreviewRootView: HyperViewBase, HyperView {
         super.init()
 
         loadView()
+
+        initialState.owner = self
     }
 
     private func loadView() {
