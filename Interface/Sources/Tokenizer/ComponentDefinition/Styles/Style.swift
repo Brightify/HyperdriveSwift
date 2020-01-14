@@ -67,7 +67,7 @@ public struct Style {
         return properties.contains(where: { $0.anyValue.requiresTheme(context: context) }) ||
             extend.contains(where: {
                 context.style(named: $0)?.requiresTheme(context: context) == true
-            })
+            }) || type.requiresTheme(context: context)
     }
 }
 

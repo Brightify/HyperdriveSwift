@@ -23,4 +23,13 @@ public enum StyleType {
             return "attributedText"
         }
     }
+
+    public func requiresTheme(context: DataContext) -> Bool {
+        switch self {
+        case .view:
+            return false
+        case .attributedText(let styles):
+            return styles.contains(where: { $0.requiresTheme(context: context) })
+        }
+    }
 }

@@ -42,7 +42,8 @@ extension Module.Foundation {
 
         public func requiresTheme(context: DataContext) -> Bool {
             return localProperties.contains(where: { $0.anyValue.requiresTheme(context: context) }) ||
-                parts.contains(where: { $0.requiresTheme(context: context) })
+                parts.contains(where: { $0.requiresTheme(context: context) }) ||
+                (style.flatMap(context.style(named:))?.requiresTheme(context: context) ?? false)
         }
 
         public enum Part {
@@ -192,7 +193,7 @@ extension Module.Foundation.AttributedText {
         block += .declaration(isConstant: true, name: "s", expression: .invoke(target: .constant("NSMutableAttributedString"), arguments: []))
 
         for (text, attributes) in generateStringParts(context: context) {
-            block += Statement.expression(
+            block += .expression(
                 .invoke(target: .constant("s.append"), arguments: [
                     MethodArgument(value: .invoke(target: .member(target: text, name: "attributed"), arguments: attributes)),
                 ])
@@ -214,23 +215,26 @@ extension Module.Foundation.AttributedText {
                         .init(value: $0.anyValue.generate(context: context.child(for: $0.anyValue)))
                     ])
                 }
+                let inheritedAttributesRequireTheme = inheritedAttributes.contains(where: { $0.anyValue.requiresTheme(context: context) })
+
                 let generatedTransformedText = transformedText.generate(context: context.child(for: transformedText))
                 let generatedParentStyles = parents.compactMap { parent in
-                    style.map { context.resolvedStyleName(named: $0) + ".\(parent.name)" + (parent.requiresTheme(context: context) ? "(theme)" : "") }
+                    let requiresTheme = inheritedAttributesRequireTheme || parent.requiresTheme(context: context)
+                    return style.map { context.resolvedStyleName(named: $0) + ".\(parent.name)" + (requiresTheme ? "(theme)" : "") }
                 }.distinctLast().map(Expression.constant)
 
                 let attributesString = Expression.join(expressions: generatedParentStyles + [Expression.arrayLiteral(items: generatedAttributes)], operator: "+") ?? .arrayLiteral(items: [])
 
                 return [(generatedTransformedText, [MethodArgument(value: attributesString)])]
-            case .attributed(let attributedStyle, let attributedTexts):
+            case .attributed(var attributedStyle, let attributedTexts):
                 let resolvedAttributes: Set<String>
                 if let styleName = style {
-                    resolvedAttributes = Set(resolvedExtensions(of: attributedStyle, from: [styleName], in: context).map { $0.name })
+                    resolvedAttributes = Set(extend(style: &attributedStyle, from: [styleName], in: context))
                 } else {
                     resolvedAttributes = []
                 }
                 // the order of appending is important because the `distinct(where:)` keeps the first element of the duplicates
-                let lowerAttributes = attributedStyle.properties
+                let lowerAttributes = attributedStyle.properties.filter { !resolvedAttributes.contains($0.name) }
                     .arrayByAppending(inheritedAttributes.filter { !resolvedAttributes.contains($0.name) })
                     .distinct(where: { $0.name == $1.name })
                 let newParents = parents + [attributedStyle]
@@ -247,13 +251,18 @@ extension Module.Foundation.AttributedText {
     }
     #endif
 
-    private func resolvedExtensions(of style: AttributedTextStyle, from styleNames: [StyleName], in context: SupportedPropertyTypeContext) -> [Property] {
-        return styleNames.flatMap { styleName -> [Property] in
+    private func extend(style: inout AttributedTextStyle, from styleNames: [StyleName], in context: SupportedPropertyTypeContext) -> [String] {
+        return styleNames.flatMap { styleName -> [String] in
             guard let resolvedStyle = context.style(named: styleName),
                 case .attributedText(let styles) = resolvedStyle.type,
                 let extendedAttributeStyle = styles.first(where: { $0.name == style.name }) else { return [] }
 
-            return extendedAttributeStyle.properties.arrayByAppending(resolvedExtensions(of: style, from: resolvedStyle.extend, in: context))
+            let extendedProperties = extendedAttributeStyle.properties.compactMap {
+                !style.propertyNames.contains($0.name) ? $0.name : nil
+            }
+
+            style.extend(with: extendedAttributeStyle.properties)
+            return extendedProperties + extend(style: &style, from: resolvedStyle.extend, in: context)
         }
     }
 

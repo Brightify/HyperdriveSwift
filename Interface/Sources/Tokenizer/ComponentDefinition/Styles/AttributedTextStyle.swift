@@ -11,7 +11,12 @@
 public struct AttributedTextStyle: XMLElementDeserializable {
     public var name: String
     public var accessModifier: AccessModifier
-    public var properties: [Property]
+    public var properties: [Property] {
+        didSet {
+            recalculatePropertyNames()
+        }
+    }
+    public private(set) var propertyNames: Set<String> = []
 
     init(node: XMLElement) throws {
         name = node.name
@@ -21,6 +26,12 @@ public struct AttributedTextStyle: XMLElementDeserializable {
             accessModifier = .internal
         }
         properties = try PropertyHelper.deserializeSupportedProperties(properties: Module.Foundation.Properties.attributedText.allProperties, in: node) as [Property]
+    }
+
+    mutating func extend(with extensionProperties: [Property]) {
+        properties = (extensionProperties + properties).distinctLast(comparator: {
+            $0.name == $1.name
+        })
     }
 
     /**
@@ -34,5 +45,9 @@ public struct AttributedTextStyle: XMLElementDeserializable {
 
     public static func deserialize(_ element: XMLElement) throws -> AttributedTextStyle {
         return try AttributedTextStyle(node: element)
+    }
+
+    private mutating func recalculatePropertyNames() {
+        propertyNames = Set(properties.map { $0.name })
     }
 }
