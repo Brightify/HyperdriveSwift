@@ -67,7 +67,7 @@ public protocol TypedSupportedTypeFactory: SupportedTypeFactory {
 public protocol SupportedPropertyType {
     var factory: SupportedTypeFactory { get }
 
-    var requiresTheme: Bool { get }
+    func requiresTheme(context: DataContext) -> Bool
 
     func isOptional(context: SupportedPropertyTypeContext) -> Bool
 
@@ -175,8 +175,8 @@ extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFa
         return nil
     }
 
-    public var requiresTheme: Bool {
-        return self?.requiresTheme ?? false
+    public func requiresTheme(context: DataContext) -> Bool {
+        return self?.requiresTheme(context: context) ?? false
     }
 
     public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
@@ -219,7 +219,7 @@ public protocol AttributeSupportedPropertyType: SupportedPropertyType {
 public protocol TypedAttributeSupportedPropertyType: AttributeSupportedPropertyType & TypedSupportedType { }
 
 public extension AttributeSupportedPropertyType {
-    var requiresTheme: Bool {
+    func requiresTheme(context: DataContext) -> Bool {
         return false
     }
 }
@@ -269,7 +269,7 @@ public protocol ElementSupportedPropertyType: SupportedPropertyType {
 }
 
 public extension ElementSupportedPropertyType {
-    var requiresTheme: Bool {
+    func requiresTheme(context: DataContext) -> Bool {
         return false
     }
 }
@@ -315,7 +315,7 @@ public protocol MultipleAttributeSupportedPropertyType: SupportedPropertyType {
 }
 
 public extension MultipleAttributeSupportedPropertyType {
-    var requiresTheme: Bool {
+    func requiresTheme(context: DataContext) -> Bool {
         return false
     }
 }

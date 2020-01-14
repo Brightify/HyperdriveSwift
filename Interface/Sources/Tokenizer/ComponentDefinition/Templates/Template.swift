@@ -61,7 +61,7 @@ public struct Template: XMLElementDeserializable {
      * - returns: `Bool` whether or not any of its properties require theming
      */
     public func requiresTheme(context: DataContext) -> Bool {
-        return properties.contains(where: { $0.anyValue.requiresTheme }) ||
+        return properties.contains(where: { $0.anyValue.requiresTheme(context: context) }) ||
             extend.contains(where: {
                 context.template(named: $0)?.requiresTheme(context: context) == true
             })

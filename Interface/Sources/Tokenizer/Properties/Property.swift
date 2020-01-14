@@ -76,11 +76,12 @@ public enum PropertyValue<T: TypedSupportedTypeFactory> {
         }
     }
 
-    public var requiresTheme: Bool {
+    public func requiresTheme(context: DataContext) -> Bool {
         switch self {
         case .value(let value):
-            return value.requiresTheme
+            return value.requiresTheme(context: context)
         case .state:
+            #warning("TODO: Here we might want to check the state if it needs theme (it shouldn't).")
             return false
         }
     }
@@ -120,10 +121,10 @@ public enum AnyPropertyValue {
     case raw(Expression, requiresTheme: Bool)
     #endif
 
-    public var requiresTheme: Bool {
+    public func requiresTheme(context: DataContext) -> Bool {
         switch self {
         case .value(let value):
-            return value.requiresTheme
+            return value.requiresTheme(context: context)
         case .state:
             return false
         #if canImport(SwiftCodeGen)

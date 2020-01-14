@@ -40,22 +40,22 @@ extension Module.Foundation {
         public let localProperties: [Property]
         public let parts: [AttributedText.Part]
 
-        public var requiresTheme: Bool {
-            return localProperties.contains(where: { $0.anyValue.requiresTheme }) ||
-                parts.contains(where: { $0.requiresTheme })
+        public func requiresTheme(context: DataContext) -> Bool {
+            return localProperties.contains(where: { $0.anyValue.requiresTheme(context: context) }) ||
+                parts.contains(where: { $0.requiresTheme(context: context) })
         }
 
         public enum Part {
             case transform(TransformedText)
             indirect case attributed(AttributedTextStyle, [AttributedText.Part])
 
-            var requiresTheme: Bool {
+            func requiresTheme(context: DataContext) -> Bool {
                 switch self {
                 case .transform:
                     return false
                 case .attributed(let style, let innerText):
-                    return style.properties.contains(where: { $0.anyValue.requiresTheme }) ||
-                        innerText.contains(where: { $0.requiresTheme })
+                    return style.requiresTheme(context: context) ||
+                        innerText.contains(where: { $0.requiresTheme(context: context) })
                 }
             }
         }

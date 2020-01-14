@@ -19,7 +19,7 @@ public enum Image: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
 
     public static let typeFactory = TypeFactory()
 
-    public var requiresTheme: Bool {
+    public func requiresTheme(context: DataContext) -> Bool {
         switch self {
         case .named:
             return false

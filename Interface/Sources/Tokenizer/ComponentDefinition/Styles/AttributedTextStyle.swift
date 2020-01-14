@@ -29,7 +29,7 @@ public struct AttributedTextStyle: XMLElementDeserializable {
      * - returns: `Bool` whether or not any of its properties require theming
      */
     public func requiresTheme(context: DataContext) -> Bool {
-        return properties.contains(where: { $0.anyValue.requiresTheme })
+        return properties.contains(where: { $0.anyValue.requiresTheme(context: context) })
     }
 
     public static func deserialize(_ element: XMLElement) throws -> AttributedTextStyle {

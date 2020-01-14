@@ -40,7 +40,9 @@ extension Module.UIKit {
             public var name: String
             public var content: Content
 
-            public let requiresTheme: Bool = false
+            public func requiresTheme(context: DataContext) -> Bool {
+                return false
+            }
 
             #if canImport(SwiftCodeGen)
             public func generate(context: SupportedPropertyTypeContext) -> Expression {

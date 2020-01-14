@@ -619,12 +619,12 @@ private final class WrappingAttributeSupportedType: AttributeSupportedPropertyTy
     var factory: SupportedTypeFactory
     var value: ValueKind
 
-    var requiresTheme: Bool {
+    func requiresTheme(context: DataContext) -> Bool {
         switch value {
         case .array(let array):
-            return array.contains { $0.requiresTheme }
+            return array.contains { $0.requiresTheme(context: context) }
         case .optional(let value):
-            return value?.requiresTheme ?? false
+            return value?.requiresTheme(context: context) ?? false
         }
     }
 

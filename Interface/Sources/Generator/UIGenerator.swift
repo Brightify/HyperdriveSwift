@@ -425,7 +425,7 @@ public class UIGenerator: Generator {
             if case .state = property.anyValue { continue }
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
 
-            guard !property.anyValue.requiresTheme else {
+            guard !property.anyValue.requiresTheme(context: componentContext) else {
                 themeApplicationBlock += property.application(on: "self", context: propertyContext)
                 continue
             }
@@ -485,7 +485,7 @@ public class UIGenerator: Generator {
             }
 
             if try style.requiresTheme(context: componentContext) ||
-                componentContext.globalContext.stateProperties(for: style, factory: element.factory).contains(where: { $0.anyValue.requiresTheme }) {
+                componentContext.globalContext.stateProperties(for: style, factory: element.factory).contains(where: { $0.anyValue.requiresTheme(context: componentContext) }) {
 
                 themeApplicationBlock += .expression(.invoke(target:
                         .invoke(target: styleExpression, arguments: [
@@ -505,7 +505,7 @@ public class UIGenerator: Generator {
             if case .state = property.anyValue { continue }
 
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
-            guard !property.anyValue.requiresTheme else {
+            guard !property.anyValue.requiresTheme(context: componentContext) else {
                 themeApplicationBlock += property.application(on: "self.\(name)", context: propertyContext)
                 continue
             }
@@ -710,7 +710,7 @@ public class UIGenerator: Generator {
             let property = attributedTextTemplate.attributedText
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
 
-            if template.requiresTheme(context: propertyContext) || property.anyValue.requiresTheme {
+            if template.requiresTheme(context: propertyContext) || property.anyValue.requiresTheme(context: propertyContext) {
                 return Function(
                     accessibility: accessibility,
                     modifiers: .static,

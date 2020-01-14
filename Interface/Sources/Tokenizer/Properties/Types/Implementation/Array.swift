@@ -17,8 +17,8 @@ extension Array: TypedSupportedType & SupportedPropertyType & HasStaticTypeFacto
         return TypeFactory()
     }
 
-    public var requiresTheme: Bool {
-        return false
+    public func requiresTheme(context: DataContext) -> Bool {
+        return contains(where: { $0.requiresTheme(context: context) })
     }
 
     #if canImport(SwiftCodeGen)

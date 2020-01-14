@@ -154,7 +154,7 @@ public class StyleGroupGenerator {
         let returnType: String?
         let block: Block
 
-        if style.requiresTheme(context: context) || stateProperties.contains { $0.anyValue.requiresTheme } {
+        if style.requiresTheme(context: context) || stateProperties.contains { $0.anyValue.requiresTheme(context: context) } {
             parameters = [
                 MethodParameter(name: "theme", type: "ApplicationTheme"),
             ]

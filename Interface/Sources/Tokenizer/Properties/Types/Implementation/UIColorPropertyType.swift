@@ -25,7 +25,7 @@ public enum UIColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticT
 
     public static let typeFactory = TypeFactory()
 
-    public var requiresTheme: Bool {
+    public func requiresTheme(context: DataContext) -> Bool {
         switch self {
         case .color:
             return false

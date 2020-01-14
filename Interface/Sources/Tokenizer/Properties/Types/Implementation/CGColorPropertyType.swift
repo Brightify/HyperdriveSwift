@@ -19,8 +19,8 @@ public struct CGColorPropertyType: TypedAttributeSupportedPropertyType, HasStati
 
     public let color: UIColorPropertyType
 
-    public var requiresTheme: Bool {
-        return color.requiresTheme
+    public func requiresTheme(context: DataContext) -> Bool {
+        return color.requiresTheme(context: context)
     }
 
     #if canImport(SwiftCodeGen)

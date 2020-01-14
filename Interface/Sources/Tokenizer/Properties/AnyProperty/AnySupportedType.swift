@@ -13,6 +13,10 @@ public struct AnySupportedType: SupportedPropertyType {
     public let factory: SupportedTypeFactory
     public let requiresTheme: Bool
 
+    public func requiresTheme(context: DataContext) -> Bool {
+        return requiresTheme
+    }
+
     #if canImport(SwiftCodeGen)
     public let generateValue: (SupportedPropertyTypeContext) -> Expression
 

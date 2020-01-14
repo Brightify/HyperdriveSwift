@@ -16,7 +16,7 @@ public enum ControlState: String, EnumPropertyType {
     case selected
     case focused
 
-    public var requiresTheme: Bool {
+    public func requiresTheme(context: DataContext) -> Bool {
         return false
     }
 
