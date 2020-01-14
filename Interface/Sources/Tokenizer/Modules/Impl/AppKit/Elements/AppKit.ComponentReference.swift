@@ -99,7 +99,6 @@ extension Module.AppKit {
                 if statePassthrough == "*" {
                     passthroughState = .exported
                 } else if statePassthrough.starts(with: "$") {
-                    throw TokenizationError(message: "State passthrough is not currently supported. Please use * to export inner component state.")
                     passthroughState = .property(String(statePassthrough.dropFirst()))
                 } else {
                     throw TokenizationError(message: "Invalid state attribute value \(statePassthrough)! Allowed: *, $stateProperty")
