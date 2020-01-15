@@ -51,4 +51,58 @@ public extension String {
         return attributed(attributes)
     }
 }
+
+public protocol AttributedStringConvertible {
+    func toAttributedString() -> NSAttributedString
+}
+
+extension NSAttributedString: AttributedStringConvertible {
+    public func toAttributedString() -> NSAttributedString {
+        return self
+    }
+}
+
+extension String: AttributedStringConvertible {
+    public func toAttributedString() -> NSAttributedString {
+        return self.attributed()
+    }
+}
+
+extension Sequence where Element == AttributedStringConvertible {
+    public func joined() -> NSAttributedString {
+        return reduce(into: NSMutableAttributedString()) {
+            $0.append($1.toAttributedString())
+        }
+    }
+
+    public func joined(separator: @autoclosure () -> AttributedStringConvertible) -> NSAttributedString {
+        return enumerated().reduce(into: NSMutableAttributedString()) {
+            if $1.offset != 0 {
+                $0.append(separator().toAttributedString())
+            }
+            $0.append($1.element.toAttributedString())
+        }
+    }
+}
+
+extension Array: AttributedStringConvertible where Element == AttributedStringConvertible {
+    public func toAttributedString() -> NSAttributedString {
+        return joined()
+    }
+}
+
+#if swift(>=5.1)
+@_functionBuilder
+public struct AttributedStringBuilder {
+    public static func buildBlock(_ segments: AttributedStringConvertible...) -> NSAttributedString {
+        return segments.joined()
+    }
+}
+
+public extension NSAttributedString {
+    convenience init(@AttributedStringBuilder _ content: () -> NSAttributedString) {
+        self.init(attributedString: content())
+    }
+}
+#endif
 #endif
