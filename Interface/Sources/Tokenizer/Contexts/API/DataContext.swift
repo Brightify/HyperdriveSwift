@@ -24,7 +24,7 @@ public protocol DataContext {
 
     func resolvedStyleName(named styleName: StyleName) -> String
 
-    func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String
+    func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String?
 
     func style(named styleName: StyleName) -> Style?
 
@@ -61,7 +61,7 @@ extension DataContext where Self: HasParentContext, Self.ParentContext: DataCont
         return parentContext.resolvedStyleName(named: styleName)
     }
 
-    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String {
+    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String? {
         return try parentContext.resolvedAttributeStyleName(in: style, named: name)
     }
 
@@ -116,7 +116,7 @@ extension DataContext where Self: HasParentContext, Self.ParentContext == DataCo
         return parentContext.resolvedStyleName(named: styleName)
     }
 
-    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String {
+    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String? {
         return try parentContext.resolvedAttributeStyleName(in: style, named: name)
     }
 

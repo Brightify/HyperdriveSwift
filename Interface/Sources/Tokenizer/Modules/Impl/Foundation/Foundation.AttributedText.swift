@@ -218,10 +218,16 @@ extension Module.Foundation.AttributedText {
                 let inheritedAttributesRequireTheme = inheritedAttributes.contains(where: { $0.anyValue.requiresTheme(context: context) })
 
                 let generatedTransformedText = transformedText.generate(context: context.child(for: transformedText))
-                let generatedParentStyles = parents.compactMap { parent in
+                let generatedParentStyles = parents.compactMap { parent -> String? in
                     let requiresTheme = inheritedAttributesRequireTheme || parent.requiresTheme(context: context) || context.attributedStyleRequiresTheme(in: style, named: parent.name)
-                    return style.map {
-                        try! context.resolvedAttributeStyleName(in: $0, named: parent.name) + (requiresTheme ? "(theme)" : "")
+                    return style.flatMap {
+                        do {
+                            return try context.resolvedAttributeStyleName(in: $0, named: parent.name).map {
+                                $0 + (requiresTheme ? "(theme)" : "")
+                            }
+                        } catch {
+                            return nil
+                        }
                     }
                 }.distinctLast().map(Expression.constant)
 
