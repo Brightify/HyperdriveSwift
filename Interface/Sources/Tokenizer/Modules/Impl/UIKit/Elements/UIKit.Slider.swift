@@ -12,8 +12,18 @@ import UIKit
 
 extension Module.UIKit {
     public class Slider: View {
+        public static let valueChanged = ControlEventAction(
+            name: "valueChanged",
+            aliases: ["value"],
+            parameters: [(label: "value", type: .propertyType(Float.typeFactory))],
+            event: .valueChanged)
+
         public override class var availableProperties: [PropertyDescription] {
             return Properties.slider.allProperties
+        }
+
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return try super.supportedActions(context: context) + [Self.valueChanged]
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
@@ -40,9 +50,9 @@ extension Module.UIKit {
     }
 
     public class SliderProperties: ControlProperties {
-        public let value: StaticAssignablePropertyDescription<Double>
-        public let minimumValue: StaticAssignablePropertyDescription<Double>
-        public let maximumValue: StaticAssignablePropertyDescription<Double>
+        public let value: StaticAssignablePropertyDescription<Float>
+        public let minimumValue: StaticAssignablePropertyDescription<Float>
+        public let maximumValue: StaticAssignablePropertyDescription<Float>
         public let isContinuous: StaticAssignablePropertyDescription<Bool>
         public let minimumValueImage: StaticAssignablePropertyDescription<Image?>
         public let maximumValueImage: StaticAssignablePropertyDescription<Image?>

@@ -55,3 +55,7 @@ extension Float {
         }
     }
 }
+
+extension Float: HasDefaultValue {
+    public static let defaultValue: Float = 0
+}

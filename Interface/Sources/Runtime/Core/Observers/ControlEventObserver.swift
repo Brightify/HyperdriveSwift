@@ -54,6 +54,13 @@ public final class ControlEventObserver<T: UIControl>: NSObject {
         }
         observer.retained(in: control)
     }
+
+    public static func bind<T: UISlider>(to control: T, events: UIControl.Event, handler: @escaping (Float) -> Void) {
+        let observer = ControlEventObserver<T>(control: control, events: events) { control in
+            handler(control.value)
+        }
+        observer.retained(in: control)
+    }
 }
 #elseif canImport(AppKit)
 import AppKit

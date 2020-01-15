@@ -268,7 +268,7 @@ public extension UIElementBase {
     }
 }
 
-public enum UIElementID: CustomStringConvertible, Hashable {
+public enum UIElementID: CustomStringConvertible, Hashable, Comparable {
     case provided(String)
     case generated(String)
 
@@ -278,6 +278,19 @@ public enum UIElementID: CustomStringConvertible, Hashable {
             return id
         case .generated(let id):
             return id
+        }
+    }
+
+    public static func < (lhs: UIElementID, rhs: UIElementID) -> Bool {
+        switch (lhs, rhs) {
+        case (.provided(let lhsId), .provided(let rhsId)):
+            return lhsId < rhsId
+        case (.generated(let lhsId), .generated(let rhsId)):
+            return lhsId < rhsId
+        case (.provided, .generated):
+            return true
+        case (.generated, .provided):
+            return false
         }
     }
 }

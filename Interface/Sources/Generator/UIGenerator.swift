@@ -8,6 +8,37 @@
 import Tokenizer
 import SwiftCodeGen
 
+enum SortDirection {
+    case ascending
+    case descending
+}
+
+extension Sequence {
+    func sorted<C: Comparable>(using keyPath: KeyPath<Self.Element, C>, direction: SortDirection = .ascending) -> [Self.Element] {
+        self.sorted(by: { lhs, rhs in
+            switch direction {
+            case .ascending:
+                return lhs[keyPath: keyPath] < rhs[keyPath: keyPath]
+            case .descending:
+                return lhs[keyPath: keyPath] > rhs[keyPath: keyPath]
+            }
+        })
+    }
+}
+
+extension Dictionary {
+    func sorted<C: Comparable>(using keyPath: KeyPath<Self.Element, C>, direction: SortDirection = .ascending) -> [Self.Element] {
+        self.sorted(by: { lhs, rhs in
+            switch direction {
+            case .ascending:
+                return lhs[keyPath: keyPath] < rhs[keyPath: keyPath]
+            case .descending:
+                return lhs[keyPath: keyPath] > rhs[keyPath: keyPath]
+            }
+        })
+    }
+}
+
 public class UIGenerator: Generator {
     public let root: ComponentDefinition
     public let componentContext: ComponentContext
@@ -50,7 +81,7 @@ public class UIGenerator: Generator {
             .constant(accessibility: root.providedActions.isEmpty ? .private : viewAccessibility, name: "actionPublisher", type: "ActionPublisher<Action>"),
         ]
 
-        let viewDeclarations = try root.allChildren.map { child in
+        let viewDeclarations = try root.allChildren.sorted(using: \.id).map { child in
             SwiftCodeGen.Property.constant(
                 accessibility: child.isExported ? viewAccessibility : .private,
                 name: child.id.description,
@@ -227,7 +258,7 @@ public class UIGenerator: Generator {
             ]),
         ]
 
-        let stateItems = try componentContext.globalContext.resolve(state: root)
+        let stateItems = try componentContext.globalContext.resolve(state: root).sorted(using: \.key)
 
         let stateVariables = stateItems.map { _, item -> SwiftCodeGen.Property in
 //            let propertyContext = PropertyContext(parentContext: componentContext, property: property)
