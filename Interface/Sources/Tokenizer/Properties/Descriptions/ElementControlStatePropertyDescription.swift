@@ -102,7 +102,12 @@ extension ElementControlStatePropertyDescription: ElementPropertyDescription whe
             controlState = [ControlState.normal]
         }
 
-        let materializedValue = PropertyValue<T>.value(try typeFactory.materialize(from: element))
+        let materializedValue: PropertyValue<T>
+        if let elementText = element.text, elementText.starts(with: "$"), !elementText.contains(" ") {
+            materializedValue = .state(String(elementText.dropFirst()), factory: typeFactory)
+        } else {
+            materializedValue = .value(try typeFactory.materialize(from: element))
+        }
         return ElementControlStateProperty(namespace: namespace, name: name, state: controlState, description: self, value: materializedValue)
     }
 }
