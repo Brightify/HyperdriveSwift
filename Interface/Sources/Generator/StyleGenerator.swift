@@ -85,7 +85,8 @@ public class StyleGroupGenerator {
                         styles.contains(where: { $0.name == childStyle.name }) else { return [] }
 
                     return generateExtensions(from: extendedStyle.extend) +
-                        [.constant(context.resolvedStyleName(named: extendedStyleName) + ".\(childStyle.name)")]
+                        [.constant(context.resolvedStyleName(named: extendedStyleName) + ".\(childStyle.name)" +
+                            (extendedStyle.requiresTheme(context: context) ? "(theme)" : ""))]
                 }
             }
 

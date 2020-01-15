@@ -24,6 +24,8 @@ public protocol DataContext {
 
     func resolvedStyleName(named styleName: StyleName) -> String
 
+    func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String
+
     func style(named styleName: StyleName) -> Style?
 
     func template(named templateName: TemplateName) -> Template?
@@ -57,6 +59,10 @@ extension DataContext where Self: HasParentContext, Self.ParentContext: DataCont
 
     public func resolvedStyleName(named styleName: StyleName) -> String {
         return parentContext.resolvedStyleName(named: styleName)
+    }
+
+    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String {
+        return try parentContext.resolvedAttributeStyleName(in: style, named: name)
     }
 
     public func style(named styleName: StyleName) -> Style? {
@@ -110,6 +116,10 @@ extension DataContext where Self: HasParentContext, Self.ParentContext == DataCo
         return parentContext.resolvedStyleName(named: styleName)
     }
 
+    public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String {
+        return try parentContext.resolvedAttributeStyleName(in: style, named: name)
+    }
+
     public func style(named styleName: StyleName) -> Style? {
         return parentContext.style(named: styleName)
     }
@@ -143,4 +153,22 @@ extension DataContext where Self: HasParentContext, Self.ParentContext == DataCo
         return try parentContext.resolveStateProperty(named: named)
     }
     #endif
+}
+
+extension DataContext {
+    /// This is a workaround to check for parent styles requirements.
+    public func attributedStyleRequiresTheme(in parentName: StyleName?, named name: String) -> Bool {
+        guard let parentName = parentName, let parent = style(named: parentName),
+            case .attributedText(let styles) = parent.type else { return false }
+
+        if let matchingStyle = styles.first(where: { $0.name == name }), matchingStyle.requiresTheme(context: self) {
+            return true
+        } else if !parent.extend.isEmpty {
+            return parent.extend.contains(where: {
+                attributedStyleRequiresTheme(in: $0, named: name)
+            })
+        } else {
+            return false
+        }
+    }
 }

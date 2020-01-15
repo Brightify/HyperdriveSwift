@@ -64,7 +64,7 @@ extension NSAttributedString: AttributedStringConvertible {
 
 extension String: AttributedStringConvertible {
     public func toAttributedString() -> NSAttributedString {
-        return self.attributed()
+        return NSAttributedString(string: self)
     }
 }
 

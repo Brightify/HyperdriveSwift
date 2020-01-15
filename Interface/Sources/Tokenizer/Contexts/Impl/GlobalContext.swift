@@ -76,6 +76,29 @@ public class GlobalContext: DataContext {
         return "\(groupName.capitalizingFirstLetter())Styles.\(name)"
     }
 
+    public func resolvedAttributeStyleName(in styleName: StyleName, named name: String) throws -> String {
+        guard let style = style(named: styleName) else {
+            throw TokenizationError(message: "Global context cannot resolve local style name \(styleName.name).")
+        }
+
+        guard case .attributedText(let styles) = style.type else {
+            throw TokenizationError(message: "Style \(style.name) is not an attributedText style!")
+        }
+
+        if styles.contains(where: { $0.name == name }) {
+            switch style.name {
+            case .global(let groupName, let parentName):
+                return "\(groupName.capitalizingFirstLetter())Styles.\(parentName).\(name)"
+            case .local(let parentName):
+                return "\(parentName).\(name)"
+            }
+        } else if let resolvedStyleName = style.extend.lazy.compactMap({ try? self.resolvedAttributeStyleName(in: $0, named: name) }).first {
+            return resolvedStyleName
+        } else {
+            throw TokenizationError(message: "No style for \(name) found in \(styleName.name)!")
+        }
+    }
+
     public func style(named styleName: StyleName) -> Style? {
         guard case .global(let groupName, let name) = styleName else { return nil }
         return styles[groupName]?[name]

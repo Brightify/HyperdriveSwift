@@ -26,3 +26,11 @@ extension StyleDeserializationContext: HasUIElementFactoryRegistry {
         return parentContext.factory(for: elementName)
     }
 }
+
+extension StyleDeserializationContext {
+    public func child(element: XMLElement) -> StyleDeserializationContext {
+        return StyleDeserializationContext(parentContext: self, element: element, groupName: groupName)
+    }
+}
+
+

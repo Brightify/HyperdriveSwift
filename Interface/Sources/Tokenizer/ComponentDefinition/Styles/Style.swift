@@ -106,7 +106,6 @@ public struct LazyStyle {
         if node.name == "attributedTextStyle" {
             parentModuleImport = "Hyperdrive"
             type = try .attributedText(styles: node.xmlChildren.map(AttributedTextStyle.deserialize))
-
         } else if let elementFactory = context.factory(for: String(node.name.dropLast("Style".count))) {
             parentModuleImport = elementFactory.parentModuleImport
             type = .view(factory: elementFactory)

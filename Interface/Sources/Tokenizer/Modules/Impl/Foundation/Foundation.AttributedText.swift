@@ -219,8 +219,10 @@ extension Module.Foundation.AttributedText {
 
                 let generatedTransformedText = transformedText.generate(context: context.child(for: transformedText))
                 let generatedParentStyles = parents.compactMap { parent in
-                    let requiresTheme = inheritedAttributesRequireTheme || parent.requiresTheme(context: context)
-                    return style.map { context.resolvedStyleName(named: $0) + ".\(parent.name)" + (requiresTheme ? "(theme)" : "") }
+                    let requiresTheme = inheritedAttributesRequireTheme || parent.requiresTheme(context: context) || context.attributedStyleRequiresTheme(in: style, named: parent.name)
+                    return style.map {
+                        try! context.resolvedAttributeStyleName(in: $0, named: parent.name) + (requiresTheme ? "(theme)" : "")
+                    }
                 }.distinctLast().map(Expression.constant)
 
                 let attributesString = Expression.join(expressions: generatedParentStyles + [Expression.arrayLiteral(items: generatedAttributes)], operator: "+") ?? .arrayLiteral(items: [])

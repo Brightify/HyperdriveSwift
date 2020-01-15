@@ -8,7 +8,7 @@
 /**
  * Structure representing a single tag inside an <attributedTextStyle> element within `StyleGroup` (<styles>).
  */
-public struct AttributedTextStyle: XMLElementDeserializable {
+public struct AttributedTextStyle /*: XMLElementDeserializable*/ {
     public var name: String
     public var accessModifier: AccessModifier
     public var properties: [Property] {
@@ -18,8 +18,10 @@ public struct AttributedTextStyle: XMLElementDeserializable {
     }
     public private(set) var propertyNames: Set<String> = []
 
-    init(node: XMLElement) throws {
+    public init(node: XMLElement) throws {
         name = node.name
+//        extend = try node.value(ofAttribute: "extend", defaultValue: []) as [StyleName]
+
         if let modifier = node.value(ofAttribute: "accessModifier") as String? {
             accessModifier = AccessModifier(rawValue: modifier) ?? .internal
         } else {
