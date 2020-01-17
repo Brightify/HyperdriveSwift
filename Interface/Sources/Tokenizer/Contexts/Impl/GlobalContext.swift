@@ -292,14 +292,13 @@ extension GlobalContext {
         return try stateProperties(
             elementName: factory.elementName,
             state: state,
-            possibleStateProperties: style.possibleStateProperties)
-        
+            possibleStateProperties: style.possibleStateProperties.mapValues(ComponentReference.PossibleStatePropertyRawValue.attribute))
     }
 
     private func stateProperties(
         elementName: String,
         state: [String: ResolvedStateItem],
-        possibleStateProperties: [String: String],
+        possibleStateProperties: [String: ComponentReference.PossibleStatePropertyRawValue],
         passthroughProperties: [Property] = []
     ) throws -> [Property] {
         return try passthroughProperties + possibleStateProperties.map { name, value -> Property in
@@ -308,16 +307,32 @@ extension GlobalContext {
             }
 
             let propertyValue: AnyPropertyValue
-            if value.starts(with: "$") {
-                propertyValue = .state(String(value.dropFirst()), factory: stateProperty.typeFactory)
-            } else if let attributeTypeFactory = stateProperty.typeFactory as? AttributeSupportedTypeFactory {
-                propertyValue = try .value(attributeTypeFactory.materialize(from: value))
-            } else {
-                #if canImport(SwiftCodeGen)
-                propertyValue = .raw(.constant(value), requiresTheme: false)
-                #else
-                throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
-                #endif
+            switch value {
+            case .attribute(let value):
+                if value.starts(with: "$") {
+                    propertyValue = .state(String(value.dropFirst()), factory: stateProperty.typeFactory)
+                } else if let attributeTypeFactory = stateProperty.typeFactory as? AttributeSupportedTypeFactory {
+                    propertyValue = try .value(attributeTypeFactory.materialize(from: value))
+                } else {
+                    #if canImport(SwiftCodeGen)
+                    propertyValue = .raw(.constant(value), requiresTheme: false)
+                    #else
+                    throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
+                    #endif
+                }
+            case .element(let element):
+                let elementText = element.text ?? ""
+                if elementText.starts(with: "$") && !elementText.contains(" ") {
+                    propertyValue = .state(String(elementText.dropFirst()), factory: stateProperty.typeFactory)
+                } else if let elementTypeFactory = stateProperty.typeFactory as? ElementSupportedTypeFactory {
+                    propertyValue = try .value(elementTypeFactory.materialize(from: element))
+                } else {
+                    #if canImport(SwiftCodeGen)
+                    propertyValue = .raw(.constant(elementText), requiresTheme: false)
+                    #else
+                    throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
+                    #endif
+                }
             }
 
             return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)], name: name, anyDescription:

@@ -33,6 +33,11 @@ public class ComponentReferencePassthroughAction: UIElementAction {
 // This class is identical to AppKit's ComponentReference. If you make any changes here, you might want to make them there, too.
 //extension Module.UIKit {
     public class ComponentReference: UIElement, ComponentDefinitionContainer {
+        public enum PossibleStatePropertyRawValue {
+            case attribute(String)
+            case element(XMLElement)
+        }
+
         public var factory: UIElementFactory
 
         public var id: UIElementID {
@@ -109,7 +114,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
         public var definition: ComponentDefinition?
         public var passthroughActions: String?
         public var passthroughState: StatePassthrough?
-        public var possibleStateProperties: [String: String]
+        public var possibleStateProperties: [String: PossibleStatePropertyRawValue]
         public var runtimeTypeOverride: RuntimeType?
 
         public func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
@@ -156,10 +161,17 @@ public class ComponentReferencePassthroughAction: UIElementAction {
             passthroughActions = node.attribute(by: "action")?.text
             // not used. reason?
 //            let viewProperties = Set(ComponentReference.availableProperties.map { $0.name })
-            possibleStateProperties = Dictionary(uniqueKeysWithValues: node.allAttributes.compactMap { name, attribute -> (String, String)? in
-                guard name.starts(with: "state:") else { return nil }
-                return (String(name.dropFirst("state:".count)), attribute.text)
-            })
+            let statePrefix = "state:"
+            let possibleAttributeStateProperties = node.allAttributes.compactMap { name, attribute -> (String, PossibleStatePropertyRawValue)? in
+                guard name.starts(with: statePrefix) else { return nil }
+                return (String(name.dropFirst(statePrefix.count)), .attribute(attribute.text))
+            }
+            let possibleElementStateProperties = node.xmlChildren.compactMap { element -> (String, PossibleStatePropertyRawValue)? in
+                guard element.name.starts(with: statePrefix) else { return nil }
+                return (String(element.name.dropFirst(statePrefix.count)), .element(element))
+            }
+            possibleStateProperties = Dictionary(uniqueKeysWithValues: possibleAttributeStateProperties + possibleElementStateProperties)
+
             if let statePassthrough = node.attribute(by: "state")?.text {
                 if statePassthrough == "*" {
                     passthroughState = .exported
