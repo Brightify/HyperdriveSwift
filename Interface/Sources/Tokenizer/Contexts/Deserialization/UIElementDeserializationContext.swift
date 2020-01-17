@@ -38,6 +38,10 @@ extension UIElementDeserializationContext: CanDeserializeDefinition {
 }
 
 extension UIElementDeserializationContext: HasUIElementFactoryRegistry {
+    public func shouldIgnore(elementName: String) -> Bool {
+        return parentContext.shouldIgnore(elementName: elementName)
+    }
+
     public func factory(for elementName: String) -> UIElementFactory? {
         return parentContext.factory(for: elementName)
     }

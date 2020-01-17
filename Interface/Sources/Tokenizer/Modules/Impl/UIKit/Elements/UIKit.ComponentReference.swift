@@ -152,7 +152,7 @@ public class ComponentReferencePassthroughAction: UIElementAction {
             type = try node.value(ofAttribute: "type", defaultValue: node.name)
             guard type != "Component" else { throw TokenizationError(message: "Name `Component` is not allowed for component reference!") }
 
-            if !node.xmlChildren.isEmpty {
+            if node.xmlChildren.contains(where: { !context.shouldIgnore(elementName: $0.name) }) {
                 definition = try context.deserialize(element: node, type: type)
             } else {
                 definition = nil

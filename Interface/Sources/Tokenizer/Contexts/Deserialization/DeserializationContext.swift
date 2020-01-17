@@ -30,6 +30,8 @@ public protocol CanDeserializeDefinition {
 }
 
 public protocol HasUIElementFactoryRegistry {
+    func shouldIgnore(elementName: String) -> Bool
+
     func factory(for elementName: String) -> UIElementFactory?
 }
 
@@ -59,6 +61,11 @@ public protocol HasUIElementFactoryRegistry {
 //}
 
 public extension DeserializationContext where Self: HasUIElementFactoryRegistry & HasParentContext, Self.ParentContext: HasUIElementFactoryRegistry {
+
+    func shouldIgnore(elementName: String) -> Bool {
+        return parentContext.shouldIgnore(elementName: elementName)
+    }
+
     func factory(for elementName: String) -> UIElementFactory? {
         return parentContext.factory(for: elementName)
     }
