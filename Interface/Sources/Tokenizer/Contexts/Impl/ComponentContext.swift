@@ -53,14 +53,14 @@ public class ComponentContext: DataContext {
                     }
                 case .constant(let type, let value):
                     guard let foundType = RuntimePlatform.iOS.supportedTypes.first(where: {
-                        $0.runtimeType(for: platform).name == type && $0 is AttributeSupportedPropertyType.Type
-                    }) as? AttributeSupportedPropertyType.Type else {
+                        $0.runtimeType(for: platform).name == type && $0 is AttributeSupportedTypeFactory
+                    }) as? AttributeSupportedTypeFactory else {
                         throw TokenizationError(message: "Unknown type \(type) for value \(value)")
                     }
 
                     let typedValue = try foundType.materialize(from: value)
 
-                return [ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: typedValue))]
+                    return [ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: typedValue))]
 //                    return ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: ))
                 case .stateVariable(let name):
                     return [ResolvedHyperViewAction.Parameter(label: label, kind: .state(property: name, type: .propertyType(state[name]!.typeFactory)))]

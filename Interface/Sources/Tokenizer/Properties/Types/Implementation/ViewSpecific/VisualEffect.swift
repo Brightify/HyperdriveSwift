@@ -10,7 +10,7 @@
 import SwiftCodeGen
 #endif
 
-public enum VisualEffect: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public enum VisualEffect: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory = TypeFactory()
     public var factory: SupportedTypeFactory {
         return PreferredSize.typeFactory
@@ -53,17 +53,6 @@ public enum VisualEffect: TypedAttributeSupportedPropertyType, HasStaticTypeFact
     }
     #endif
 
-    public static func materialize(from value: String) throws -> VisualEffect {
-        let parts = value.components(separatedBy: ":")
-        guard parts.count == 2 && (parts.first == "blur" || parts.first == "vibrancy") else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        guard let effect = BlurEffect(rawValue: parts[1]) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return parts.first == "blur" ? .blur(effect) : .vibrancy(effect)
-    }
-
     static var allValues: [VisualEffect] = BlurEffect.allCases.map(VisualEffect.blur) + BlurEffect.allCases.map(VisualEffect.vibrancy)
 
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
@@ -83,6 +72,17 @@ public enum VisualEffect: TypedAttributeSupportedPropertyType, HasStaticTypeFact
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> VisualEffect {
+            let parts = value.components(separatedBy: ":")
+            guard parts.count == 2 && (parts.first == "blur" || parts.first == "vibrancy") else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            guard let effect = BlurEffect(rawValue: parts[1]) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return parts.first == "blur" ? .blur(effect) : .vibrancy(effect)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             switch platform {

@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-extension Int: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension Int: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -32,13 +32,6 @@ extension Int: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     }
     #endif
 
-    public static func materialize(from value: String) throws -> Int {
-        guard let materialized = Int(value) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return materialized
-    }
-
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Int
 
@@ -47,6 +40,13 @@ extension Int: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Int {
+            guard let materialized = Int(value) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return materialized
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "Int")

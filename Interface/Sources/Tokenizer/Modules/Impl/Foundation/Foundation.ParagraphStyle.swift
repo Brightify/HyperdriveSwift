@@ -10,7 +10,7 @@ import SwiftCodeGen
 #endif
 
 extension Module.Foundation {
-    public struct ParagraphStyle: MultipleAttributeSupportedPropertyType, TypedSupportedType, HasStaticTypeFactory {
+    public struct ParagraphStyle: TypedSupportedType, HasStaticTypeFactory {
         public static let typeFactory = TypeFactory()
 
         public let properties: [Property]
@@ -41,12 +41,6 @@ extension Module.Foundation {
         }
         #endif
 
-        public static func materialize(from attributes: [String: String]) throws -> ParagraphStyle {
-            let properties = Properties.paragraphStyle.allProperties.compactMap { $0 as? AttributePropertyDescription }
-
-            return try ParagraphStyle(properties: PropertyHelper.deserializeSupportedProperties(properties: properties, from: attributes))
-        }
-
         public class TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
             public typealias BuildType = Module.Foundation.ParagraphStyle
 
@@ -55,6 +49,12 @@ extension Module.Foundation {
             }
 
             public init() { }
+
+            public func typedMaterialize(from attributes: [String : String]) throws -> Module.Foundation.ParagraphStyle {
+                let properties = Properties.paragraphStyle.allProperties.compactMap { $0 as? AttributePropertyDescription }
+
+                return try ParagraphStyle(properties: PropertyHelper.deserializeSupportedProperties(properties: properties, from: attributes))
+            }
 
             public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
                 return RuntimeType(name: "NSMutableParagraphStyle", module: "Foundation")

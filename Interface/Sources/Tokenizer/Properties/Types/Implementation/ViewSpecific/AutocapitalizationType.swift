@@ -7,18 +7,12 @@
 
 public enum AutocapitalizationType: String, EnumPropertyType {
     public static let enumName = "UITextAutocapitalizationType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<AutocapitalizationType>()
 
     case none
     case words
     case sentences
     case allCharacters
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = AutocapitalizationType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

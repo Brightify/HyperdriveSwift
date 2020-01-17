@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-extension Double: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension Double: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -31,13 +31,6 @@ extension Double: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         return generate(context: context)
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Double {
-        guard let materialized = Double(value) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return materialized
-    }
 }
 
 extension Double {
@@ -48,6 +41,13 @@ extension Double {
 
         public var xsdType: XSDType {
             return .builtin(.decimal)
+        }
+
+        public func typedMaterialize(from value: String) throws -> Double {
+            guard let materialized = Double(value) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return materialized
         }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {

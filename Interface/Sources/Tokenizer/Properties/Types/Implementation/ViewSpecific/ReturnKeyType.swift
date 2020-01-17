@@ -6,9 +6,9 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum ReturnKeyType: String, EnumPropertyType, TypedAttributeSupportedPropertyType {
+public enum ReturnKeyType: String, EnumPropertyType {
     public static let enumName = "UIReturnKeyType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ReturnKeyType>()
 
     case `default`
     case go
@@ -22,12 +22,6 @@ public enum ReturnKeyType: String, EnumPropertyType, TypedAttributeSupportedProp
     case done
     case emergencyCall
     case `continue`
-
-    public final class TypeFactory: EnumTypeFactory, TypedAttributeSupportedTypeFactory {
-        public typealias BuildType = ReturnKeyType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

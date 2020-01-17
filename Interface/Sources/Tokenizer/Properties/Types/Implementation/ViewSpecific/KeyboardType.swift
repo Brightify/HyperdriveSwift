@@ -6,9 +6,9 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum KeyboardType: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum KeyboardType: String, EnumPropertyType {
     public static let enumName = "UIKeyboardType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<KeyboardType>()
 
     case `default`
     case asciiCapable
@@ -22,12 +22,6 @@ public enum KeyboardType: String, EnumPropertyType, AttributeSupportedPropertyTy
     case twitter
     case webSearch
     case asciiCapableNumberPad
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = KeyboardType
-        
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

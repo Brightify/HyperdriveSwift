@@ -14,7 +14,7 @@ import UIKit
 import SwiftCodeGen
 #endif
 
-public struct AffineTransformation: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct AffineTransformation: TypedSupportedType, HasStaticTypeFactory {
     public static let typeFactory = TypeFactory()
     
     public let transformations: [TransformationModifier]
@@ -25,12 +25,6 @@ public struct AffineTransformation: TypedAttributeSupportedPropertyType, HasStat
         return Expression.join(expressions: expressions, operator: "+") ?? TransformationModifier.identity.generated
     }
     #endif
-    
-    public static func materialize(from value: String) throws -> AffineTransformation {
-        let tokens = Lexer.tokenize(input: value)
-        let modifiers = try TransformationParser(tokens: tokens).parse()
-        return AffineTransformation(transformations: modifiers)
-    }
     
     #if SanAndreas
     public func dematerialize(context: SupportedPropertyTypeContext) -> String {
@@ -65,6 +59,12 @@ public struct AffineTransformation: TypedAttributeSupportedPropertyType, HasStat
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> AffineTransformation {
+            let tokens = Lexer.tokenize(input: value)
+            let modifiers = try TransformationParser(tokens: tokens).parse()
+            return AffineTransformation(transformations: modifiers)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CGAffineTransform", module: "CoreGraphics")

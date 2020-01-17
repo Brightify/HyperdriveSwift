@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-extension String: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension String: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -32,10 +32,6 @@ extension String: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     }
     #endif
 
-    public static func materialize(from value: String) throws -> String {
-        return value
-    }
-
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = String
 
@@ -44,6 +40,10 @@ extension String: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> String {
+            return value
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "String", module: "Swift")

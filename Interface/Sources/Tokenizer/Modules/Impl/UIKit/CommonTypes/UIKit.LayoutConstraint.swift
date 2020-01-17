@@ -6,9 +6,9 @@
 //
 
 extension Module.UIKit {
-    public enum LayoutConstraint: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum LayoutConstraint: String, EnumPropertyType {
         public static let enumName = "NSLayoutConstraint.Attribute"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<LayoutConstraint>()
 
         case left
         case right
@@ -31,12 +31,6 @@ extension Module.UIKit {
         case centerXWithinMargins
         case centerYWithinMargins
         case notAnAttribute
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = LayoutConstraint
-
-            public init() { }
-        }
     }
 }
 

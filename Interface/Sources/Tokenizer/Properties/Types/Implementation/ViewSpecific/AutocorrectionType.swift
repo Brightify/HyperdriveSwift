@@ -5,19 +5,13 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-public enum AutocorrectionType: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum AutocorrectionType: String, EnumPropertyType {
     public static let enumName = "UITextAutocorrectionType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<AutocorrectionType>()
 
     case `default`
     case no
     case yes
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = AutocorrectionType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

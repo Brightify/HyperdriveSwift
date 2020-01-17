@@ -5,7 +5,7 @@
 //  Created by Matyáš Kříž on 04/06/2018.
 //
 
-public typealias StaticElementAssignablePropertyDescription<T> = ElementAssignablePropertyDescription<T.TypeFactory> where T: ElementSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedElementSupportedTypeFactory
+public typealias StaticElementAssignablePropertyDescription<T> = ElementAssignablePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedElementSupportedTypeFactory
 
 /**
  * Property description describing a property using a single XML element.
@@ -76,7 +76,7 @@ extension ElementAssignablePropertyDescription: ElementPropertyDescription where
         if let elementText = element.text, elementText.starts(with: "$"), !elementText.contains(" ") {
             materializedValue = .state(String(elementText.dropFirst()), factory: typeFactory)
         } else {
-            materializedValue = .value(try typeFactory.materialize(from: element))
+            materializedValue = .value(try typeFactory.typedMaterialize(from: element))
         }
 
         return ElementAssignableProperty(namespace: namespace, name: name, description: self, value: materializedValue)

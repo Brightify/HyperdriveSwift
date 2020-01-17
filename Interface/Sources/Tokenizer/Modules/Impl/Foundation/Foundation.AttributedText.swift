@@ -33,8 +33,12 @@ extension Sequence {
 }
 
 extension Module.Foundation {
-    public struct AttributedText: ElementSupportedPropertyType, TypedSupportedType, HasStaticTypeFactory {
+    public struct AttributedText: TypedSupportedType, HasStaticTypeFactory {
         public static let typeFactory = TypeFactory()
+
+        public var stateProperties: Set<String> {
+            return parts.reduce(into: []) { $0.formUnion($1.stateProperties) }
+        }
 
         public let style: StyleName?
         public let localProperties: [Property]
@@ -49,6 +53,15 @@ extension Module.Foundation {
         public enum Part {
             case transform(TransformedText)
             indirect case attributed(AttributedTextStyle, [AttributedText.Part])
+
+            var stateProperties: Set<String> {
+                switch self {
+                case .transform(let text):
+                    return text.stateProperties
+                case .attributed(let style, let parts):
+                    return parts.reduce(into: []) { $0.formUnion($1.stateProperties) }
+                }
+            }
 
             func requiresTheme(context: DataContext) -> Bool {
                 switch self {
@@ -75,6 +88,10 @@ extension Module.Foundation.AttributedText {
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "NSAttributedString", module: "Foundation")
+        }
+
+        public func typedMaterialize(from element: XMLElement) throws -> Module.Foundation.AttributedText {
+            return try Module.Foundation.AttributedText.materialize(from: element)
         }
     }
 }
@@ -110,7 +127,7 @@ extension Module.Foundation.AttributedText {
             return try contents.map { content in
                 switch content {
                 case let textChild as TextElement:
-                    return .transform(try TransformedText.materialize(from: textChild.text))
+                    return .transform(try TransformedText.typeFactory.typedMaterialize(from: textChild.text))
                 case let elementChild as XMLElement:
                     let textStyle = try AttributedTextStyle(node: elementChild)
                     return .attributed(textStyle, try parseTextElement(contents: elementChild.children))

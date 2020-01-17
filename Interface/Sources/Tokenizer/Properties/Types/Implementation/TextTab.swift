@@ -9,25 +9,11 @@
 import SwiftCodeGen
 #endif
 
-public struct TextTab: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct TextTab: TypedSupportedType, HasStaticTypeFactory {
     public static let typeFactory = TypeFactory()
 
     public let textAlignment: TextAlignment
     public let location: Double
-
-    public static func materialize(from value: String) throws -> TextTab {
-        let components = value.components(separatedBy: "@")
-        switch components.count {
-        case 2:
-            let (textAlignment, location) = try (TextAlignment.materialize(from: components[0]), Double.materialize(from: components[1]))
-            return TextTab(textAlignment: textAlignment, location: location)
-        case 1:
-            let location = try Double.materialize(from: components[0])
-            return TextTab(textAlignment: .left, location: location)
-        default:
-            throw XMLDeserializationError.NodeHasNoValue
-        }
-    }
 
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
@@ -55,6 +41,21 @@ public struct TextTab: TypedAttributeSupportedPropertyType, HasStaticTypeFactory
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> TextTab {
+            let components = value.components(separatedBy: "@")
+            switch components.count {
+            case 2:
+                let (textAlignment, location) = try (TextAlignment.typeFactory.typedMaterialize(
+                    from: components[0]), Double.typeFactory.typedMaterialize(from: components[1]))
+                return TextTab(textAlignment: textAlignment, location: location)
+            case 1:
+                let location = try Double.typeFactory.typedMaterialize(from: components[0])
+                return TextTab(textAlignment: .left, location: location)
+            default:
+                throw XMLDeserializationError.NodeHasNoValue
+            }
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "NSTextTab", module: "Foundation")

@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-public struct Shadow: MultipleAttributeSupportedPropertyType, TypedSupportedType, HasStaticTypeFactory {
+public struct Shadow: TypedSupportedType, HasStaticTypeFactory {
     public static let typeFactory = TypeFactory()
 
     public let offset: Size
@@ -37,14 +37,6 @@ public struct Shadow: MultipleAttributeSupportedPropertyType, TypedSupportedType
     }
     #endif
 
-    public static func materialize(from attributes: [String: String]) throws -> Shadow {
-        let offset = try attributes["offset"].map(Size.materialize) ?? Size.zero
-        let blurRadius = try attributes["blurRadius"].map(Float.materialize) ?? 0
-        let color = try attributes["color"].map(UIColorPropertyType.materialize)
-
-        return Shadow(offset: offset, blurRadius: blurRadius, color: color)
-    }
-
     public class TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
         public typealias BuildType = Shadow
 
@@ -53,6 +45,14 @@ public struct Shadow: MultipleAttributeSupportedPropertyType, TypedSupportedType
         }
 
         public init() { }
+
+        public func typedMaterialize(from attributes: [String : String]) throws -> Shadow {
+            let offset = try attributes["offset"].map(Size.typeFactory.typedMaterialize) ?? Size.zero
+            let blurRadius = try attributes["blurRadius"].map(Float.typeFactory.typedMaterialize) ?? 0
+            let color = try attributes["color"].map(UIColorPropertyType.typeFactory.typedMaterialize)
+
+            return Shadow(offset: offset, blurRadius: blurRadius, color: color)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "NSShadow", module: "Foundation")

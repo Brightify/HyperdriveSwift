@@ -6,20 +6,14 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum DatePickerMode: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum DatePickerMode: String, EnumPropertyType {
     public static let enumName = "UIDatePickerMode"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<DatePickerMode>()
 
     case date
     case time
     case dateAndTime
     case countDownTimer
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = DatePickerMode
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

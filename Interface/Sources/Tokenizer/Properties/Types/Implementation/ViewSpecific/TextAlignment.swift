@@ -6,23 +6,15 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum TextAlignment: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum TextAlignment: String, EnumPropertyType {
     public static let enumName = "NSTextAlignment"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<TextAlignment>()
 
     case left
     case right
     case center
     case justified
     case natural
-}
-
-extension TextAlignment {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = TextAlignment
-
-        public init() { }
-    }
 }
 
 #if HyperdriveRuntime

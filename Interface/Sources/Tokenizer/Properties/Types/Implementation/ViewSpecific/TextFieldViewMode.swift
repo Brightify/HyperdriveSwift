@@ -6,20 +6,14 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum TextFieldViewMode: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum TextFieldViewMode: String, EnumPropertyType {
     public static let enumName = "UITextField.ViewMode"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<TextFieldViewMode>()
 
     case never
     case whileEditing
     case unlessEditing
     case always
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = TextFieldViewMode
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

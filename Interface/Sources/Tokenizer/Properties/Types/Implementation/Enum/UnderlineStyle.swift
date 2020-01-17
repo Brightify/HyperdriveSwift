@@ -9,9 +9,9 @@
 import UIKit
 #endif
 
-public enum UnderlineStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum UnderlineStyle: String, EnumPropertyType {
     public static let enumName = "NSUnderlineStyle"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<UnderlineStyle>()
 
     case none
     case single
@@ -22,12 +22,6 @@ public enum UnderlineStyle: String, EnumPropertyType, AttributeSupportedProperty
     case patternDashDot
     case patternDashDotDot
     case byWord
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = UnderlineStyle
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

@@ -10,7 +10,7 @@
 import SwiftCodeGen
 #endif
 
-public enum Font: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public enum Font: TypedSupportedType, HasStaticTypeFactory {
     case system(weight: SystemFontWeight, size: Double)
     case named(String, size: Double)
     case themed(String)
@@ -60,15 +60,6 @@ public enum Font: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Font {
-        if let themedName = ApplicationDescription.themedValueName(value: value) {
-            return .themed(themedName)
-        } else {
-            let tokens = Lexer.tokenize(input: value, keepWhitespace: true)
-            return try FontParser(tokens: tokens).parseSingle()
-        }
-    }
 }
 
 #if canImport(UIKit)
@@ -98,6 +89,15 @@ extension Font {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Font {
+            if let themedName = ApplicationDescription.themedValueName(value: value) {
+                return .themed(themedName)
+            } else {
+                let tokens = Lexer.tokenize(input: value, keepWhitespace: true)
+                return try FontParser(tokens: tokens).parseSingle()
+            }
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "UIFont", module: "UIKit")

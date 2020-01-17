@@ -11,7 +11,7 @@ import Foundation
 import SwiftCodeGen
 #endif
 
-extension URL: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension URL: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -34,13 +34,6 @@ extension URL: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     }
     #endif
 
-    public static func materialize(from value: String) throws -> URL {
-        guard let materialized = URL(string: value) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return materialized
-    }
-
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = URL
 
@@ -49,6 +42,13 @@ extension URL: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> URL {
+            guard let materialized = URL(string: value) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return materialized
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "URL", module: "Foundation")

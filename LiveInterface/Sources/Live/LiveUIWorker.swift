@@ -471,6 +471,10 @@ extension ReactantLiveUIWorker {
             }
         }
 
+        public func resolvedAttributeStyleName(in style: StyleName, named name: String) throws -> String? {
+            return try globalContext.resolvedAttributeStyleName(in: style, named: name)
+        }
+
         public func resolvedStyleName(named styleName: StyleName) -> String {
             return globalContext.resolvedStyleName(named: styleName)
         }

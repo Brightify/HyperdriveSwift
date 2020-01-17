@@ -9,7 +9,7 @@
 import UIKit
 #endif
 
-public typealias StaticMultipleAttributeAssignablePropertyDescription<T> = MultipleAttributeAssignablePropertyDescription<T.TypeFactory> where T: MultipleAttributeSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedMultipleAttributeSupportedTypeFactory
+public typealias StaticMultipleAttributeAssignablePropertyDescription<T> = MultipleAttributeAssignablePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedMultipleAttributeSupportedTypeFactory
 
 /**
  * Property description describing a property using multiple XML attributes.
@@ -82,7 +82,7 @@ extension MultipleAttributeAssignablePropertyDescription: MultipleAttributePrope
             return (mutableKey, item.value)
         }, uniquingKeysWith: { $1 })
 
-        let materializedValue = PropertyValue<T>.value(try typeFactory.materialize(from: nameAdjustedAttributes))
+        let materializedValue = PropertyValue<T>.value(try typeFactory.typedMaterialize(from: nameAdjustedAttributes))
         return MultipleAttributeAssignableProperty(namespace: namespace, name: name, description: self, value: materializedValue)
     }
 }

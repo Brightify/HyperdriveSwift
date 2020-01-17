@@ -5,18 +5,12 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-public enum TableViewCellSeparatorStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum TableViewCellSeparatorStyle: String, EnumPropertyType {
     public static let enumName = "UITableViewCell.SeparatorStyle"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<TableViewCellSeparatorStyle>()
 
     case none
     case singleLine
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = TableViewCellSeparatorStyle
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

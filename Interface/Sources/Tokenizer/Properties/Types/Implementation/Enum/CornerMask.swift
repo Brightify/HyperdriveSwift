@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-public struct CornerMask: OptionSet, Hashable, TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct CornerMask: OptionSet, Hashable, TypedSupportedType, HasStaticTypeFactory {
     public typealias TypeFactory = CornerMask.CornerMaskTypeFactory
     public static let typeFactory = TypeFactory()
 
@@ -42,23 +42,6 @@ public struct CornerMask: OptionSet, Hashable, TypedAttributeSupportedPropertyTy
         return .constant("[\(values.joined(separator: ", "))]")
     }
     #endif
-
-    public static func materialize(from value: String) throws -> CornerMask {
-        return try value.replacingOccurrences(of: " ", with: "").split(separator: ",").map { value -> CornerMask in
-            switch value {
-            case "bottomRight":
-                return .bottomRight
-            case "topRight":
-                return .topRight
-            case "bottomLeft":
-                return .bottomLeft
-            case "topLeft":
-                return .topLeft
-            default:
-                throw TokenizationError(message: "Invalid value for type CACornerMask: \(value)")
-            }
-        }.reduce(CornerMask.none) { $0.union($1) }
-    }
 }
 
 extension CornerMask {
@@ -70,6 +53,23 @@ extension CornerMask {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> CornerMask {
+            return try value.replacingOccurrences(of: " ", with: "").split(separator: ",").map { value -> CornerMask in
+                switch value {
+                case "bottomRight":
+                    return .bottomRight
+                case "topRight":
+                    return .topRight
+                case "bottomLeft":
+                    return .bottomLeft
+                case "topLeft":
+                    return .topLeft
+                default:
+                    throw TokenizationError(message: "Invalid value for type CACornerMask: \(value)")
+                }
+            }.reduce(CornerMask.none) { $0.union($1) }
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CACornerMask", module: "CoreAnimation")

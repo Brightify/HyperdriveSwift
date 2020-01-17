@@ -588,10 +588,10 @@ private struct _StateProperty: Property {
     #endif
 }
 
-private final class WrappingAttributeSupportedType: AttributeSupportedPropertyType {
+private final class WrappingAttributeSupportedType: SupportedPropertyType {
     enum ValueKind {
-        case optional(Optional<AttributeSupportedPropertyType>)
-        case array([AttributeSupportedPropertyType])
+        case optional(Optional<SupportedPropertyType>)
+        case array([SupportedPropertyType])
     }
 
     final class WrappingAttributeFactory: AttributeSupportedTypeFactory {
@@ -621,7 +621,7 @@ private final class WrappingAttributeSupportedType: AttributeSupportedPropertyTy
             self.wrapKind = wrapKind
         }
 
-        func materialize(from value: String) throws -> AttributeSupportedPropertyType {
+        func materialize(from value: String) throws -> SupportedPropertyType {
             switch wrapKind {
             case .array:
                 // See Array.swift for documentation

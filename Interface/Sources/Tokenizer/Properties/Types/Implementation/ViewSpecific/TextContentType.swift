@@ -8,7 +8,7 @@
 
 public enum TextContentType: String, EnumPropertyType {
     public static let enumName = "UITextContentType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<TextContentType>()
 
     case none
     case URL
@@ -36,12 +36,6 @@ public enum TextContentType: String, EnumPropertyType {
     case telephoneNumber
     case username
     case password
-
-    public final class TypeFactory: EnumTypeFactory, TypedAttributeSupportedTypeFactory {
-        public typealias BuildType = TextContentType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

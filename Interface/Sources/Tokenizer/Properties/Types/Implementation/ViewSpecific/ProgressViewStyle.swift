@@ -7,16 +7,10 @@
 
 public enum ProgressViewStyle: String, EnumPropertyType {
     public static let enumName = "UIProgressView.Style"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ProgressViewStyle>()
 
     case `default`
     case bar
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ProgressViewStyle
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

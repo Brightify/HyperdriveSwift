@@ -5,20 +5,12 @@
 //  Created by Matouš Hýbl on 23/03/2018.
 //
 
-public enum LayoutAxis: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum LayoutAxis: String, EnumPropertyType {
     public static let enumName = "NSLayoutConstraint.Axis"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<LayoutAxis>()
 
     case vertical
     case horizontal
-}
-
-extension LayoutAxis {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = LayoutAxis
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

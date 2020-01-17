@@ -47,19 +47,13 @@ extension Module.AppKit {
 }
 
 extension Module.AppKit.SplitView {
-    public enum SplitViewDividerStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum SplitViewDividerStyle: String, EnumPropertyType {
         public static let enumName = "NSSplitView.DividerStyle"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<SplitViewDividerStyle>()
 
         case thick
         case thin
         case paneSplitter
-        
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = Module.AppKit.SplitView.SplitViewDividerStyle
-
-            public init() { }
-        }
     }
 }
 

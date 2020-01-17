@@ -8,7 +8,7 @@
 
 public enum ContentMode: String, EnumPropertyType {
     public static let enumName = "UIView.ContentMode"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ContentMode>()
 
     case scaleToFill
     case scaleAspectFit
@@ -23,14 +23,6 @@ public enum ContentMode: String, EnumPropertyType {
     case topRight
     case bottomLeft
     case bottomRight
-}
-
-extension ContentMode {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ContentMode
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

@@ -10,9 +10,9 @@ import AppKit
 #endif
 
 extension Module.AppKit {
-    public enum ButtonType: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum ButtonType: String, EnumPropertyType {
         public static let enumName = "NSButton.ButtonType"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<ButtonType>()
 
         case accelerator
         case momentaryChange
@@ -24,12 +24,6 @@ extension Module.AppKit {
         case radio
         case `switch`
         case toggle
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = Module.AppKit.ButtonType
-
-            public init() { }
-        }
     }
 
     public class Button: View {
@@ -78,19 +72,13 @@ extension Module.AppKit {
         }
     }
 
-    public enum NSControlStateValue: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum NSControlStateValue: String, EnumPropertyType {
         public static let enumName = "NSControl.StateValue"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<NSControlStateValue>()
 
         case mixed
         case off
         case on
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = Module.AppKit.NSControlStateValue
-
-            public init() { }
-        }
     }
 }
 

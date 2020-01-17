@@ -339,23 +339,21 @@ extension PreferredSize {
 
         public init() { }
 
+        public func typedMaterialize(from value: String) throws -> PreferredSize {
+            if !value.contains(",") {
+                let size = try PreferredDimension(value)
+                return PreferredSize(width: size, height: size)
+            } else {
+                let components = value.components(separatedBy: ",")
+                guard components.count == 2, let width = try? PreferredDimension(components[0]), let height = try? PreferredDimension(components[1]) else {
+                    throw TokenizationError(message: "Failed to materialize PreferredSizeValue")
+                }
+                return PreferredSize(width: width, height: height)
+            }
+        }
+
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return .unsupported
-        }
-    }
-}
-
-extension PreferredSize: AttributeSupportedPropertyType {
-    public static func materialize(from value: String) throws -> PreferredSize {
-        if !value.contains(",") {
-            let size = try PreferredDimension(value)
-            return PreferredSize(width: size, height: size)
-        } else {
-            let components = value.components(separatedBy: ",")
-            guard components.count == 2, let width = try? PreferredDimension(components[0]), let height = try? PreferredDimension(components[1]) else {
-                throw TokenizationError(message: "Failed to materialize PreferredSizeValue")
-            }
-            return PreferredSize(width: width, height: height)
         }
     }
 }

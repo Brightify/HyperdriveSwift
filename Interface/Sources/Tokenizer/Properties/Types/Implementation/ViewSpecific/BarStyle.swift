@@ -8,17 +8,11 @@
 
 public enum BarStyle: String, EnumPropertyType {
     public static let enumName = "UIBarStyle"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<BarStyle>()
 
     case `default`
     case black
     case blackTranslucent
-    
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = BarStyle
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

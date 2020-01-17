@@ -64,9 +64,9 @@ extension Module.UIKit {
                 if title != nil && image != nil {
                     throw TokenizationError(message: "<segment> cannot have a title and an image at the same time!")
                 } else if let title = title {
-                    content = try .title(TransformedText.materialize(from: title.text))
+                    content = try .title(TransformedText.typeFactory.typedMaterialize(from: title.text))
                 } else if let image = image {
-                    content = try .image(Image.materialize(from: image.text))
+                    content = try .image(Image.typeFactory.typedMaterialize(from: image.text))
                 } else {
                     throw TokenizationError(message: "<segment> is required to have either a title or an image!")
                 }
@@ -132,7 +132,7 @@ extension Module.UIKit {
                 if selectedSegmentAttribute.text.starts(with: "$") {
                     stringValue = .state(String(selectedSegmentAttribute.text.dropFirst()), factory: segmentFactory)
                 } else {
-                    let segmentName = try String.typeFactory.materialize(from: selectedSegmentAttribute.text) as String
+                    let segmentName = try String.typeFactory.typedMaterialize(from: selectedSegmentAttribute.text) as String
                     stringValue = .value(segments.firstIndex(where: { $0.name == segmentName })!)
                 }
 

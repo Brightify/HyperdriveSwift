@@ -9,7 +9,7 @@
 import UIKit
 #endif
 
-public typealias StaticAssignablePropertyDescription<T> = AssignablePropertyDescription<T.TypeFactory> where T: AttributeSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
+public typealias StaticAssignablePropertyDescription<T> = AssignablePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
 
 /**
  * Property description describing a property using a single XML attribute.
@@ -72,13 +72,13 @@ public struct AssignablePropertyDescription<T: TypedAttributeSupportedTypeFactor
     }
 }
 
-extension AssignablePropertyDescription: AttributePropertyDescription where T: AttributeSupportedTypeFactory, T.BuildType: AttributeSupportedPropertyType {
+extension AssignablePropertyDescription: AttributePropertyDescription where T: AttributeSupportedTypeFactory, T.BuildType: SupportedPropertyType {
     public func materialize(attributeName: String, value: String) throws -> Property {
         let materializedValue: PropertyValue<T>
         if value.starts(with: "$") {
             materializedValue = .state(String(value.dropFirst()), factory: typeFactory)
         } else {
-            materializedValue = .value(try typeFactory.materialize(from: value))
+            materializedValue = .value(try typeFactory.typedMaterialize(from: value))
         }
         return AssignableProperty(namespace: namespace, name: name, description: self, value: materializedValue)
     }

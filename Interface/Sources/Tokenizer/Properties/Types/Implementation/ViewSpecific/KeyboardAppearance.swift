@@ -6,19 +6,13 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum KeyboardAppearance: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum KeyboardAppearance: String, EnumPropertyType {
     public static let enumName = "UIKeyboardAppearance"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<KeyboardAppearance>()
 
     case `default`
     case dark
     case light
-    
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = KeyboardAppearance
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

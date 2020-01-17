@@ -64,8 +64,15 @@ public protocol TypedSupportedTypeFactory: SupportedTypeFactory {
     associatedtype BuildType: TypedSupportedType
 }
 
+public enum ValueOrState<T: SupportedPropertyType> {
+    case value(T)
+    case state(name: String)
+}
+
 public protocol SupportedPropertyType {
     var factory: SupportedTypeFactory { get }
+
+    var stateProperties: Set<String> { get }
 
     func requiresTheme(context: DataContext) -> Bool
 
@@ -92,7 +99,15 @@ public protocol SupportedPropertyType {
 }
 
 public extension SupportedPropertyType {
+    var stateProperties: Set<String> {
+        return []
+    }
+
     func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        return false
+    }
+
+    func requiresTheme(context: DataContext) -> Bool {
         return false
     }
 }
@@ -155,6 +170,10 @@ extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFa
         }
     }
 
+    public var stateProperties: Set<String> {
+        return self?.stateProperties ?? []
+    }
+
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -195,50 +214,56 @@ extension Optional: TypedSupportedType & SupportedPropertyType & HasStaticTypeFa
 }
 
 public protocol AttributeSupportedTypeFactory: SupportedTypeFactory {
-    func materialize(from value: String) throws -> AttributeSupportedPropertyType
+    func materialize(from value: String) throws -> SupportedPropertyType
 }
 
 public protocol TypedAttributeSupportedTypeFactory: AttributeSupportedTypeFactory & TypedSupportedTypeFactory {
-    func materialize(from value: String) throws -> BuildType
+    func typedMaterialize(from value: String) throws -> BuildType
 }
 
-public extension AttributeSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: AttributeSupportedPropertyType {
-    func materialize(from value: String) throws -> AttributeSupportedPropertyType {
-        return try BuildType.materialize(from: value)
-    }
-
-    func materialize(from value: String) throws -> BuildType {
-        return try BuildType.materialize(from: value)
+public extension TypedAttributeSupportedTypeFactory {
+    public func materialize(from value: String) throws -> SupportedPropertyType {
+        return try typedMaterialize(from: value)
     }
 }
 
-public protocol AttributeSupportedPropertyType: SupportedPropertyType {
-    static func materialize(from value: String) throws -> Self
-}
+//public extension AttributeSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: AttributeSupportedPropertyType {
+//    func materialize(from value: String) throws -> AttributeSupportedPropertyType {
+//        return try BuildType.materialize(from: value)
+//    }
+//
+//    func materialize(from value: String) throws -> BuildType {
+//        return try BuildType.materialize(from: value)
+//    }
+//}
 
-public protocol TypedAttributeSupportedPropertyType: AttributeSupportedPropertyType & TypedSupportedType { }
+//public protocol AttributeSupportedPropertyType: SupportedPropertyType {
+//    static func materialize(from value: String) throws -> Self
+//}
 
-public extension AttributeSupportedPropertyType {
-    func requiresTheme(context: DataContext) -> Bool {
-        return false
-    }
-}
+//public protocol TypedAttributeSupportedPropertyType: AttributeSupportedPropertyType & TypedSupportedType { }
 
-extension Optional: AttributeSupportedPropertyType where Wrapped: AttributeSupportedPropertyType, Wrapped: HasStaticTypeFactory {
-    public static func materialize(from value: String) throws -> Optional<Wrapped> {
-        return try Wrapped.materialize(from: value)
-    }
-}
+//public extension AttributeSupportedPropertyType {
+//    func requiresTheme(context: DataContext) -> Bool {
+//        return false
+//    }
+//}
+
+//extension Optional: AttributeSupportedPropertyType where Wrapped: AttributeSupportedPropertyType, Wrapped: HasStaticTypeFactory {
+//    public static func materialize(from value: String) throws -> Optional<Wrapped> {
+//        return try Wrapped.materialize(from: value)
+//    }
+//}
 
 extension Optional.TypeFactory: AttributeSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: AttributeSupportedTypeFactory {
-    public func materialize(from value: String) throws -> AttributeSupportedPropertyType {
+    public func materialize(from value: String) throws -> SupportedPropertyType {
         return try Wrapped.typeFactory.materialize(from: value)
     }
 }
 
 extension Optional.TypeFactory: TypedAttributeSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: TypedAttributeSupportedTypeFactory {
-    public func materialize(from value: String) throws -> Wrapped? {
-        return try Wrapped.typeFactory.materialize(from: value)
+    public func typedMaterialize(from value: String) throws -> Wrapped? {
+        return try Wrapped.typeFactory.typedMaterialize(from: value)
     }
 }
 
@@ -247,100 +272,119 @@ extension Optional.TypeFactory: TypedAttributeSupportedTypeFactory where Wrapped
 //}
 
 public protocol ElementSupportedTypeFactory: SupportedTypeFactory {
-    func materialize(from element: XMLElement) throws -> ElementSupportedPropertyType
+    func materialize(from element: XMLElement) throws -> SupportedPropertyType
 }
 
 public protocol TypedElementSupportedTypeFactory: ElementSupportedTypeFactory & TypedSupportedTypeFactory {
-    func materialize(from element: XMLElement) throws -> BuildType
+    func typedMaterialize(from element: XMLElement) throws -> BuildType
 }
 
-public extension ElementSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: ElementSupportedPropertyType {
-    func materialize(from element: XMLElement) throws -> ElementSupportedPropertyType {
-        return try BuildType.materialize(from: element)
-    }
-
-    func materialize(from element: XMLElement) throws -> BuildType {
-        return try BuildType.materialize(from: element)
+extension TypedElementSupportedTypeFactory {
+    public func materialize(from element: XMLElement) throws -> SupportedPropertyType {
+        return try typedMaterialize(from: element)
     }
 }
 
-public protocol ElementSupportedPropertyType: SupportedPropertyType {
-    static func materialize(from element: XMLElement) throws -> Self
-}
+//public extension ElementSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: ElementSupportedPropertyType {
+//    func materialize(from element: XMLElement) throws -> ElementSupportedPropertyType {
+//        return try BuildType.materialize(from: element)
+//    }
+//
+//    func materialize(from element: XMLElement) throws -> BuildType {
+//        return try BuildType.materialize(from: element)
+//    }
+//}
 
-public extension ElementSupportedPropertyType {
-    func requiresTheme(context: DataContext) -> Bool {
-        return false
-    }
-}
+//public protocol ElementSupportedPropertyType: SupportedPropertyType {
+//    static func materialize(from element: XMLElement) throws -> Self
+//}
 
-extension Optional: ElementSupportedPropertyType where Wrapped: ElementSupportedPropertyType, Wrapped: HasStaticTypeFactory {
-    public static func materialize(from element: XMLElement) throws -> Optional<Wrapped> {
-        return try Wrapped.materialize(from: element)
-    }
-}
+//public extension ElementSupportedPropertyType {
+//    func requiresTheme(context: DataContext) -> Bool {
+//        return false
+//    }
+//}
+
+//extension Optional: ElementSupportedPropertyType where Wrapped: ElementSupportedPropertyType, Wrapped: HasStaticTypeFactory {
+//    public static func materialize(from element: XMLElement) throws -> Optional<Wrapped> {
+//        return try Wrapped.materialize(from: element)
+//    }
+//}
 
 extension Optional.TypeFactory: ElementSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: ElementSupportedTypeFactory {
-    public func materialize(from element: XMLElement) throws -> ElementSupportedPropertyType {
+    public func materialize(from element: XMLElement) throws -> SupportedPropertyType {
         return try Wrapped.typeFactory.materialize(from: element)
     }
 }
 
 extension Optional.TypeFactory: TypedElementSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: TypedElementSupportedTypeFactory {
-    public func materialize(from element: XMLElement) throws -> Wrapped? {
-        return try Wrapped.typeFactory.materialize(from: element)
+    public func typedMaterialize(from element: XMLElement) throws -> Wrapped? {
+        return try Wrapped.typeFactory.typedMaterialize(from: element)
     }
 }
 
 public protocol MultipleAttributeSupportedTypeFactory: SupportedTypeFactory {
-    func materialize(from attributes: [String: String]) throws -> MultipleAttributeSupportedPropertyType
+    func materialize(from attributes: [String: String]) throws -> SupportedPropertyType
 }
 
 public protocol TypedMultipleAttributeSupportedTypeFactory: MultipleAttributeSupportedTypeFactory & TypedSupportedTypeFactory {
-    func materialize(from attributes: [String: String]) throws -> BuildType
+    func typedMaterialize(from attributes: [String: String]) throws -> BuildType
 }
 
-public extension MultipleAttributeSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: MultipleAttributeSupportedPropertyType {
-    func materialize(from attributes: [String: String]) throws -> MultipleAttributeSupportedPropertyType {
-        return try BuildType.materialize(from: attributes)
-    }
-
-    func materialize(from attributes: [String: String]) throws -> BuildType {
-        return try BuildType.materialize(from: attributes)
+public extension TypedMultipleAttributeSupportedTypeFactory {
+    func materialize(from attributes: [String: String]) throws -> SupportedPropertyType {
+        return try typedMaterialize(from: attributes)
     }
 }
 
-public protocol MultipleAttributeSupportedPropertyType: SupportedPropertyType {
-    static func materialize(from attributes: [String: String]) throws -> Self
-}
+//public extension MultipleAttributeSupportedTypeFactory where Self: TypedSupportedTypeFactory, BuildType: MultipleAttributeSupportedPropertyType {
+//    func materialize(from attributes: [String: String]) throws -> MultipleAttributeSupportedPropertyType {
+//        return try BuildType.materialize(from: attributes)
+//    }
+//
+//    func materialize(from attributes: [String: String]) throws -> BuildType {
+//        return try BuildType.materialize(from: attributes)
+//    }
+//}
 
-public extension MultipleAttributeSupportedPropertyType {
-    func requiresTheme(context: DataContext) -> Bool {
-        return false
-    }
-}
+//public protocol MultipleAttributeSupportedPropertyType: SupportedPropertyType {
+//    static func materialize(from attributes: [String: String]) throws -> Self
+//}
 
-extension Optional: MultipleAttributeSupportedPropertyType where Wrapped: MultipleAttributeSupportedPropertyType, Wrapped: HasStaticTypeFactory {
-    public static func materialize(from attributes: [String: String]) throws -> Optional<Wrapped> {
-        return try Wrapped.materialize(from: attributes)
-    }
-}
+//public extension MultipleAttributeSupportedPropertyType {
+//    func requiresTheme(context: DataContext) -> Bool {
+//        return false
+//    }
+//}
+
+//extension Optional: MultipleAttributeSupportedPropertyType where Wrapped: MultipleAttributeSupportedPropertyType, Wrapped: HasStaticTypeFactory {
+//    public static func materialize(from attributes: [String: String]) throws -> Optional<Wrapped> {
+//        return try Wrapped.materialize(from: attributes)
+//    }
+//}
 
 extension Optional.TypeFactory: MultipleAttributeSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: MultipleAttributeSupportedTypeFactory {
-    public func materialize(from attributes: [String: String]) throws -> MultipleAttributeSupportedPropertyType {
+    public func materialize(from attributes: [String: String]) throws -> SupportedPropertyType {
         return try Wrapped.typeFactory.materialize(from: attributes)
     }
 }
 
 extension Optional.TypeFactory: TypedMultipleAttributeSupportedTypeFactory where Wrapped: HasStaticTypeFactory, Wrapped.TypeFactory: TypedMultipleAttributeSupportedTypeFactory {
-    public func materialize(from attributes: [String: String]) throws -> Wrapped? {
-        return try Wrapped.typeFactory.materialize(from: attributes)
+    public func typedMaterialize(from attributes: [String: String]) throws -> Wrapped? {
+        return try Wrapped.typeFactory.typedMaterialize(from: attributes)
     }
 }
 
-extension ElementSupportedPropertyType where Self: AttributeSupportedPropertyType {
-    static func materialize(from element: XMLElement) throws -> Self {
-        let text = element.text ?? ""
-        return try materialize(from: text)
-    }
-}
+//extension ElementSupportedTypeFactory where Self: AttributeSupportedTypeFactory {
+//    func materialize(from element: XMLElement) throws -> BuiltType {
+//        let text = element.text ?? ""
+//        return try materialize(from: text)
+//    }
+//}
+
+//extension ElementSupportedPropertyType where Self: AttributeSupportedPropertyType {
+//    static func materialize(from element: XMLElement) throws -> Self {
+//        let text = element.text ?? ""
+//        return try materialize(from: text)
+//    }
+//}

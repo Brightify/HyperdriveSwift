@@ -25,7 +25,7 @@ public enum TransformedText: HasStaticTypeFactory {
     }
 }
 
-extension TransformedText: TypedAttributeSupportedPropertyType {
+extension TransformedText: TypedSupportedType {
     #if canImport(SwiftCodeGen)
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
         func resolveTransformations(text: TransformedText) -> Expression {
@@ -103,11 +103,6 @@ extension TransformedText: TypedAttributeSupportedPropertyType {
     }
     #endif
 
-    public static func materialize(from value: String) throws -> TransformedText {
-        let tokens = Lexer.tokenize(input: value, keepWhitespace: true)
-        return try TextParser(tokens: tokens).parseSingle()
-    }
-
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = TransformedText
 
@@ -116,6 +111,11 @@ extension TransformedText: TypedAttributeSupportedPropertyType {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> TransformedText {
+            let tokens = Lexer.tokenize(input: value, keepWhitespace: true)
+            return try TextParser(tokens: tokens).parseSingle()
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "String")

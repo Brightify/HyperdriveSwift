@@ -8,7 +8,7 @@
 
 public enum ControlState: String, EnumPropertyType {
     public static let enumName = "UIControl.State"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ControlState>()
 
     case normal
     case highlighted
@@ -44,14 +44,6 @@ public enum ControlState: String, EnumPropertyType {
         let values = Set(ControlState.allCases.map { $0.rawValue })
 
         return .enumeration(EnumerationXSDType(name: ControlState.enumName, base: .string, values: values))
-    }
-}
-
-extension ControlState {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ControlState
-
-        public init() { }
     }
 }
 

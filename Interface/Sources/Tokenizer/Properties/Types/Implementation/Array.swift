@@ -55,11 +55,17 @@ extension Array: TypedSupportedType & SupportedPropertyType & HasStaticTypeFacto
     }
 }
 
-extension Array: AttributeSupportedPropertyType where Element: TypedAttributeSupportedPropertyType & HasStaticTypeFactory {
-    public static func materialize(from value: String) throws -> Array<Element> {
+extension Array.TypeFactory: AttributeSupportedTypeFactory where Element: HasStaticTypeFactory, Element.TypeFactory: TypedAttributeSupportedTypeFactory {
+
+}
+
+extension Array.TypeFactory: TypedAttributeSupportedTypeFactory where Element: HasStaticTypeFactory, Element.TypeFactory: TypedAttributeSupportedTypeFactory {
+    public func typedMaterialize(from value: String) throws -> [Element] {
         // removing spaces might be problematic, hopefully no sane `SupportedPropertyType` uses space as part of tokenizing
         // comma separation might be problematic as some types might use it inside of themselves, e.g. a point (x: 10, y: 12)
-        return try value.replacingOccurrences(of: " ", with: "").components(separatedBy: ";").map { try Element.materialize(from: $0) }
+        return try value.replacingOccurrences(of: " ", with: "").components(separatedBy: ";").map {
+            try Element.typeFactory.typedMaterialize(from: $0)
+        }
     }
 }
 

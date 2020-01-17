@@ -5,19 +5,13 @@
 //  Created by Matyáš Kříž on 28/05/2018.
 //
 
-public enum WritingDirection: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum WritingDirection: String, EnumPropertyType {
     public static let enumName = "NSWritingDirection"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<WritingDirection>()
 
     case natural
     case leftToRight
     case rightToLeft
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = WritingDirection
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

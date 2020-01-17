@@ -46,10 +46,10 @@ public struct NavigationItem {
                 kind = .title(title.text ?? "", style: style ?? .plain)
             } else if let imageElement = try element.singleOrNoElement(named: "image") {
                 let landscapeImagePhone = try element.singleOrNoElement(named: "landscapeImagePhone").map {
-                    try Image.materialize(from: $0.nonEmptyTextOrThrow())
+                    try Image.typeFactory.typedMaterialize(from: $0.nonEmptyTextOrThrow())
                 }
 
-                let image = try Image.materialize(from: imageElement.nonEmptyTextOrThrow())
+                let image = try Image.typeFactory.typedMaterialize(from: imageElement.nonEmptyTextOrThrow())
                 kind = .image(image, landscapeImagePhone: landscapeImagePhone, style: style ?? .plain)
             } else {
                 throw TokenizationError(message: "Unknown barButtonItem type!")

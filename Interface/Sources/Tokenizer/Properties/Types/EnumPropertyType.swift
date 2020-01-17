@@ -13,9 +13,16 @@ public protocol HasEnumName {
     static var enumName: String { get }
 }
 
-public protocol EnumPropertyType: RawRepresentable, CaseIterable, HasEnumName, TypedAttributeSupportedPropertyType, HasStaticTypeFactory where RawValue == String { }
+public protocol EnumPropertyType: RawRepresentable, CaseIterable, HasEnumName, TypedSupportedType, HasStaticTypeFactory
+    where RawValue == String {
+
+}
 
 public extension EnumPropertyType {
+    var stateProperties: Set<String> {
+        return []
+    }
+
     #if canImport(SwiftCodeGen)
     func generate(context: SupportedPropertyTypeContext) -> Expression {
         return .constant("\(Self.enumName).\(rawValue)")
@@ -29,27 +36,32 @@ extension SupportedPropertyType where Self: RawRepresentable, Self.RawValue == S
         return rawValue
     }
     #endif
+}
 
-    public static func materialize(from value: String) throws -> Self {
-        guard let materialized = Self(rawValue: value) else {
+
+open class EnumTypeFactory<BuildType: TypedSupportedType>: TypedSupportedTypeFactory, HasZeroArgumentInitializer where BuildType: HasEnumName & CaseIterable & RawRepresentable, BuildType.RawValue == String {
+
+    open var xsdType: XSDType {
+        let values = Set(BuildType.allCases.map { $0.rawValue })
+        return .enumeration(EnumerationXSDType(name: BuildType.enumName, base: .string, values: values))
+    }
+
+    open func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
+        #warning("TODO: We should let the children decide the module here:")
+        return RuntimeType(name: BuildType.enumName)
+    }
+
+    public required init() {
+
+    }
+}
+
+extension EnumTypeFactory: TypedAttributeSupportedTypeFactory {
+    public func typedMaterialize(from value: String) throws -> BuildType {
+        guard let materialized = BuildType(rawValue: value) else {
             throw PropertyMaterializationError.unknownValue(value)
         }
         return materialized
     }
 }
 
-
-public protocol EnumTypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer where BuildType: HasEnumName & CaseIterable & RawRepresentable, BuildType.RawValue == String {
-}
-
-public extension EnumTypeFactory {
-    var xsdType: XSDType {
-        let values = Set(BuildType.allCases.map { $0.rawValue })
-        return .enumeration(EnumerationXSDType(name: BuildType.enumName, base: .string, values: values))
-    }
-
-    func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
-        #warning("TODO: We should let the children decide the module here:")
-        return RuntimeType(name: BuildType.enumName)
-    }
-}

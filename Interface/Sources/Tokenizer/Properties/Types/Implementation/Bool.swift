@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-extension Bool: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension Bool: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -31,13 +31,6 @@ extension Bool: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         return self
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Bool {
-        guard let materialized = Bool(value) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return materialized
-    }
 }
 
 extension Bool {
@@ -49,6 +42,13 @@ extension Bool {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Bool {
+            guard let materialized = Bool(value) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return materialized
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "Bool")

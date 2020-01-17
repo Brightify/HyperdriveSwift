@@ -14,7 +14,7 @@ import UIKit
 import SwiftCodeGen
 #endif
 
-public struct Point: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct Point: TypedSupportedType, HasStaticTypeFactory {
     public static let zero = Point(x: 0, y: 0)
     public static let typeFactory = TypeFactory()
 
@@ -38,19 +38,6 @@ public struct Point: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
     }
     #endif
 
-    public static func materialize(from value: String) throws -> Point {
-        let dimensions = try DimensionParser(tokens: Lexer.tokenize(input: value)).parse()
-
-        guard dimensions.count == 2 else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-
-        let x = (dimensions.first(where: { $0.identifier == "x" }) ?? dimensions[0]).value
-        let y = (dimensions.first(where: { $0.identifier == "y" }) ?? dimensions[1]).value
-
-        return Point(x: x, y: y)
-    }
-
     public final class TypeFactory: TypedAttributeSupportedTypeFactory, HasZeroArgumentInitializer {
         public typealias BuildType = Point
 
@@ -59,6 +46,19 @@ public struct Point: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Point {
+            let dimensions = try DimensionParser(tokens: Lexer.tokenize(input: value)).parse()
+
+            guard dimensions.count == 2 else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+
+            let x = (dimensions.first(where: { $0.identifier == "x" }) ?? dimensions[0]).value
+            let y = (dimensions.first(where: { $0.identifier == "y" }) ?? dimensions[1]).value
+
+            return Point(x: x, y: y)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CGPoint", module: "CoreGraphics")

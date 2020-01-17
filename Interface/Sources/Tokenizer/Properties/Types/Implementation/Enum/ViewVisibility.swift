@@ -6,19 +6,13 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum ViewVisibility: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum ViewVisibility: String, EnumPropertyType {
     public static let enumName = "Visibility"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ViewVisibility>()
 
     case visible
     case hidden
     case collapsed
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ViewVisibility
-
-        public init() { }
-    }
 }
 
 #if HyperdriveRuntime

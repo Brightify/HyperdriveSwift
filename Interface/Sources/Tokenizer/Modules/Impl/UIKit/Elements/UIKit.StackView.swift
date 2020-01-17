@@ -69,21 +69,15 @@ extension Module.UIKit {
 }
 
 extension Module.UIKit.StackView {
-    public enum LayoutDistribution: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum LayoutDistribution: String, EnumPropertyType {
         public static let enumName = "UIStackView.Distribution"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<LayoutDistribution>()
 
         case fill
         case fillEqually
         case fillProportionally
         case equalCentering
         case equalSpacing
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = LayoutDistribution
-
-            public init() { }
-        }
     }
 }
 
@@ -106,9 +100,9 @@ extension Module.UIKit.StackView.LayoutDistribution {
 }
 #endif
 
-public enum LayoutAlignment: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum LayoutAlignment: String, EnumPropertyType {
     public static let enumName = "UIStackView.Alignment"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<LayoutAlignment>()
 
     case fill
     case firstBaseline
@@ -116,12 +110,6 @@ public enum LayoutAlignment: String, EnumPropertyType, AttributeSupportedPropert
     case leading
     case trailing
     case center
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = LayoutAlignment
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

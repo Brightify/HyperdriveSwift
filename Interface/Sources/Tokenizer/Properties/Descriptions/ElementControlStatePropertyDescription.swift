@@ -9,7 +9,7 @@
 import UIKit
 #endif
 
-public typealias StaticElementControlStatePropertyDescription<T> = ElementControlStatePropertyDescription<T.TypeFactory> where T: ElementSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedElementSupportedTypeFactory
+public typealias StaticElementControlStatePropertyDescription<T> = ElementControlStatePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedElementSupportedTypeFactory
 
 /**
  * Property description describing a property using a single XML element with a control state.
@@ -106,7 +106,7 @@ extension ElementControlStatePropertyDescription: ElementPropertyDescription whe
         if let elementText = element.text, elementText.starts(with: "$"), !elementText.contains(" ") {
             materializedValue = .state(String(elementText.dropFirst()), factory: typeFactory)
         } else {
-            materializedValue = .value(try typeFactory.materialize(from: element))
+            materializedValue = .value(try typeFactory.typedMaterialize(from: element))
         }
         return ElementControlStateProperty(namespace: namespace, name: name, state: controlState, description: self, value: materializedValue)
     }

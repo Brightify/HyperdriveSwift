@@ -9,7 +9,7 @@
 import SwiftCodeGen
 #endif
 
-extension Float: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+extension Float: TypedSupportedType, HasStaticTypeFactory {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }
@@ -31,13 +31,6 @@ extension Float: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         return generate(context: context)
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Float {
-        guard let materialized = Float(value) else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        return materialized
-    }
 }
 
 extension Float {
@@ -49,6 +42,13 @@ extension Float {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Float {
+            guard let materialized = Float(value) else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            return materialized
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "Float")

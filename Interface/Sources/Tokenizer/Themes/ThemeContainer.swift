@@ -39,7 +39,7 @@ public struct ThemeContainer<T: HasStaticTypeFactory>: XMLElementDeserializable 
     public init(node: XMLElement) throws {
         for child in node.xmlChildren {
             for (theme, attribute) in child.allAttributes {
-                let item = try T.typeFactory.materialize(from: attribute.text)
+                let item = try T.typeFactory.typedMaterialize(from: attribute.text)
                 if theme == "default" {
                     defaultItems[child.name] = item
                 } else {

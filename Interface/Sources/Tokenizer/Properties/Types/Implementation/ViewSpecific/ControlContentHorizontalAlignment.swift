@@ -11,7 +11,7 @@ import SwiftCodeGen
 
 public enum ControlContentHorizontalAlignment: String, EnumPropertyType {
     public static let enumName = "UIControl.ContentHorizontalAlignment"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ControlContentHorizontalAlignment>()
     
     case center
     case left
@@ -83,12 +83,6 @@ public enum ControlContentHorizontalAlignment: String, EnumPropertyType {
     public static var xsdType: XSDType {
         let values = Set(arrayLiteral: "center", "left", "right", "fill", "leading", "trailing")
         return .enumeration(EnumerationXSDType(name: ControlContentHorizontalAlignment.enumName, base: .string, values: values))
-    }
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ControlContentHorizontalAlignment
-
-        public init() { }
     }
 }
 

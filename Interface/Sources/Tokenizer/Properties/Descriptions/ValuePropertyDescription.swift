@@ -10,7 +10,7 @@
 import UIKit
 #endif
 
-public typealias StaticValuePropertyDescription<T> = ValuePropertyDescription<T.TypeFactory> where T: AttributeSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
+public typealias StaticValuePropertyDescription<T> = ValuePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
 
 /**
  * Property description describing a property using a single XML attribute.
@@ -77,7 +77,7 @@ extension ValuePropertyDescription: AttributePropertyDescription /*where T: Attr
         if value.starts(with: "$") {
             materializedValue = .state(String(value.dropFirst()), factory: typeFactory)
         } else {
-            materializedValue = .value(try typeFactory.materialize(from: value))
+            materializedValue = .value(try typeFactory.typedMaterialize(from: value))
         }
 
         return ValueProperty(namespace: namespace, name: name, description: self, value: materializedValue)

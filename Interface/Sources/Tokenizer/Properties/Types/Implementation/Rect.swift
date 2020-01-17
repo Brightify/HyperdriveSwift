@@ -14,7 +14,7 @@ import UIKit
 import SwiftCodeGen
 #endif
 
-public struct Rect: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct Rect: TypedSupportedType, HasStaticTypeFactory {
     public static let zero = Rect()
     public static let typeFactory = TypeFactory()
 
@@ -41,18 +41,6 @@ public struct Rect: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         return "x: \(origin.x), y: \(origin.y), width: \(size.width), height: \(size.height)"
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Rect {
-        let dimensions = try DimensionParser(tokens: Lexer.tokenize(input: value)).parse()
-        guard dimensions.count == 4 else {
-            throw PropertyMaterializationError.unknownValue(value)
-        }
-        let x = (dimensions.first(where: { $0.identifier == "x" }) ?? dimensions[0]).value
-        let y = (dimensions.first(where: { $0.identifier == "y" }) ?? dimensions[1]).value
-        let width = (dimensions.first(where: { $0.identifier == "width" }) ?? dimensions[2]).value
-        let height = (dimensions.first(where: { $0.identifier == "height" }) ?? dimensions[3]).value
-        return Rect(x: x, y: y, width: width, height: height)
-    }
 }
 
 extension Rect {
@@ -64,6 +52,18 @@ extension Rect {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Rect {
+            let dimensions = try DimensionParser(tokens: Lexer.tokenize(input: value)).parse()
+            guard dimensions.count == 4 else {
+                throw PropertyMaterializationError.unknownValue(value)
+            }
+            let x = (dimensions.first(where: { $0.identifier == "x" }) ?? dimensions[0]).value
+            let y = (dimensions.first(where: { $0.identifier == "y" }) ?? dimensions[1]).value
+            let width = (dimensions.first(where: { $0.identifier == "width" }) ?? dimensions[2]).value
+            let height = (dimensions.first(where: { $0.identifier == "height" }) ?? dimensions[3]).value
+            return Rect(x: x, y: y, width: width, height: height)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CGRect", module: "CoreGraphics")

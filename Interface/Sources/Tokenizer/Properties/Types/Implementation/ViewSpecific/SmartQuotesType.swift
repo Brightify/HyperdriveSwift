@@ -5,19 +5,13 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-public enum SmartQuotesType: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum SmartQuotesType: String, EnumPropertyType {
     public static let enumName = "UITextSmartQuotesType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<SmartQuotesType>()
 
     case `default`
     case no
     case yes
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = SmartQuotesType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

@@ -5,19 +5,13 @@
 //  Created by Matouš Hýbl on 15/08/2018.
 //
 
-public enum SmartDashesType: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum SmartDashesType: String, EnumPropertyType {
     public static let enumName = "UITextSmartDashesType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<SmartDashesType>()
 
     case `default`
     case no
     case yes
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = SmartDashesType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

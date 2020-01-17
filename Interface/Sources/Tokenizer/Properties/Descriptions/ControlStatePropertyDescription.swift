@@ -15,7 +15,7 @@ import UIKit
  */
 public protocol ControlStatePropertyDescriptionMarker { }
 
-public typealias StaticControlStatePropertyDescription<T> = ControlStatePropertyDescription<T.TypeFactory> where T: AttributeSupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
+public typealias StaticControlStatePropertyDescription<T> = ControlStatePropertyDescription<T.TypeFactory> where T: SupportedPropertyType & HasStaticTypeFactory, T.TypeFactory: TypedAttributeSupportedTypeFactory
 
 /**
  * Property description describing a property with a control state using a single XML attribute.
@@ -99,13 +99,13 @@ public struct ControlStatePropertyDescription<T: TypedAttributeSupportedTypeFact
     }
 }
 
-extension ControlStatePropertyDescription: AttributePropertyDescription where T.BuildType: AttributeSupportedPropertyType {
+extension ControlStatePropertyDescription: AttributePropertyDescription where T.BuildType: SupportedPropertyType {
     public func materialize(attributeName: String, value: String) throws -> Property {
         let materializedValue: PropertyValue<T>
         if value.starts(with: "$") {
             materializedValue = .state(String(value.dropFirst()), factory: typeFactory)
         } else {
-            materializedValue = .value(try typeFactory.materialize(from: value))
+            materializedValue = .value(try typeFactory.typedMaterialize(from: value))
         }
         return ControlStateProperty(namespace: namespace, name: name, state: parseState(from: attributeName), description: self, value: materializedValue)
     }

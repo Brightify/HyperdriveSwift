@@ -5,19 +5,13 @@
 //  Created by Matyáš Kříž on 09/08/2018.
 //
 
-public enum ViewCollapseAxis: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum ViewCollapseAxis: String, EnumPropertyType {
     public static let enumName = "CollapseAxis"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ViewCollapseAxis>()
 
     case horizontal
     case vertical
     case both
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ViewCollapseAxis
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

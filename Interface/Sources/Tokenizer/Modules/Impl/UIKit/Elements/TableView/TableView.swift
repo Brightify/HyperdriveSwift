@@ -27,7 +27,7 @@ extension Module.UIKit {
         #endif
     }
 
-    public enum RowHeight: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+    public enum RowHeight: TypedSupportedType, HasStaticTypeFactory {
         private static let automaticIdentifier = "auto"
         public static let typeFactory = TypeFactory()
 
@@ -55,14 +55,6 @@ extension Module.UIKit {
             }
         }
         #endif
-
-        public static func materialize(from value: String) throws -> RowHeight {
-            if value == automaticIdentifier {
-                return .automatic
-            } else {
-                return try .value(Float.materialize(from: value))
-            }
-        }
 
         #if canImport(UIKit)
         public func runtimeValue(context: SupportedPropertyTypeContext) -> Any? {
@@ -145,6 +137,14 @@ extension Module.UIKit.RowHeight {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> Module.UIKit.RowHeight {
+            if value == automaticIdentifier {
+                return .automatic
+            } else {
+                return try .value(Float.typeFactory.typedMaterialize(from: value))
+            }
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CGFloat", module: "CoreGraphics")

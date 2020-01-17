@@ -6,21 +6,13 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum ActivityIndicatorStyle: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum ActivityIndicatorStyle: String, EnumPropertyType {
     public static let enumName = "UIActivityIndicatorView.Style"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<ActivityIndicatorStyle>()
 
     case whiteLarge
     case white
     case gray
-}
-
-extension ActivityIndicatorStyle {
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = ActivityIndicatorStyle
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

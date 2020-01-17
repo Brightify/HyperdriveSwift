@@ -5,18 +5,12 @@
 //  Created by Matouš Hýbl on 09/03/2018.
 //
 
-public enum TableViewCellSeparatorInsetReference: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum TableViewCellSeparatorInsetReference: String, EnumPropertyType {
     public static let enumName = "UITableView.SeparatorInsetReference"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<TableViewCellSeparatorInsetReference>()
 
     case fromCellEdges
     case fromAutomaticInsets
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = TableViewCellSeparatorInsetReference
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

@@ -6,21 +6,15 @@
 //  Copyright © 2017 Brightify. All rights reserved.
 //
 
-public enum MapType: String, EnumPropertyType, AttributeSupportedPropertyType {
+public enum MapType: String, EnumPropertyType {
     public static let enumName = "MKMapType"
-    public static let typeFactory = TypeFactory()
+    public static let typeFactory = EnumTypeFactory<MapType>()
 
     case standard
     case satellite
     case hybrid
     case satelliteFlyover
     case hybridFlyover
-
-    public final class TypeFactory: EnumTypeFactory {
-        public typealias BuildType = MapType
-
-        public init() { }
-    }
 }
 
 #if canImport(UIKit)

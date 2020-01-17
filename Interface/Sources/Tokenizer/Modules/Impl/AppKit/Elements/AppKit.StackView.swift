@@ -70,18 +70,12 @@ extension Module.AppKit {
 
 // MARK: - UserInterfaceLayoutOrientation
 extension Module.AppKit.StackView {
-    public enum UserInterfaceLayoutOrientation: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum UserInterfaceLayoutOrientation: String, EnumPropertyType {
         public static let enumName = "NSUserInterfaceLayoutOrientation"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<UserInterfaceLayoutOrientation>()
 
         case vertical
         case horizontal
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = UserInterfaceLayoutOrientation
-
-            public init() { }
-        }
     }
 }
 
@@ -106,9 +100,9 @@ extension Module.AppKit.StackView.UserInterfaceLayoutOrientation {
 
 // MARK: - UserInterfaceLayoutOrientation
 extension Module.AppKit.StackView {
-    public enum LayoutDistribution: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum LayoutDistribution: String, EnumPropertyType {
         public static let enumName = "NSStackView.Distribution"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<LayoutDistribution>()
 
         case fill
         case fillEqually
@@ -116,12 +110,6 @@ extension Module.AppKit.StackView {
         case equalCentering
         case equalSpacing
         case gravityAreas
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = LayoutDistribution
-
-            public init() { }
-        }
     }
 }
 
@@ -152,9 +140,9 @@ extension Module.AppKit.StackView.LayoutDistribution {
 
 // MARK: - LayoutAlignment
 extension Module.AppKit.StackView {
-    public enum LayoutAlignment: String, EnumPropertyType, AttributeSupportedPropertyType {
+    public enum LayoutAlignment: String, EnumPropertyType {
         public static let enumName = "NSStackView.Alignment"
-        public static let typeFactory = TypeFactory()
+        public static let typeFactory = EnumTypeFactory<LayoutAlignment>()
 
         case fill
         case firstBaseline
@@ -162,12 +150,6 @@ extension Module.AppKit.StackView {
         case leading
         case trailing
         case center
-
-        public final class TypeFactory: EnumTypeFactory {
-            public typealias BuildType = Module.AppKit.StackView.LayoutAlignment
-
-            public init() { }
-        }
     }
 }
 

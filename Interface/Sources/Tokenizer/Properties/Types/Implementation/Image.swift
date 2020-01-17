@@ -13,7 +13,7 @@ import UIKit
 import SwiftCodeGen
 #endif
 
-public enum Image: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public enum Image: TypedSupportedType, HasStaticTypeFactory {
     case named(String)
     case themed(String)
 
@@ -77,14 +77,6 @@ public enum Image: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
         return name
     }
     #endif
-
-    public static func materialize(from value: String) throws -> Image {
-        if let themedName = ApplicationDescription.themedValueName(value: value) {
-            return .themed(themedName)
-        } else {
-            return .named(value)
-        }
-    }
 }
 
 extension Image {
@@ -99,6 +91,14 @@ extension Image {
                 return RuntimeType(name: "UIImage", module: "UIKit")
             case .macOS:
                 return RuntimeType(name: "NSImage", module: "AppKit")
+            }
+        }
+
+        public func typedMaterialize(from value: String) throws -> Image {
+            if let themedName = ApplicationDescription.themedValueName(value: value) {
+                return .themed(themedName)
+            } else {
+                return .named(value)
             }
         }
 

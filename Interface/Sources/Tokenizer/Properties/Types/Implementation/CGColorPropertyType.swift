@@ -13,7 +13,7 @@
 import SwiftCodeGen
 #endif
 
-public struct CGColorPropertyType: TypedAttributeSupportedPropertyType, HasStaticTypeFactory {
+public struct CGColorPropertyType: TypedSupportedType, HasStaticTypeFactory {
     public static let black = CGColorPropertyType(color: .color(.black))
     public static let typeFactory = TypeFactory()
 
@@ -46,11 +46,6 @@ public struct CGColorPropertyType: TypedAttributeSupportedPropertyType, HasStati
     public init(color: UIColorPropertyType) {
         self.color = color
     }
-
-    public static func materialize(from value: String) throws -> CGColorPropertyType {
-        let materializedValue = try UIColorPropertyType.materialize(from: value)
-        return CGColorPropertyType(color: materializedValue)
-    }
 }
 
 extension CGColorPropertyType {
@@ -62,6 +57,11 @@ extension CGColorPropertyType {
         }
 
         public init() { }
+
+        public func typedMaterialize(from value: String) throws -> CGColorPropertyType {
+            let materializedValue = try UIColorPropertyType.typeFactory.typedMaterialize(from: value)
+            return CGColorPropertyType(color: materializedValue)
+        }
 
         public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
             return RuntimeType(name: "CGColor", module: "Foundation")
