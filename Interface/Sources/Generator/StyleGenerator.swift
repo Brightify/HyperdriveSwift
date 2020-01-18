@@ -133,15 +133,26 @@ public class StyleGroupGenerator {
     }
 
     private func generate(accessibility: Accessibility, viewStyle style: Style, elementFactory: UIElementFactory) throws -> Function {
-        let extendedApplications = style.extend.map { extendedStyle -> Statement in
+        let extendedApplications = style.extend.compactMap { extendedStyleName -> Statement? in
+            guard let extendedStyle = context.style(named: extendedStyleName) else { return nil }
             let function: Expression
-            switch extendedStyle {
+            switch extendedStyleName {
             case .local(let name):
                 function = .member(target: .constant(styleGroup.swiftName), name: name)
             case .global(let group, let name):
                 function = .member(target: .constant(group.capitalizingFirstLetter() + "Styles"), name: name)
             }
-            return .expression(.invoke(target: function, arguments: [MethodArgument(value: .constant("view"))]))
+
+            let themedFunction: Expression
+            if extendedStyle.requiresTheme(context: context) {
+                themedFunction = .invoke(target: function, arguments: [
+                    MethodArgument(name: "theme", value: .constant("theme"))
+                ])
+            } else {
+                themedFunction = function
+            }
+
+            return .expression(.invoke(target: themedFunction, arguments: [MethodArgument(value: .constant("view"))]))
         }
 
         let stateProperties: [Tokenizer.Property] = try context.globalContext.stateProperties(for: style, factory: elementFactory)
