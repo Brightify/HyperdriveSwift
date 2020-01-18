@@ -12,6 +12,11 @@ import SwiftCodeGen
 public struct AnySupportedType: SupportedPropertyType {
     public let factory: SupportedTypeFactory
     public let requiresTheme: Bool
+    public let isOptional: Bool
+
+    public func isOptional(context: SupportedPropertyTypeContext) -> Bool {
+        return isOptional
+    }
 
     public func requiresTheme(context: DataContext) -> Bool {
         return requiresTheme
@@ -20,10 +25,11 @@ public struct AnySupportedType: SupportedPropertyType {
     #if canImport(SwiftCodeGen)
     public let generateValue: (SupportedPropertyTypeContext) -> Expression
 
-    public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, generateValue: @escaping (SupportedPropertyTypeContext) -> Expression) {
+    public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, isOptional: Bool = false, generateValue: @escaping (SupportedPropertyTypeContext) -> Expression) {
         self.factory = factory
         self.requiresTheme = requiresTheme
         self.generateValue = generateValue
+        self.isOptional = isOptional
     }
 
     public func generate(context: SupportedPropertyTypeContext) -> Expression {

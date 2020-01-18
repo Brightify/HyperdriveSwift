@@ -357,7 +357,7 @@ extension GlobalContext {
 
         var applicationsToVerify: [String: [ResolvedStateItem.Application]] = Dictionary(grouping: stateProperties.map { element, property in
             ResolvedStateItem.Application(element: element, property: property)
-        }, by: { String($0.property.name.prefix(while: { $0 != "." })) })
+        }, by: { String($0.property.name.prefix(while: { $0 != "." && $0 != "?" })) })
 
         for name in explicitStateItems.keys {
             if !applicationsToVerify.keys.contains(name) {
@@ -426,12 +426,14 @@ extension GlobalContext {
             #if canImport(SwiftCodeGen)
             return AnySupportedType(
                 factory: fallbackFactory,
+                isOptional: item.isOptional,
                 generateValue: { [item] context -> Expression in
                     .constant(item.defaultValue ?? #"#error("Default value not specified!")"#)
                 })
             #elseif canImport(UIKit)
             return AnySupportedType(
                 factory: fallbackFactory,
+                isOptional: item.isOptional,
                 resolveValue: { context in nil })
             #endif
         }
