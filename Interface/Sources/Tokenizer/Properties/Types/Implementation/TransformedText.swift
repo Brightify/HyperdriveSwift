@@ -13,9 +13,21 @@ import Foundation
 
 public enum TransformedText: HasStaticTypeFactory {
     case text(String)
+    case state(name: String)
     indirect case transform(Transform, TransformedText)
 
     public static let typeFactory = TypeFactory()
+
+    public var stateProperty: InnerStateProperty? {
+        switch self {
+        case .state(let name):
+            return InnerStateProperty(name: name, factory: Self.typeFactory, defaultValue: "")
+        case .text:
+            return nil
+        case .transform(_, let inner):
+            return inner.stateProperty
+        }
+    }
 
     public enum Transform: String {
         case uppercased
@@ -43,6 +55,10 @@ extension TransformedText: TypedSupportedType {
 
             case .transform(.capitalized, let inner):
                 return .member(target: resolveTransformations(text: inner), name: "capitalized")
+
+            case .state(let name):
+                #warning("FIXME: The optional is a hack! We need to receive the expression for the state somehow and that should include the question mark!")
+                return .constant("\(name)")
 
             case .text(let value):
                 let escapedValue = value

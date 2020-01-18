@@ -455,7 +455,8 @@ public class UIGenerator: Generator {
 
         var themeApplicationBlock = Block()
         for property in root.properties {
-            if case .state = property.anyValue { continue }
+            if !property.anyValue.requiresState { continue }
+
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
 
             guard !property.anyValue.requiresTheme(context: componentContext) else {
@@ -535,7 +536,7 @@ public class UIGenerator: Generator {
         }
 
         for property in try element.properties + componentContext.globalContext.stateProperties(of: element) {
-            if case .state = property.anyValue { continue }
+            if property.anyValue.requiresState { continue }
 
             let propertyContext = PropertyContext(parentContext: componentContext, property: property)
             guard !property.anyValue.requiresTheme(context: componentContext) else {

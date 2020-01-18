@@ -27,6 +27,10 @@ class TextParser: BaseParser<TransformedText> {
                 }
                 return .transform(transform, inner)
             }
+        } else if peekToken() == .dollar, case .identifier(let stateName) = peekAhead(offset: 1) {
+            try popTokens(2)
+
+            return .state(name: stateName)
         }
 
         var components = [] as [String]

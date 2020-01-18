@@ -76,6 +76,24 @@ public enum PropertyValue<T: TypedSupportedTypeFactory> {
         }
     }
 
+    public var requiresState: Bool {
+        switch self {
+        case .state:
+            return true
+        case .value(let value):
+            return value.stateProperty != nil
+        }
+    }
+
+    public var stateProperty: InnerStateProperty? {
+        switch self {
+        case .state(let name, let factory):
+            return InnerStateProperty(name: name, factory: factory)
+        case .value(let value):
+            return value.stateProperty
+        }
+    }
+
     public func requiresTheme(context: DataContext) -> Bool {
         switch self {
         case .value(let value):
@@ -118,7 +136,7 @@ public enum AnyPropertyValue {
     case value(SupportedPropertyType)
     case state(String, factory: SupportedTypeFactory)
     #if canImport(SwiftCodeGen)
-    case raw(Expression, requiresTheme: Bool)
+    case raw(RawSupportedType)
     #endif
 
     public func requiresTheme(context: DataContext) -> Bool {
@@ -128,9 +146,31 @@ public enum AnyPropertyValue {
         case .state:
             return false
         #if canImport(SwiftCodeGen)
-        case .raw(_, let requiresTheme):
-            return requiresTheme
+        case .raw(let value):
+            return value.requiresTheme(context: context)
         #endif
+        }
+    }
+
+    public var requiresState: Bool {
+        switch self {
+        case .state:
+            return true
+        case .value(let value):
+            return value.stateProperty != nil
+        case .raw(let value):
+            return value.stateProperty != nil
+        }
+    }
+
+    public var stateProperties: InnerStateProperty? {
+        switch self {
+        case .state(let name, let factory):
+            return InnerStateProperty(name: name, factory: factory)
+        case .value(let value):
+            return value.stateProperty
+        case .raw(let value):
+            return value.stateProperty
         }
     }
 
@@ -141,8 +181,8 @@ public enum AnyPropertyValue {
             return value.generate(context: context)
         case .state(let name, let factory):
             return factory.generate(stateName: name)
-        case .raw(let expression, _):
-            return expression
+        case .raw(let value):
+            return value.generate(context: context)
         }
     }
     #endif

@@ -36,8 +36,8 @@ extension Module.Foundation {
     public struct AttributedText: TypedSupportedType, HasStaticTypeFactory {
         public static let typeFactory = TypeFactory()
 
-        public var stateProperties: Set<String> {
-            return parts.reduce(into: []) { $0.formUnion($1.stateProperties) }
+        public var stateProperty: InnerStateProperty? {
+            return parts.first(where: { $0.stateProperty != nil })?.stateProperty
         }
 
         public let style: StyleName?
@@ -54,12 +54,16 @@ extension Module.Foundation {
             case transform(TransformedText)
             indirect case attributed(AttributedTextStyle, [AttributedText.Part])
 
-            var stateProperties: Set<String> {
-                switch self {
-                case .transform(let text):
-                    return text.stateProperties
-                case .attributed(let style, let parts):
-                    return parts.reduce(into: []) { $0.formUnion($1.stateProperties) }
+            var stateProperty: InnerStateProperty? {
+                get {
+                    switch self {
+                    case .transform(let text):
+                        return text.stateProperty
+                    case .attributed(_, let parts):
+                        return parts.first(where: { $0.stateProperty != nil })?.stateProperty
+                    }
+                }
+                set {
                 }
             }
 

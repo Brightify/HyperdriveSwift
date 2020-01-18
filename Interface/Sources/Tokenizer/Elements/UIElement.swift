@@ -249,15 +249,66 @@ public protocol UIElementBase {
 
 public struct StateProperty {
     public var name: String
-    public var typeFactory: SupportedTypeFactory
     public var property: Property
+    public var kind: Kind
+    public var defaultValue: SupportedPropertyType
+
+    public enum Kind {
+        case factory(SupportedTypeFactory)
+        case value(SupportedPropertyType)
+        case raw(RawSupportedType)
+
+        public var typeFactory: SupportedTypeFactory {
+            switch self {
+            case .factory(let factory):
+                return factory
+            case .value(let value):
+                return value.stateProperty?.factory ?? value.factory
+            case .raw(let value):
+                return value.factory
+            }
+        }
+    }
+
+    public func runtimeType(for platform: RuntimePlatform) -> RuntimeType {
+        switch kind {
+        case .factory(let factory):
+            return factory.runtimeType(for: platform)
+        case .value(let value):
+            return value.stateProperty?.factory.runtimeType(for: platform) ?? value.factory.runtimeType(for: platform)
+        case .raw(let value):
+            return value.factory.runtimeType(for: platform)
+        }
+    }
 }
 
 public extension UIElementBase {
     var allStateProperties: [(element: UIElementBase, properties: [StateProperty])] {
         let stateProperties = [(element: self as UIElementBase, properties: properties.compactMap { property -> StateProperty? in
-            guard case .state(let name, let typeFactory) = property.anyValue else { return nil }
-            return StateProperty(name: name, typeFactory: typeFactory, property: property)
+            switch property.anyValue {
+            case .value(let value):
+                return value.stateProperty.map {
+                    StateProperty(
+                        name: $0.name,
+                        property: property,
+                        kind: .value(value),
+                        defaultValue: $0.defaultValue ?? property.anyDescription.anyDefaultValue)
+                }
+            case .state(let name, let factory):
+                return StateProperty(
+                    name: name,
+                    property: property,
+                    kind: .factory(factory),
+                    defaultValue: property.anyDescription.anyDefaultValue)
+            case .raw(let value):
+                return value.stateProperty.map {
+                    StateProperty(
+                        name: $0.name,
+                        property: property,
+                        kind: .raw(value),
+                        defaultValue: $0.defaultValue ?? property.anyDescription.anyDefaultValue)
+                }
+            }
         })]
 
         if let container = self as? UIContainer {

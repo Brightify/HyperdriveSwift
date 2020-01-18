@@ -201,9 +201,20 @@ extension GlobalContext {
     public struct ResolvedStateItem {
         public var name: String
         public var description: Description?
-        public var typeFactory: SupportedTypeFactory
+        public var kind: StateProperty.Kind
         public var defaultValue: SupportedPropertyType
         public var applications: [Application]
+
+        public var typeFactory: SupportedTypeFactory {
+            switch kind {
+            case .factory(let factory):
+                return factory
+            case .value(let value):
+                return value.stateProperty?.factory ?? value.factory
+            case .raw(let value):
+                return value.factory
+            }
+        }
 
         public struct Application {
             public var element: UIElementBase
@@ -257,10 +268,26 @@ extension GlobalContext {
                     anyValue: .state(property, factory: stateFactory))]
 
             case .exported?:
-                passthroughProperties = state.map { name, stateItem in
-                    _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)],
-                                   name: name,
-                                   anyDescription: _StateProperty.Description(name: name, namespace: [], anyDefaultValue: stateItem.defaultValue, anyTypeFactory: stateItem.typeFactory), anyValue: .state(name, factory: stateItem.typeFactory))
+                passthroughProperties = state.map { name, stateItem -> _StateProperty in
+                    let anyValue: AnyPropertyValue
+                    switch stateItem.kind {
+                    case .factory(let factory):
+                        anyValue = .state(name, factory: factory)
+                    case .value(let value):
+                        anyValue = .value(value)
+                    case .raw(let value):
+                        anyValue = .raw(value)
+                    }
+
+                    return _StateProperty(
+                        namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)],
+                        name: name,
+                        anyDescription: _StateProperty.Description(
+                            name: name,
+                            namespace: [],
+                            anyDefaultValue: stateItem.defaultValue,
+                            anyTypeFactory: stateItem.typeFactory),
+                        anyValue: anyValue)
                 }
 
             case .none:
@@ -310,41 +337,88 @@ extension GlobalContext {
             switch value {
             case .attribute(let value):
                 if value.starts(with: "$") {
-                    propertyValue = .state(String(value.dropFirst()), factory: stateProperty.typeFactory)
+                    let newStateName = String(value.dropFirst())
+                    switch stateProperty.kind {
+                    case .factory(let factory):
+                        propertyValue = .state(newStateName, factory: factory)
+                    case .value(let value):
+                        propertyValue = .value(value)
+                    case .raw(let value):
+                        propertyValue = .raw(value)
+                    }
+
                 } else if let attributeTypeFactory = stateProperty.typeFactory as? AttributeSupportedTypeFactory {
                     propertyValue = try .value(attributeTypeFactory.materialize(from: value))
                 } else {
-                    #if canImport(SwiftCodeGen)
-                    propertyValue = .raw(.constant(value), requiresTheme: false)
-                    #else
+//                    #if canImport(SwiftCodeGen)
+//                    propertyValue = .raw(.constant(value), requiresTheme: false)
+//                    propertyValue = .raw(RawSupportedType.TypeFactory(name: stateProperty.typeFactory.runtimeType(for: platform)))
+//                    #else
                     throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
-                    #endif
+//                    #endif
                 }
             case .element(let element):
                 let elementText = element.text ?? ""
                 if elementText.starts(with: "$") && !elementText.contains(" ") {
-                    propertyValue = .state(String(elementText.dropFirst()), factory: stateProperty.typeFactory)
+                    let newStateName = String(elementText.dropFirst())
+                    switch stateProperty.kind {
+                    case .factory(let factory):
+                        propertyValue = .state(newStateName, factory: factory)
+                    case .value(let value):
+                        propertyValue = .value(value)
+                    case .raw(let value):
+                        propertyValue = .raw(value)
+                    }
                 } else if let elementTypeFactory = stateProperty.typeFactory as? ElementSupportedTypeFactory {
                     propertyValue = try .value(elementTypeFactory.materialize(from: element))
                 } else {
-                    #if canImport(SwiftCodeGen)
-                    propertyValue = .raw(.constant(elementText), requiresTheme: false)
-                    #else
+//                    #if canImport(SwiftCodeGen)
+//                    propertyValue = .raw(.constant(elementText), requiresTheme: false)
+//                    #else
                     throw TokenizationError(message: "Property type \(stateProperty.typeFactory) not yet supported for state properties!")
-                    #endif
+//                    #endif
                 }
             }
 
-            return _StateProperty(namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)], name: name, anyDescription:
-                _StateProperty.Description(name: name, namespace: [], anyDefaultValue: stateProperty.defaultValue, anyTypeFactory: stateProperty.typeFactory), anyValue: propertyValue)
+            return _StateProperty(
+                namespace: [PropertyContainer.Namespace(name: "state", isOptional: false, swiftOnly: false)],
+                name: name,
+                anyDescription: _StateProperty.Description(
+                    name: name,
+                    namespace: [],
+                    anyDefaultValue: stateProperty.defaultValue,
+                    anyTypeFactory: stateProperty.typeFactory),
+                anyValue: propertyValue)
         }
     }
 
     public func resolve(state: ComponentDefinition) throws -> [String: ResolvedStateItem] {
         let extraStateProperties = try state.allChildren.map { child -> (element: UIElementBase, properties: [StateProperty]) in
             let props = try self.stateProperties(of: child).compactMap { property -> StateProperty? in
-                guard case .state(let name, let typeFactory) = property.anyValue else { return nil }
-                return StateProperty(name: name, typeFactory: typeFactory, property: property)
+                switch property.anyValue {
+                case .value(let value):
+                    return value.stateProperty.map {
+                        StateProperty(
+                            name: $0.name,
+                            property: property,
+                            kind: .value(value),
+                            defaultValue: $0.defaultValue ?? property.anyDescription.anyDefaultValue)
+                    }
+                case .state(let name, let factory):
+                    return StateProperty(
+                        name: name,
+                        property: property,
+                        kind: .factory(factory),
+                        defaultValue: property.anyDescription.anyDefaultValue)
+                case .raw(let value):
+                    return value.stateProperty.map {
+                        StateProperty(
+                            name: $0.name,
+                            property: property,
+                            kind: .raw(value),
+                            defaultValue: $0.defaultValue ?? property.anyDescription.anyDefaultValue)
+                    }
+                }
             }
             return (element: child, properties: props)
         }
@@ -373,7 +447,7 @@ extension GlobalContext {
 
             guard let firstApplication = applications.first else { continue }
             let verificationResult = applications.dropFirst().allSatisfy { application in
-                firstApplication.property.typeFactory.runtimeType(for: platform) == application.property.typeFactory.runtimeType(for: platform)
+                firstApplication.property.runtimeType(for: platform) == application.property.runtimeType(for: platform)
             }
 
             #warning("FIXME Improve error reporting")
@@ -383,21 +457,21 @@ extension GlobalContext {
         }
 
         return Dictionary(uniqueKeysWithValues: applicationsToVerify.map { name, applications in
-            let factory: SupportedTypeFactory
+            let kind: StateProperty.Kind
             let defaultValue: SupportedPropertyType
             if let description = explicitStateItems[name] {
-                factory = description.factory
+                kind = .factory(description.factory)
                 defaultValue = description.defaultValue
             } else {
                 let firstApplication = applications.first!
-                factory = firstApplication.property.typeFactory
-                defaultValue = firstApplication.property.property.anyDescription.anyDefaultValue
+                kind = firstApplication.property.kind
+                defaultValue = firstApplication.property.defaultValue
             }
 
             return (name, ResolvedStateItem(
                 name: name,
                 description: explicitStateItems[name],
-                typeFactory: factory,
+                kind: kind,
                 defaultValue: defaultValue,
                 applications: applications))
         })
@@ -407,29 +481,19 @@ extension GlobalContext {
         let detectedTypeFactory = detectAttributeTypeFactory(from: item.type)
         let detectedDefaultValue = try item.defaultValue.flatMap { try detectedTypeFactory?.materialize(from: $0) }
 
-        var fallbackFactory: SupportedTypeFactory {
+        var fallbackDefaultValue: SupportedPropertyType {
             #if canImport(SwiftCodeGen)
-            return AnySupportedTypeFactory(
-                isNullable: item.isOptional,
-                xsdType: .builtin(.string),
-                resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) },
-                generateStateAccess: { .constant($0) })
-            #else
-            return AnySupportedTypeFactory(
+            return RawSupportedType(
+                factory: RawSupportedType.TypeFactory(name: item.type),
+                stateProperty: nil,
+                requiresTheme: false,
+                isOptional: item.isOptional,
+                expression: .constant(item.defaultValue ?? #"#error("Default value not specified!")"#))
+            #elseif canImport(UIKit)
+            let fallbackFactory = AnySupportedTypeFactory(
                 isNullable: item.isOptional,
                 xsdType: .builtin(.string),
                 resolveRuntimeType: { [item] _ in RuntimeType(name: item.type) })
-            #endif
-        }
-
-        var fallbackDefaultValue: AnySupportedType {
-            #if canImport(SwiftCodeGen)
-            return AnySupportedType(
-                factory: fallbackFactory,
-                generateValue: { [item] context -> Expression in
-                    .constant(item.defaultValue ?? #"#error("Default value not specified!")"#)
-                })
-            #elseif canImport(UIKit)
             return AnySupportedType(
                 factory: fallbackFactory,
                 resolveValue: { context in nil })
@@ -438,7 +502,7 @@ extension GlobalContext {
 
         return ResolvedStateItem.Description(
             item: item,
-            factory: detectedTypeFactory ?? fallbackFactory,
+            factory: detectedTypeFactory ?? fallbackDefaultValue.factory,
             defaultValue: detectedDefaultValue ?? fallbackDefaultValue)
     }
 

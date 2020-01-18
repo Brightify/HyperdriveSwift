@@ -9,7 +9,8 @@
 import SwiftCodeGen
 #endif
 
-extension Array: TypedSupportedType & SupportedPropertyType & HasStaticTypeFactory where Element: SupportedPropertyType & HasStaticTypeFactory {
+//  & HasStaticTypeFactory
+extension Array: TypedSupportedType & SupportedPropertyType where Element: HasStaticTypeFactory, Element.TypeFactory.BuildType == Element {
     public static var typeFactory: TypeFactory {
         return TypeFactory()
     }

@@ -9,7 +9,7 @@
  * Structure containing themed resources.
  * An example would be themed XML element **<Fonts>** (and its innards) inside an **<Application>** XML element.
  */
-public struct ThemeContainer<T: HasStaticTypeFactory>: XMLElementDeserializable where T.TypeFactory: TypedAttributeSupportedTypeFactory {
+public struct ThemeContainer<T: HasStaticTypeFactory>: XMLElementDeserializable where T.TypeFactory: TypedAttributeSupportedTypeFactory, T == T.TypeFactory.BuildType {
     public typealias ItemName = String
 
     private var defaultItems: [ItemName: T] = [:]

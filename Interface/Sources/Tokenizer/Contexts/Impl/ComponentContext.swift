@@ -63,7 +63,9 @@ public class ComponentContext: DataContext {
                     return [ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: typedValue))]
 //                    return ResolvedHyperViewAction.Parameter(label: label, kind: .constant(value: ))
                 case .stateVariable(let name):
-                    return [ResolvedHyperViewAction.Parameter(label: label, kind: .state(property: name, type: .propertyType(state[name]!.typeFactory)))]
+                    return [ResolvedHyperViewAction.Parameter(
+                        label: label,
+                        kind: .state(property: name, type: .propertyType(state[name]!.typeFactory)))]
                 case .reference(var targetId, let propertyName):
                     let targetElement: UIElement
                     if targetId == "self" {

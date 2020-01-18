@@ -19,10 +19,6 @@ public protocol EnumPropertyType: RawRepresentable, CaseIterable, HasEnumName, T
 }
 
 public extension EnumPropertyType {
-    var stateProperties: Set<String> {
-        return []
-    }
-
     #if canImport(SwiftCodeGen)
     func generate(context: SupportedPropertyTypeContext) -> Expression {
         return .constant("\(Self.enumName).\(rawValue)")
