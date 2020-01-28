@@ -61,20 +61,29 @@ class ConstraintParser: BaseParser<Constraint> {
                 }
             }
             
-            type = .targeted(target: target ?? (targetAnchor != nil ? .this : .parent),
+            type = .targeted(target: target ?? (targetAnchor == nil ? .parent : .this),
                              targetAnchor: targetAnchor ?? layoutAttribute.targetAnchor,
                              multiplier: multiplier,
                              constant: constant)
         }
         
         let priority: ConstraintPriority
-        if peekToken() != .semicolon {
-            priority = try parsePriority() ?? .required
-        } else {
+        if peekToken() == .semicolon {
             priority = .required
             try popToken()
+        } else if !hasEnded() {
+            priority = try parsePriority()
+            if let nextToken = peekToken() {
+                if nextToken != .semicolon {
+                    throw ParseError.unexpectedToken(nextToken)
+                } else {
+                    try popToken()
+                }
+            }
+        } else {
+            priority = .required
         }
-        
+
         return Constraint(field: field, condition: condition, attribute: layoutAttribute, type: type, relation: relation, priority: priority)
     }
     
@@ -151,8 +160,10 @@ class ConstraintParser: BaseParser<Constraint> {
         }
     }
     
-    private func parsePriority() throws -> ConstraintPriority? {
-        guard case .at? = peekToken() else { return nil }
+    private func parsePriority() throws -> ConstraintPriority {
+        guard case .at? = peekToken() else {
+            throw ParseError.expectedToken(.at)
+        }
         if case .number(let number, _)? = peekNextToken() {
             try popTokens(2)
             return ConstraintPriority.custom(number)
