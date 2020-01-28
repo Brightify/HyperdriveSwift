@@ -49,17 +49,17 @@ public struct Constraint {
     public static func constraints(name: String, attribute: XMLAttribute) throws -> [Constraint] {
         let layoutAttributes = try LayoutAttribute.deserialize(name)
         let tokens = Lexer.tokenize(input: attribute.text)
-        let constraints = try layoutAttributes.flatMap { try ConstraintParser(tokens: tokens, layoutAttribute: $0).parse() }
-
-        guard
-            constraints.count > 1,
-            let field = constraints.first?.field
-        else { return constraints }
-
-        return constraints.map { currentConstraint in
-            var constraint = currentConstraint
-            constraint.field = field + "\(currentConstraint.attribute)".capitalizingFirstLetter()
-            return constraint
+        return try layoutAttributes.flatMap { attribute -> [Constraint] in
+            let attributeConstraints = try ConstraintParser(tokens: tokens, layoutAttribute: attribute).parse()
+            if layoutAttributes.count > 1 {
+                return attributeConstraints.map { constraint in
+                    var mutableConstraint = constraint
+                    mutableConstraint.field = constraint.field.map { $0 + "\(attribute)".capitalizingFirstLetter() }
+                    return mutableConstraint
+                }
+            } else {
+                return attributeConstraints
+            }
         }
     }
 
