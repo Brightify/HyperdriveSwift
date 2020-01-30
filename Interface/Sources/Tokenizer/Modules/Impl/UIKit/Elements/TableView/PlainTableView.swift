@@ -63,17 +63,11 @@ extension Module.UIKit {
             if let runtimeTypeOverride = runtimeTypeOverride {
                 return runtimeTypeOverride
             }
-//            guard let cellType = cellType else {
-//                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-//            }
             return RuntimeType(name: "PlainTableView<\(cellType)>", module: "Hyperdrive")
         }
 
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-//            guard let cellType = cellType else {
-//                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-//            }
             return .constant("PlainTableView<\(cellType)>(cellFactory: \(cellType)())")
         }
         #endif

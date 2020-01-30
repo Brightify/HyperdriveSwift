@@ -28,8 +28,8 @@ open class FooterTableView<CELL: UIView, FOOTER: UIView>: TableViewBase<SectionM
     private let footerFactory: () -> FOOTER
 
     public init(
-        cellFactory: @escaping () -> CELL = CELL.init,
-        footerFactory: @escaping () -> FOOTER = FOOTER.init,
+        cellFactory: @escaping () -> CELL,
+        footerFactory: @escaping () -> FOOTER,
         style: UITableView.Style = .plain,
         options: TableViewOptions = .default)
     {

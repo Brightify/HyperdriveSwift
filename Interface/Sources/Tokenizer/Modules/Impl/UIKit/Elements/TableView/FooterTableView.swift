@@ -26,8 +26,8 @@ extension Module.UIKit {
             return ToolingProperties.footerTableView.allProperties
         }
         
-        public var cellType: String?
-        public var footerType: String?
+        public var cellType: String
+        public var footerType: String
         public var cellDefinition: ComponentDefinition?
         public var footerDefinition: ComponentDefinition?
         
@@ -55,15 +55,15 @@ extension Module.UIKit {
             if let runtimeTypeOverride = runtimeTypeOverride {
                 return runtimeTypeOverride
             }
-            guard let cellType = cellType, let footerType = footerType else {
-                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-            }
-            return RuntimeType(name: "FooterTableView<\(footerType), \(cellType)>", module: "Hyperdrive")
+            return RuntimeType(name: "FooterTableView<\(cellType), \(footerType)>", module: "Hyperdrive")
         }
         
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            return .constant("\(try runtimeType(for: platform).name)()")
+            return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
+                MethodArgument(name: "footerFactory", value: .invoke(target: .constant(footerType), arguments: []))
+            ])
         }
         #endif
         
@@ -97,10 +97,9 @@ extension Module.UIKit {
         
         public override func serialize(context: DataContext) -> XMLSerializableElement {
             var element = super.serialize(context: context)
-            if let cellType = cellType, let footerType = footerType {
-                element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
-                element.attributes.append(XMLSerializableAttribute(name: "footer", value: footerType))
-            }
+
+            element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
+            element.attributes.append(XMLSerializableAttribute(name: "footer", value: footerType))
             
             // FIXME serialize footer and cell definition
             return element

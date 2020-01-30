@@ -26,8 +26,8 @@ extension Module.UIKit {
             return ToolingProperties.headerTableView.allProperties
         }
 
-        public var cellType: String?
-        public var headerType: String?
+        public var cellType: String
+        public var headerType: String
         public var cellDefinition: ComponentDefinition?
         public var headerDefinition: ComponentDefinition?
 
@@ -55,47 +55,41 @@ extension Module.UIKit {
             if let runtimeTypeOverride = runtimeTypeOverride {
                 return runtimeTypeOverride
             }
-            guard let headerType = headerType, let cellType = cellType else {
-                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-            }
             return RuntimeType(name: "HeaderTableView<\(headerType), \(cellType)>", module: "Hyperdrive")
         }
 
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            return .constant("\(try runtimeType(for: platform).name)()")
+            return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
+                MethodArgument(name: "headerFactory", value: .invoke(target: .constant(headerType), arguments: []))
+            ])
         }
         #endif
 
         public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
             let node = context.element
-            if let field = node.value(ofAttribute: "field") as String?, !field.isEmpty {
-                cellType = nil
-                headerType = nil
-                cellDefinition = nil
-                headerDefinition = nil
+
+            guard let cellType = node.value(ofAttribute: "cell") as String? else {
+                throw TokenizationError(message: "cell for HeaderTableView was not defined.")
+            }
+            self.cellType = cellType
+
+            guard let headerType = node.value(ofAttribute: "header") as String? else {
+                throw TokenizationError(message: "header for HeaderTableView was not defined.")
+            }
+            self.headerType = headerType
+
+            if let cellElement = try node.singleOrNoElement(named: "cell") {
+                cellDefinition = try context.deserialize(element: cellElement, type: cellType)
             } else {
-                guard let cellType = node.value(ofAttribute: "cell") as String? else {
-                    throw TokenizationError(message: "cell for HeaderTableView was not defined.")
-                }
-                self.cellType = cellType
+                cellDefinition = nil
+            }
 
-                guard let headerType = node.value(ofAttribute: "header") as String? else {
-                    throw TokenizationError(message: "header for HeaderTableView was not defined.")
-                }
-                self.headerType = headerType
-
-                if let cellElement = try node.singleOrNoElement(named: "cell") {
-                    cellDefinition = try context.deserialize(element: cellElement, type: cellType)
-                } else {
-                    cellDefinition = nil
-                }
-
-                if let headerElement = try node.singleOrNoElement(named: "header") {
-                    headerDefinition = try context.deserialize(element: headerElement, type: headerType)
-                } else {
-                    headerDefinition = nil
-                }
+            if let headerElement = try node.singleOrNoElement(named: "header") {
+                headerDefinition = try context.deserialize(element: headerElement, type: headerType)
+            } else {
+                headerDefinition = nil
             }
 
             try super.init(context: context, factory: factory)
@@ -103,10 +97,8 @@ extension Module.UIKit {
 
         public override func serialize(context: DataContext) -> XMLSerializableElement {
             var element = super.serialize(context: context)
-            if let headerType = headerType, let cellType = cellType {
-                element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
-                element.attributes.append(XMLSerializableAttribute(name: "header", value: headerType))
-            }
+            element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
+            element.attributes.append(XMLSerializableAttribute(name: "header", value: headerType))
 
             // FIXME serialize anonymous cell and header
             return element
