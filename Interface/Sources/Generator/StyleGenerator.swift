@@ -78,34 +78,44 @@ public class StyleGroupGenerator {
         for childStyle in styles {
             // extended styles generation
             // currently O(n^3 * m) where m is the extension depth level
-            func generateExtensions(from extendedStyles: [StyleName]) -> [Expression] {
-                return extendedStyles.flatMap { extendedStyleName -> [Expression] in
+            func generateExtensions(from extendedStyles: [StyleName]) -> [(expression: Expression, requiresTheme: Bool)] {
+                return extendedStyles.flatMap { extendedStyleName -> [(expression: Expression, requiresTheme: Bool)] in
                     guard let extendedStyle = context.style(named: extendedStyleName),
                         case .attributedText(let styles) = extendedStyle.type,
                         styles.contains(where: { $0.name == childStyle.name }) else { return [] }
 
+                    let requiresTheme = extendedStyle.requiresTheme(context: context)
+
+                    let style = Expression.member(target: .constant(context.resolvedStyleName(named: extendedStyleName)), name: childStyle.name)
+                    let styleExpression: Expression
+                    if requiresTheme {
+                        let arguments = [MethodArgument(name: nil, value: .constant("theme"))]
+                        styleExpression = .invoke(target: style, arguments: arguments)
+                    } else {
+                        styleExpression = style
+                    }
+
                     return generateExtensions(from: extendedStyle.extend) +
-                        [.constant(context.resolvedStyleName(named: extendedStyleName) + ".\(childStyle.name)" +
-                            (extendedStyle.requiresTheme(context: context) ? "(theme)" : ""))]
+                        [(expression: styleExpression, requiresTheme: requiresTheme)]
                 }
             }
 
-            var argumentExpressions: [Expression] = generateExtensions(from: style.extend)
+            var argumentExpressions: [(expression: Expression, requiresTheme: Bool)] = generateExtensions(from: style.extend)
             if !style.properties.isEmpty {
                 if style.requiresTheme(context: context) {
-                    argumentExpressions.append(.constant("___sharedProperties___(theme)"))
+                    argumentExpressions.append((expression: .constant("___sharedProperties___(theme)"), requiresTheme: true))
                 } else {
-                    argumentExpressions.append(.constant("___sharedProperties___"))
+                    argumentExpressions.append((expression: .constant("___sharedProperties___"), requiresTheme: false))
                 }
             }
-            argumentExpressions.append(.arrayLiteral(items: generate(properties: childStyle.properties)))
+            argumentExpressions.append((.arrayLiteral(items: generate(properties: childStyle.properties)), requiresTheme: childStyle.requiresTheme(context: context)))
             let arguments = argumentExpressions.enumerated().map { index, expression in
-                MethodArgument(name: index == 0 ? "subarrays" : nil, value: expression)
+                MethodArgument(name: index == 0 ? "subarrays" : nil, value: expression.expression)
             }
 
             let attributeExpression = Expression.invoke(target: .constant("Array<HyperdriveInterface.Attribute>"), arguments: arguments)
 
-            if childStyle.requiresTheme(context: context) || style.requiresTheme(context: context) {
+            if argumentExpressions.contains(where: { $1 }) {
                 properties.append(
                     .constant(
                         accessibility: accessibility,
