@@ -26,17 +26,17 @@ extension Module.UIKit {
             return ToolingProperties.simpleTableView.allProperties
         }
 
-        public var cellType: String?
-        public var headerType: String?
-        public var footerType: String?
+        public var cellType: String
+        public var headerType: String
+        public var footerType: String
         public var cellDefinition: ComponentDefinition?
         public var headerDefinition: ComponentDefinition?
         public var footerDefinition: ComponentDefinition?
 
         public var componentTypes: [String] {
-            return (cellDefinition?.componentTypes ?? [cellType].compactMap { $0 })
-                + (headerDefinition?.componentTypes ?? [headerType].compactMap { $0 })
-                + (footerDefinition?.componentTypes ?? [footerType].compactMap { $0 })
+            return (cellDefinition?.componentTypes ?? [cellType])
+                + (headerDefinition?.componentTypes ?? [headerType])
+                + (footerDefinition?.componentTypes ?? [footerType])
         }
 
         public var isAnonymous: Bool {
@@ -59,9 +59,7 @@ extension Module.UIKit {
             if let runtimeTypeOverride = runtimeTypeOverride {
                 return runtimeTypeOverride
             }
-            guard let headerType = headerType, let cellType = cellType, let footerType = footerType else {
-                throw TokenizationError(message: "Initialization should never happen as the view was referenced via field.")
-            }
+
             return RuntimeType(name: "SimpleTableView<\(headerType), \(cellType), \(footerType)>", module: "Hyperdrive")
         }
 
@@ -71,64 +69,60 @@ extension Module.UIKit {
 
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            return .constant("\(try runtimeType(for: platform).name)()")
+            return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
+                MethodArgument(name: "headerFactory", value: .invoke(target: .constant(headerType), arguments: [])),
+                MethodArgument(name: "footerFactory", value: .invoke(target: .constant(footerType), arguments: [])),
+            ])
         }
         #endif
 
         public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
             let node = context.element
-            if let field = node.value(ofAttribute: "field") as String?, !field.isEmpty {
-                cellType = nil
-                headerType = nil
-                footerType = nil
-                cellDefinition = nil
-                headerDefinition = nil
-                footerDefinition = nil
-            } else {
-                guard let cellType = node.value(ofAttribute: "cell") as String? else {
-                    throw TokenizationError(message: "cell for SimpleTableView was not defined.")
-                }
-                self.cellType = cellType
 
-                guard let headerType = node.value(ofAttribute: "header") as String? else {
-                    throw TokenizationError(message: "header for SimpleTableView was not defined.")
-                }
-                self.headerType = headerType
-
-                guard let footerType = node.value(ofAttribute: "footer") as String? else {
-                    throw TokenizationError(message: "footer for SimpleTableView was not defined.")
-                }
-                self.footerType = footerType
-
-                if let cellElement = try node.singleOrNoElement(named: "cell") {
-                    cellDefinition = try context.deserialize(element: cellElement, type: cellType)
-                } else {
-                    cellDefinition = nil
-                }
-
-                if let headerElement = try node.singleOrNoElement(named: "header") {
-                    headerDefinition = try context.deserialize(element: headerElement, type: headerType)
-                } else {
-                    headerDefinition = nil
-                }
-
-                if let footerElement = try node.singleOrNoElement(named: "footer") {
-                    footerDefinition = try context.deserialize(element: footerElement, type: footerType)
-                } else {
-                    footerDefinition = nil
-                }
+            guard let cellType = node.value(ofAttribute: "cell") as String? else {
+                throw TokenizationError(message: "cell for SimpleTableView was not defined.")
             }
+            self.cellType = cellType
+
+            guard let headerType = node.value(ofAttribute: "header") as String? else {
+                throw TokenizationError(message: "header for SimpleTableView was not defined.")
+            }
+            self.headerType = headerType
+
+            guard let footerType = node.value(ofAttribute: "footer") as String? else {
+                throw TokenizationError(message: "footer for SimpleTableView was not defined.")
+            }
+            self.footerType = footerType
+
+            if let cellElement = try node.singleOrNoElement(named: "cell") {
+                cellDefinition = try context.deserialize(element: cellElement, type: cellType)
+            } else {
+                cellDefinition = nil
+            }
+
+            if let headerElement = try node.singleOrNoElement(named: "header") {
+                headerDefinition = try context.deserialize(element: headerElement, type: headerType)
+            } else {
+                headerDefinition = nil
+            }
+
+            if let footerElement = try node.singleOrNoElement(named: "footer") {
+                footerDefinition = try context.deserialize(element: footerElement, type: footerType)
+            } else {
+                footerDefinition = nil
+            }
+
 
             try super.init(context: context, factory: factory)
         }
 
         public override func serialize(context: DataContext) -> XMLSerializableElement {
             var element = super.serialize(context: context)
-            if let cellType = cellType, let headerType = headerType, let footerType = footerType {
-                element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
-                element.attributes.append(XMLSerializableAttribute(name: "header", value: headerType))
-                element.attributes.append(XMLSerializableAttribute(name: "footer", value: footerType))
-            }
+
+            element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
+            element.attributes.append(XMLSerializableAttribute(name: "header", value: headerType))
+            element.attributes.append(XMLSerializableAttribute(name: "footer", value: footerType))
 
             // FIXME serialize anonymous cells
             return element

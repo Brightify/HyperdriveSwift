@@ -68,7 +68,9 @@ extension Module.UIKit {
 
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
-            return .constant("PlainTableView<\(cellType)>(cellFactory: \(cellType)())")
+            return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
+            ])
         }
         #endif
 

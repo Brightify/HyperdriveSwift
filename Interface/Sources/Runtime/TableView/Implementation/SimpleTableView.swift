@@ -31,9 +31,9 @@ open class SimpleTableView<HEADER: UIView, CELL: UIView, FOOTER: UIView>: TableV
     private let footerFactory: () -> FOOTER
 
     public init(
-        cellFactory: @escaping () -> CELL = CELL.init,
-        headerFactory: @escaping () -> HEADER = HEADER.init,
-        footerFactory: @escaping () -> FOOTER = FOOTER.init,
+        cellFactory: @escaping () -> CELL,
+        headerFactory: @escaping () -> HEADER,
+        footerFactory: @escaping () -> FOOTER,
         style: UITableView.Style = .plain,
         options: TableViewOptions = .default)
     {
