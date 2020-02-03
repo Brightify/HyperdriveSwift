@@ -405,7 +405,22 @@ extension GlobalContext {
 
     private func resolveDescription(item: ComponentDefinition.StateDescription.Item) throws -> ResolvedStateItem.Description {
         let detectedTypeFactory = detectAttributeTypeFactory(from: item.type)
-        let detectedDefaultValue = try item.defaultValue.flatMap { try detectedTypeFactory?.materialize(from: $0) }
+        let detectedDefaultValue: SupportedPropertyType?
+        if let itemDefaultValue = item.defaultValue, let detectedTypeFactory = detectedTypeFactory {
+            detectedDefaultValue = try detectedTypeFactory.materialize(from: itemDefaultValue)
+        } else if let wrappingTypeFactory = detectedTypeFactory as? WrappingAttributeSupportedType.WrappingAttributeFactory {
+
+            // We can use any supported
+            switch wrappingTypeFactory.wrapKind {
+            case .array:
+                detectedDefaultValue = WrappingAttributeSupportedType(factory: wrappingTypeFactory, value: .array([]))
+            case .optional:
+                detectedDefaultValue = WrappingAttributeSupportedType(factory: wrappingTypeFactory, value: .optional(.none))
+            }
+        } else {
+            detectedDefaultValue = nil
+        }
+
 
         var fallbackFactory: SupportedTypeFactory {
             #if canImport(SwiftCodeGen)
@@ -616,7 +631,7 @@ private final class WrappingAttributeSupportedType: SupportedPropertyType {
         }
 
         private let wrapping: AttributeSupportedTypeFactory
-        private let wrapKind: Kind
+        let wrapKind: Kind
 
         public init(wrapping: AttributeSupportedTypeFactory, wrapKind: Kind) {
             self.wrapping = wrapping
