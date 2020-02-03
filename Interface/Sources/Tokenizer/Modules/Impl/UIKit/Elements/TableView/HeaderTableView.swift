@@ -106,22 +106,14 @@ extension Module.UIKit {
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-            guard let cellType = cellType, let headerType = headerType else {
-                throw LiveUIError(message: "cell or header for HeaderTableView was not defined.")
-            }
             let createCell = try context.componentInstantiation(named: cellType)
             let createHeader = try context.componentInstantiation(named: headerType)
             let sectionCount = ToolingProperties.headerTableView.sectionCount.get(from: self.toolingProperties)?.value ?? 5
             let itemCount = ToolingProperties.headerTableView.itemCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.HeaderTableView<CellWrapper, CellWrapper>(
-                cellFactory: {
-                    CellWrapper(wrapped: createCell())
-                },
-                headerFactory: {
-                    CellWrapper(wrapped: createHeader())
-                },
+                cellFactory: CellWrapper(wrapped: createCell()),
+                headerFactory: CellWrapper(wrapped: createHeader()),
                 options: [])
-
 
             tableView.state.items = .items(Array(repeating: SectionModel(model: EmptyState(), items: Array(repeating: EmptyState(), count: itemCount)), count: sectionCount))
 

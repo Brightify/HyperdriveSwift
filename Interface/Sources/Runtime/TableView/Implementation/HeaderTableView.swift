@@ -38,8 +38,8 @@ open class HeaderTableView<HEADER: UIView, CELL: UIView>: TableViewBase<SectionM
     private let headerFactory: () -> HEADER
 
     public init(
-        cellFactory: @escaping () -> CELL,
-        headerFactory: @escaping () -> HEADER,
+        cellFactory: @autoclosure @escaping () -> CELL,
+        headerFactory: @autoclosure @escaping () -> HEADER,
         style: UITableView.Style = .plain,
         options: TableViewOptions = .default)
     {

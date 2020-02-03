@@ -107,20 +107,13 @@ extension Module.UIKit {
         
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-            guard let cellType = cellType, let footerType = footerType else {
-                throw LiveUIError(message: "cell or footer for FooterTableView was not defined.")
-            }
             let createCell = try context.componentInstantiation(named: cellType)
             let createFooter = try context.componentInstantiation(named: footerType)
             let sectionCount = ToolingProperties.footerTableView.sectionCount.get(from: self.toolingProperties)?.value ?? 5
             let itemCount = ToolingProperties.footerTableView.itemCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.FooterTableView<CellWrapper, CellWrapper>(
-                cellFactory: {
-                    CellWrapper(wrapped: createCell())
-                },
-                footerFactory: {
-                    CellWrapper(wrapped: createFooter())
-                },
+                cellFactory: CellWrapper(wrapped: createCell()),
+                footerFactory: CellWrapper(wrapped: createFooter()),
                 options: [])
 
             tableView.state.items = .items(Array(repeating: SectionModel(model: EmptyState(), items: Array(repeating: EmptyState(), count: itemCount)), count: sectionCount))

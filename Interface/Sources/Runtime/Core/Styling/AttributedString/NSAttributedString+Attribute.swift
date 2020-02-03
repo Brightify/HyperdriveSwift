@@ -28,7 +28,7 @@ public extension String {
     /**
      * Allows you to easily create an `NSAttributedString` out of regular `String`
      * For available attributes see `Attribute`.
-     * parameter attributes: passed attributes with which NSAttributedString is created
+     * - parameter attributes: passed attributes with which NSAttributedString is created
      * ## Example
      * ```
      * let attributedString = "Beautiful String".attributed(.kern(1.2), .strokeWidth(1), .strokeColor(.red))
@@ -41,7 +41,7 @@ public extension String {
     /**
      * Allows you to easily create an `NSAttributedString` out of regular `String`
      * For available attributes see `Attribute`.
-     * parameter attributes: passed attributes with which NSAttributedString is created
+     * - parameter attributes: passed attributes with which NSAttributedString is created
      * ## Example
      * ```
      * let attributedString = "Beautiful String".attributed(.kern(1.2), .strokeWidth(1), .strokeColor(.red))

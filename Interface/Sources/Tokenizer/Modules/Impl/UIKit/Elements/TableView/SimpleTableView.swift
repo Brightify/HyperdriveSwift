@@ -130,24 +130,15 @@ extension Module.UIKit {
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-            guard let cellType = cellType, let headerType = headerType, let footerType = footerType else {
-                throw LiveUIError(message: "cell, header or footer for SimpleTableView was not defined.")
-            }
             let createCell = try context.componentInstantiation(named: cellType)
             let createHeader = try context.componentInstantiation(named: headerType)
             let createFooter = try context.componentInstantiation(named: footerType)
             let sectionCount = ToolingProperties.headerTableView.sectionCount.get(from: self.toolingProperties)?.value ?? 5
             let itemCount = ToolingProperties.headerTableView.itemCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.SimpleTableView<CellWrapper, CellWrapper, CellWrapper>(
-                cellFactory: {
-                    CellWrapper(wrapped: createCell())
-                },
-                headerFactory: {
-                    CellWrapper(wrapped: createHeader())
-                },
-                footerFactory: {
-                    CellWrapper(wrapped: createFooter())
-                },
+                cellFactory: CellWrapper(wrapped: createCell()),
+                headerFactory: CellWrapper(wrapped: createHeader()),
+                footerFactory: CellWrapper(wrapped: createFooter()),
                 options: [])
 
 

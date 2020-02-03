@@ -28,8 +28,8 @@ public struct AnySupportedType: SupportedPropertyType {
     public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, isOptional: Bool = false, generateValue: @escaping (SupportedPropertyTypeContext) -> Expression) {
         self.factory = factory
         self.requiresTheme = requiresTheme
-        self.generateValue = generateValue
         self.isOptional = isOptional
+        self.generateValue = generateValue
     }
 
     public func generate(context: SupportedPropertyTypeContext) -> Expression {
@@ -40,10 +40,10 @@ public struct AnySupportedType: SupportedPropertyType {
     #if HyperdriveRuntime
     public let resolveValue: (SupportedPropertyTypeContext) throws -> Any?
 
-    public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, resolveValue: @escaping (SupportedPropertyTypeContext) throws -> Any?) {
-
+    public init(factory: SupportedTypeFactory, requiresTheme: Bool = false, isOptional: Bool = false, resolveValue: @escaping (SupportedPropertyTypeContext) throws -> Any?) {
         self.factory = factory
         self.requiresTheme = requiresTheme
+        self.isOptional = isOptional
         self.resolveValue = resolveValue
     }
     #endif
