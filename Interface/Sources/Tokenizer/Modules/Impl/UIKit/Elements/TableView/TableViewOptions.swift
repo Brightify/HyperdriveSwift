@@ -16,8 +16,7 @@ extension Module.UIKit.TableView {
         public let deselectsAutomatically: Bool
 
         public init(node: XMLElement) throws {
-            #warning("TODO: Change to `tableView.style` or similar before releasing! Right now it fails parsing, probably due to the way we use properties and namespaces.")
-            style = try node.value(ofAttribute: "tableViewStyle", defaultValue: Style.plain)
+            style = try node.value(ofAttribute: "tableView.style", defaultValue: Style.plain)
             reloadable = try node.value(ofAttribute: "reloadable", defaultValue: false)
             deselectsAutomatically = try node.value(ofAttribute: "deselectsAutomatically", defaultValue: true)
         }
@@ -45,10 +44,19 @@ extension Module.UIKit.TableView {
             case tableViewOptions
         }
 
-        public enum Style: String, XMLAttributeDeserializable {
+        public enum Style: String, XMLAttributeDeserializable, CaseIterable {
             case plain
             case grouped
             case insetGrouped
+
+            public static func deserialize(_ attribute: XMLAttribute) throws -> Module.UIKit.TableView.TableViewOptions.Style {
+                guard let style = Style(rawValue: attribute.text) else {
+                    throw TokenizationError(
+                        message: "Couldn't deserialize \(attribute.text) as UITableView.Style. Available values \(Style.allCases.map { $0.rawValue }.joined(separator: ", "))")
+                }
+
+                return style
+            }
         }
     }
 }
