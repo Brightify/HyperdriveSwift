@@ -38,6 +38,8 @@ public final class TableViewCellWrapper<CELL: UIView>: UITableViewCell, Configur
     private var tableViewCell: TableViewCell? {
         return cell as? TableViewCell
     }
+
+    private var cellConstraints: [NSLayoutConstraint] = []
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -60,9 +62,20 @@ public final class TableViewCellWrapper<CELL: UIView>: UITableViewCell, Configur
 
     public override func updateConstraints() {
         super.updateConstraints()
-        
-        cell?.snp.updateConstraints { make in
-            make.edges.equalTo(contentView)
+
+        if cellConstraints.contains(where: { $0.firstItem !== cell && $0.secondItem !== cell }) || cell == nil {
+            NSLayoutConstraint.deactivate(cellConstraints)
+            cellConstraints = []
+        }
+        if let cell = cell, cellConstraints.isEmpty {
+            let newCellConstraints = [
+                cell.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                cell.topAnchor.constraint(equalTo: contentView.topAnchor),
+                cell.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                cell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            ]
+            NSLayoutConstraint.activate(newCellConstraints)
+            cellConstraints.append(contentsOf: newCellConstraints)
         }
     }
     
@@ -79,6 +92,7 @@ public final class TableViewCellWrapper<CELL: UIView>: UITableViewCell, Configur
             return cell
         } else {
             let cell = factory()
+            cell.translatesAutoresizingMaskIntoConstraints = false
             (cell as? Configurable)?.configuration = configuration
             self.cell = cell
             if let tableViewCell = tableViewCell {
