@@ -41,20 +41,15 @@ open class SimulatedSeparatorTableView<CELL: UIView>: TableViewBase<CELL.StateTy
     private let cellFactory: () -> CELL
 
     public init(
-        cellFactory: @escaping () -> CELL = CELL.init,
         style: UITableView.Style = .plain,
-        options: TableViewOptions = .default)
+        options: TableViewOptions = .default,
+        cellFactory: @escaping () -> CELL = CELL.init)
     {
         self.cellFactory = cellFactory
 
         super.init(style: style, options: options)
 
         separatorHeight = 1
-
-//        dataSource.configureCell = { [unowned self] _, _, _, model in
-//            return self.dequeueAndConfigure(identifier: self.cellIdentifier, factory: cellFactory,
-//                                            model: model, mapAction: )
-//        }
 
         loadView()
     }

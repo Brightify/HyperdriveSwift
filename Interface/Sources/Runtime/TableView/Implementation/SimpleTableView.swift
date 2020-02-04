@@ -31,11 +31,11 @@ open class SimpleTableView<HEADER: UIView, CELL: UIView, FOOTER: UIView>: TableV
     private let footerFactory: () -> FOOTER
 
     public init(
+        style: UITableView.Style = .plain,
+        options: TableViewOptions = .default,
         cellFactory: @autoclosure @escaping () -> CELL,
         headerFactory: @autoclosure @escaping () -> HEADER,
-        footerFactory: @autoclosure @escaping () -> FOOTER,
-        style: UITableView.Style = .plain,
-        options: TableViewOptions = .default)
+        footerFactory: @autoclosure @escaping () -> FOOTER)
     {
         self.cellFactory = cellFactory
         self.headerFactory = headerFactory
