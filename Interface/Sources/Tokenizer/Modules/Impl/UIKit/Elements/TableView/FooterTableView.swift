@@ -30,7 +30,8 @@ extension Module.UIKit {
         public var footerType: String
         public var cellDefinition: ComponentDefinition?
         public var footerDefinition: ComponentDefinition?
-        
+        public var options: TableView.TableViewOptions
+
         public var componentTypes: [String] {
             return (cellDefinition?.componentTypes ?? [cellType].compactMap { $0 }) + (footerDefinition?.componentTypes ?? [footerType].compactMap { $0 })
         }
@@ -61,6 +62,8 @@ extension Module.UIKit {
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
             return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "style", value: options.initialization(kind: .style)),
+                MethodArgument(name: "options", value: options.initialization(kind: .tableViewOptions)),
                 MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
                 MethodArgument(name: "footerFactory", value: .invoke(target: .constant(footerType), arguments: []))
             ])
@@ -73,7 +76,7 @@ extension Module.UIKit {
                 throw TokenizationError(message: "cell for FooterTableView was not defined.")
             }
             self.cellType = cellType
-            
+
             guard let footerType = node.value(ofAttribute: "footer") as String? else {
                 throw TokenizationError(message: "Footer for FooterTableView was not defined.")
             }
@@ -90,7 +93,8 @@ extension Module.UIKit {
             } else {
                 footerDefinition = nil
             }
-            
+
+            self.options = try TableView.TableViewOptions(node: node)
             
             try super.init(context: context, factory: factory)
         }

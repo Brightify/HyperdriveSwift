@@ -32,6 +32,7 @@ extension Module.UIKit {
         public var cellDefinition: ComponentDefinition?
         public var headerDefinition: ComponentDefinition?
         public var footerDefinition: ComponentDefinition?
+        public var options: TableView.TableViewOptions
 
         public var componentTypes: [String] {
             return (cellDefinition?.componentTypes ?? [cellType])
@@ -70,6 +71,8 @@ extension Module.UIKit {
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
             return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "style", value: options.initialization(kind: .style)),
+                MethodArgument(name: "options", value: options.initialization(kind: .tableViewOptions)),
                 MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
                 MethodArgument(name: "headerFactory", value: .invoke(target: .constant(headerType), arguments: [])),
                 MethodArgument(name: "footerFactory", value: .invoke(target: .constant(footerType), arguments: [])),
@@ -113,6 +116,7 @@ extension Module.UIKit {
                 footerDefinition = nil
             }
 
+            self.options = try TableView.TableViewOptions(node: node)
 
             try super.init(context: context, factory: factory)
         }

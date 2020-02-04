@@ -38,6 +38,7 @@ extension Module.UIKit {
 
         public var cellType: String
         public var cellDefinition: ComponentDefinition?
+        public var options: TableView.TableViewOptions
 
         public var componentTypes: [String] {
             return cellDefinition?.componentTypes ?? [cellType].compactMap { $0 }
@@ -55,6 +56,25 @@ extension Module.UIKit {
             return "Hyperdrive"
         }
 
+        public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
+            let node = context.element
+
+            guard let cellType = node.value(ofAttribute: "cell") as String? else {
+                throw TokenizationError(message: "cell for PlainTableView was not defined.")
+            }
+
+            self.cellType = cellType
+            self.options = try TableView.TableViewOptions(node: node)
+
+            if let cellElement = try node.singleOrNoElement(named: "cell") {
+                cellDefinition = try context.deserialize(element: cellElement, type: cellType)
+            } else {
+                cellDefinition = nil
+            }
+
+            try super.init(context: context, factory: factory)
+        }
+
         public class override func runtimeType() -> String {
             return "UITableView"
         }
@@ -69,39 +89,20 @@ extension Module.UIKit {
         #if canImport(SwiftCodeGen)
         public override func initialization(for platform: RuntimePlatform, context: ComponentContext) throws -> Expression {
             return .invoke(target: .constant(try runtimeType(for: platform).name), arguments: [
+                MethodArgument(name: "style", value: options.initialization(kind: .style)),
+                MethodArgument(name: "options", value: options.initialization(kind: .tableViewOptions)),
                 MethodArgument(name: "cellFactory", value: .invoke(target: .constant(cellType), arguments: [])),
             ])
         }
         #endif
 
-        public required init(context: UIElementDeserializationContext, factory: UIElementFactory) throws {
-            let node = context.element
-
-            guard let cellType = node.value(ofAttribute: "cell") as String? else {
-                throw TokenizationError(message: "cell for PlainTableView was not defined.")
-            }
-
-            self.cellType = cellType
-
-            if let cellElement = try node.singleOrNoElement(named: "cell") {
-                cellDefinition = try context.deserialize(element: cellElement, type: cellType)
-            } else {
-                cellDefinition = nil
-            }
-
-            try super.init(context: context, factory: factory)
-        }
-
         public override func serialize(context: DataContext) -> XMLSerializableElement {
             var element = super.serialize(context: context)
-//            if let cellType = cellType {
             element.attributes.append(XMLSerializableAttribute(name: "cell", value: cellType))
-//            }
             return element
         }
 
         public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
-
             return [
                 PlainTableViewAction.rowAction(cellType: cellType),
                 PlainTableViewAction.selected(cellType: cellType),
@@ -111,9 +112,7 @@ extension Module.UIKit {
 
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) throws -> UIView {
-//            guard let cellType = cellType else {
-//                throw LiveUIError(message: "cell for PlainTableView was not defined.")
-//            }
+            #warning("TODO Use `options` for instantiation.")
             let createCell = try context.componentInstantiation(named: cellType)
             let exampleCount = ToolingProperties.plainTableView.exampleCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.PlainTableView<CellWrapper>(options: [], cellFactory: CellWrapper(wrapped: createCell()))
