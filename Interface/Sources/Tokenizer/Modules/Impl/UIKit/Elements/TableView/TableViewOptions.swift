@@ -16,7 +16,8 @@ extension Module.UIKit.TableView {
         public let deselectsAutomatically: Bool
 
         public init(node: XMLElement) throws {
-            style = try node.value(ofAttribute: "tableView.style", defaultValue: Style.plain)
+            #warning("TODO: Change to `tableView.style` or similar before releasing! Right now it fails parsing, probably due to the way we use properties and namespaces.")
+            style = try node.value(ofAttribute: "tableViewStyle", defaultValue: Style.plain)
             reloadable = try node.value(ofAttribute: "reloadable", defaultValue: false)
             deselectsAutomatically = try node.value(ofAttribute: "deselectsAutomatically", defaultValue: true)
         }
