@@ -15,7 +15,7 @@ public class LayerProperties: PropertyContainer {
     public let masksToBounds: StaticAssignablePropertyDescription<Bool>
     public let isDoubleSided: StaticAssignablePropertyDescription<Bool>
     public let backgroundColor: StaticAssignablePropertyDescription<CGColorPropertyType?>
-    public let shadowOpacity: StaticAssignablePropertyDescription<Double>
+    public let shadowOpacity: StaticAssignablePropertyDescription<Float>
     public let shadowRadius: StaticAssignablePropertyDescription<Double>
     public let shadowColor: StaticAssignablePropertyDescription<CGColorPropertyType?>
     public let allowsEdgeAntialiasing: StaticAssignablePropertyDescription<Bool>
