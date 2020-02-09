@@ -86,8 +86,8 @@ let schemes = HyperdrivePlatform.allCases.map {
     Scheme(
         name: "HyperdriveInterface-\($0.name)",
         shared: true,
-        buildAction: BuildAction(targets: ["HyperdriveInterface-\($0.name)"]),
-        testAction: TestAction(targets: ["HyperdriveInterfaceTests-\($0.name)"]),
+        buildAction: BuildAction(targets: [TargetReference(stringLiteral: "HyperdriveInterface-\($0.name)")]),
+        testAction: TestAction(targets: [TestableTarget(stringLiteral: "HyperdriveInterfaceTests-\($0.name)")]),
         runAction: nil)
 }
 

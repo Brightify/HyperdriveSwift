@@ -116,9 +116,9 @@ extension Module.UIKit {
             let sectionCount = ToolingProperties.footerTableView.sectionCount.get(from: self.toolingProperties)?.value ?? 5
             let itemCount = ToolingProperties.footerTableView.itemCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.FooterTableView<CellWrapper, CellWrapper>(
+                options: [],
                 cellFactory: CellWrapper(wrapped: createCell()),
-                footerFactory: CellWrapper(wrapped: createFooter()),
-                options: [])
+                footerFactory: CellWrapper(wrapped: createFooter()))
 
             tableView.state.items = .items(Array(repeating: SectionModel(model: EmptyState(), items: Array(repeating: EmptyState(), count: itemCount)), count: sectionCount))
             

@@ -140,10 +140,10 @@ extension Module.UIKit {
             let sectionCount = ToolingProperties.headerTableView.sectionCount.get(from: self.toolingProperties)?.value ?? 5
             let itemCount = ToolingProperties.headerTableView.itemCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView = HyperdriveInterface.SimpleTableView<CellWrapper, CellWrapper, CellWrapper>(
+                options: [],
                 cellFactory: CellWrapper(wrapped: createCell()),
                 headerFactory: CellWrapper(wrapped: createHeader()),
-                footerFactory: CellWrapper(wrapped: createFooter()),
-                options: [])
+                footerFactory: CellWrapper(wrapped: createFooter()))
 
 
             tableView.state.items = .items(Array(repeating: SectionModel(model: (header: EmptyState(), footer: EmptyState()),
