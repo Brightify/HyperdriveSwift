@@ -135,7 +135,7 @@ public enum UIColorPropertyType: TypedSupportedType, HasStaticTypeFactory {
         public func typedMaterialize(from value: String) throws -> UIColorPropertyType {
             // we're not creating our own parser for this, so we will disallow using dots inside the values and instead enforce
             // using percent signs
-            let colorComponents = value.components(separatedBy: "@")
+            let colorComponents = value.components(separatedBy: "@").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
 
             func getColor(from value: String) throws -> UIColorPropertyType {
                 if let themedName = ApplicationDescription.themedValueName(value: value) {
