@@ -58,8 +58,8 @@ public struct NavigationItem {
 
         public enum Kind {
             case system(SystemItem)
-            case title(String, style: Style = .plain)
-            case image(Image, landscapeImagePhone: Image?, style: Style = .plain)
+            case title(String, style: Style)
+            case image(Image, landscapeImagePhone: Image?, style: Style)
             case view(Module.UIKit.View)
 
             public enum Style: String {
