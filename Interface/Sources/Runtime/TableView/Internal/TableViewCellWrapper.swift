@@ -10,6 +10,7 @@
 import UIKit
 
 public final class TableViewCellWrapper<CELL: UIView>: UITableViewCell, Configurable {
+    private let contentViewEdgePriority = UILayoutPriority(900)
     
     public var configurationChangeTime: clock_t = 0
     
@@ -74,6 +75,9 @@ public final class TableViewCellWrapper<CELL: UIView>: UITableViewCell, Configur
                 cell.rightAnchor.constraint(equalTo: contentView.rightAnchor),
                 cell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             ]
+            for constraint in newCellConstraints {
+                constraint.priority = contentViewEdgePriority
+            }
             NSLayoutConstraint.activate(newCellConstraints)
             cellConstraints.append(contentsOf: newCellConstraints)
         }

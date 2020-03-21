@@ -10,7 +10,8 @@
 import UIKit
 
 public final class CollectionReusableViewWrapper<VIEW: UIView>: UICollectionReusableView, Configurable {
-    
+    private let contentViewEdgePriority = UILayoutPriority(900)
+
     public var configurationChangeTime: clock_t = 0
     
     private var wrappedView: VIEW?
@@ -26,11 +27,27 @@ public final class CollectionReusableViewWrapper<VIEW: UIView>: UICollectionReus
         return true
     }
     
+    private var wrappedViewConstraints: [NSLayoutConstraint] = []
+
     public override func updateConstraints() {
         super.updateConstraints()
-        
-        wrappedView?.snp.updateConstraints { make in
-            make.edges.equalTo(self)
+
+        if wrappedViewConstraints.contains(where: { $0.firstItem !== wrappedView && $0.secondItem !== wrappedView }) || wrappedView == nil {
+            NSLayoutConstraint.deactivate(wrappedViewConstraints)
+            wrappedViewConstraints = []
+        }
+        if let wrappedView = wrappedView, wrappedViewConstraints.isEmpty {
+            let newWrappedViewConstraints = [
+                wrappedView.leftAnchor.constraint(equalTo: leftAnchor),
+                wrappedView.topAnchor.constraint(equalTo: topAnchor),
+                wrappedView.rightAnchor.constraint(equalTo: rightAnchor),
+                wrappedView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            ]
+            for constraint in newWrappedViewConstraints {
+                constraint.priority = contentViewEdgePriority
+            }
+            NSLayoutConstraint.activate(newWrappedViewConstraints)
+            wrappedViewConstraints.append(contentsOf: newWrappedViewConstraints)
         }
     }
     

@@ -10,7 +10,8 @@
 import UIKit
 
 public final class TableViewHeaderFooterWrapper<VIEW: UIView>: UITableViewHeaderFooterView, Configurable {
-    
+    private let contentViewEdgePriority = UILayoutPriority(900)
+
     public var configurationChangeTime: clock_t = 0
     
     private var wrappedView: VIEW?
@@ -42,6 +43,9 @@ public final class TableViewHeaderFooterWrapper<VIEW: UIView>: UITableViewHeader
                 wrappedView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
                 wrappedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             ]
+            for constraint in newWrappedViewConstraints {
+                constraint.priority = contentViewEdgePriority
+            }
             NSLayoutConstraint.activate(newWrappedViewConstraints)
             wrappedViewConstraints.append(contentsOf: newWrappedViewConstraints)
         }

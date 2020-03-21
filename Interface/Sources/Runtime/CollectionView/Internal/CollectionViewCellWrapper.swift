@@ -10,7 +10,8 @@
 import UIKit
 
 public final class CollectionViewCellWrapper<CELL: UIView>: UICollectionViewCell, Configurable {
-    
+    private let contentViewEdgePriority = UILayoutPriority(900)
+
     public var configurationChangeTime: clock_t = 0
     
     private var cell: CELL?
@@ -51,11 +52,27 @@ public final class CollectionViewCellWrapper<CELL: UIView>: UICollectionViewCell
         }
     }
 
+    private var cellConstraints: [NSLayoutConstraint] = []
+
     public override func updateConstraints() {
         super.updateConstraints()
-        
-        cell?.snp.updateConstraints { make in
-            make.edges.equalTo(contentView)
+
+        if cellConstraints.contains(where: { $0.firstItem !== cell && $0.secondItem !== cell }) || cell == nil {
+            NSLayoutConstraint.deactivate(cellConstraints)
+            cellConstraints = []
+        }
+        if let cell = cell, cellConstraints.isEmpty {
+            let newCellConstraints = [
+                cell.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                cell.topAnchor.constraint(equalTo: contentView.topAnchor),
+                cell.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                cell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            ]
+            for constraint in newCellConstraints {
+                constraint.priority = contentViewEdgePriority
+            }
+            NSLayoutConstraint.activate(newCellConstraints)
+            cellConstraints.append(contentsOf: newCellConstraints)
         }
     }
 
