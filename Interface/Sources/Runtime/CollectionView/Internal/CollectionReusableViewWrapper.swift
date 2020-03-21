@@ -56,6 +56,7 @@ public final class CollectionReusableViewWrapper<VIEW: UIView>: UICollectionReus
             return wrappedView
         } else {
             let wrappedView = factory()
+            wrappedView.translatesAutoresizingMaskIntoConstraints = false
             (wrappedView as? Configurable)?.configuration = configuration
             self.wrappedView = wrappedView
             addSubview(wrappedView)

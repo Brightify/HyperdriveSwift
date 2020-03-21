@@ -82,6 +82,7 @@ public final class CollectionViewCellWrapper<CELL: UIView>: UICollectionViewCell
             return cell
         } else {
             let cell = factory()
+            cell.translatesAutoresizingMaskIntoConstraints = false
             (cell as? Configurable)?.configuration = configuration
             self.cell = cell
             contentView.addSubview(cell)
