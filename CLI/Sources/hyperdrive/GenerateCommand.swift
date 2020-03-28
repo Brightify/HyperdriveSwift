@@ -16,14 +16,154 @@ import SwiftCLI
 
 import SwiftCodeGen
 
+protocol GeneratorOutput {
+    func insert<S: Sequence>(commonImports: S) where S.Element == String
 
-class GenerateCommand: Command {
+    func insert<S: Sequence>(imports: S, sourceFilePath: String) where S.Element == String
 
-    enum Output {
-        case file(URL)
-        case console
+    func append(common: Describable)
+
+    func append(_ describable: Describable, sourceFilePath: String)
+
+    func flush() throws
+}
+
+final class ConsoleGeneratorOutput: GeneratorOutput {
+    private let descriptionPipe = DescriptionPipe()
+    private var imports: Set<String> = []
+
+    init() {
     }
 
+    func insert<S: Sequence>(commonImports: S) where S.Element == String {
+        self.imports.formUnion(commonImports)
+    }
+
+    func insert<S: Sequence>(imports: S, sourceFilePath: String) where S.Element == String {
+        self.imports.formUnion(imports)
+    }
+
+    func append(common describable: Describable) {
+        descriptionPipe.append(describable)
+    }
+
+    func append(_ describable: Describable, sourceFilePath: String) {
+        descriptionPipe.line("// Generated from \(sourceFilePath)")
+        descriptionPipe.append(describable)
+    }
+
+    func flush() {
+        let importsHeader = imports.sorted().map { "import \($0)" }
+        let result = (importsHeader + descriptionPipe.result).joined(separator: "\n")
+        print(result)
+    }
+}
+
+final class SingleFileGeneratorOutput: GeneratorOutput {
+    private let descriptionPipe = DescriptionPipe()
+    private let outputFile: URL
+    private var imports: Set<String> = []
+
+    init(outputFile: URL) {
+        self.outputFile = outputFile
+    }
+
+    func insert<S: Sequence>(commonImports: S) where S.Element == String {
+        self.imports.formUnion(commonImports)
+    }
+
+    func insert<S: Sequence>(imports: S, sourceFilePath: String) where S.Element == String {
+        self.imports.formUnion(imports)
+    }
+
+    func append(common describable: Describable) {
+        descriptionPipe.append(describable)
+    }
+
+    func append(_ describable: Describable, sourceFilePath: String) {
+        descriptionPipe.line("// Generated from \(sourceFilePath)")
+        descriptionPipe.append(describable)
+    }
+
+    func flush() throws {
+        let importsHeader = imports.sorted().map { "import \($0)" }
+        let result = (importsHeader + descriptionPipe.result).joined(separator: "\n")
+        try result.write(to: outputFile, atomically: true, encoding: .utf8)
+    }
+}
+
+final class DirectoryGeneratorOutput: GeneratorOutput {
+    private let outputPath: URL
+    private var commonImports: Set<String> = []
+    private var commonDescriptionPipe = DescriptionPipe()
+    private var fileImports: [String: Set<String>] = [:]
+    private var fileDescriptionPipes: [String: DescriptionPipe] = [:]
+
+    init(outputPath: URL) {
+        self.outputPath = outputPath
+    }
+
+    func insert<S: Sequence>(commonImports: S) where S.Element == String {
+        self.commonImports.formUnion(commonImports)
+    }
+
+    func insert<S: Sequence>(imports: S, sourceFilePath: String) where S.Element == String {
+        self.fileImports[sourceFilePath, default: []].formUnion(imports)
+    }
+
+    func append(common describable: Describable) {
+        commonDescriptionPipe.append(describable)
+    }
+
+    func append(_ describable: Describable, sourceFilePath: String) {
+        let filePipe: DescriptionPipe
+        if let pipe = fileDescriptionPipes[sourceFilePath] {
+            filePipe = pipe
+        } else {
+            filePipe = DescriptionPipe()
+            fileDescriptionPipes[sourceFilePath] = filePipe
+        }
+
+        filePipe.append(describable)
+    }
+
+    func flush() throws {
+        let commonImportsHeader = commonImports.sorted().map { "import \($0)" }
+        let commonResult = commonImportsHeader + commonDescriptionPipe.result
+
+        for (path, pipe) in fileDescriptionPipes {
+            let url = URL(fileURLWithPath: path)
+            let fileName = url.deletingPathExtension().lastPathComponent
+            let outputFile = outputPath.appendingPathComponent("\(fileName).generated.swift")
+            guard compare(sourcePath: path, updatedSince: outputFile.path) else { continue }
+
+            let fileImports = self.fileImports[path, default: []].sorted().map { "import \($0)" }
+            let header = ["// Generated from \(path)"]
+            let result = (header + commonImportsHeader + fileImports + pipe.result + commonResult).joined(separator: "\n")
+
+            try result.write(to: outputFile, atomically: true, encoding: .utf8)
+        }
+    }
+
+    private func compare(sourcePath: String, updatedSince targetPath: String) -> Bool {
+        let fileManager = FileManager.default
+        do {
+            let sourceAttributes = try fileManager.attributesOfItem(atPath: sourcePath)
+            let targetAttributes = try fileManager.attributesOfItem(atPath: targetPath)
+
+            let sourceModificationDate = sourceAttributes[.modificationDate] as? Date ?? Date.distantFuture
+            let targetModificationDate = targetAttributes[.modificationDate] as? Date ?? Date.distantPast
+
+            // If source modification date is greater than target modification date, that means source is further along in the future
+            return sourceModificationDate.compare(targetModificationDate) == .orderedDescending
+        } catch {
+            // If we can't get the information, let's make sure we generate the target file
+            return true
+        }
+    }
+}
+
+class GenerateCommand: Command {
     static let forbiddenNames = ["RootView", "UIView", "UIViewController", "self", "switch",
                                  "if", "else", "guard", "func", "class", "ViewBase", "ControllerBase", "for", "Component"]
 
@@ -35,6 +175,7 @@ class GenerateCommand: Command {
     let xcodeProjectPath = Key<String>("--xcodeprojPath")
     let inputPath = Key<String>("--inputPath")
     let outputFile = Key<String>("--outputFile")
+    let outputPath = Key<String>("--outputPath")
     let consoleOutput = Flag("--console-output")
     let applicationDescriptionFile = Key<String>("--description", description: "Path to an XML file with Application Description.")
     let swiftVersionParameter = Key<String>("--swift")
@@ -45,7 +186,6 @@ class GenerateCommand: Command {
     let reactantUICompat = Flag("--x-compat")
 
     public func execute() throws {
-        let output = DescriptionPipe()
         let livePlatforms = !self.livePlatforms.value.isEmpty ? self.livePlatforms.value : ["iphonesimulator"]
         let enableLive: Bool
         if let buildConfiguration = ProcessInfo.processInfo.environment["CONFIGURATION"],
@@ -65,11 +205,13 @@ class GenerateCommand: Command {
         }
         let inputPathURL = URL(fileURLWithPath: inputPath)
 
-        let outputType: Output
-        if let outputFile = outputFile.value {
-            outputType = .file(URL(fileURLWithPath: outputFile))
+        let output: GeneratorOutput
+        if let outputPath = outputPath.value {
+            output = DirectoryGeneratorOutput(outputPath: URL(fileURLWithPath: outputPath))
+        } else if let outputFile = outputFile.value {
+            output = SingleFileGeneratorOutput(outputFile: URL(fileURLWithPath: outputFile))
         } else if (consoleOutput.value) {
-            outputType = .console
+            output = ConsoleGeneratorOutput()
         } else {
             throw GenerateCommandError.ouputFileInvalid
         }
@@ -86,20 +228,21 @@ class GenerateCommand: Command {
 
         // ApplicationDescription is not required. We can work with default values and it makes it backward compatible.
         let applicationDescription: ApplicationDescription
-        let applicationDescriptionPath = applicationDescriptionFile.value
-        if let applicationDescriptionPath = applicationDescriptionPath {
-            let applicationDescriptionData = try Data(contentsOf: URL(fileURLWithPath: applicationDescriptionPath))
+        let applicationDescriptionPath: String
+        if let descriptionPath = applicationDescriptionFile.value {
+            applicationDescriptionPath = descriptionPath
+            let applicationDescriptionData = try Data(contentsOf: URL(fileURLWithPath: descriptionPath))
             let xml = SWXMLHash.parse(applicationDescriptionData)
             if let node = xml["Application"].element {
                 applicationDescription = try ApplicationDescription(node: node)
             } else {
                 print("warning: ReactantUIGenerator: No <Application> element inside the application path!")
-                return
-                // FIXME: uncomment and delete the above when merged with `feature/logger` branch
+                #warning("FIXME: uncomment and delete the above when merged with `feature/logger` branch")
 //                Logger.instance.warning("Application file path does not contain the <Application> element.")
+                throw GenerateCommandError.applicationDescriptionFileInvalid
             }
         } else {
-            applicationDescription = ApplicationDescription()
+            throw GenerateCommandError.applicationDescriptionFileInvalid
         }
 
         let minimumDeploymentTarget = try self.minimumDeploymentTarget()
@@ -126,7 +269,6 @@ class GenerateCommand: Command {
         var globalContextFiles = [] as [(path: String, group: StyleGroup)]
         var stylePaths = [] as [String]
         for path in styleFiles {
-            output.line("// Generated from \(path)")
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
 
             let xml = SWXMLHash.parse(data)
@@ -170,12 +312,12 @@ class GenerateCommand: Command {
             imports.formUnion(definition.styles.map { $0.parentModuleImport })
         }
 
-        output.lines(
-            runtimePlatform == .macOS ? "import AppKit" : "import UIKit",
-            "import Hyperdrive",
-            "import HyperdriveInterface",
-            "import SnapKit"
-        )
+        output.insert(commonImports: [
+            runtimePlatform == .macOS ? "AppKit" : "UIKit",
+            "Hyperdrive",
+            "HyperdriveInterface",
+            "SnapKit",
+        ])
 
         if !reactantUICompat.value {
             for (offset: index, element: (path: path, group: group)) in globalContextFiles.enumerated() {
@@ -185,20 +327,19 @@ class GenerateCommand: Command {
                                                            swiftVersion: swiftVersion,
                                                            defaultModifier: accessModifier)
                 let styleContext = StyleGroupContext(globalContext: globalContext, group: group)
-                output.append(try StyleGenerator(context: styleContext, configuration: configuration).generate(imports: index == 0))
+                output.append(try StyleGenerator(context: styleContext, configuration: configuration).generate(imports: index == 0), sourceFilePath: path)
             }
         }
 
         if !reactantUICompat.value {
-            try output.append(theme(context: globalContext, swiftVersion: swiftVersion, platform: runtimePlatform))
+            try output.append(theme(context: globalContext, swiftVersion: swiftVersion, platform: runtimePlatform), sourceFilePath: applicationDescriptionPath)
         }
 
         if enableLive {
-            output.append("import HyperdriveLiveInterface")
+            output.insert(commonImports: ["HyperdriveLiveInterface"])
         }
-        for imp in imports {
-            output.append("import \(imp)")
-        }
+        #warning("FIXME: Register each import per file to reduce unused imports")
+        output.insert(commonImports: imports)
 
         let bundleTokenClass = Structure.class(accessibility: .private, name: "__HyperdriveUIBundleToken")
         let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: __HyperdriveUIBundleToken.self)"))
@@ -219,12 +360,11 @@ class GenerateCommand: Command {
                     ]))
             ])
 
-        output.append(bundleTokenClass)
-        output.append(resourceBundleProperty)
-        output.append(translateFunction)
+        output.append(common: bundleTokenClass)
+        output.append(common: resourceBundleProperty)
+        output.append(common: translateFunction)
 
         for (path, rootDefinition) in globalContext.componentDefinitions.definitionsByPath.sorted(by: { $0.key.compare($1.key) == .orderedAscending }) {
-            output.append("// Generated from \(path)")
             let configuration = GeneratorConfiguration(minimumMajorVersion: minimumDeploymentTarget,
                                                        localXmlPath: path,
                                                        isLiveEnabled: enableLive,
@@ -232,19 +372,17 @@ class GenerateCommand: Command {
                                                        defaultModifier: accessModifier)
             for definition in rootDefinition {
                 let componentContext = ComponentContext(globalContext: globalContext, component: definition)
-                output.append(try UIGenerator(componentContext: componentContext, configuration: configuration).generate(imports: false))
+                output.append(try UIGenerator(componentContext: componentContext, configuration: configuration).generate(imports: false), sourceFilePath: path)
             }
         }
 
         if enableLive {
-            let generatedApplicationDescriptionPath = applicationDescriptionPath.map { "\"\($0)\"" } ?? "nil"
-
             let configuration = Structure.struct(
                 accessibility: .private,
                 name: "GeneratedHyperdriveLiveUIConfiguration",
                 inheritances: ["ReactantLiveUIConfiguration"],
                 properties: [
-                    .constant(name: "applicationDescriptionPath", type: "String?", value: .constant(generatedApplicationDescriptionPath)),
+                    .constant(name: "applicationDescriptionPath", type: "String?", value: .constant(applicationDescriptionPath)),
                     .constant(name: "rootDir", value: .constant(inputPath.enquoted)),
                     .constant(name: "resourceBundle", value: .constant("__resourceBundle")),
                     .constant(name: "commonStylePaths", type: "[String]", value: .arrayLiteral(items: stylePaths.map {
@@ -259,9 +397,9 @@ class GenerateCommand: Command {
                         }))
                 ])
 
-            output.append(configuration)
+            output.append(configuration, sourceFilePath: applicationDescriptionPath)
 
-            output.append("let bundleWorker = ReactantLiveUIWorker(configuration: GeneratedHyperdriveLiveUIConfiguration())")
+            output.append("let bundleWorker = ReactantLiveUIWorker(configuration: GeneratedHyperdriveLiveUIConfiguration())", sourceFilePath: applicationDescriptionPath)
         }
 
         let activateLiveReloadBlock: Block
@@ -286,16 +424,9 @@ class GenerateCommand: Command {
             parameters: [MethodParameter(label: "in", name: "window", type: windowType)],
             block: activateLiveReloadBlock)
 
-        output.append(activateLiveReload)
+        output.append(activateLiveReload, sourceFilePath: applicationDescriptionPath)
 
-        let result = output.result.joined(separator: "\n")
-
-        switch outputType {
-        case .console:
-            print(result)
-        case .file(let outputPathURL):
-            try result.write(to: outputPathURL, atomically: true, encoding: .utf8)
-        }
+        try output.flush()
     }
 
     private func theme(context: GlobalContext, swiftVersion: SwiftVersion, platform: RuntimePlatform) throws -> Structure {

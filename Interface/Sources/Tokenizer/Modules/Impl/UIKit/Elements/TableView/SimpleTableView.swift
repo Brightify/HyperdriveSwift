@@ -35,21 +35,47 @@ extension Module.UIKit {
         public var options: TableView.TableViewOptions
 
         public var componentTypes: [String] {
-            return (cellDefinition?.componentTypes ?? [cellType])
-                + (headerDefinition?.componentTypes ?? [headerType])
-                + (footerDefinition?.componentTypes ?? [footerType])
+            var result: [String] = []
+            if let cellDefinition = cellDefinition {
+                result.append(contentsOf: cellDefinition.componentTypes)
+            } else {
+                result.append(cellType)
+            }
+
+            if let headerDefinition = headerDefinition {
+                result.append(contentsOf: headerDefinition.componentTypes)
+            } else {
+                result.append(headerType)
+            }
+
+            if let footerDefinition = footerDefinition {
+                result.append(contentsOf: footerDefinition.componentTypes)
+            } else {
+                result.append(footerType)
+            }
+            return result
         }
 
         public var isAnonymous: Bool {
-            return (cellDefinition?.isAnonymous ?? false)
-                || (headerDefinition?.isAnonymous ?? false)
-                || (footerDefinition?.isAnonymous ?? false)
+            return [
+                cellDefinition?.isAnonymous,
+                headerDefinition?.isAnonymous,
+                footerDefinition?.isAnonymous,
+            ].reduce(false) { accumulator, maybeAnonymous in
+                if let isAnonymous = maybeAnonymous {
+                    return accumulator || isAnonymous
+                } else {
+                    return accumulator
+                }
+            }
         }
 
         public var componentDefinitions: [ComponentDefinition] {
-            return (cellDefinition?.componentDefinitions ?? [])
-                + (headerDefinition?.componentDefinitions ?? [])
-                + (footerDefinition?.componentDefinitions ?? [])
+            return [
+                cellDefinition?.componentDefinitions,
+                headerDefinition?.componentDefinitions,
+                footerDefinition?.componentDefinitions,
+            ].flatMap { $0 ?? [] }
         }
 
         public class override func runtimeType() -> String {
