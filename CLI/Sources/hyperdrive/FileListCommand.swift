@@ -12,6 +12,7 @@ final class FilelistCommand: Command {
     let name = "filelist"
     let shortDescription = "Generate FileList files"
 
+    let applicationDescriptionFile = Key<String>("--description", description: "Path to an XML file with Application Description.")
     let inputPath = Key<String>("--inputPath", description: "Path where Hyperdrive input files are located.")
     let outputFile = Key<String>("--outputFile", description: "File to which interface is generated when running in single-file mode.")
     let outputPath = Key<String>("--outputPath", description: "Directory to which interface is generated when running in multi-file mode.")
@@ -25,10 +26,16 @@ final class FilelistCommand: Command {
             throw GenerateCommandError.inputPathInvalid
         }
 
-        let inputFiles = FileManager.default.enumerator(at: inputPathURL, includingPropertiesForKeys: nil)?.compactMap { maybeUrl -> URL? in
+        let scannedInputFiles = FileManager.default.enumerator(at: inputPathURL, includingPropertiesForKeys: nil)?.compactMap { maybeUrl -> URL? in
             guard let url = maybeUrl as? URL else { return nil }
             return isInputFile(url: url) ? url : nil
         } ?? []
+        let inputFiles: [URL]
+        if let applicationDescriptionUrl = applicationDescriptionFile.value.flatMap(URL.init(string:)) {
+            inputFiles = scannedInputFiles + [applicationDescriptionUrl]
+        } else {
+            inputFiles = scannedInputFiles
+        }
 
         let inputFilePaths = inputFiles.map { $0.path }.joined(separator: "\n")
 
