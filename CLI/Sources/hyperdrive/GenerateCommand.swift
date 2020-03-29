@@ -129,7 +129,7 @@ final class DirectoryGeneratorOutput: GeneratorOutput {
 
     func flush() throws {
         let commonImportsHeader = commonImports.sorted().map { "import \($0)" }
-        let commonResult = commonImportsHeader + commonDescriptionPipe.result
+        let commonResult = commonDescriptionPipe.result
 
         for (path, pipe) in fileDescriptionPipes {
             let url = URL(fileURLWithPath: path)
