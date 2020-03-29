@@ -39,7 +39,7 @@ final class FilelistCommand: Command {
             }
 
             outputFiles = inputFiles.map {
-                outputPathURL.appendingPathComponent($0.deletingPathExtension().lastPathComponent).appendingPathExtension(".generated.swift")
+                outputPathURL.appendingPathComponent($0.deletingPathExtension().lastPathComponent).appendingPathExtension("generated.swift")
             }
         } else if let outputFile = outputFile.value {
             guard let outputFileURL = URL(string: "file://\(outputFile)") else {
