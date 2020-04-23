@@ -58,6 +58,12 @@ open class HyperViewBase: UIView {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("Not supported!")
     }
+
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        setNeedsUpdateConstraints()
+    }
 }
 #else
 import AppKit

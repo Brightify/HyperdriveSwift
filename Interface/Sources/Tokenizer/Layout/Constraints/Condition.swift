@@ -210,7 +210,7 @@ extension Condition {
         case .statement(let statement):
             return .constant(statement.generateSwift(viewName: viewName))
         case .unary(let operation, let condition):
-            return .constant("\(operation.swiftRepresentation)\(condition.generateSwift(viewName: viewName))")
+            return .operator(lhs: .constant(""), operator: operation.swiftRepresentation, rhs: condition.generateSwift(viewName: viewName))
         case .binary(let operation, let lhsCondition, let rhsCondition):
             return .operator(
                 lhs: lhsCondition.generateSwift(viewName: viewName),

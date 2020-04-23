@@ -423,7 +423,13 @@ public class UIGenerator: Generator {
             inheritances: viewInheritances,
             containers: [stateClass, actionEnum, constraintsClass] + elementContainerDeclarations,
             properties: viewProperties + viewDeclarations + navigationItemProperties + rxDisposeBagProperties,
-            functions: [viewInit, observeActions(resolvedActions: resolvedActions), loadView(), setupConstraints()] + liveAccessors + overrides + rxDisposeBagResetMethods)
+            functions: [
+                viewInit,
+                observeActions(resolvedActions: resolvedActions),
+                loadView(),
+                setupConstraints(),
+                updateConstraints(viewAccessibility: viewAccessibility),
+            ] + liveAccessors + overrides + rxDisposeBagResetMethods)
 
         let styleExtension = Structure.extension(
             accessibility: viewAccessibility,
@@ -582,7 +588,23 @@ public class UIGenerator: Generator {
             block: configuration.isLiveEnabled ? [] : block)
     }
 
-    private func viewConstraints(element: UIElement, superName: String, forUpdate: Bool) -> Block{
+    private func updateConstraints(viewAccessibility: Accessibility) -> Function {
+        var block = Block()
+
+        for child in root.children {
+            block += viewConstraints(element: child, superName: "self", forUpdate: true)
+        }
+
+        block += Statement.expression(.constant("super.updateConstraints()"))
+
+        return Function(
+            accessibility: viewAccessibility,
+            modifiers: .override,
+            name: "updateConstraints",
+            block: configuration.isLiveEnabled ? [] : block)
+    }
+
+    private func viewConstraints(element: UIElement, superName: String, forUpdate: Bool) -> Block {
         var block = Block()
 
         let name = element.id.description
