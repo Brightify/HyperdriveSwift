@@ -159,7 +159,7 @@ extension Module.UIKit {
             isSecureTextEntry = configuration.property(name: "secure", swiftName: "isSecureTextEntry", key: "secureTextEntry")
             keyboardType = configuration.property(name: "keyboardType", defaultValue: .default)
             keyboardAppearance = configuration.property(name: "keyboardAppearance", defaultValue: .default)
-            contentType = configuration.property(name: "contentType")
+            contentType = configuration.property(name: "contentType", swiftName: "textContentType")
             returnKey = configuration.property(name: "returnKey", swiftName: "returnKeyType", defaultValue: .default)
             enablesReturnKeyAutomatically = configuration.property(name: "enablesReturnKeyAutomatically")
             autocapitalizationType = configuration.property(name: "autocapitalizationType", defaultValue: .sentences)
