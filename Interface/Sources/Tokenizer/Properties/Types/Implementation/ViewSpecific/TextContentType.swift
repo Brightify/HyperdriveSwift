@@ -36,6 +36,7 @@ public enum TextContentType: String, EnumPropertyType {
     case telephoneNumber
     case username
     case password
+    case newPassword
 }
 
 #if canImport(UIKit)
@@ -101,7 +102,13 @@ extension TextContentType {
                 }
             case .password:
                 if #available(iOS 11.0, *) {
-                    return UITextContentType.username
+                    return UITextContentType.password
+                } else {
+                    return nil
+                }
+            case .newPassword:
+                if #available(iOS 12.0, *) {
+                    return UITextContentType.newPassword
                 } else {
                     return nil
                 }
