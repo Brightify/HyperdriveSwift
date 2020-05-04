@@ -61,6 +61,10 @@ public final class ControlEventObserver<T: UIControl>: NSObject {
         }
         observer.retained(in: control)
     }
+
+    public static func bind<T: HyperTextField>(to control: T, events: UIControl.Event, handler: @escaping (String?) -> Void) {
+        return bind(to: control.textField, events: events, handler: handler)
+    }
 }
 #elseif canImport(AppKit)
 import AppKit
