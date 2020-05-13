@@ -39,6 +39,7 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
             self?.handle(action: action)
         })
 
+        #if canImport(UIKit)
         if let hasNavigationItem = view as? HasNavigationItem {
             if navigationItem.leftBarButtonItems == nil && hasNavigationItem.leftBarButtonItems != nil {
                 navigationItem.leftBarButtonItems = hasNavigationItem.leftBarButtonItems
@@ -47,6 +48,7 @@ open class ComposableHyperViewController<View: Platform.View & ComposableHyperVi
                 navigationItem.rightBarButtonItems = hasNavigationItem.rightBarButtonItems
             }
         }
+        #endif
     }
 
     open func handle(action: View.ActionType) {

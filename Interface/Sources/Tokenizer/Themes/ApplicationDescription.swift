@@ -10,7 +10,7 @@
  * Structure describing an **<Application>** XML element containing **<Themes>**, **<Colors>**, **<Images>**, and **<Fonts>**
  * that are to be themeable inside the application.
  */
-public struct ApplicationDescription: XMLElementDeserializable {
+public struct ApplicationDescription {
     public static let defaultThemeName = "none"
 
     public typealias ThemeName = String
@@ -22,10 +22,25 @@ public struct ApplicationDescription: XMLElementDeserializable {
     public var images = ThemeContainer<Image>()
     public var fonts = ThemeContainer<Font>()
 
-    public init(node: XMLElement) throws {
+    public init(node: XMLElement, parentFactory: (String) throws -> ApplicationDescription) throws {
+        if let parentPath = node.value(ofAttribute: "parentPath") as String? {
+            let parent = try parentFactory(parentPath)
+
+            defaultLocalizationsTable = parent.defaultLocalizationsTable
+            themes = parent.themes
+            defaultTheme = parent.defaultTheme
+            colors = parent.colors
+            images = parent.images
+            fonts = parent.fonts
+        }
+
         defaultLocalizationsTable = node.value(ofAttribute: "defaultLocalizationsTable")
 
         if let themesNode = try node.singleOrNoElement(named: "Themes") {
+            guard themes.isEmpty else {
+                throw TokenizationError(message: "Cannot change themes included from parent description.")
+            }
+
             themes = themesNode.xmlChildren.map { $0.name }
             guard let defaultThemeIfNotSelected = themes.first else {
                 throw TokenizationError.missingTheme()
@@ -35,13 +50,13 @@ public struct ApplicationDescription: XMLElementDeserializable {
         }
 
         if let colorsNode = try node.singleOrNoElement(named: "Colors") {
-            colors = try colorsNode.value()
+            try colors.override(from: colorsNode)
         }
         if let imagesNode = try node.singleOrNoElement(named: "Images") {
-            images = try imagesNode.value()
+            try images.override(from: imagesNode)
         }
         if let fontsNode = try node.singleOrNoElement(named: "Fonts") {
-            fonts = try fontsNode.value()
+            try fonts.override(from: fontsNode)
         }
 
         // We want to let caller know the result of validation by throwing when it didn't validate
@@ -62,15 +77,6 @@ public struct ApplicationDescription: XMLElementDeserializable {
         guard themes.contains(defaultTheme) else {
             throw TokenizationError.defaultThemeMissing(themes: themes, defaultTheme: defaultTheme)
         }
-    }
-
-    /**
-     * Tries to deserialize the `ApplicationDescription` from an XML element.
-     * - parameter element: XML element to parse
-     * - returns: if not thrown, the `ApplicationDescription` structure
-     */
-    public static func deserialize(_ element: XMLElement) throws -> ApplicationDescription {
-        return try ApplicationDescription(node: element)
     }
 
     /**

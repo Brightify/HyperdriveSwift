@@ -226,21 +226,25 @@ class GenerateCommand: Command {
             throw GenerateCommandError.invalidAccessModifier
         }
 
-        // ApplicationDescription is not required. We can work with default values and it makes it backward compatible.
-        let applicationDescription: ApplicationDescription
-        let applicationDescriptionPath: String
-        if let descriptionPath = applicationDescriptionFile.value {
-            applicationDescriptionPath = descriptionPath
+        func loadDescription(from descriptionPath: String) throws -> ApplicationDescription {
             let applicationDescriptionData = try Data(contentsOf: URL(fileURLWithPath: descriptionPath))
             let xml = SWXMLHash.parse(applicationDescriptionData)
             if let node = xml["Application"].element {
-                applicationDescription = try ApplicationDescription(node: node)
+                return try ApplicationDescription(node: node, parentFactory: loadDescription(from:))
             } else {
                 print("warning: ReactantUIGenerator: No <Application> element inside the application path!")
                 #warning("FIXME: uncomment and delete the above when merged with `feature/logger` branch")
 //                Logger.instance.warning("Application file path does not contain the <Application> element.")
                 throw GenerateCommandError.applicationDescriptionFileInvalid
             }
+        }
+
+        // ApplicationDescription is not required. We can work with default values and it makes it backward compatible.
+        let applicationDescription: ApplicationDescription
+        let applicationDescriptionPath: String
+        if let descriptionPath = applicationDescriptionFile.value {
+            applicationDescriptionPath = descriptionPath
+            applicationDescription = try loadDescription(from: descriptionPath)
         } else {
             throw GenerateCommandError.applicationDescriptionFileInvalid
         }

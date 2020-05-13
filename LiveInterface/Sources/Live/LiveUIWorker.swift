@@ -249,15 +249,19 @@ public class ReactantLiveUIWorker {
             .startWith(path)
             .subscribe(onNext: { [unowned self] path in
                 self.resetError(for: path)
-                let url = URL(fileURLWithPath: path)
-                guard let data = try? Data(contentsOf: url, options: .uncached) else {
-                    self.logError("ERROR: file not found", in: path)
-                    return
+                func loadDescription(from descriptionPath: String) throws -> ApplicationDescription {
+                    let url = URL(fileURLWithPath: path)
+                    let data = try Data(contentsOf: url, options: .uncached)
+                    let xml = SWXMLHash.parse(data)
+                    guard let node = xml["Application"].element else {
+                        throw TokenizationError(message: "Application node is not an element!")
+                    }
+                    return try ApplicationDescription(node: node, parentFactory: loadDescription(from:))
                 }
-                let xml = SWXMLHash.parse(data)
+
                 do {
-                    var globalContextCopy = self.context.globalContext
-                    globalContextCopy.applicationDescription = try xml["Application"].value()
+                    let globalContextCopy = self.context.globalContext
+                    globalContextCopy.applicationDescription = try loadDescription(from: path)
                     if !globalContextCopy.applicationDescription.themes.contains(globalContextCopy.currentTheme) {
                         globalContextCopy.currentTheme = globalContextCopy.applicationDescription.defaultTheme
                     }
