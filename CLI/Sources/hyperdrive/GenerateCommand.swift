@@ -173,7 +173,7 @@ class GenerateCommand: Command {
     let livePlatforms = VariadicKey<String>("--live-platforms", description: "Platforms to generate live UI code for. Environment variable $PLATFORM_NAME is used to determine current build platform. Defaults to 'iphonesimulator'.")
 
     let xcodeProjectPath = Key<String>("--xcodeprojPath")
-    let inputPath = Key<String>("--inputPath")
+    let inputPath = VariadicKey<String>("--inputPath")
     let outputFile = Key<String>("--outputFile")
     let outputPath = Key<String>("--outputPath")
     let consoleOutput = Flag("--console-output")
@@ -200,10 +200,10 @@ class GenerateCommand: Command {
             throw GenerateCommandError.platformNotSpecified
         }
 
-        guard let inputPath = inputPath.value else {
-            throw GenerateCommandError.inputPathInvalid
+        let inputPaths = inputPath.value.compactMap(URL.init(fileURLWithPath:))
+        guard !inputPaths.isEmpty, inputPaths.count == inputPath.value.count else {
+            throw GenerateCommandError.inputPathInvalid(paths: inputPath.value)
         }
-        let inputPathURL = URL(fileURLWithPath: inputPath)
 
         let output: GeneratorOutput
         if let outputPath = outputPath.value {
@@ -251,16 +251,23 @@ class GenerateCommand: Command {
 
         let minimumDeploymentTarget = try self.minimumDeploymentTarget()
 
-        let uiXmlEnumerator = FileManager.default.enumerator(atPath: inputPath)
-        let uiFiles = uiXmlEnumerator?.compactMap { $0 as? String }
-            .filter {
-                reactantUICompat.value ? $0.hasSuffix(".interface.xml") : $0.hasSuffix(".ui.xml")
-            }
-            .map { inputPathURL.appendingPathComponent($0).path } ?? []
+        let fileManager = FileManager.default
 
-        let styleXmlEnumerator = FileManager.default.enumerator(atPath: inputPath)
-        let styleFiles = styleXmlEnumerator?.compactMap { $0 as? String }.filter { $0.hasSuffix(".styles.xml") }
-            .map { inputPathURL.appendingPathComponent($0).path } ?? []
+        let uiFiles = inputPaths.flatMap { inputPath in
+            fileManager.enumerator(at: inputPath, includingPropertiesForKeys: nil)?
+                .compactMap { $0 as? String }
+                .filter {
+                    reactantUICompat.value ? $0.hasSuffix(".interface.xml") : $0.hasSuffix(".ui.xml")
+                }
+                .map { inputPath.appendingPathComponent($0).path } ?? []
+        }
+
+        let styleFiles = inputPaths.flatMap { inputPath in
+            fileManager.enumerator(at: inputPath, includingPropertiesForKeys: nil)?
+                .compactMap { $0 as? String }
+                .filter { $0.hasSuffix(".styles.xml") }
+                .map { inputPath.appendingPathComponent($0).path } ?? []
+        }
 
         let moduleRegistry = try ModuleRegistry(modules: [Module.mapKit, Module.uiKit, Module.webKit, Module.appKit], platform: runtimePlatform)
 
@@ -387,7 +394,7 @@ class GenerateCommand: Command {
                 inheritances: ["ReactantLiveUIConfiguration"],
                 properties: [
                     .constant(name: "applicationDescriptionPath", type: "String?", value: .constant(applicationDescriptionPath)),
-                    .constant(name: "rootDir", value: .constant(inputPath.enquoted)),
+                    .constant(name: "scanDirs", value: .arrayLiteral(items: inputPaths.map { Expression.constant($0.absoluteString.enquoted) })),
                     .constant(name: "resourceBundle", value: .constant("__resourceBundle")),
                     .constant(name: "commonStylePaths", type: "[String]", value: .arrayLiteral(items: stylePaths.map {
                         .constant($0.enquoted)

@@ -13,7 +13,7 @@ final class FilelistCommand: Command {
     let shortDescription = "Generate FileList files"
 
     let applicationDescriptionFile = Key<String>("--description", description: "Path to an XML file with Application Description.")
-    let inputPath = Key<String>("--inputPath", description: "Path where Hyperdrive input files are located.")
+    let inputPath = VariadicKey<String>("--inputPath", description: "Path where Hyperdrive input files are located.")
     let outputFile = Key<String>("--outputFile", description: "File to which interface is generated when running in single-file mode.")
     let outputPath = Key<String>("--outputPath", description: "Directory to which interface is generated when running in multi-file mode.")
     let inputFilelist = Flag("--inputFilelist", description: "Enables input filelist generation")
@@ -22,14 +22,17 @@ final class FilelistCommand: Command {
     let outputFilelistPath = Key<String>("--outputFilelistPath", description: "Path where output filelist will be written.")
 
     public func execute() throws {
-        guard let inputPath = inputPath.value, let inputPathURL = URL(string: "file://\(inputPath)") else {
-            throw GenerateCommandError.inputPathInvalid
+        let inputPaths = inputPath.value.compactMap(URL.init(fileURLWithPath:))
+        guard !inputPaths.isEmpty, inputPaths.count == inputPath.value.count else {
+            throw GenerateCommandError.inputPathInvalid(paths: inputPath.value)
         }
 
-        let scannedInputFiles = FileManager.default.enumerator(at: inputPathURL, includingPropertiesForKeys: nil)?.compactMap { maybeUrl -> URL? in
-            guard let url = maybeUrl as? URL else { return nil }
-            return isInputFile(url: url) ? url : nil
-        } ?? []
+        let scannedInputFiles = inputPaths.flatMap { inputPath in
+            FileManager.default.enumerator(at: inputPath, includingPropertiesForKeys: nil)?.compactMap { maybeUrl -> URL? in
+                guard let url = maybeUrl as? URL else { return nil }
+                return isInputFile(url: url) ? url : nil
+            } ?? []
+        }
         let inputFiles: [URL]
         if let applicationDescriptionUrl = applicationDescriptionFile.value.flatMap(URL.init(string:)) {
             inputFiles = scannedInputFiles + [applicationDescriptionUrl]

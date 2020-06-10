@@ -8,7 +8,7 @@
 import Foundation
 
 public enum GenerateCommandError: Error, LocalizedError {
-    case inputPathInvalid
+    case inputPathInvalid(paths: [String])
     case ouputFileInvalid
     case applicationDescriptionFileInvalid
     case XCodeProjectPathInvalid

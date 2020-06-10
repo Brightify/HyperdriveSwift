@@ -10,7 +10,7 @@ import UIKit
 import HyperdriveInterface
 
 public protocol ReactantLiveUIConfiguration {
-    var rootDir: String { get }
+    var scanDirs: [String] { get }
     var applicationDescriptionPath: String? { get }
     var componentTypes: [String: (HyperViewBase.Type, () -> HyperViewBase)] { get }
     var commonStylePaths: [String] { get }

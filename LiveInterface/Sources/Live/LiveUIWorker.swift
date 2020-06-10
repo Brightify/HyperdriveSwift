@@ -276,19 +276,21 @@ public class ReactantLiveUIWorker {
     }
 
     func reloadFiles() {
-        let rootDir = configuration.rootDir
-        guard let enumerator = FileManager.default.enumerator(atPath: rootDir) else { return }
-        for file in enumerator {
-            guard let fileName = file as? String, fileName.hasSuffix(".ui.xml") else { continue }
-            let path = rootDir + "/" + fileName
-            if configuration.componentTypes.keys.contains(path) { continue }
-            do {
-                let definitions = try self.componentDefinitions(in: path)
-                for definition in definitions {
-                    runtimeDefinitions[definition.type] = path
+        let scanDirs = configuration.scanDirs
+        for scanDir in scanDirs {
+            guard let enumerator = FileManager.default.enumerator(atPath: scanDir) else { continue }
+            for file in enumerator {
+                guard let fileName = file as? String, fileName.hasSuffix(".ui.xml") else { continue }
+                let path = scanDir + "/" + fileName
+                if configuration.componentTypes.keys.contains(path) { continue }
+                do {
+                    let definitions = try self.componentDefinitions(in: path)
+                    for definition in definitions {
+                        runtimeDefinitions[definition.type] = path
+                    }
+                } catch let error {
+                    logError(error, in: path)
                 }
-            } catch let error {
-                logError(error, in: path)
             }
         }
     }
