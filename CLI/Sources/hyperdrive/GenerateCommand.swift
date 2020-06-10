@@ -254,7 +254,7 @@ class GenerateCommand: Command {
         let fileManager = FileManager.default
 
         let uiFiles = inputPaths.flatMap { inputPath in
-            fileManager.enumerator(at: inputPath, includingPropertiesForKeys: nil)?
+            fileManager.enumerator(atPath: inputPath.path)?
                 .compactMap { $0 as? String }
                 .filter {
                     reactantUICompat.value ? $0.hasSuffix(".interface.xml") : $0.hasSuffix(".ui.xml")
@@ -263,7 +263,7 @@ class GenerateCommand: Command {
         }
 
         let styleFiles = inputPaths.flatMap { inputPath in
-            fileManager.enumerator(at: inputPath, includingPropertiesForKeys: nil)?
+            fileManager.enumerator(atPath: inputPath.path)?
                 .compactMap { $0 as? String }
                 .filter { $0.hasSuffix(".styles.xml") }
                 .map { inputPath.appendingPathComponent($0).path } ?? []
