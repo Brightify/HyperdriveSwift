@@ -43,7 +43,7 @@ open class SimulatedSeparatorTableView<CELL: UIView>: TableViewBase<CELL.StateTy
     public init(
         style: UITableView.Style = .plain,
         options: TableViewOptions = .default,
-        cellFactory: @escaping () -> CELL = CELL.init)
+        cellFactory: @autoclosure @escaping () -> CELL)
     {
         self.cellFactory = cellFactory
 
