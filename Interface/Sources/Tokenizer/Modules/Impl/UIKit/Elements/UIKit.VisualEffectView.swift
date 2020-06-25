@@ -20,6 +20,13 @@ extension Module.UIKit {
             return "contentView.addSubview"
         }
 
+        public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
+            if let runtimeTypeOverride = runtimeTypeOverride {
+                return runtimeTypeOverride
+            }
+            return RuntimeType(name: "UIVisualEffectView", module: "UIKit")
+        }
+
         #if canImport(UIKit)
         public override func initialize(context: ReactantLiveUIWorker.Context) -> UIView {
         return UIVisualEffectView()
