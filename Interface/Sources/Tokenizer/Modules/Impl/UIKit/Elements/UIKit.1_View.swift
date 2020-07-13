@@ -201,6 +201,7 @@ extension Module.UIKit {
         public let contentMode: StaticAssignablePropertyDescription<ContentMode>
         public let translatesAutoresizingMaskIntoConstraints: StaticAssignablePropertyDescription<Bool>
         public let preservesSuperviewLayoutMargins: StaticAssignablePropertyDescription<Bool>
+        public let insetsLayoutMarginsFromSafeArea: StaticAssignablePropertyDescription<Bool>
         public let tag: StaticAssignablePropertyDescription<Int>
         public let canBecomeFocused: StaticAssignablePropertyDescription<Bool>
         public let visibility: StaticAssignablePropertyDescription<ViewVisibility>
@@ -226,6 +227,7 @@ extension Module.UIKit {
             contentMode = configuration.property(name: "contentMode", defaultValue: .scaleToFill)
             translatesAutoresizingMaskIntoConstraints = configuration.property(name: "translatesAutoresizingMaskIntoConstraints", defaultValue: true)
             preservesSuperviewLayoutMargins = configuration.property(name: "preservesSuperviewLayoutMargins")
+            insetsLayoutMarginsFromSafeArea = configuration.property(name: "insetsLayoutMarginsFromSafeArea")
             tag = configuration.property(name: "tag")
             canBecomeFocused = configuration.property(name: "canBecomeFocused")
             visibility = configuration.property(name: "visibility", defaultValue: .visible)
