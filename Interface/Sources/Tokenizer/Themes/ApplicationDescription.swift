@@ -23,6 +23,7 @@ public struct ApplicationDescription {
     public var fonts = ThemeContainer<Font>()
 
     public init(node: XMLElement, parentFactory: (String) throws -> ApplicationDescription) throws {
+        let hasParent: Bool
         if let parentPath = node.value(ofAttribute: "parentPath") as String? {
             let parent = try parentFactory(parentPath)
 
@@ -32,12 +33,16 @@ public struct ApplicationDescription {
             colors = parent.colors
             images = parent.images
             fonts = parent.fonts
+            
+            hasParent = true
+        } else {
+            hasParent = false
         }
 
         defaultLocalizationsTable = node.value(ofAttribute: "defaultLocalizationsTable")
 
         if let themesNode = try node.singleOrNoElement(named: "Themes") {
-            guard themes.isEmpty else {
+            guard !hasParent else {
                 throw TokenizationError(message: "Cannot change themes included from parent description.")
             }
 
