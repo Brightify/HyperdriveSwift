@@ -12,8 +12,19 @@ import UIKit
 
 extension Module.UIKit {
     public class Switch: View {
+        public static let valueChanged = ControlEventAction(
+            name: "valueChanged",
+            aliases: ["value", "isOn"],
+            parameters: [(label: "isOn", type: .propertyType(Bool.typeFactory))],
+            event: .valueChanged
+        )
+        
         public override class var availableProperties: [PropertyDescription] {
             return Properties.switch.allProperties
+        }
+
+        public override func supportedActions(context: ComponentContext) throws -> [UIElementAction] {
+            return try super.supportedActions(context: context) + [Self.valueChanged]
         }
 
         public override func runtimeType(for platform: RuntimePlatform) throws -> RuntimeType {
