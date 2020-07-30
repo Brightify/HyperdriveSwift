@@ -16,7 +16,8 @@ extension Module.UIKit {
             name: "valueChanged",
             aliases: ["value"],
             parameters: [(label: "value", type: .propertyType(Float.typeFactory))],
-            event: .valueChanged)
+            event: .valueChanged
+        )
 
         public override class var availableProperties: [PropertyDescription] {
             return Properties.slider.allProperties
