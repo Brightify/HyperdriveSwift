@@ -105,9 +105,8 @@ extension Module.UIKit {
             let exampleCount = ToolingProperties.simulatedSeparatorTableView.exampleCount.get(from: self.toolingProperties)?.value ?? 5
             let tableView =  HyperdriveInterface.SimulatedSeparatorTableView<CellWrapper>(
                 options: [],
-                cellFactory: {
-                    CellWrapper(wrapped: createCell())
-                })
+                cellFactory: CellWrapper(wrapped: createCell())
+            )
 
             tableView.state.items = .items(Array(repeating: EmptyState(), count: exampleCount))
             
