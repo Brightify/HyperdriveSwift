@@ -143,7 +143,7 @@ public class UIGenerator: Generator {
                     ]
                 case .title(let title, let style):
                     invokeArguments = [
-                        MethodArgument(name: "title", value: .constant("\"\(title)\"")),
+                        MethodArgument(name: "title", value: title.generate(context: SupportedPropertyTypeContext(parentContext: componentContext, value: .value(title)))),
                         MethodArgument(name: "style", value: .constant(".\(style.rawValue)")),
                     ]
                 case .view(let view):
