@@ -43,7 +43,7 @@ public struct NavigationItem {
                 kind = .system(systemItem)
 
             } else if let title = try element.singleOrNoElement(named: "title") {
-                kind = .title(title.text ?? "", style: style ?? .plain)
+                kind = .title(try TransformedText.typeFactory.typedMaterialize(from: title.text ?? ""), style: style ?? .plain)
             } else if let imageElement = try element.singleOrNoElement(named: "image") {
                 let landscapeImagePhone = try element.singleOrNoElement(named: "landscapeImagePhone").map {
                     try Image.typeFactory.typedMaterialize(from: $0.nonEmptyTextOrThrow())
@@ -58,7 +58,7 @@ public struct NavigationItem {
 
         public enum Kind {
             case system(SystemItem)
-            case title(String, style: Style)
+            case title(TransformedText, style: Style)
             case image(Image, landscapeImagePhone: Image?, style: Style)
             case view(Module.UIKit.View)
 
