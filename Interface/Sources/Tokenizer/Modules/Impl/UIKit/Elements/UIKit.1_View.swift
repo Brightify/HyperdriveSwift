@@ -188,6 +188,7 @@ extension Module.UIKit {
     }
 
     public class ViewProperties: PropertyContainer {
+        public let accessibilityIdentifier: StaticAssignablePropertyDescription<String?>
         public let backgroundColor: StaticAssignablePropertyDescription<UIColorPropertyType?>
         public let clipsToBounds: StaticAssignablePropertyDescription<Bool>
         public let isUserInteractionEnabled: StaticAssignablePropertyDescription<Bool>
@@ -214,6 +215,7 @@ extension Module.UIKit {
         public let layer: LayerProperties
 
         public required init(configuration: PropertyContainer.Configuration) {
+            accessibilityIdentifier = configuration.property(name: "accessibilityIdentifier")
             backgroundColor = configuration.property(name: "backgroundColor")
             clipsToBounds = configuration.property(name: "clipsToBounds")
             isUserInteractionEnabled = configuration.property(name: "isUserInteractionEnabled", key: "userInteractionEnabled", defaultValue: true)
