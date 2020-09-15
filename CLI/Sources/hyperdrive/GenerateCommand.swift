@@ -184,6 +184,7 @@ class GenerateCommand: Command {
     let generateDisposableHelper = Flag("--generate-disposable-helper")
     // This means that a ReactantUI generator was already run with the same parameters, so we won't do some things like generate styles and themes
     let reactantUICompat = Flag("--x-compat")
+    let localizationBundleToken = Key<String>("--l10n-bundle-token", description: "Bundle token class in the form of 'Framework.BundleToken'.")
 
     public func execute() throws {
         let livePlatforms = !self.livePlatforms.value.isEmpty ? self.livePlatforms.value : ["iphonesimulator"]
@@ -352,8 +353,21 @@ class GenerateCommand: Command {
         #warning("FIXME: Register each import per file to reduce unused imports")
         output.insert(commonImports: imports)
 
-        let bundleTokenClass = Structure.class(accessibility: .private, name: "__HyperdriveUIBundleToken")
-        let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: __HyperdriveUIBundleToken.self)"))
+        let bundleTokenClassName: String
+        if let localizationBundleToken = localizationBundleToken.value {
+            // '/' to allow for `Framework/BundleToken`, which might be easier to understand.
+            let localizationComponents = localizationBundleToken.components(separatedBy: CharacterSet([".", "/"]))
+            if let framework = localizationComponents.first, localizationComponents.count > 1 {
+                output.insert(commonImports: [framework])
+            }
+            bundleTokenClassName = localizationComponents.joined(separator: ".")
+        } else {
+            bundleTokenClassName = "__HyperdriveUIBundleToken"
+            let bundleTokenClass = Structure.class(accessibility: .private, name: bundleTokenClassName)
+            output.append(common: bundleTokenClass)
+        }
+
+        let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: \(bundleTokenClassName).self)"))
         let translateFunction = Function(
             accessibility: .private,
             name: "__translate",
@@ -371,7 +385,6 @@ class GenerateCommand: Command {
                     ]))
             ])
 
-        output.append(common: bundleTokenClass)
         output.append(common: resourceBundleProperty)
         output.append(common: translateFunction)
 
