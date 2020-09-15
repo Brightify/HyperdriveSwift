@@ -353,21 +353,27 @@ class GenerateCommand: Command {
         #warning("FIXME: Register each import per file to reduce unused imports")
         output.insert(commonImports: imports)
 
-        let bundleTokenClassName: String
+        let bundleTokenClass = Structure.class(accessibility: .private, name: "__HyperdriveUIBundleToken")
+        output.append(common: bundleTokenClass)
+
+        let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: \(bundleTokenClass.name).self)"))
+        output.append(common: resourceBundleProperty)
+
+        let localizationBundlePropertyName: String
         if let localizationBundleToken = localizationBundleToken.value {
             // '/' to allow for `Framework/BundleToken`, which might be easier to understand.
             let localizationComponents = localizationBundleToken.components(separatedBy: CharacterSet([".", "/"]))
             if let framework = localizationComponents.first, localizationComponents.count > 1 {
                 output.insert(commonImports: [framework])
             }
-            bundleTokenClassName = localizationComponents.joined(separator: ".")
+            let localizationBundleTokenName = localizationComponents.joined(separator: ".")
+            let localizationResourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__localizationResourceBundle", value: .constant("Bundle(for: \(localizationBundleTokenName).self)"))
+            output.append(common: localizationResourceBundleProperty)
+            localizationBundlePropertyName = localizationResourceBundleProperty.name
         } else {
-            bundleTokenClassName = "__HyperdriveUIBundleToken"
-            let bundleTokenClass = Structure.class(accessibility: .private, name: bundleTokenClassName)
-            output.append(common: bundleTokenClass)
+            localizationBundlePropertyName = resourceBundleProperty.name
         }
 
-        let resourceBundleProperty = SwiftCodeGen.Property.constant(accessibility: .private, name: "__resourceBundle", value: .constant("Bundle(for: \(bundleTokenClassName).self)"))
         let translateFunction = Function(
             accessibility: .private,
             name: "__translate",
@@ -380,12 +386,11 @@ class GenerateCommand: Command {
                     .invoke(target: .constant("NSLocalizedString"), arguments: [
                         MethodArgument(value: .constant("key")),
                         MethodArgument(name: "tableName", value: .constant(applicationDescription.defaultLocalizationsTable?.enquoted ?? "nil")),
-                        MethodArgument(name: "bundle", value: .constant("__resourceBundle")),
+                        MethodArgument(name: "bundle", value: .constant(localizationBundlePropertyName)),
                         MethodArgument(name: "comment", value: .constant("".enquoted)),
                     ]))
             ])
 
-        output.append(common: resourceBundleProperty)
         output.append(common: translateFunction)
 
         for (path, rootDefinition) in globalContext.componentDefinitions.definitionsByPath.sorted(by: { $0.key.compare($1.key) == .orderedAscending }) {
