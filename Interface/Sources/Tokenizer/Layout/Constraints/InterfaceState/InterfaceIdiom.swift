@@ -15,6 +15,7 @@ public enum InterfaceIdiom {
     case phone
     case tv
     case carPlay
+    case mac
     case unspecified
 
     var description: String {
@@ -27,6 +28,8 @@ public enum InterfaceIdiom {
             return "tv"
         case .carPlay:
             return "carPlay"
+        case .mac:
+            return "mac"
         case .unspecified:
             return "unspecified"
         }
@@ -43,6 +46,8 @@ public enum InterfaceIdiom {
             return .tv
         case .carPlay:
             return .carPlay
+        case .mac:
+            return .mac
         case .unspecified:
             return .unspecified
         }

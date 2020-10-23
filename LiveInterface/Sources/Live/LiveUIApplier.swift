@@ -410,6 +410,8 @@ extension InterfaceIdiom {
             self = .phone
         case .tv:
             self = .tv
+        case .mac:
+            self = .mac
         case .unspecified:
             self = .unspecified
         }
