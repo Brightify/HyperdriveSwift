@@ -47,7 +47,11 @@ public enum InterfaceIdiom {
         case .carPlay:
             return .carPlay
         case .mac:
-            return .mac
+            if #available(iOS 14.0, *) {
+                return .mac
+            } else {
+                return .unspecified
+            }
         case .unspecified:
             return .unspecified
         }
