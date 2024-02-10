@@ -412,7 +412,7 @@ extension InterfaceIdiom {
             self = .tv
         case .mac:
             self = .mac
-        case .unspecified:
+        default:
             self = .unspecified
         }
     }
@@ -425,7 +425,7 @@ extension InterfaceSizeClass {
             self = .compact
         case .regular:
             self = .regular
-        case .unspecified:
+        default:
             self = .unspecified
         }
     }
